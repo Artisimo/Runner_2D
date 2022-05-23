@@ -17,8 +17,6 @@ public class Game extends Canvas implements Runnable {
         WIDTH = screenSize.width;
         HEIGHT = screenSize.height;
 
-
-
         handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
