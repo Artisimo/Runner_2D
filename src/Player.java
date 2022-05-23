@@ -15,7 +15,7 @@ public class Player extends GameObject{
         x += velX;
         y += velY;
         System.out.println(falling);
-
+        falling = true;
         if(jumping || falling){
 
             if(velY < 10){
@@ -53,7 +53,7 @@ public class Player extends GameObject{
                                 }
                             }
                             else{
-                                if(temp.getX() - this.getX() >= temp.getY() - this.getY() ){
+                                if(temp.getX() - this.getX() <= temp.getY() - this.getY() ){
                                     velY = 0;
                                     jumping = false;
                                     falling = true;
@@ -134,7 +134,8 @@ public class Player extends GameObject{
 //                    }
                 }
                 else {
-                    falling = true;
+
+
                 }
             }
         }
