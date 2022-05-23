@@ -19,7 +19,7 @@ public class Player extends GameObject{
         if(jumping || falling){
 
             if(velY < 10){
-                velY += 1;
+                velY += 0.4;
             }
         }
         collisions();
@@ -39,22 +39,99 @@ public class Player extends GameObject{
             GameObject temp = handler.object.get(i);
             if(temp.getId() == ID.Platform){
                 if(this.getBounds().intersects(temp.getBounds())){
-                    if(velY > 0){
-                        falling = false;
-                        jumping = false;
-                        velY = 0;
-                        this.setY(temp.getY()-height + 1);
-                    }
-                    else if(velY < 0){
-                        velY = 0;
-                        this.setY(temp.getY()+temp.getHeight());
-                        falling = true;
-                        jumping = false;
-                    }
-                    else{
-                        jumping = false;
-                        falling = false;
-                    }
+                        if (temp.getX() - this.getX() >= 0){
+                            if (temp.getY() - this.getY() >= 0){
+                                if(temp.getX() - this.getX() <=   temp.getY() - this.getY() ){
+                                    velY = 0;
+                                    jumping = false;
+                                    falling = false;
+                                    setY(temp.getY() - height + 1);
+                                }
+                                else {
+                                    velX = 0;
+                                    setX(temp.getX() - width - 1);
+                                }
+                            }
+                            else{
+                                if(temp.getX() - this.getX() >= temp.getY() - this.getY() ){
+                                    velY = 0;
+                                    jumping = false;
+                                    falling = true;
+                                    setY(temp.getY() + temp.getHeight());
+                                }
+                                else {
+                                    velX = 0;
+                                    setX(temp.getX() - width - 1);
+                                }
+                            }
+                        }
+                        else {
+                            if (temp.getY() - this.getY() >= 0){
+                                if(temp.getX() - this.getX() <= temp.getY() - this.getY() ){
+                                    velY = 0;
+                                    jumping = false;
+                                    falling = false;
+                                    setY(temp.getY() - height + 1);
+                                }
+                                else {
+                                    velX = 0;
+                                    setX(temp.getX() + temp.width + 1);
+                                }
+                            }
+                            else{
+                                if(temp.getX() - this.getX() >= temp.getY() - this.getY() ){
+                                    velY = 0;
+                                    jumping = false;
+                                    falling = true;
+                                    setY(temp.getY() + temp.getHeight());
+                                }
+                                else {
+                                    velX = 0;
+                                    setX(temp.getX() + temp.width + 1);
+                                }
+                            }
+                        }
+//                    if(Math.abs(temp.getX() - this.getX()) > Math.abs(temp.getY() - this.getY())){
+//                        if(temp.getY() >= this.getY()){
+//                            velY = 0;
+//                            falling =false;
+//                            jumping = false;
+//                            setY(temp.getY() - height +1);
+//                        }
+//                        else if(temp.getY() < this.getY()){
+//                            velY = 0;
+//                            falling = true;
+//                            jumping = false;
+//                            setY(temp.getY() + temp.height -1 );
+//                        }
+//                    }
+//                    else{
+//                        if(temp.getX() > this.getX()){
+//                            velX = 0;
+//                            setX(temp.getX() - width - 1);
+//                        }
+//                        else if(temp.getX() < this.getX()){
+//                            velX = 0;
+//                            setX(temp.getX() + temp.width + 1);
+//                        }
+//
+//                    }
+//                    if(velY > 0){
+//                        falling = false;
+//                        jumping = false;
+//                        velY = 0;
+//                        this.setY(temp.getY()-height + 1);
+//                    }
+//                    else if(velY < 0){
+//                        velY = 0;
+//                        this.setY(temp.getY()+temp.getHeight());
+//                        falling = true;
+//                        jumping = false;
+//                    }
+//                    else{
+//                        jumping = false;
+//                        falling = false;
+//                    }
                 }
                 else {
                     falling = true;

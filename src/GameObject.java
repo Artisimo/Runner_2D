@@ -3,7 +3,7 @@ import java.awt.*;
 public abstract class GameObject {
     protected int x, y;
     protected ID id;
-    protected int velX, velY;
+    protected float velX, velY;
     protected int width, height;
     protected boolean jumping, falling;
 
@@ -39,15 +39,15 @@ public abstract class GameObject {
         this.y = y;
     }
 
-    public int getVelX() {
+    public float getVelX() {
         return velX;
     }
 
-    public void setVelX(int velX) {
+    public void setVelX(float velX) {
         this.velX = velX;
     }
 
-    public int getVelY() {
+    public float getVelY() {
         return velY;
     }
 
