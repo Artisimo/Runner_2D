@@ -5,7 +5,8 @@ public abstract class GameObject {
     protected ID id;
     protected float velX, velY;
     protected int width, height;
-    protected boolean jumping, falling;
+    protected boolean falling = true;
+    protected boolean jumping = false;
 
 
     public GameObject(int x, int y,int width,int height, ID id){

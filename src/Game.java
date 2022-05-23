@@ -23,14 +23,15 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
 
-        handler.addObject(new Player(180, 200, 32, 32, ID.Player, handler));
+        handler.addObject(new Player(180, 200, 100, 100, ID.Player, handler));
         handler.addObject(new Platform(0,300, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(0,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(100,400, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(200,250, 100, 100, ID.Platform, handler));
+        handler.addObject(new Platform(200,150, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(200,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(300,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(400,400, 100, 100, ID.Platform, handler));
+        handler.addObject(new Platform(400,300, 100, 100, ID.Platform, handler));
     }
 
     public synchronized void start(){
