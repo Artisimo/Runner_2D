@@ -7,13 +7,15 @@ public class KeyInput extends KeyAdapter {
 
     public Handler handler;
 
+    public KeyInput(Handler handler) {
+
+        this.handler = handler;
+    }
 
     public void keyPressed (KeyEvent e) {
 
-
         int key = e.getKeyCode();
         for(int i = 0;i < handler.object.size(); i++) {
-
 
             GameObject temp = handler.object.get(i);
 
@@ -26,20 +28,17 @@ public class KeyInput extends KeyAdapter {
                     temp.setVelX(-5);
                 }
                 if(key == KeyEvent.VK_SPACE && ! temp.isJumping() && ! temp.isFalling()){
-                    temp.setVelY(-8);
+                    temp.setVelY(-10);
                     temp.jumping = true;
                 }
             }
-
         }
-
     }
 
     public void keyReleased(KeyEvent e) {
 
         int key = e.getKeyCode();
         for(int i = 0;i < handler.object.size(); i++) {
-
 
             GameObject temp = handler.object.get(i);
 
@@ -52,19 +51,10 @@ public class KeyInput extends KeyAdapter {
                     temp.setVelX(0);
                 }
             }
-
         }
-
-
-
     }
 
-    public KeyInput(Handler handler) {
 
-        this.handler = handler;
-
-
-    }
 
 
 
