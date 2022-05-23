@@ -4,14 +4,25 @@ import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
 
-    public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+    public static int WIDTH, HEIGHT;
     private Thread thread;
     private boolean running = false;
 
     private Random r = new Random();
 
+    private Handler handler;
+
     public Game(){
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        WIDTH = screenSize.width;
+        HEIGHT = screenSize.height;
+
+
+
+        handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
+
+        handler.addObject(new Player(20, 20, ID.Player, handler));
     }
 
     public synchronized void start(){
@@ -51,6 +62,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){
+        handler.tick();
     }
 
     private void render(){
@@ -63,8 +75,8 @@ public class Game extends Canvas implements Runnable {
         Graphics g = bs.getDrawGraphics();
 
         g.setColor(Color.BLACK);
-        g.fillRect(0,0, WIDTH, HEIGHT);
-
+        g.fillRect(0,0,WIDTH, HEIGHT );
+        handler.render(g);
         g.dispose();
         bs.show();
     }
