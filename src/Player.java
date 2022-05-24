@@ -3,10 +3,6 @@ import java.awt.*;
 public class Player extends GameObject{
     Handler handler;
     private float gravity = 0.5f;
-    public int maxhp= 100;
-    public int currenthp = maxhp;
-    public int attacked = 0;
-    private boolean leftbound = true;
 
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
@@ -17,15 +13,13 @@ public class Player extends GameObject{
     public void tick() {
         x += velX;
         y += velY;
+        System.out.println(falling);
         falling = true;
         if(jumping || falling){
 
             if(velY < 10){
                 velY += gravity;
             }
-        }
-        if (attacked > 0){
-            attacked  = attacked-1;
         }
         collision();
     }
@@ -51,31 +45,8 @@ public class Player extends GameObject{
                 }
 
                 if(this.getBoundsLeft().intersects(temp.getBounds())){
-                    x = temp.getX() + temp.getWidth();
+                    x = temp.getX() + width;
                 }
-            }
-            else if(temp.getId() == ID.BasicEnemy ){
-                if(this.bottomCollision(temp.getBounds()) && attacked <=0 && leftbound){
-                    handler.removeObject(temp);
-                    //temp = null;
-                } else if(this.getBounds().intersects(temp.getBounds()) ){
-                    if(attacked <=0){
-                        handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
-                        attacked = 180;
-                    }
-                    leftbound  = false;
-                }else {
-                    leftbound = true;
-                }
-
-            }
-            else if(temp.getId() == ID.Projectile){
-                if(this.getBounds().intersects(temp.getBounds())){
-                    handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
-                    System.out.println(temp.damage);
-                    handler.removeObject(temp);
-                }
-
             }
         }
 
