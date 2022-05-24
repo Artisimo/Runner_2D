@@ -8,12 +8,13 @@ public class BasicEnemy extends GameObject{
     private float gravity = 0.5f;
     Handler handler;
 
-    public BasicEnemy(int x, int y, int width, int height, ID id,Handler handler, int movingrange) {
+    public BasicEnemy(int x, int y, int width, int height, ID id,Handler handler, int movingrange,int damage) {
         super(x, y, width, height, id);
         this.movingrange = movingrange;
         startX = x;
         startY = y;
         this.handler = handler;
+        this.damage = damage;
     }
 
     @Override

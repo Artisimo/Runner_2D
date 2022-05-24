@@ -33,7 +33,7 @@ public class Game extends Canvas implements Runnable {
         handler.addObject(new Platform(300,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(400,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(400,300, 100, 100, ID.Platform, handler));
-        handler.addObject(new BasicEnemy(200,200,50,50,ID.BasicEnemy,handler,175));
+        handler.addObject(new BasicEnemy(200,200,50,50,ID.BasicEnemy,handler,175,20));
     }
 
     public synchronized void start(){

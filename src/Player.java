@@ -6,6 +6,7 @@ public class Player extends GameObject{
     public int maxhp= 100;
     public int currenthp = maxhp;
     public int attacked = 0;
+    private boolean leftbound = true;
 
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
@@ -53,13 +54,18 @@ public class Player extends GameObject{
                     x = temp.getX() + temp.getWidth();
                 }
             }
-            else if(temp.getId() == ID.BasicEnemy){
-                if(this.getBoundsTop().intersects(temp.getBounds())){
-
-                }
-                else if(this.getBounds().intersects(temp.getBounds()) && attacked <=0){
-                    handler.hpbar.currenthp = handler.hpbar.currenthp-20;
-                    attacked = 180;
+            else if(temp.getId() == ID.BasicEnemy ){
+                if(this.bottomCollision(temp.getBounds()) && attacked <=0 && leftbound){
+                    handler.removeObject(temp);
+                    //temp = null;
+                } else if(this.getBounds().intersects(temp.getBounds()) ){
+                    if(attacked <=0){
+                        handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
+                        attacked = 180;
+                    }
+                    leftbound  = false;
+                }else {
+                    leftbound = true;
                 }
 
             }
