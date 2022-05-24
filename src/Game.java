@@ -20,8 +20,11 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
+        Player player = new Player(180, 200, 100, 100, ID.Player, handler);
+        Hpbar hpbar = new Hpbar(player);
 
-        handler.addObject(new Player(180, 200, 100, 100, ID.Player, handler));
+        handler.addHpbar(hpbar);
+        handler.addObject(player);
         handler.addObject(new Platform(0,300, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(0,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(100,400, 100, 100, ID.Platform, handler));
@@ -30,6 +33,7 @@ public class Game extends Canvas implements Runnable {
         handler.addObject(new Platform(300,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(400,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(400,300, 100, 100, ID.Platform, handler));
+        handler.addObject(new BasicEnemy(200,200,50,50,ID.BasicEnemy,handler,175));
     }
 
     public synchronized void start(){
@@ -74,11 +78,10 @@ public class Game extends Canvas implements Runnable {
 
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
-        if(bs == null){
+        if(bs == null) {
             this.createBufferStrategy(3);
             return;
         }
-
         Graphics g = bs.getDrawGraphics();
 
         g.setColor(Color.BLACK);

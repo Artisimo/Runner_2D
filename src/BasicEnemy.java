@@ -1,19 +1,24 @@
 import java.awt.*;
 
-public class Player extends GameObject{
-    Handler handler;
+public class BasicEnemy extends GameObject{
+
+    protected int movingrange;
+    protected int startX;
+    protected int startY;
     private float gravity = 0.5f;
-    public int maxhp= 100;
-    public int currenthp = maxhp;
-    public int attacked = 0;
+    Handler handler;
 
-    public Player(int x, int y, int width, int height, ID id, Handler handler){
-        super(x, y,width, height, id);
+    public BasicEnemy(int x, int y, int width, int height, ID id,Handler handler, int movingrange) {
+        super(x, y, width, height, id);
+        this.movingrange = movingrange;
+        startX = x;
+        startY = y;
         this.handler = handler;
-
     }
+
     @Override
     public void tick() {
+        moving();
         x += velX;
         y += velY;
         falling = true;
@@ -23,20 +28,32 @@ public class Player extends GameObject{
                 velY += gravity;
             }
         }
-        if (attacked > 0){
-            attacked  = attacked-1;
-        }
         collision();
     }
 
+    @Override
+    public void render(Graphics g) {
+        g.setColor(Color.red);
+        g.fillRect(x, y, width, height);
+    }
+
+    public void moving(){
+        if(velX == 0){
+            setVelX(-3);
+        }
+
+        if(Math.abs(x -startX) >= movingrange){
+            setVelX(-1 * velX);
+        }
+    }
     public void collision(){
         for(int i = 0; i < handler.object.size(); i++){
             GameObject temp = handler.object.get(i);
             if(temp.getId() == ID.Platform){
-                if(this.getBoundsTop().intersects(temp.getBounds())){
-                    velY = 0;
-                    y = temp.getY() + temp.getHeight();
-                }
+//                if(this.getBoundsTop().intersects(temp.getBounds())){
+//                    velY = 0;
+//                    y = temp.getY() + temp.getHeight();
+//                }
 
                 if(bottomCollision(temp.getBounds())){
                     velY = 0;
@@ -47,45 +64,32 @@ public class Player extends GameObject{
 
                 if(this.getBoundsRight().intersects(temp.getBounds())){
                     x = temp.getX() - width;
+                    setVelX(-1 * velX);
                 }
 
                 if(this.getBoundsLeft().intersects(temp.getBounds())){
                     x = temp.getX() + temp.getWidth();
+                    setVelX(-1 * velX);
                 }
-            }
-            else if(temp.getId() == ID.BasicEnemy){
-                if(this.getBoundsTop().intersects(temp.getBounds())){
-
-                }
-                else if(this.getBounds().intersects(temp.getBounds()) && attacked <=0){
-                    handler.hpbar.currenthp = handler.hpbar.currenthp-20;
-                    attacked = 180;
-                }
-
             }
         }
 
     }
+
     public boolean bottomCollision(Rectangle platform){
         return platform.intersects(getBoundsBottom());
     }
 
-    public Rectangle getBoundsBottom(){
-        return new Rectangle(x + (width / 2) - (width/2)/2, y + (height / 2),width / 2, height / 2);
+    public Rectangle getBoundsBottom(){return new Rectangle(x + (width / 2) - (width/2)/2, y + (height / 2),width / 2, height / 2);
     }
     public Rectangle getBoundsTop(){
         return new Rectangle(x + (width / 2) - (width/2)/2, y,width/ 2, height/2);
     }
     public Rectangle getBoundsLeft(){
-        return new Rectangle(x , y + 5,10, height-10);
+        return new Rectangle(x , y + height/4,width/4, height/2);
     }
     public Rectangle getBoundsRight(){
-        return new Rectangle(x + width - 10, y + 5,10, height-10);
+        return new Rectangle(x + width - width/4, y + height/4,width/4, height/2);
     }
 
-    @Override
-    public void render(Graphics g) {
-        g.setColor(Color.YELLOW);
-        g.fillRect(x, y, width, height);
-    }
 }
