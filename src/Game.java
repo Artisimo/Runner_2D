@@ -10,6 +10,8 @@ public class Game extends Canvas implements Runnable {
 
     private Random r = new Random();
 
+    Camera camera = new Camera(0,0);
+
     private Handler handler;
 
     public Game(){
@@ -20,16 +22,21 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
+        Player player = new Player(180, 200, 100, 100, ID.Player, handler);
+        Hpbar hpbar = new Hpbar(0,0,0,32,ID.Hpbar,player);
 
-        handler.addObject(new Player(180, 200, 100, 100, ID.Player, handler));
+        handler.addHpbar(hpbar);
+        handler.addObject(player);
         handler.addObject(new Platform(0,300, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(0,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(100,400, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(200,150, 100, 100, ID.Platform, handler));
+        handler.addObject(new Platform(200,100, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(200,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(300,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(400,400, 100, 100, ID.Platform, handler));
         handler.addObject(new Platform(400,300, 100, 100, ID.Platform, handler));
+        handler.addObject(new BasicEnemy(200,200,50,50,ID.BasicEnemy,handler,175,20));
+        handler.addObject(new ShootingEnemy(400,300,50,100,ID.BasicEnemy,handler,0,25,30,-1));
     }
 
     public synchronized void start(){
@@ -69,20 +76,30 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){
+
         handler.tick();
+
+        for(int i = 0; i < handler.object.size(); i++){
+            if(handler.object.get(i).getId() == ID.Player){
+                camera.tick(handler.object.get(i));
+            }
+        }
     }
 
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
-        if(bs == null){
+        if(bs == null) {
             this.createBufferStrategy(3);
             return;
         }
-
         Graphics g = bs.getDrawGraphics();
+        Graphics2D g2d = (Graphics2D) g;
 
         g.setColor(Color.BLACK);
         g.fillRect(0,0,WIDTH, HEIGHT );
+
+        g2d.translate(camera.getX(), camera.getY());
+
         handler.render(g);
         g.dispose();
         bs.show();
@@ -99,9 +116,6 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String args[]){
-
-
-        mySqlDatabase.getDB();
-        //new Game();
+        new Game();
     }
 }

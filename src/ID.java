@@ -1,5 +1,7 @@
 public enum ID {
     Player(),
-    Enemy(),
-    Platform()
+    BasicEnemy(),
+    Platform(),
+    Projectile(),
+    Hpbar
 }
