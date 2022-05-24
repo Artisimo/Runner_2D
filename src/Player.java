@@ -69,6 +69,14 @@ public class Player extends GameObject{
                 }
 
             }
+            else if(temp.getId() == ID.Projectile){
+                if(this.getBounds().intersects(temp.getBounds())){
+                    handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
+                    System.out.println(temp.damage);
+                    handler.removeObject(temp);
+                }
+
+            }
         }
 
     }

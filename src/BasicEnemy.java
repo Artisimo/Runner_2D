@@ -5,7 +5,7 @@ public class BasicEnemy extends GameObject{
     protected int movingrange;
     protected int startX;
     protected int startY;
-    private float gravity = 0.5f;
+    protected float gravity = 0.5f;
     Handler handler;
 
     public BasicEnemy(int x, int y, int width, int height, ID id,Handler handler, int movingrange,int damage) {
