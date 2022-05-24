@@ -23,7 +23,7 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
         Player player = new Player(180, 200, 100, 100, ID.Player, handler);
-        Hpbar hpbar = new Hpbar(player);
+        Hpbar hpbar = new Hpbar(0,0,0,32,ID.Hpbar,player);
 
         handler.addHpbar(hpbar);
         handler.addObject(player);
