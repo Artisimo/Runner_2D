@@ -10,6 +10,8 @@ public class Game extends Canvas implements Runnable {
 
     private Random r = new Random();
 
+    Camera camera = new Camera(0,0);
+
     private Handler handler;
 
     public Game(){
@@ -74,7 +76,14 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){
+
         handler.tick();
+
+        for(int i = 0; i < handler.object.size(); i++){
+            if(handler.object.get(i).getId() == ID.Player){
+                camera.tick(handler.object.get(i));
+            }
+        }
     }
 
     private void render(){
@@ -84,9 +93,13 @@ public class Game extends Canvas implements Runnable {
             return;
         }
         Graphics g = bs.getDrawGraphics();
+        Graphics2D g2d = (Graphics2D) g;
 
         g.setColor(Color.BLACK);
         g.fillRect(0,0,WIDTH, HEIGHT );
+
+        g2d.translate(camera.getX(), camera.getY());
+
         handler.render(g);
         g.dispose();
         bs.show();
