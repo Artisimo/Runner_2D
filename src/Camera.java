@@ -6,9 +6,10 @@ public class Camera {
         this.y = y;
     }
 
-    public void tick(GameObject player){
-        x = -player.getX() + Game.WIDTH/2 - player.width;
-        y = -player.getY() + Game.HEIGHT/2;
+    public void tick(GameObject player, int levelWidth){
+        x = Game.clamp(-player.getX() + Game.WIDTH/2 - player.width, levelWidth + Game.WIDTH - 20, 0);
+        System.out.println(x);
+        //y = -player.getY() + Game.HEIGHT/2;
     }
 
     public float getX() {

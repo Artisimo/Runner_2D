@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
@@ -10,6 +11,8 @@ public class Game extends Canvas implements Runnable {
 
     private Random r = new Random();
 
+    private BufferedImage level;
+    private int levelWidth;
     Camera camera = new Camera(0,0);
 
     private Handler handler;
@@ -22,21 +25,64 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
-        Player player = new Player(180, 200, 100, 100, ID.Player, handler);
-        Hpbar hpbar = new Hpbar(0,0,0,32,ID.Hpbar,player);
 
-        handler.addHpbar(hpbar);
-        handler.addObject(player);
-        handler.addObject(new Platform(0,300, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(0,400, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(100,400, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(200,100, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(200,400, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(300,400, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(400,400, 100, 100, ID.Platform, handler));
-        handler.addObject(new Platform(400,300, 100, 100, ID.Platform, handler));
-        handler.addObject(new BasicEnemy(200,200,50,50,ID.BasicEnemy,handler,175,20));
-        handler.addObject(new ShootingEnemy(400,300,50,100,ID.BasicEnemy,handler,0,25,30,-1));
+
+
+        BufferedImageLoader loader = new BufferedImageLoader();
+        level = loader.loadImage("level1.png");
+        loadLevelImage(level);
+        levelWidth = loader.getLevelWidth("level1.png");
+        System.out.println(levelWidth);
+
+//        handler.addHpbar(hpbar);
+//        handler.addObject(player);
+//        handler.addObject(new Platform(0,300, 100, 100, ID.Platform, handler));
+//        handler.addObject(new Platform(0,400, 100, 100, ID.Platform, handler));
+//        handler.addObject(new Platform(100,400, 100, 100, ID.Platform, handler));
+//        handler.addObject(new Platform(200,100, 100, 100, ID.Platform, handler));
+//        handler.addObject(new Platform(200,400, 100, 100, ID.Platform, handler));
+//        handler.addObject(new Platform(300,400, 100, 100, ID.Platform, handler));
+//        handler.addObject(new Platform(400,400, 100, 100, ID.Platform, handler));
+//        handler.addObject(new Platform(400,300, 100, 100, ID.Platform, handler));
+//        handler.addObject(new BasicEnemy(200,200,50,50,ID.BasicEnemy,handler,175,20));
+//        handler.addObject(new ShootingEnemy(400,300,50,100,ID.BasicEnemy,handler,0,25,30,-1));
+    }
+
+    private void loadLevelImage(BufferedImage image){
+        int w = image.getWidth();
+        int h = image.getWidth();
+
+        Player player;
+
+        for(int x = 0; x < h; x++){
+            for(int y = 0; y < w; y++){
+                int pixel = image.getRGB(x, y);
+                int red = (pixel >> 16) & 0xff;
+                int green = (pixel >> 8) & 0xff;
+                int blue =(pixel) & 0xff;
+
+
+                if(red == 255 && green == 255 && blue == 255){
+
+                    handler.addObject(new Platform(x*64,y*64, 64, 64, ID.Platform, handler));
+                }
+
+                if(red == 0 && green == 0 && blue == 255){
+                    player = new Player(x*64, y*64, 64, 128, ID.Player, handler);
+                    handler.addObject(player);
+                    Hpbar hpbar = new Hpbar(0,0,0,32,ID.Hpbar,player);
+                    //handler.addObject(hpbar);
+                }
+
+                if(red == 255 && green ==0 && blue == 0){
+                    handler.addObject(new BasicEnemy(x*64, y*64, 64, 64, ID.BasicEnemy, handler, 100, 10));
+                }
+
+                if(red == 0 && green == 255 && blue == 0){
+                    handler.addObject(new ShootingEnemy(x*64, y*64, 32, 64, ID.BasicEnemy, handler, 170, 10, 20, 1));
+                }
+            }
+        }
     }
 
     public synchronized void start(){
@@ -81,7 +127,7 @@ public class Game extends Canvas implements Runnable {
 
         for(int i = 0; i < handler.object.size(); i++){
             if(handler.object.get(i).getId() == ID.Player){
-                camera.tick(handler.object.get(i));
+                camera.tick(handler.object.get(i), levelWidth);
             }
         }
     }

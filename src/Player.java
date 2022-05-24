@@ -28,6 +28,7 @@ public class Player extends GameObject{
             attacked  = attacked-1;
         }
         collision();
+        //System.out.println(x + " " + y);
     }
 
     public void collision(){
@@ -60,7 +61,7 @@ public class Player extends GameObject{
                     //temp = null;
                 } else if(this.getBounds().intersects(temp.getBounds()) ){
                     if(attacked <=0){
-                        handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
+                        //handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
                         attacked = 180;
                     }
                     leftbound  = false;
@@ -71,7 +72,7 @@ public class Player extends GameObject{
             }
             else if(temp.getId() == ID.Projectile){
                 if(this.getBounds().intersects(temp.getBounds())){
-                    handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
+                    //handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
                     System.out.println(temp.damage);
                     handler.removeObject(temp);
                 }
