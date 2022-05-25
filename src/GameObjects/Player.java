@@ -106,7 +106,5 @@ public class Player extends GameObject{
     public void render(Graphics g) {
         g.setColor(Color.YELLOW);
         g.fillRect(x, y, width, height);
-        g.setColor(Color.blue);
-        g.drawRect(x , y + 5,10, height-10);
     }
 }

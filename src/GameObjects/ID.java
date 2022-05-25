@@ -5,5 +5,6 @@ public enum ID {
     BasicEnemy(),
     Platform(),
     Projectile(),
+    ExplosiveEnemy(),
     Hpbar
 }
