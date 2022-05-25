@@ -1,9 +1,11 @@
-package GameObjects;
+package GameObjects.Enemies;
+import GameObjects.GameObject;
+import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
 import java.awt.*;
 
 
-public class BasicEnemy extends GameObject{
+public class BasicEnemy extends GameObject {
 
     protected int movingrange;
     protected int startX;

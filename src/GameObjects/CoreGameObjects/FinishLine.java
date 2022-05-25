@@ -1,10 +1,11 @@
-package GameObjects;
+package GameObjects.CoreGameObjects;
 
+import GameObjects.GameObject;
 import Handler.Handler;
 
 import java.awt.*;
 
-public class FinishLine extends GameObject{
+public class FinishLine extends GameObject {
 
     private int x, y, width, height;
     private Handler handler;

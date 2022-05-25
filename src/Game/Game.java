@@ -2,7 +2,13 @@ package Game;
 
 import Enviroment.*;
 import Enviroment.Window;
-import GameObjects.*;
+import GameObjects.CoreGameObjects.*;
+import GameObjects.Enemies.BasicEnemy;
+import GameObjects.Enemies.ExplosiveEnemy;
+import GameObjects.Enemies.RuningExplosiveEnemy;
+import GameObjects.Enemies.ShootingEnemy;
+import GameObjects.PowerUps.Crystal;
+import GameObjects.PowerUps.HealPowerUp;
 import Handler.Handler;
 
 import java.awt.*;
@@ -90,6 +96,10 @@ public class Game extends Canvas implements Runnable {
 
                 if(red == 255 && green == 255 && blue == 64){
                     handler.addObject(new Crystal(x*64, y*64, 64, 64, ID.Crystal, handler));
+                }
+
+                if(red == 255 && green == 216 && blue == 0){
+                    handler.addObject(new HealPowerUp(x*64, y * 64, 64, 64, ID.HealPowerUp, handler));
                 }
             }
         }

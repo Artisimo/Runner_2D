@@ -1,8 +1,10 @@
-package GameObjects;
+package GameObjects.Enemies;
+import GameObjects.GameObject;
+import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
 import java.awt.*;
 
-public class Projectile extends GameObject{
+public class Projectile extends GameObject {
     private int side;
     protected Handler handler;
 

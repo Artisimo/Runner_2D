@@ -1,7 +1,7 @@
 package Enviroment;
 
 import GameObjects.GameObject;
-import GameObjects.ID;
+import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
 
 import java.awt.event.KeyAdapter;

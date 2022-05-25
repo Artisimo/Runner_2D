@@ -1,4 +1,5 @@
-package GameObjects;
+package GameObjects.Enemies;
+import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
 public class ShootingEnemy extends BasicEnemy{
 

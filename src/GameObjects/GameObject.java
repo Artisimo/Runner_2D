@@ -1,4 +1,6 @@
 package GameObjects;
+import GameObjects.CoreGameObjects.ID;
+
 import java.awt.*;
 
 public abstract class GameObject {
@@ -100,4 +102,19 @@ public abstract class GameObject {
         this.falling = falling;
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getExploded() {
+        return exploded;
+    }
+
+    public void setExploded(int exploded) {
+        this.exploded = exploded;
+    }
 }

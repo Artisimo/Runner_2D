@@ -1,4 +1,4 @@
-package GameObjects;
+package GameObjects.CoreGameObjects;
 
 public enum ID {
     Player(),
@@ -10,5 +10,7 @@ public enum ID {
 
     FinishLine(),
 
-    Crystal()
+    Crystal(),
+
+    HealPowerUp()
 }

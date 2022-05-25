@@ -1,11 +1,12 @@
-package GameObjects;
+package GameObjects.Enemies;
 
+import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
 
 public class RuningExplosiveEnemy extends ExplosiveEnemy{
 
     protected int acceleration;
-    public RuningExplosiveEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int explosionRange,int acceleration) {
+    public RuningExplosiveEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int explosionRange, int acceleration) {
         super(x, y, width, height, id, handler, movingrange, damage, explosionRange);
         this.acceleration = acceleration;
     }

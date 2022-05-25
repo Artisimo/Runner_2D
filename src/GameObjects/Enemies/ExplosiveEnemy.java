@@ -1,5 +1,7 @@
-package GameObjects;
+package GameObjects.Enemies;
 
+import GameObjects.GameObject;
+import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
 
 import java.awt.*;
@@ -11,7 +13,7 @@ public class ExplosiveEnemy extends BasicEnemy{
     GameObject player;
 
 
-    public ExplosiveEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage,int explosionRange) {
+    public ExplosiveEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int explosionRange) {
         super(x, y, width, height, id, handler, movingrange, damage);
         this.explosionRange = explosionRange;
     }

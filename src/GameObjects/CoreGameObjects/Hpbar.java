@@ -1,9 +1,10 @@
-package GameObjects;
+package GameObjects.CoreGameObjects;
 import Game.Game;
+import GameObjects.GameObject;
 
 import java.awt.*;
 
-public class Hpbar extends GameObject{
+public class Hpbar extends GameObject {
     private int green = 255;
     public  int currenthp;
     public int maxhp;

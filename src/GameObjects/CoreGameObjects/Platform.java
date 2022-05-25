@@ -1,10 +1,11 @@
-package GameObjects;
+package GameObjects.CoreGameObjects;
 import Enviroment.Texture;
 import Game.Game;
+import GameObjects.GameObject;
 import Handler.Handler;
 import java.awt.*;
 
-public class Platform extends GameObject{
+public class Platform extends GameObject {
 
     private Handler handler;
     Texture tex = Game.getInstance();

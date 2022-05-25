@@ -1,11 +1,13 @@
-package GameObjects;
+package GameObjects.CoreGameObjects;
 import Enviroment.Animation;
 import Enviroment.Texture;
+import GameObjects.GameObject;
 import Handler.Handler;
 import java.awt.*;
 import Game.*;
+import GameObjects.*;
 
-public class Player extends GameObject{
+public class Player extends GameObject {
     Handler handler;
     private float gravity = 0.5f;
     public int maxhp= 100;
@@ -80,7 +82,7 @@ public class Player extends GameObject{
                     temp = null;
                 } else if(this.getBounds().intersects(temp.getBounds()) ){
                     if(attacked <=0){
-                        currenthp -= temp.damage;
+                        currenthp -= temp.getDamage();
                         attacked = 180;
                     }
                     leftbound  = false;
@@ -92,13 +94,13 @@ public class Player extends GameObject{
             }
             else if(temp.getId() == ID.Projectile){
                 if(this.getBounds().intersects(temp.getBounds())){
-                    currenthp -= temp.damage;
+                    currenthp -= temp.getDamage();
                     handler.removeObject(temp);
                 }
             }
             else if (temp.getId() == ID.ExplosiveEnemy){
-                if(temp.exploded > 0){
-                    currenthp -= temp.damage;
+                if(temp.getExploded() > 0){
+                    currenthp -= temp.getDamage();
                 }
             }else if(temp.getId() == ID.FinishLine){
                 if(getBounds().intersects(temp.getBounds())){
@@ -113,6 +115,11 @@ public class Player extends GameObject{
                 if(getBounds().intersects(temp.getBounds())){
                     handler.removeObject(temp);
                     crystalsCollected++;
+                }
+            }else if(temp.getId() == ID.HealPowerUp){
+                if(getBounds().intersects(temp.getBounds())){
+                    currenthp = Game.clamp(currenthp+25, 0, maxhp);
+                    handler.removeObject(temp);
                 }
             }
         }

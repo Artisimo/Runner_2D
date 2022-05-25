@@ -1,8 +1,7 @@
 package Handler;
 
 import GameObjects.GameObject;
-import GameObjects.Hpbar;
-import GameObjects.ID;
+import GameObjects.CoreGameObjects.Hpbar;
 
 import java.awt.*;
 import java.util.LinkedList;
