@@ -16,20 +16,20 @@ public class Hpbar extends GameObject{
         currenthp = maxhp;
     }
     public void tick(){
-        x = player.getX() - Game.WIDTH/2 + player.getWidth() + 15;
-        y = player.getY() - Game.HEIGHT/2 + 15;
-       currenthp =  (int) Game.clamp(currenthp, 0, maxhp);
+        x = Game.clamp(player.getX() - Game.WIDTH/2 , 80, -1* Game.levelWidth - Game.WIDTH + player.getWidth());
+        y =  Game.clamp(player.getY() - Game.HEIGHT/2 + 64, 80, -1* Game.levelHeight - Game.HEIGHT + 100);
+       currenthp =  (int) Game.clamp(player.getCurrenthp() - 2, 0, maxhp);
        green = 255 * currenthp/100;
 
     }
 
     public void render(Graphics g){
         g.setColor(Color.GRAY);
-        g.fillRect(x, y, maxhp * 2, 32);
+        g.fillRect(x, y, maxhp * 2 -4, 32);
         g.setColor(new Color(160, green, 0));
         g.fillRect(x, y, currenthp * 2, 32);
         g.setColor(Color.WHITE);
-        g.drawRect(x, y, maxhp * 2, 32);
+        g.drawRect(x, y, maxhp * 2 - 4, 32);
 
     }
 

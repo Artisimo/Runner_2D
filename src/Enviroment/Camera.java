@@ -13,8 +13,6 @@ public class Camera {
     public void tick(GameObject player, int levelWidth, int levelHeight){
         x = Game.clamp(-player.getX() + Game.WIDTH/2 + player.getWidth(), levelWidth + Game.WIDTH - 20, 0);
         y = Game.clamp(-player.getY() + Game.HEIGHT/ 2, levelHeight + Game.HEIGHT - 40,0);
-        //y = -player.getY() + Game.Game.HEIGHT/ 2;
-        //System.out.println(levelHeight + Game.Game.HEIGHT);
     }
 
     public float getX() {
