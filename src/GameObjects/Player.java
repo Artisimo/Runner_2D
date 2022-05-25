@@ -20,10 +20,13 @@ public class Player extends GameObject{
 
     private Animation playerWalk;
 
+    long startTime, elapsedTime;
+
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
         this.handler = handler;
         playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3], tex.playerImages[4], tex.playerImages[5], tex.playerImages[6], tex.playerImages[7], tex.playerImages[8]);
+        startTime = System.currentTimeMillis();
     }
     @Override
     public void tick() {
@@ -99,7 +102,11 @@ public class Player extends GameObject{
                 }
             }else if(temp.getId() == ID.FinishLine){
                 if(getBounds().intersects(temp.getBounds())){
-                    System.out.println("Level finished in ____ (include time here), " + crystalsCollected + " / 3 crystals collected. SEND TO DB, save the result");
+                    elapsedTime = System.currentTimeMillis() - startTime;
+                    long seconds = elapsedTime / 1000;
+                    long miliSeconds = elapsedTime % 1000;
+                    System.out.println(elapsedTime);
+                    System.out.println("Level finished in " + seconds + "." + miliSeconds + " seconds, " + crystalsCollected + " / 3 crystals collected. SEND TO DB, save the result");
                     System.exit(1);
                 }
             }else if(temp.getId() == ID.Crystal){
