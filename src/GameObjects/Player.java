@@ -30,8 +30,10 @@ public class Player extends GameObject{
         if (attacked > 0){
             attacked  = attacked-1;
         }
+        if(exploded > 0){
+            explosion();
+        }
         collision();
-        System.out.println(currenthp);
     }
 
     public void collision(){
@@ -77,10 +79,13 @@ public class Player extends GameObject{
             else if(temp.getId() == ID.Projectile){
                 if(this.getBounds().intersects(temp.getBounds())){
                     currenthp -= temp.damage;
-                    //System.out.println(temp.damage);
                     handler.removeObject(temp);
                 }
-
+            }
+            else if (temp.getId() == ID.ExplosiveEnemy){
+                if(temp.exploded > 0){
+                    currenthp -= temp.damage;
+                }
             }
         }
 
@@ -114,5 +119,10 @@ public class Player extends GameObject{
 
     public void setCurrenthp(int currenthp) {
         this.currenthp = currenthp;
+    }
+
+    public void explosion(){
+        currenthp = currenthp - exploded;
+        exploded = 0;
     }
 }

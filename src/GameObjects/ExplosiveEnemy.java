@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class ExplosiveEnemy extends BasicEnemy{
     protected int explosionRange;
-    private boolean isActivated = false;
-    private int timer;
+    protected boolean isActivated = false;
+    protected int timer;
     GameObject player;
 
 
@@ -20,10 +20,16 @@ public class ExplosiveEnemy extends BasicEnemy{
     public void tick(){
         super.tick();
         if(isActivated && timer >= -1){
-            timer -= 0;
+            timer -= 1;
         }
     }
 
+    @Override
+    public void render(Graphics g){
+        g.setColor(Color.green);
+        g.fillRect(x, y, width, height);
+        g.drawRect(x - explosionRange,y - explosionRange,width + 2*explosionRange,height + 2*explosionRange);
+    }
 
     @Override
     public void collision(){
@@ -57,17 +63,15 @@ public class ExplosiveEnemy extends BasicEnemy{
                     if(!isActivated){
                         isActivated = true;
                         timer = 120;
-                    }
-                    else if(timer < 1){
-                        explode();
+                    }else if(timer <= 0){
+                        exploded = damage;
                     }
                 }
-            }
-        }
-    }
+                if(isActivated && timer < 0){
+                    handler.removeObject(this);
+                }
 
-    public void explode(){
-        if(player.getBounds().intersects(new Rectangle(x - explosionRange,y - explosionRange,width + 2*explosionRange,height + 2*explosionRange))){
+            }
         }
     }
 

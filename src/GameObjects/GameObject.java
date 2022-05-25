@@ -9,6 +9,7 @@ public abstract class GameObject {
     protected boolean falling = true;
     protected boolean jumping = false;
     protected int damage;
+    protected int exploded = 0;
 
 
     public GameObject(int x, int y,int width,int height, ID id){
