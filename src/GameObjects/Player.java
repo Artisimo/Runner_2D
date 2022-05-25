@@ -14,6 +14,8 @@ public class Player extends GameObject{
     private boolean leftbound = true;
     private GameObject intersactedEnemy;
 
+    private int crystalsCollected = 0;
+
     Texture tex = Game.getInstance();
 
     private Animation playerWalk;
@@ -96,8 +98,15 @@ public class Player extends GameObject{
                     currenthp -= temp.damage;
                 }
             }else if(temp.getId() == ID.FinishLine){
-                if(getBounds().intersects(temp.getBounds()))
-                System.exit(1);
+                if(getBounds().intersects(temp.getBounds())){
+                    System.out.println("Level finished in ____ (include time here), " + crystalsCollected + " / 3 crystals collected. SEND TO DB, save the result");
+                    System.exit(1);
+                }
+            }else if(temp.getId() == ID.Crystal){
+                if(getBounds().intersects(temp.getBounds())){
+                    handler.removeObject(temp);
+                    crystalsCollected++;
+                }
             }
         }
 

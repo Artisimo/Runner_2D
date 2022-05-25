@@ -7,6 +7,7 @@ public class Hpbar extends GameObject{
     private int green = 255;
     public  int currenthp;
     public int maxhp;
+
     Player player;
 
     public Hpbar(int x, int y, int width, int height, ID id, Player player){

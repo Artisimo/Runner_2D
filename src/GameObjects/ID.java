@@ -8,5 +8,7 @@ public enum ID {
     ExplosiveEnemy(),
     Hpbar(),
 
-    FinishLine
+    FinishLine(),
+
+    Crystal()
 }
