@@ -13,13 +13,14 @@ import java.util.Random;
 public class Game extends Canvas implements Runnable {
 
     public static int WIDTH, HEIGHT;
+    public static int levelWidth, levelHeight;
     private Thread thread;
     private boolean running = false;
 
     private Random r = new Random();
 
     private BufferedImage level;
-    private int levelWidth, levelHeight;
+
 
     Camera camera = new Camera(0,0);
 
@@ -41,21 +42,6 @@ public class Game extends Canvas implements Runnable {
         loadLevelImage(level);
         levelWidth = loader.getLevelWidth("level1.png");
         levelHeight = loader.getLevelHeight("level1.png");
-        System.out.println(levelWidth);
-        System.out.println(levelHeight);
-
-//          handler.addHpbar(hpbar);
-//        handler.addObject(player);
-//        handler.addObject(new GameObjects.Platform(0,300, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
-//        handler.addObject(new GameObjects.Platform(0,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
-//        handler.addObject(new GameObjects.Platform(100,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
-//        handler.addObject(new GameObjects.Platform(200,100, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
-//        handler.addObject(new GameObjects.Platform(200,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
-//        handler.addObject(new GameObjects.Platform(300,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
-//        handler.addObject(new GameObjects.Platform(400,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
-//        handler.addObject(new GameObjects.Platform(400,300, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
-//        handler.addObject(new GameObjects.BasicEnemy(200,200,50,50,GameObjects.ID.GameObjects.BasicEnemy,handler,175,20));
-//        handler.addObject(new GameObjects.ShootingEnemy(400,300,50,100,GameObjects.ID.GameObjects.BasicEnemy,handler,0,25,30,-1));
     }
 
     private void loadLevelImage(BufferedImage image){
@@ -81,7 +67,7 @@ public class Game extends Canvas implements Runnable {
                     player = new Player(x*64, y*64, 64, 128, ID.Player, handler);
                     handler.addObject(player);
                     Hpbar hpbar = new Hpbar(0,0,0,32, ID.Hpbar,player);
-                    //handler.addObject(hpbar);
+                    handler.addObject(hpbar);
                 }
 
                 if(red == 255 && green ==0 && blue == 0){

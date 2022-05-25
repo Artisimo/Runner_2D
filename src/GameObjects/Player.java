@@ -31,7 +31,7 @@ public class Player extends GameObject{
             attacked  = attacked-1;
         }
         collision();
-        //System.out.println(x + " " + y);
+        System.out.println(currenthp);
     }
 
     public void collision(){
@@ -61,10 +61,10 @@ public class Player extends GameObject{
             else if(temp.getId() == ID.BasicEnemy ){
                 if(this.bottomCollision(temp.getBounds()) && attacked <=0 && leftbound){
                     handler.removeObject(temp);
-                    //temp = null;
+                    temp = null;
                 } else if(this.getBounds().intersects(temp.getBounds()) ){
                     if(attacked <=0){
-                        //handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
+                        currenthp -= temp.damage;
                         attacked = 180;
                     }
                     leftbound  = false;
@@ -76,8 +76,8 @@ public class Player extends GameObject{
             }
             else if(temp.getId() == ID.Projectile){
                 if(this.getBounds().intersects(temp.getBounds())){
-                    //handler.hpbar.currenthp = handler.hpbar.currenthp - temp.damage;
-                    System.out.println(temp.damage);
+                    currenthp -= temp.damage;
+                    //System.out.println(temp.damage);
                     handler.removeObject(temp);
                 }
 
@@ -106,5 +106,13 @@ public class Player extends GameObject{
     public void render(Graphics g) {
         g.setColor(Color.YELLOW);
         g.fillRect(x, y, width, height);
+    }
+
+    public int getCurrenthp() {
+        return currenthp;
+    }
+
+    public void setCurrenthp(int currenthp) {
+        this.currenthp = currenthp;
     }
 }
