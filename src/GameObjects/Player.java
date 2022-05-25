@@ -1,6 +1,9 @@
 package GameObjects;
+import Enviroment.Animation;
+import Enviroment.Texture;
 import Handler.Handler;
 import java.awt.*;
+import Game.*;
 
 public class Player extends GameObject{
     Handler handler;
@@ -8,12 +11,18 @@ public class Player extends GameObject{
     public int maxhp= 100;
     public int currenthp = maxhp;
     public int attacked = 0;
+
+    Texture tex = Game.getInstance();
+
+    private Animation playerWalk;
     private boolean leftbound = true;
     private GameObject intersactedEnemy;
 
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
         this.handler = handler;
+
+        playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3]);
 
     }
     @Override
@@ -31,7 +40,9 @@ public class Player extends GameObject{
             attacked  = attacked-1;
         }
         collision();
-        System.out.println(currenthp);
+
+        playerWalk.runAnimation();
+        //System.out.println(currenthp);
     }
 
     public void collision(){
@@ -104,10 +115,17 @@ public class Player extends GameObject{
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.YELLOW);
-        g.fillRect(x, y, width, height);
-        g.setColor(Color.blue);
-        g.drawRect(x , y + 5,10, height-10);
+        if(velX != 0 ){
+            playerWalk.drawAnimation(g, x, y);
+        }else{
+            g.drawImage(tex.playerImages[0], x, y, null);
+//            g.setColor(Color.YELLOW);
+//            g.fillRect(x, y, width, height);
+        }
+
+//
+//        g.setColor(Color.blue);
+//        g.drawRect(x , y + 5,10, height-10);
     }
 
     public int getCurrenthp() {

@@ -21,6 +21,8 @@ public class Game extends Canvas implements Runnable {
 
     private BufferedImage level;
 
+    static Texture tex;
+
 
     Camera camera = new Camera(0,0);
 
@@ -35,7 +37,7 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
 
-
+        tex = new Texture();
 
         BufferedImageLoader loader = new BufferedImageLoader();
         level = loader.loadImage("level1.png");
@@ -137,7 +139,7 @@ public class Game extends Canvas implements Runnable {
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
 
-        g.setColor(Color.BLACK);
+        g.setColor(Color.GRAY);
         g.fillRect(0,0,WIDTH, HEIGHT );
 
         g2d.translate(camera.getX(), camera.getY());
@@ -155,6 +157,10 @@ public class Game extends Canvas implements Runnable {
         }else{
             return val;
         }
+    }
+
+    public static Texture getInstance(){
+        return tex;
     }
 
     public static void main(String args[]){
