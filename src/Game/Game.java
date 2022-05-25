@@ -69,20 +69,31 @@ public class Game extends Canvas implements Runnable {
                     player = new Player(x*64, y*64, 64, 128, ID.Player, handler);
                     handler.addObject(player);
                     Hpbar hpbar = new Hpbar(0,0,0,32, ID.Hpbar,player);
+
                     handler.addObject(hpbar);
+                    System.out.println(x * 64 + " " + y * 64);
                 }
 
                 if(red == 255 && green ==0 && blue == 0){
                     handler.addObject(new BasicEnemy(x*64, y*64, 64, 64, ID.BasicEnemy, handler, 100, 10));
+                    //handler.addObject(new FinishLine(x*64, y*64, 64, 128, ID.FinishLine, handler));
                 }
 
                 if(red == 0 && green == 255 && blue == 0){
                     handler.addObject(new ShootingEnemy(x*64, y*64, 32, 64, ID.BasicEnemy, handler, 170, 10, 20, 1));
+
+                }
+
+                if(red == 255 && green == 128 && blue == 255){
+                    //System.out.println(x * 64 + " " + y * 64);
+                    handler.addObject(new FinishLine(x*64, y*64, 64, 128, ID.FinishLine, handler));
                 }
             }
         }
-        handler.addObject((new ExplosiveEnemy(600,200,64,64,ID.ExplosiveEnemy,handler,50,50,150)));
-        handler.addObject((new RuningExplosiveEnemy(1200,200,64,64,ID.ExplosiveEnemy,handler,25,50,150,5)));
+        //handler.addObject((new ExplosiveEnemy(600,200,64,64,ID.ExplosiveEnemy,handler,50,50,150)));
+        //handler.addObject((new RuningExplosiveEnemy(1200,200,64,64,ID.ExplosiveEnemy,handler,25,50,150,5)));
+        handler.addObject(new FinishLine(3264, 3264, 64, 128, ID.FinishLine, handler));
+
     }
 
     public synchronized void start(){
@@ -147,6 +158,7 @@ public class Game extends Canvas implements Runnable {
         g2d.translate(camera.getX(), camera.getY());
 
         handler.render(g);
+
         g.dispose();
         bs.show();
     }

@@ -24,7 +24,6 @@ public class Handler {
             GameObject tempObject = object.get(i);
 
             tempObject.render(g);
-
         }
     }
 

@@ -42,6 +42,7 @@ public class Player extends GameObject{
         }
         collision();
         playerWalk.runAnimation();
+        //System.out.println(x + " " + y);
     }
 
     public void collision(){
@@ -94,6 +95,9 @@ public class Player extends GameObject{
                 if(temp.exploded > 0){
                     currenthp -= temp.damage;
                 }
+            }else if(temp.getId() == ID.FinishLine){
+                if(getBounds().intersects(temp.getBounds()))
+                System.exit(1);
             }
         }
 

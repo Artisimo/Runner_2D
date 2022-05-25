@@ -6,5 +6,7 @@ public enum ID {
     Platform(),
     Projectile(),
     ExplosiveEnemy(),
-    Hpbar
+    Hpbar(),
+
+    FinishLine
 }
