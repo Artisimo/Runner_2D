@@ -13,5 +13,6 @@ public enum ID {
     Crystal(),
 
     HealPowerUp(),
-    MaxHpPowerUp()
+    MaxHpPowerUp(),
+    SpeedPowerUp()
 }

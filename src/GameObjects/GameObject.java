@@ -12,9 +12,10 @@ public abstract class GameObject {
     protected boolean jumping = false;
     protected int damage;
     protected int exploded = 0;
+    protected int speed;
 
 
-    public GameObject(int x, int y,int width,int height, ID id){
+    public GameObject(int x, int y, int width, int height, ID id){
         this.x = x;
         this.y = y;
         this.id = id;
@@ -116,5 +117,12 @@ public abstract class GameObject {
 
     public void setExploded(int exploded) {
         this.exploded = exploded;
+    }
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 }

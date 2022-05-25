@@ -26,11 +26,11 @@ public class KeyInput extends KeyAdapter {
 
             if(temp.getId() == ID.Player) {
                 if (key == KeyEvent.VK_D) {
-                    temp.setVelX(5);
+                    temp.setVelX(temp.getSpeed());
                 }
 
                 if (key == KeyEvent.VK_A) {
-                    temp.setVelX(-5);
+                    temp.setVelX(-1 * temp.getSpeed());
                 }
                 if(key == KeyEvent.VK_SPACE && ! temp.isJumping() && ! temp.isFalling()){
                     temp.setVelY(-15);

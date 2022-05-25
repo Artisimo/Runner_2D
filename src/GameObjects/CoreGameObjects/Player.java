@@ -17,16 +17,17 @@ public class Player extends GameObject {
     private GameObject intersactedEnemy;
 
     private int crystalsCollected = 0;
+    private int speedTimer = -1;
 
     Texture tex = Game.getInstance();
 
     private Animation playerWalk;
-
     long startTime, elapsedTime;
 
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
         this.handler = handler;
+        speed = 5;
         playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3], tex.playerImages[4], tex.playerImages[5], tex.playerImages[6], tex.playerImages[7], tex.playerImages[8]);
         startTime = System.currentTimeMillis();
     }
@@ -35,6 +36,12 @@ public class Player extends GameObject {
         x += velX;
         y += velY;
         falling = true;
+        if(speedTimer < 0){
+            speed = 5;
+        }
+        else {
+            speedTimer -= 1;
+        }
         if(jumping || falling){
 
             if(velY < 10){
@@ -125,6 +132,12 @@ public class Player extends GameObject {
                 if(getBounds().intersects(temp.getBounds())){
                     maxhp += 50;
                     currenthp = Game.clamp((int)(currenthp * ((float)maxhp/(float)(maxhp-50))),0,maxhp);
+                    handler.removeObject(temp);
+                }
+            }else  if(temp.getId() == ID.SpeedPowerUp){
+                if(getBounds().intersects(temp.getBounds())){
+                    speed *= 2;
+                    speedTimer = 300;
                     handler.removeObject(temp);
                 }
             }
