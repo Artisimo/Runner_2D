@@ -9,6 +9,7 @@ import GameObjects.Enemies.RuningExplosiveEnemy;
 import GameObjects.Enemies.ShootingEnemy;
 import GameObjects.PowerUps.Crystal;
 import GameObjects.PowerUps.HealPowerUp;
+import GameObjects.PowerUps.MaxHpPowerUp;
 import Handler.Handler;
 
 import java.awt.*;
@@ -105,6 +106,7 @@ public class Game extends Canvas implements Runnable {
         }
         handler.addObject((new ExplosiveEnemy(600,200,64,64,ID.ExplosiveEnemy,handler,50,50,150)));
         handler.addObject((new RuningExplosiveEnemy(1200,200,64,64,ID.ExplosiveEnemy,handler,25,50,150,5)));
+        handler.addObject((new MaxHpPowerUp(600,500,64,64,ID.MaxHpPowerUp)));
     }
 
     public synchronized void start(){

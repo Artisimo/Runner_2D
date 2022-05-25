@@ -121,6 +121,12 @@ public class Player extends GameObject {
                     currenthp = Game.clamp(currenthp+25, 0, maxhp);
                     handler.removeObject(temp);
                 }
+            }else if(temp.getId() == ID.MaxHpPowerUp){
+                if(getBounds().intersects(temp.getBounds())){
+                    maxhp += 50;
+                    currenthp = Game.clamp((int)(currenthp * ((float)maxhp/(float)(maxhp-50))),0,maxhp);
+                    handler.removeObject(temp);
+                }
             }
         }
 
