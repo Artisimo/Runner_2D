@@ -1,5 +1,6 @@
 package GameObjects;
 import Game.Game;
+
 import java.awt.*;
 
 public class Hpbar extends GameObject{

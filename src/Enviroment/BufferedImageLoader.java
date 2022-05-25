@@ -1,5 +1,4 @@
 package Enviroment;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -7,6 +6,7 @@ import java.io.IOException;
 public class BufferedImageLoader {
     private BufferedImage image;
     public BufferedImage loadImage(String path){
+        System.out.println(path);
         try {
             image = ImageIO.read(getClass().getResource(path));
         } catch (IOException e) {

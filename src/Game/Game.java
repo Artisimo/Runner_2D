@@ -1,4 +1,5 @@
 package Game;
+
 import Enviroment.*;
 import Enviroment.Window;
 import GameObjects.*;
@@ -19,6 +20,7 @@ public class Game extends Canvas implements Runnable {
 
     private BufferedImage level;
     private int levelWidth, levelHeight;
+
     Camera camera = new Camera(0,0);
 
     private Handler handler;
@@ -42,7 +44,7 @@ public class Game extends Canvas implements Runnable {
         System.out.println(levelWidth);
         System.out.println(levelHeight);
 
-//        handler.addHpbar(hpbar);
+//          handler.addHpbar(hpbar);
 //        handler.addObject(player);
 //        handler.addObject(new GameObjects.Platform(0,300, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
 //        handler.addObject(new GameObjects.Platform(0,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
