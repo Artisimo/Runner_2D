@@ -21,7 +21,7 @@ public class Player extends GameObject{
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
         this.handler = handler;
-        playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3]);
+        playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3], tex.playerImages[4], tex.playerImages[5], tex.playerImages[6], tex.playerImages[7], tex.playerImages[8]);
     }
     @Override
     public void tick() {

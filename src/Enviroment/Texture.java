@@ -9,13 +9,13 @@ public class Texture {
     private BufferedImage player = null;
 
     public BufferedImage[] platformImages = new BufferedImage[1];
-    public BufferedImage[] playerImages = new BufferedImage[8];
+    public BufferedImage[] playerImages = new BufferedImage[10];
 
     public Texture(){
         BufferedImageLoader loader = new BufferedImageLoader();
         try{
             platform = loader.loadImage("platform.png");
-            player = loader.loadImage("player.png");
+            player = loader.loadImage("cdggs.png");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -30,10 +30,15 @@ public class Texture {
         platformImages[0] = platformSheet.grabImage(1, 1, 64, 64); // Platform texture
 
 
-        playerImages[0] = playerSheet.grabImage(1, 1, 64, 128);
-        playerImages[1] = playerSheet.grabImage(1, 1, 64, 128);//right
+        playerImages[0] = playerSheet.grabImage(1, 1, 64, 128);//still
+        playerImages[1] = playerSheet.grabImage(2, 1, 64, 128);//right
         playerImages[2] = playerSheet.grabImage(3, 1, 64, 128);
         playerImages[3] = playerSheet.grabImage(4, 1, 64, 128);
+        playerImages[4] = playerSheet.grabImage(5, 1, 64, 128);
+        playerImages[5] = playerSheet.grabImage(6, 1, 64, 128);
+        playerImages[6] = playerSheet.grabImage(7, 1, 64, 128);
+        playerImages[7] = playerSheet.grabImage(8, 1, 64, 128);
+        playerImages[8] = playerSheet.grabImage(9, 1, 64, 128);
 
     }
 }
