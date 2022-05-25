@@ -12,15 +12,15 @@ public class Game extends Canvas implements Runnable {
     private Random r = new Random();
 
     private BufferedImage level;
-    private int levelWidth;
+    private int levelWidth, levelHeight;
     Camera camera = new Camera(0,0);
 
     private Handler handler;
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        WIDTH = screenSize.width;
-        HEIGHT = screenSize.height;
+        WIDTH = 2560;
+        HEIGHT = 1440;
 
         handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
@@ -32,7 +32,9 @@ public class Game extends Canvas implements Runnable {
         level = loader.loadImage("level1.png");
         loadLevelImage(level);
         levelWidth = loader.getLevelWidth("level1.png");
+        levelHeight = loader.getLevelHeight("level1.png");
         System.out.println(levelWidth);
+        System.out.println(levelHeight);
 
 //        handler.addHpbar(hpbar);
 //        handler.addObject(player);
@@ -127,7 +129,7 @@ public class Game extends Canvas implements Runnable {
 
         for(int i = 0; i < handler.object.size(); i++){
             if(handler.object.get(i).getId() == ID.Player){
-                camera.tick(handler.object.get(i), levelWidth);
+                camera.tick(handler.object.get(i), levelWidth, levelHeight);
             }
         }
     }

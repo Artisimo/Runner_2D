@@ -34,4 +34,26 @@ public class BufferedImageLoader {
             throw new RuntimeException(e);
         }
     }
+
+    public int getLevelHeight(String path){                     // Function to determine when the camera should stop
+        try {
+            image = ImageIO.read(getClass().getResource(path));
+            int h = image.getHeight();
+            int i =0;
+            while(i < h){
+                int pixel = image.getRGB(0, i);
+                int red = (pixel >> 16) & 0xff;
+                int green = (pixel >> 8) & 0xff;
+                int blue =(pixel) & 0xff;
+                if(red != 255 && green != 255 && blue != 255){
+                    return -64 *i;
+                }else{
+                    i++;
+                }
+            }
+            return h;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
