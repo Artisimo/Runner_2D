@@ -1,3 +1,7 @@
+package Enviroment;
+import Game.Game;
+import GameObjects.GameObject;
+
 public class Camera {
 
     private float x, y;
@@ -7,10 +11,10 @@ public class Camera {
     }
 
     public void tick(GameObject player, int levelWidth, int levelHeight){
-        x = Game.clamp(-player.getX() + Game.WIDTH/2 + player.width, levelWidth + Game.WIDTH - 20, 0);
+        x = Game.clamp(-player.getX() + Game.WIDTH/2 + player.getWidth(), levelWidth + Game.WIDTH - 20, 0);
         y = Game.clamp(-player.getY() + Game.HEIGHT/ 2, levelHeight + Game.HEIGHT - 40,0);
-        //y = -player.getY() + Game.HEIGHT/ 2;
-        //System.out.println(levelHeight + Game.HEIGHT);
+        //y = -player.getY() + Game.Game.HEIGHT/ 2;
+        //System.out.println(levelHeight + Game.Game.HEIGHT);
     }
 
     public float getX() {

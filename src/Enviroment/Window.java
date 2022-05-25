@@ -1,3 +1,7 @@
+package Enviroment;
+
+import Game.Game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -17,3 +21,4 @@ public class Window {
         game.start();
     }
 }
+

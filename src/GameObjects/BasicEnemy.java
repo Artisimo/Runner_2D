@@ -1,4 +1,7 @@
+package GameObjects;
+import Handler.Handler;
 import java.awt.*;
+
 
 public class BasicEnemy extends GameObject{
 
@@ -8,7 +11,7 @@ public class BasicEnemy extends GameObject{
     protected float gravity = 0.5f;
     Handler handler;
 
-    public BasicEnemy(int x, int y, int width, int height, ID id,Handler handler, int movingrange,int damage) {
+    public BasicEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage) {
         super(x, y, width, height, id);
         this.movingrange = movingrange;
         startX = x;

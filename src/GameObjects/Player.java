@@ -1,3 +1,5 @@
+package GameObjects;
+import Handler.Handler;
 import java.awt.*;
 
 public class Player extends GameObject{

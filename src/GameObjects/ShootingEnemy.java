@@ -1,3 +1,5 @@
+package GameObjects;
+import Handler.Handler;
 public class ShootingEnemy extends BasicEnemy{
 
     protected int side;
@@ -5,7 +7,7 @@ public class ShootingEnemy extends BasicEnemy{
     public int reloadTime = 240;
     public int reload;
 
-    public ShootingEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage,int projectileDamage,int side) {
+    public ShootingEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int projectileDamage, int side) {
         super(x, y, width, height, id, handler, movingrange, damage);
         this.side = side;
         this.projectileDamage = projectileDamage;

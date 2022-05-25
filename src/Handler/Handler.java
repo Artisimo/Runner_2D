@@ -1,8 +1,13 @@
+package Handler;
+
+import GameObjects.GameObject;
+import GameObjects.Hpbar;
+
 import java.awt.*;
 import java.util.LinkedList;
 
 public class Handler {
-    LinkedList<GameObject> object = new LinkedList<GameObject>();
+    public LinkedList<GameObject> object = new LinkedList<GameObject>();
     Hpbar hpbar;
 
     public void tick(){

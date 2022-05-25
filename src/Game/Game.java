@@ -1,3 +1,9 @@
+package Game;
+import Enviroment.*;
+import Enviroment.Window;
+import GameObjects.*;
+import Handler.Handler;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -19,8 +25,8 @@ public class Game extends Canvas implements Runnable {
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        WIDTH = 2560;
-        HEIGHT = 1440;
+        WIDTH = screenSize.width;
+        HEIGHT = screenSize.height;
 
         handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
@@ -38,16 +44,16 @@ public class Game extends Canvas implements Runnable {
 
 //        handler.addHpbar(hpbar);
 //        handler.addObject(player);
-//        handler.addObject(new Platform(0,300, 100, 100, ID.Platform, handler));
-//        handler.addObject(new Platform(0,400, 100, 100, ID.Platform, handler));
-//        handler.addObject(new Platform(100,400, 100, 100, ID.Platform, handler));
-//        handler.addObject(new Platform(200,100, 100, 100, ID.Platform, handler));
-//        handler.addObject(new Platform(200,400, 100, 100, ID.Platform, handler));
-//        handler.addObject(new Platform(300,400, 100, 100, ID.Platform, handler));
-//        handler.addObject(new Platform(400,400, 100, 100, ID.Platform, handler));
-//        handler.addObject(new Platform(400,300, 100, 100, ID.Platform, handler));
-//        handler.addObject(new BasicEnemy(200,200,50,50,ID.BasicEnemy,handler,175,20));
-//        handler.addObject(new ShootingEnemy(400,300,50,100,ID.BasicEnemy,handler,0,25,30,-1));
+//        handler.addObject(new GameObjects.Platform(0,300, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
+//        handler.addObject(new GameObjects.Platform(0,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
+//        handler.addObject(new GameObjects.Platform(100,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
+//        handler.addObject(new GameObjects.Platform(200,100, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
+//        handler.addObject(new GameObjects.Platform(200,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
+//        handler.addObject(new GameObjects.Platform(300,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
+//        handler.addObject(new GameObjects.Platform(400,400, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
+//        handler.addObject(new GameObjects.Platform(400,300, 100, 100, GameObjects.ID.GameObjects.Platform, handler));
+//        handler.addObject(new GameObjects.BasicEnemy(200,200,50,50,GameObjects.ID.GameObjects.BasicEnemy,handler,175,20));
+//        handler.addObject(new GameObjects.ShootingEnemy(400,300,50,100,GameObjects.ID.GameObjects.BasicEnemy,handler,0,25,30,-1));
     }
 
     private void loadLevelImage(BufferedImage image){
@@ -72,7 +78,7 @@ public class Game extends Canvas implements Runnable {
                 if(red == 0 && green == 0 && blue == 255){
                     player = new Player(x*64, y*64, 64, 128, ID.Player, handler);
                     handler.addObject(player);
-                    Hpbar hpbar = new Hpbar(0,0,0,32,ID.Hpbar,player);
+                    Hpbar hpbar = new Hpbar(0,0,0,32, ID.Hpbar,player);
                     //handler.addObject(hpbar);
                 }
 

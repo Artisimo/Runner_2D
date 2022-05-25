@@ -1,3 +1,4 @@
+package GameObjects;
 import java.awt.*;
 
 public abstract class GameObject {
@@ -97,4 +98,5 @@ public abstract class GameObject {
     public void setFalling(boolean falling) {
         this.falling = falling;
     }
+
 }

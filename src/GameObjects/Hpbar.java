@@ -1,3 +1,5 @@
+package GameObjects;
+import Game.Game;
 import java.awt.*;
 
 public class Hpbar extends GameObject{
@@ -6,7 +8,7 @@ public class Hpbar extends GameObject{
     public int maxhp;
     Player player;
 
-    Hpbar (int x,int y,int width,int height,ID id,Player player){
+    public Hpbar(int x, int y, int width, int height, ID id, Player player){
         super(x,y,width,height,id);
         this.player =  player;
         this.maxhp = player.maxhp;

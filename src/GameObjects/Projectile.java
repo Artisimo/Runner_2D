@@ -1,10 +1,12 @@
+package GameObjects;
+import Handler.Handler;
 import java.awt.*;
 
 public class Projectile extends GameObject{
     private int side;
     protected Handler handler;
 
-    public Projectile(int x, int y, int width, int height, ID id,Handler handler, int damage,int side) {
+    public Projectile(int x, int y, int width, int height, ID id, Handler handler, int damage, int side) {
         super(x, y, width, height, id);
         this.side = side;
         this.damage = damage;
