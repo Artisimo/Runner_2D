@@ -9,6 +9,7 @@ public class Player extends GameObject{
     public int currenthp = maxhp;
     public int attacked = 0;
     private boolean leftbound = true;
+    private GameObject intersactedEnemy;
 
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
@@ -67,7 +68,8 @@ public class Player extends GameObject{
                         attacked = 180;
                     }
                     leftbound  = false;
-                }else {
+                    intersactedEnemy = temp;
+                }else if (intersactedEnemy == temp){
                     leftbound = true;
                 }
 
@@ -104,6 +106,8 @@ public class Player extends GameObject{
     public void render(Graphics g) {
         g.setColor(Color.YELLOW);
         g.fillRect(x, y, width, height);
+        g.setColor(Color.blue);
+        g.drawRect(x , y + 5,10, height-10);
     }
 
     public int getCurrenthp() {
