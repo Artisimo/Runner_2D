@@ -1,6 +1,9 @@
 package GameObjects;
+import Enviroment.Animation;
+import Enviroment.Texture;
 import Handler.Handler;
 import java.awt.*;
+import Game.*;
 
 public class Player extends GameObject{
     Handler handler;
@@ -11,10 +14,14 @@ public class Player extends GameObject{
     private boolean leftbound = true;
     private GameObject intersactedEnemy;
 
+    Texture tex = Game.getInstance();
+
+    private Animation playerWalk;
+
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
         this.handler = handler;
-
+        playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3]);
     }
     @Override
     public void tick() {
@@ -34,6 +41,7 @@ public class Player extends GameObject{
             explosion();
         }
         collision();
+        playerWalk.runAnimation();
     }
 
     public void collision(){
@@ -109,8 +117,11 @@ public class Player extends GameObject{
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.YELLOW);
-        g.fillRect(x, y, width, height);
+        if(velX != 0 ){
+            playerWalk.drawAnimation(g, x, y);
+        }else{
+            g.drawImage(tex.playerImages[0], x, y, null);
+        }
     }
 
     public int getCurrenthp() {
