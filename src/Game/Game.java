@@ -81,6 +81,8 @@ public class Game extends Canvas implements Runnable {
                 }
             }
         }
+        handler.addObject((new ExplosiveEnemy(600,200,64,64,ID.ExplosiveEnemy,handler,50,50,150)));
+        handler.addObject((new RuningExplosiveEnemy(1200,200,64,64,ID.ExplosiveEnemy,handler,25,50,150,5)));
     }
 
     public synchronized void start(){

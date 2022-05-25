@@ -1,9 +1,6 @@
 package GameObjects;
-import Enviroment.Animation;
-import Enviroment.Texture;
 import Handler.Handler;
 import java.awt.*;
-import Game.*;
 
 public class Player extends GameObject{
     Handler handler;
@@ -11,18 +8,12 @@ public class Player extends GameObject{
     public int maxhp= 100;
     public int currenthp = maxhp;
     public int attacked = 0;
-
-    Texture tex = Game.getInstance();
-
-    private Animation playerWalk;
     private boolean leftbound = true;
     private GameObject intersactedEnemy;
 
     public Player(int x, int y, int width, int height, ID id, Handler handler){
         super(x, y,width, height, id);
         this.handler = handler;
-
-        playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3]);
 
     }
     @Override
@@ -39,10 +30,10 @@ public class Player extends GameObject{
         if (attacked > 0){
             attacked  = attacked-1;
         }
+        if(exploded > 0){
+            explosion();
+        }
         collision();
-
-        playerWalk.runAnimation();
-        //System.out.println(currenthp);
     }
 
     public void collision(){
@@ -88,10 +79,13 @@ public class Player extends GameObject{
             else if(temp.getId() == ID.Projectile){
                 if(this.getBounds().intersects(temp.getBounds())){
                     currenthp -= temp.damage;
-                    //System.out.println(temp.damage);
                     handler.removeObject(temp);
                 }
-
+            }
+            else if (temp.getId() == ID.ExplosiveEnemy){
+                if(temp.exploded > 0){
+                    currenthp -= temp.damage;
+                }
             }
         }
 
@@ -115,17 +109,8 @@ public class Player extends GameObject{
 
     @Override
     public void render(Graphics g) {
-        if(velX != 0 ){
-            playerWalk.drawAnimation(g, x, y);
-        }else{
-            g.drawImage(tex.playerImages[0], x, y, null);
-//            g.setColor(Color.YELLOW);
-//            g.fillRect(x, y, width, height);
-        }
-
-//
-//        g.setColor(Color.blue);
-//        g.drawRect(x , y + 5,10, height-10);
+        g.setColor(Color.YELLOW);
+        g.fillRect(x, y, width, height);
     }
 
     public int getCurrenthp() {
@@ -134,5 +119,10 @@ public class Player extends GameObject{
 
     public void setCurrenthp(int currenthp) {
         this.currenthp = currenthp;
+    }
+
+    public void explosion(){
+        currenthp = currenthp - exploded;
+        exploded = 0;
     }
 }
