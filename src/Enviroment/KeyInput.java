@@ -3,6 +3,7 @@ package Enviroment;
 import GameObjects.GameObject;
 import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
+import Game.Game;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -34,6 +35,8 @@ public class KeyInput extends KeyAdapter {
                 }
                 if(key == KeyEvent.VK_SPACE && ! temp.isJumping() && ! temp.isFalling()){
                     temp.setVelY(-1* temp.getJumpHeight());
+                    Game.sound.setFile(0);
+                    Game.sound.play();
                     temp.setJumping(true);
                 }
             }

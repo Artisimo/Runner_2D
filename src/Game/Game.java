@@ -29,6 +29,7 @@ public class Game extends Canvas implements Runnable {
     public BufferedImage level;
 
     static Texture tex;
+    public static Sound sound = new Sound();
 
 
     Camera camera = new Camera(0,0);
