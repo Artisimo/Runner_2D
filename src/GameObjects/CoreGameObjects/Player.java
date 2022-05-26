@@ -152,29 +152,34 @@ public class Player extends GameObject {
                 if(getBounds().intersects(temp.getBounds())){
                     handler.removeObject(temp);
                     crystalsCollected++;
+                    Game.sound.playCrystal();
                 }
             }else if(temp.getId() == ID.HealPowerUp){
                 if(getBounds().intersects(temp.getBounds())){
                     currenthp = Game.clamp(currenthp+25, 0, maxhp);
                     handler.removeObject(temp);
+                    Game.sound.playHeal();
                 }
             }else if(temp.getId() == ID.MaxHpPowerUp){
                 if(getBounds().intersects(temp.getBounds())){
                     maxhp += 50;
                     currenthp = Game.clamp((int)(currenthp * ((float)maxhp/(float)(maxhp-50))),0,maxhp);
                     handler.removeObject(temp);
+                    Game.sound.playMaxHp();
                 }
             }else  if(temp.getId() == ID.SpeedPowerUp){
                 if(getBounds().intersects(temp.getBounds())){
                     speed *= 2;
                     speedTimer = 300;
                     handler.removeObject(temp);
+                    Game.sound.playSpeedBoost();
                 }
             }else if(temp.getId() == ID.JumpPowerUp){
                 if(getBounds().intersects(temp.getBounds())){
                     jumpHeight *= 2;
                     jumpTimer = 180;
                     handler.removeObject(temp);
+                    Game.sound.playJumpBoost();
                 }
             }
         }

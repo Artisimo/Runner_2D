@@ -54,7 +54,7 @@ public class Game extends Canvas implements Runnable {
 
         gameState = GameState.MENU;
 
-        music.playMusic(20 + (int)(Math.random() * (23-20)));
+        music.playMenuMusic();
 
     }
 
@@ -67,7 +67,7 @@ public class Game extends Canvas implements Runnable {
         background = loader.loadImage("background.png");
         gameState = GameState.PLAYING;
         music.stop();
-        music.playMusic(23 + (int)(Math.random() * (27-23)));
+        music.playGameMusic();
     }
 
     public void emptyHandler(){
@@ -179,7 +179,7 @@ public class Game extends Canvas implements Runnable {
             }
         }else if(gameState == GameState.MENU){
             if(music.getClip() == null){
-                music.playMusic(20 + (int)(Math.random() * (23-20)));
+                music.playMenuMusic();
             }
         }
     }
