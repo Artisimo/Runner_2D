@@ -52,6 +52,8 @@ public class Game extends Canvas implements Runnable {
         tex = new Texture();
 
         gameState = GameState.MENU;
+        sound.playMusic();
+
     }
 
     public void play(){
