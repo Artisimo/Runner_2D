@@ -23,10 +23,10 @@ public class Platform extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.CYAN);
-        g.drawRect(x , y ,width, height);
+        //g.setColor(Color.CYAN);
+        //g.drawRect(x , y ,width, height);
 
-        //g.drawImage(tex.platformImages[0], x, y, null);
+        g.drawImage(tex.platformImages[0], x, y, null);
 
     }
 
