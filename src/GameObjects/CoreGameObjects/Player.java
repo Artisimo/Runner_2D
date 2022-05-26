@@ -1,9 +1,10 @@
 package GameObjects.CoreGameObjects;
-import Enviroment.Animation;
-import Enviroment.Texture;
+import Enviroment.*;
 import GameObjects.GameObject;
 import Handler.Handler;
 import java.awt.*;
+import java.sql.SQLException;
+
 import Game.*;
 import GameObjects.*;
 
@@ -15,6 +16,8 @@ public class Player extends GameObject {
     public int attacked = 0;
     private boolean leftbound = true;
     private GameObject intersactedEnemy;
+
+    private String username = "testUser";
 
     private int crystalsCollected = 0;
     private int speedTimer = -1;
@@ -136,6 +139,11 @@ public class Player extends GameObject {
                     long miliSeconds = elapsedTime % 1000;
                     System.out.println(elapsedTime);
                     System.out.println("Level finished in " + seconds + "." + miliSeconds + " seconds, " + crystalsCollected + " / 3 crystals collected. SEND TO DB, save the result");
+                    try {
+                        mySqlDatabase.saveLevelResult(seconds + "." + miliSeconds, crystalsCollected, username);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     game.emptyHandler();
                     game.gameState = GameState.MENU;
 

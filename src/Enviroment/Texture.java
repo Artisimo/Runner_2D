@@ -23,6 +23,8 @@ public class Texture {
     private BufferedImage explosiveEnemy = null;
     public BufferedImage projectile = null;
 
+    public BufferedImage finishLine = null;
+
     public BufferedImage[] platformImages = new BufferedImage[1];
     public BufferedImage[] playerImages = new BufferedImage[17];
 
@@ -44,6 +46,7 @@ public class Texture {
             basicEnemy = loader.loadImage("basicEnemy.png");
             projectile = loader.loadImage("projectile.png");
             explosiveEnemy = loader.loadImage("explosiveEnemy.png");
+            finishLine = loader.loadImage("finishLine.png");
         }catch(Exception e){
             e.printStackTrace();
         }

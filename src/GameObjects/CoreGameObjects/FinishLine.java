@@ -1,5 +1,7 @@
 package GameObjects.CoreGameObjects;
 
+import Enviroment.Texture;
+import Game.Game;
 import GameObjects.GameObject;
 import Handler.Handler;
 
@@ -9,6 +11,8 @@ public class FinishLine extends GameObject {
 
     private int x, y, width, height;
     private Handler handler;
+
+    Texture tex = Game.getInstance();
 
     public FinishLine(int x, int y, int width, int height, ID id,  Handler handler) {
         super(x, y, width, height, id);
@@ -24,8 +28,6 @@ public class FinishLine extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.RED);
-
-        g.fillRect(x, y, 64, 128);
+        g.drawImage(tex.finishLine, x, y,64, 128, null);
     }
 }

@@ -1,7 +1,7 @@
 package Game;
 
-import Enviroment.*;
 import Enviroment.Window;
+import Enviroment.*;
 import GameObjects.CoreGameObjects.*;
 import GameObjects.Enemies.BasicEnemy;
 import GameObjects.Enemies.ExplosiveEnemy;
