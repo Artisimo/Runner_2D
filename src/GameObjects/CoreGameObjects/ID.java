@@ -14,5 +14,6 @@ public enum ID {
 
     HealPowerUp(),
     MaxHpPowerUp(),
-    SpeedPowerUp()
+    SpeedPowerUp(),
+    JumpPowerUp()
 }

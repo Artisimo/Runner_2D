@@ -18,6 +18,7 @@ public class Player extends GameObject {
 
     private int crystalsCollected = 0;
     private int speedTimer = -1;
+    private int jumpTimer = -1;
 
     Texture tex = Game.getInstance();
 
@@ -28,6 +29,7 @@ public class Player extends GameObject {
         super(x, y,width, height, id);
         this.handler = handler;
         speed = 5;
+        jumpHeight = 15;
         playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3], tex.playerImages[4], tex.playerImages[5], tex.playerImages[6], tex.playerImages[7], tex.playerImages[8]);
         startTime = System.currentTimeMillis();
     }
@@ -39,8 +41,14 @@ public class Player extends GameObject {
         if(speedTimer < 0){
             speed = 5;
         }
-        else {
+        else if(speedTimer > -2){
             speedTimer -= 1;
+        }
+        if(jumpTimer < 0){
+            jumpHeight = 15;
+        }
+        else if(jumpTimer > -2){
+            jumpTimer -= 1;
         }
         if(jumping || falling){
 
@@ -138,6 +146,12 @@ public class Player extends GameObject {
                 if(getBounds().intersects(temp.getBounds())){
                     speed *= 2;
                     speedTimer = 300;
+                    handler.removeObject(temp);
+                }
+            }else if(temp.getId() == ID.JumpPowerUp){
+                if(getBounds().intersects(temp.getBounds())){
+                    jumpHeight *= 2;
+                    jumpTimer = 180;
                     handler.removeObject(temp);
                 }
             }

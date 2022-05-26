@@ -13,6 +13,7 @@ public abstract class GameObject {
     protected int damage;
     protected int exploded = 0;
     protected int speed;
+    protected int jumpHeight;
 
 
     public GameObject(int x, int y, int width, int height, ID id){
@@ -124,5 +125,13 @@ public abstract class GameObject {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    public int getJumpHeight() {
+        return jumpHeight;
+    }
+
+    public void setJumpHeight(int jumpHeight) {
+        this.jumpHeight = jumpHeight;
     }
 }

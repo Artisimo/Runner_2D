@@ -33,7 +33,7 @@ public class KeyInput extends KeyAdapter {
                     temp.setVelX(-1 * temp.getSpeed());
                 }
                 if(key == KeyEvent.VK_SPACE && ! temp.isJumping() && ! temp.isFalling()){
-                    temp.setVelY(-15);
+                    temp.setVelY(-1* temp.getJumpHeight());
                     temp.setJumping(true);
                 }
             }
