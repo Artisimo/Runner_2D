@@ -27,6 +27,7 @@ public class Game extends Canvas implements Runnable {
     public GameState gameState;
 
     public BufferedImage level;
+    public BufferedImage background;
 
     static Texture tex;
     public static Sound music = new Sound();
@@ -41,6 +42,9 @@ public class Game extends Canvas implements Runnable {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         WIDTH = screenSize.width;
         HEIGHT = screenSize.height;
+
+//        WIDTH = 1920;
+//        HEIGHT = 1080;
 
         handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
@@ -60,7 +64,7 @@ public class Game extends Canvas implements Runnable {
         loadLevelImage(level);
         levelWidth = loader.getLevelWidth("level1.png");
         levelHeight = loader.getLevelHeight("level1.png");
-
+        background = loader.loadImage("background.png");
         gameState = GameState.PLAYING;
         music.stop();
         music.playMusic(23 + (int)(Math.random() * (27-23)));
@@ -195,9 +199,11 @@ public class Game extends Canvas implements Runnable {
             g.setColor(Color.RED);
             g.fillRect(100,100,100, 100 );
         }else if(gameState == GameState.PLAYING){
-            g.setColor(Color.GRAY);
-            g.fillRect(0,0,WIDTH, HEIGHT );
-
+            //g.setColor(Color.GRAY);
+            //g.fillRect(0,0,WIDTH, HEIGHT );
+            int imageX = (this.getWidth() - background.getWidth(null)) / 2;
+            int imageY = (this.getHeight() - background.getHeight(null)) / 2;
+            g.drawImage(background, imageX ,imageY, null);
             g2d.translate(camera.getX(), camera.getY());
 
             handler.render(g);

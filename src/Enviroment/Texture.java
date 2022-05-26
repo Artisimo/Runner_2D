@@ -35,7 +35,7 @@ public class Texture {
     }
 
     public void getTextures(){
-        platformImages[0] = platformSheet.grabImage(1, 1, 64, 64); // Platform texture
+        platformImages[0] = platformSheet.grabImage(2, 1, 64, 64); // Platform texture
 
         crystalImages[0] = crystalSheet.grabImage(1,1,64,64);
         crystalImages[1] = crystalSheet.grabImage(2,1,64,64);
