@@ -8,7 +8,7 @@ public class Texture {
 
     SpriteSheet crystalSheet;
     SpriteSheet powerUpSheet;
-
+    SpriteSheet explosiveEnemySheet;
     SpriteSheet basicEnemySheet;
     SpriteSheet shootingEnemySheet;
     private BufferedImage platform = null;
@@ -20,7 +20,7 @@ public class Texture {
 
     private BufferedImage shootingEnemy = null;
     private BufferedImage basicEnemy = null;
-
+    private BufferedImage explosiveEnemy = null;
     public BufferedImage projectile = null;
 
     public BufferedImage[] platformImages = new BufferedImage[1];
@@ -31,6 +31,7 @@ public class Texture {
 
     public BufferedImage[] shootingEnemyImages = new BufferedImage[2];
     public BufferedImage[] basicEnemyImages = new BufferedImage[8];
+    public BufferedImage[] explosiveEnemyImages = new BufferedImage[6];
 
     public Texture(){
         BufferedImageLoader loader = new BufferedImageLoader();
@@ -42,6 +43,7 @@ public class Texture {
             shootingEnemy = loader.loadImage("shootingEnemy.png");
             basicEnemy = loader.loadImage("basicEnemy.png");
             projectile = loader.loadImage("projectile.png");
+            explosiveEnemy = loader.loadImage("explosiveEnemy.png");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -52,6 +54,7 @@ public class Texture {
         powerUpSheet = new SpriteSheet(powerUp);
         shootingEnemySheet = new SpriteSheet(shootingEnemy);
         basicEnemySheet = new SpriteSheet(basicEnemy);
+        explosiveEnemySheet = new SpriteSheet(explosiveEnemy);
 
         getTextures();
     }
@@ -102,7 +105,9 @@ public class Texture {
         basicEnemyImages[6] = basicEnemySheet.grabImage(2,3,64,64);  // basic enemy right run animation
         basicEnemyImages[7] = basicEnemySheet.grabImage(2,4,64,64);  // basic enemy right run animation
 
-
+        explosiveEnemyImages[0] = explosiveEnemySheet.grabImage(1,1,64,64);  // explosive enemy right run animation
+        explosiveEnemyImages[1] = explosiveEnemySheet.grabImage(2,1,64,64);  // explosive enemy left run animation
+        explosiveEnemyImages[2] = explosiveEnemySheet.grabImage(3,1,64,64);  // explosion animation
 
     }
 }

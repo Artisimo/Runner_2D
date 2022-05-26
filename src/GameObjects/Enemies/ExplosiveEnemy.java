@@ -1,5 +1,8 @@
 package GameObjects.Enemies;
 
+import Enviroment.Animation;
+import Enviroment.Texture;
+import Game.Game;
 import GameObjects.GameObject;
 import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
@@ -12,10 +15,13 @@ public class ExplosiveEnemy extends BasicEnemy{
     protected int timer;
     GameObject player;
 
+    Texture tex = Game.getInstance();
+    Animation explosion;
 
     public ExplosiveEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int explosionRange) {
         super(x, y, width, height, id, handler, movingrange, damage);
         this.explosionRange = explosionRange;
+        explosion = new Animation(3, tex.explosiveEnemyImages[0],tex.explosiveEnemyImages[2]);
     }
 
     @Override
@@ -23,14 +29,25 @@ public class ExplosiveEnemy extends BasicEnemy{
         super.tick();
         if(isActivated && timer >= -1){
             timer -= 1;
+            explosion.runAnimation();
         }
     }
 
     @Override
     public void render(Graphics g){
-        g.setColor(Color.green);
-        g.fillRect(x, y, width, height);
-        g.drawRect(x - explosionRange,y - explosionRange,width + 2*explosionRange,height + 2*explosionRange);
+        if(!isActivated){
+            if(velX > 0){
+                g.drawImage(tex.explosiveEnemyImages[0], x, y, null);
+            }else if(velX < 0){
+                g.drawImage(tex.explosiveEnemyImages[1], x, y, null);
+            }else{
+                g.drawImage(tex.explosiveEnemyImages[0], x, y, null);
+            }
+        }else{
+            explosion.drawAnimation(g, x, y);
+        }
+
+        g.drawOval(x - explosionRange,y - explosionRange,width + 2*explosionRange,height + 2*explosionRange);
     }
 
     @Override
