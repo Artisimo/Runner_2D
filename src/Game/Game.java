@@ -29,6 +29,7 @@ public class Game extends Canvas implements Runnable {
     public BufferedImage level;
 
     static Texture tex;
+    public static Sound music = new Sound();
     public static Sound sound = new Sound();
 
 
@@ -48,7 +49,8 @@ public class Game extends Canvas implements Runnable {
         tex = new Texture();
 
         gameState = GameState.MENU;
-        sound.playMusic();
+
+        music.playMusic(20 + (int)(Math.random() * (23-20)));
 
     }
 
@@ -60,6 +62,8 @@ public class Game extends Canvas implements Runnable {
         levelHeight = loader.getLevelHeight("level1.png");
 
         gameState = GameState.PLAYING;
+        music.stop();
+        music.playMusic(23 + (int)(Math.random() * (27-23)));
     }
 
     public void emptyHandler(){
@@ -170,7 +174,9 @@ public class Game extends Canvas implements Runnable {
                 }
             }
         }else if(gameState == GameState.MENU){
-
+            if(music.getClip() == null){
+                music.playMusic(20 + (int)(Math.random() * (23-20)));
+            }
         }
     }
 
