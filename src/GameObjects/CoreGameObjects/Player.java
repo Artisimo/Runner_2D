@@ -24,7 +24,8 @@ public class Player extends GameObject {
 
     Texture tex = Game.getInstance();
 
-    private Animation playerWalk;
+    private Animation playerWalkRight;
+    private Animation playerWalkLeft;
     long startTime, elapsedTime;
 
     public Player(int x, int y, int width, int height, ID id, Handler handler, Game game){
@@ -32,7 +33,8 @@ public class Player extends GameObject {
         this.handler = handler;
         speed = 5;
         jumpHeight = 15;
-        playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3], tex.playerImages[4], tex.playerImages[5], tex.playerImages[6], tex.playerImages[7], tex.playerImages[8]);
+        playerWalkLeft = new Animation(4, tex.playerImages[7], tex.playerImages[8], tex.playerImages[9], tex.playerImages[10], tex.playerImages[11], tex.playerImages[12]);
+        playerWalkRight = new Animation(4, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3], tex.playerImages[4], tex.playerImages[5], tex.playerImages[6]);
         startTime = System.currentTimeMillis();
         this.game = game;
     }
@@ -66,8 +68,14 @@ public class Player extends GameObject {
             explosion();
         }
         collision();
-        playerWalk.runAnimation();
-        //System.out.println(x + " " + y);
+
+        if(velX != 0){
+            if(velX < 0){
+                playerWalkLeft.runAnimation();
+            }else if(velX > 0){
+                playerWalkRight.runAnimation();
+            }
+        }
     }
 
     public void collision(){
@@ -161,7 +169,6 @@ public class Player extends GameObject {
                 }
             }
         }
-
     }
     public boolean bottomCollision(Rectangle platform){
         return platform.intersects(getBoundsBottom());
@@ -182,10 +189,27 @@ public class Player extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        if(velX != 0 ){
-            playerWalk.drawAnimation(g, x, y);
+
+        if(jumping || falling){
+            if(velX != 0) {
+                if (velX < 0) {
+                    g.drawImage(tex.playerImages[14], x, y, null);
+                } else if (velX > 0) {
+                    g.drawImage(tex.playerImages[13], x, y, null);
+                }
+            }else{
+                g.drawImage(tex.playerImages[13], x, y, null);
+            }
         }else{
-            g.drawImage(tex.playerImages[0], x, y, null);
+            if(velX != 0){
+                if(velX < 0){
+                    playerWalkLeft.drawAnimation(g, x, y);
+                }else if(velX > 0){
+                    playerWalkRight.drawAnimation(g, x, y);
+                }
+            }else{
+                g.drawImage(tex.playerImages[0],x, y, null );
+            }
         }
     }
 
