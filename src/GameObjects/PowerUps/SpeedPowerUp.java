@@ -1,11 +1,15 @@
 package GameObjects.PowerUps;
 
+import Enviroment.Texture;
+import Game.Game;
 import GameObjects.CoreGameObjects.ID;
 import GameObjects.GameObject;
 
 import java.awt.*;
 
 public class SpeedPowerUp extends GameObject {
+
+    Texture tex = Game.getInstance();
     public SpeedPowerUp(int x, int y, int width, int height, ID id) {
         super(x, y, width, height, id);
     }
@@ -17,7 +21,6 @@ public class SpeedPowerUp extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.CYAN);
-        g.fillRect(x, y, width, height);
+        g.drawImage(tex.powerUpImages[2],x,y,null );
     }
 }

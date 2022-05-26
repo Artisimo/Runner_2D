@@ -1,5 +1,7 @@
 package GameObjects.PowerUps;
 
+import Enviroment.Texture;
+import Game.Game;
 import GameObjects.GameObject;
 import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
@@ -7,7 +9,7 @@ import Handler.Handler;
 import java.awt.*;
 
 public class HealPowerUp extends GameObject {
-
+    Texture tex = Game.getInstance();
     private Handler handler;
 
     public HealPowerUp(int x, int y, int width, int height, ID id, Handler handler) {
@@ -22,7 +24,6 @@ public class HealPowerUp extends GameObject {
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.ORANGE);
-        g.fillRect(x, y, width, height);
+        g.drawImage(tex.powerUpImages[0], x, y, null);
     }
 }

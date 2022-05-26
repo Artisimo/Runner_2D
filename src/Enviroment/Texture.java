@@ -7,15 +7,19 @@ public class Texture {
     SpriteSheet platformSheet;
 
     SpriteSheet crystalSheet;
+    SpriteSheet powerUpSheet;
     private BufferedImage platform = null;
     private BufferedImage player = null;
 
     private BufferedImage crystal = null;
 
+    private BufferedImage powerUp = null;
+
     public BufferedImage[] platformImages = new BufferedImage[1];
     public BufferedImage[] playerImages = new BufferedImage[17];
 
     public BufferedImage[] crystalImages = new BufferedImage[4];
+    public BufferedImage[] powerUpImages = new BufferedImage[4];
 
     public Texture(){
         BufferedImageLoader loader = new BufferedImageLoader();
@@ -23,6 +27,7 @@ public class Texture {
             platform = loader.loadImage("platform.png");
             player = loader.loadImage("player1.png");
             crystal = loader.loadImage("crystal.png");
+            powerUp = loader.loadImage("powerUps.png");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -30,6 +35,7 @@ public class Texture {
         playerSheet = new SpriteSheet(player);
         platformSheet = new SpriteSheet(platform);
         crystalSheet = new SpriteSheet(crystal);
+        powerUpSheet = new SpriteSheet(powerUp);
 
         getTextures();
     }
@@ -61,6 +67,11 @@ public class Texture {
         playerImages[14] = playerSheet.grabImage(2, 4, 64, 128); // jumping left
 //        playerImages[7] = playerSheet.grabImage(8, 1, 64, 128);
 //        playerImages[8] = playerSheet.grabImage(9, 1, 64, 128);
+
+        powerUpImages[0] = powerUpSheet.grabImage(1,1,64,64);  // Heal
+        powerUpImages[1] = powerUpSheet.grabImage(2,1,64,64);  // max health increase
+        powerUpImages[2] = powerUpSheet.grabImage(3,1,64,64);  // speed
+        powerUpImages[3] = powerUpSheet.grabImage(4,1,64,64);  // high jump
 
     }
 }
