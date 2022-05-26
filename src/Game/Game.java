@@ -24,7 +24,9 @@ public class Game extends Canvas implements Runnable {
 
     private Random r = new Random();
 
-    private BufferedImage level;
+    public GameState gameState;
+
+    public BufferedImage level;
 
     static Texture tex;
 
@@ -41,14 +43,24 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
-
+        this.addMouseListener(new MouseInput(this));
         tex = new Texture();
 
+        gameState = GameState.MENU;
+    }
+
+    public void play(){
         BufferedImageLoader loader = new BufferedImageLoader();
         level = loader.loadImage("level1.png");
         loadLevelImage(level);
         levelWidth = loader.getLevelWidth("level1.png");
         levelHeight = loader.getLevelHeight("level1.png");
+
+        gameState = GameState.PLAYING;
+    }
+
+    public void emptyHandler(){
+        handler.object.clear();
     }
 
     private void loadLevelImage(BufferedImage image){
@@ -66,12 +78,11 @@ public class Game extends Canvas implements Runnable {
 
 
                 if(red == 255 && green == 255 && blue == 255){
-
                     handler.addObject(new Platform(x*64,y*64, 64, 64, ID.Platform, handler));
                 }
 
                 if(red == 0 && green == 0 && blue == 255){
-                    player = new Player(x*64, y*64, 64, 128, ID.Player, handler);
+                    player = new Player(x*64, y*64, 64, 128, ID.Player, handler, this);
                     handler.addObject(player);
                     Hpbar hpbar = new Hpbar(0,0,0,32, ID.Hpbar,player);
 
@@ -147,12 +158,16 @@ public class Game extends Canvas implements Runnable {
 
     private void tick(){
 
-        handler.tick();
+        if(gameState == GameState.PLAYING){
+            handler.tick();
 
-        for(int i = 0; i < handler.object.size(); i++){
-            if(handler.object.get(i).getId() == ID.Player){
-                camera.tick(handler.object.get(i), levelWidth, levelHeight);
+            for(int i = 0; i < handler.object.size(); i++){
+                if(handler.object.get(i).getId() == ID.Player){
+                    camera.tick(handler.object.get(i), levelWidth, levelHeight);
+                }
             }
+        }else if(gameState == GameState.MENU){
+
         }
     }
 
@@ -165,15 +180,27 @@ public class Game extends Canvas implements Runnable {
         Graphics g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
 
-        g.setColor(Color.GRAY);
-        g.fillRect(0,0,WIDTH, HEIGHT );
+        if(gameState == GameState.MENU){
+            g.setColor(Color.BLACK);
+            g.fillRect(0,0,WIDTH, HEIGHT );
+            g.setColor(Color.RED);
+            g.fillRect(100,100,100, 100 );
+        }else if(gameState == GameState.PLAYING){
+            g.setColor(Color.GRAY);
+            g.fillRect(0,0,WIDTH, HEIGHT );
 
-        g2d.translate(camera.getX(), camera.getY());
+            g2d.translate(camera.getX(), camera.getY());
 
-        handler.render(g);
+            handler.render(g);
+            g.dispose();
+            bs.show();
 
+        }
         g.dispose();
         bs.show();
+
+
+
     }
 
     public static int clamp(int val, int min, int max){

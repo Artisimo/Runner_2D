@@ -20,18 +20,21 @@ public class Player extends GameObject {
     private int speedTimer = -1;
     private int jumpTimer = -1;
 
+    private Game game;
+
     Texture tex = Game.getInstance();
 
     private Animation playerWalk;
     long startTime, elapsedTime;
 
-    public Player(int x, int y, int width, int height, ID id, Handler handler){
+    public Player(int x, int y, int width, int height, ID id, Handler handler, Game game){
         super(x, y,width, height, id);
         this.handler = handler;
         speed = 5;
         jumpHeight = 15;
         playerWalk = new Animation(5, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3], tex.playerImages[4], tex.playerImages[5], tex.playerImages[6], tex.playerImages[7], tex.playerImages[8]);
         startTime = System.currentTimeMillis();
+        this.game = game;
     }
     @Override
     public void tick() {
@@ -124,7 +127,9 @@ public class Player extends GameObject {
                     long miliSeconds = elapsedTime % 1000;
                     System.out.println(elapsedTime);
                     System.out.println("Level finished in " + seconds + "." + miliSeconds + " seconds, " + crystalsCollected + " / 3 crystals collected. SEND TO DB, save the result");
-                    System.exit(1);
+                    game.emptyHandler();
+                    game.gameState = GameState.MENU;
+
                 }
             }else if(temp.getId() == ID.Crystal){
                 if(getBounds().intersects(temp.getBounds())){

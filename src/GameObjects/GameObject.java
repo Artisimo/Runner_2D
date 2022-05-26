@@ -24,6 +24,11 @@ public abstract class GameObject {
         this.height = height;
     }
 
+    public void resetCoordinates(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
     public abstract void tick();
     public abstract void render(Graphics g);
 
