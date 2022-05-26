@@ -1,4 +1,7 @@
 package GameObjects.Enemies;
+import Enviroment.Animation;
+import Enviroment.Texture;
+import Game.Game;
 import GameObjects.GameObject;
 import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
@@ -13,6 +16,11 @@ public class BasicEnemy extends GameObject {
     protected float gravity = 0.5f;
     Handler handler;
 
+    Texture tex = Game.getInstance();
+
+    private Animation WalkRight;
+    private Animation WalkLeft;
+
     public BasicEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage) {
         super(x, y, width, height, id);
         this.movingrange = movingrange;
@@ -20,6 +28,8 @@ public class BasicEnemy extends GameObject {
         startY = y;
         this.handler = handler;
         this.damage = damage;
+        WalkLeft = new Animation(4, tex.basicEnemyImages[0],tex.basicEnemyImages[1],tex.basicEnemyImages[2],tex.basicEnemyImages[3]);
+        WalkRight = new Animation(4, tex.basicEnemyImages[4],tex.basicEnemyImages[5],tex.basicEnemyImages[6],tex.basicEnemyImages[7]);
     }
 
     @Override
@@ -34,13 +44,31 @@ public class BasicEnemy extends GameObject {
                 velY += gravity;
             }
         }
+
+        if(velX != 0){
+            if(velX < 0){
+                WalkLeft.runAnimation();
+            }else if(velX > 0){
+                WalkRight.runAnimation();
+            }
+        }
         collision();
     }
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.red);
-        g.fillRect(x, y, width, height);
+
+        if(velX != 0){
+            if(velX < 0){
+                WalkLeft.drawAnimation(g, x, y, 64, 128);
+            }else if(velX > 0){
+                WalkRight.drawAnimation(g, x, y, 64, 128);
+            }
+        }else{
+            g.drawImage(tex.basicEnemyImages[0], x, y,64, 128, null);
+        }
+//        g.setColor(Color.red);
+//        g.fillRect(x, y, width, height);
     }
 
     public void moving(){

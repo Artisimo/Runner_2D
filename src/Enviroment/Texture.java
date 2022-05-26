@@ -8,6 +8,9 @@ public class Texture {
 
     SpriteSheet crystalSheet;
     SpriteSheet powerUpSheet;
+
+    SpriteSheet basicEnemySheet;
+    SpriteSheet shootingEnemySheet;
     private BufferedImage platform = null;
     private BufferedImage player = null;
 
@@ -15,11 +18,19 @@ public class Texture {
 
     private BufferedImage powerUp = null;
 
+    private BufferedImage shootingEnemy = null;
+    private BufferedImage basicEnemy = null;
+
+    public BufferedImage projectile = null;
+
     public BufferedImage[] platformImages = new BufferedImage[1];
     public BufferedImage[] playerImages = new BufferedImage[17];
 
     public BufferedImage[] crystalImages = new BufferedImage[4];
     public BufferedImage[] powerUpImages = new BufferedImage[4];
+
+    public BufferedImage[] shootingEnemyImages = new BufferedImage[2];
+    public BufferedImage[] basicEnemyImages = new BufferedImage[8];
 
     public Texture(){
         BufferedImageLoader loader = new BufferedImageLoader();
@@ -28,6 +39,9 @@ public class Texture {
             player = loader.loadImage("player1.png");
             crystal = loader.loadImage("crystal.png");
             powerUp = loader.loadImage("powerUps.png");
+            shootingEnemy = loader.loadImage("shootingEnemy.png");
+            basicEnemy = loader.loadImage("basicEnemy.png");
+            projectile = loader.loadImage("projectile.png");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -36,6 +50,8 @@ public class Texture {
         platformSheet = new SpriteSheet(platform);
         crystalSheet = new SpriteSheet(crystal);
         powerUpSheet = new SpriteSheet(powerUp);
+        shootingEnemySheet = new SpriteSheet(shootingEnemy);
+        basicEnemySheet = new SpriteSheet(basicEnemy);
 
         getTextures();
     }
@@ -72,6 +88,21 @@ public class Texture {
         powerUpImages[1] = powerUpSheet.grabImage(2,1,64,64);  // max health increase
         powerUpImages[2] = powerUpSheet.grabImage(3,1,64,64);  // speed
         powerUpImages[3] = powerUpSheet.grabImage(4,1,64,64);  // high jump
+
+        shootingEnemyImages[0] = shootingEnemySheet.grabImage(1,1,64,64);  // shooting enemy that shoots right
+        shootingEnemyImages[1] = shootingEnemySheet.grabImage(2,1,64,64);  // shooting enemy that shoots left
+
+        basicEnemyImages[0] = basicEnemySheet.grabImage(1,1,64,64);  // basic enemy left run animation
+        basicEnemyImages[1] = basicEnemySheet.grabImage(1,2,64,64);  // basic enemy left run animation
+        basicEnemyImages[2] = basicEnemySheet.grabImage(1,3,64,64);  // basic enemy left run animation
+        basicEnemyImages[3] = basicEnemySheet.grabImage(1,4,64,64); // basic enemy left run animation
+
+        basicEnemyImages[4] = basicEnemySheet.grabImage(2,1,64,64);  // basic enemy right run animation
+        basicEnemyImages[5] = basicEnemySheet.grabImage(2,2,64,64);  // basic enemy right run animation
+        basicEnemyImages[6] = basicEnemySheet.grabImage(2,3,64,64);  // basic enemy right run animation
+        basicEnemyImages[7] = basicEnemySheet.grabImage(2,4,64,64);  // basic enemy right run animation
+
+
 
     }
 }

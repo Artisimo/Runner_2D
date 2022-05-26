@@ -1,4 +1,6 @@
 package GameObjects.Enemies;
+import Enviroment.Texture;
+import Game.Game;
 import GameObjects.GameObject;
 import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
@@ -7,6 +9,7 @@ import java.awt.*;
 public class Projectile extends GameObject {
     private int side;
     protected Handler handler;
+    Texture tex = Game.getInstance();
 
     public Projectile(int x, int y, int width, int height, ID id, Handler handler, int damage, int side) {
         super(x, y, width, height, id);
@@ -24,8 +27,7 @@ public class Projectile extends GameObject {
 
     @Override
     public void render(Graphics g){
-        g.setColor(Color.blue);
-        g.fillRect(x, y, width, height);
+        g.drawImage(tex.projectile, x, y, 32, 32,null);
     }
 
     public void collision(){
