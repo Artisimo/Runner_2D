@@ -10,16 +10,17 @@ import static Game.Game.sound;
 
 public class Sound {
     Clip clip;
+    private int movingTimer = -1;
     URL soundURL[] = new URL[30];
 
     public Sound(){
         soundURL[0] = getClass().getResource("/sounds/movement/jump.wav"); //7,12,17,22,31,34,50
-        //run
+        soundURL[1] = getClass().getResource("/sounds/movement/move.wav");//run
         soundURL[2] = getClass().getResource("/sounds/collection/Crystal.wav");//start collectibles
         soundURL[3] = getClass().getResource("/sounds/collection/Heal.wav");
         soundURL[4] = getClass().getResource("/sounds/collection/HpBoost.wav");
         soundURL[5] = getClass().getResource("/sounds/collection/JumpBoost.wav");
-        soundURL[6] = getClass().getResource("/sounds/collection/SpeedBoost.wav");
+        soundURL[6] = getClass().getResource("/sounds/collection/SpeedBoost.wav");//collectibles ends
 
         soundURL[20] = getClass().getResource("/sounds/music/Whisperer.wav");//menu music
         soundURL[21] = getClass().getResource("/sounds/music/Warmth.wav");
@@ -71,6 +72,10 @@ public class Sound {
         loop();
     }
 
+    public void playMove() {
+//        playSound(1);
+//        loop();
+    }
     public void playCrystal(){
         playSound(2);
     }

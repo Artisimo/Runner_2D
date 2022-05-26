@@ -32,6 +32,8 @@ public class Game extends Canvas implements Runnable {
     static Texture tex;
     public static Sound music = new Sound();
     public static Sound sound = new Sound();
+    public static Sound movingRight = new Sound();
+    public static Sound movingLeft = new Sound();
 
 
     Camera camera = new Camera(0,0);
