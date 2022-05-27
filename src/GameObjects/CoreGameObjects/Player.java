@@ -108,10 +108,12 @@ public class Player extends GameObject {
             else if(temp.getId() == ID.BasicEnemy ){
                 if(this.bottomCollision(temp.getBounds()) && attacked <=0 && leftbound){
                     handler.removeObject(temp);
+                    Game.sound.playEnemyDies();
                     temp = null;
                 } else if(this.getBounds().intersects(temp.getBounds()) ){
                     if(attacked <=0){
                         currenthp -= temp.getDamage();
+                        Game.sound.playDamage();
                         attacked = 180;
                     }
                     leftbound  = false;
@@ -124,12 +126,14 @@ public class Player extends GameObject {
             else if(temp.getId() == ID.Projectile){
                 if(this.getBounds().intersects(temp.getBounds())){
                     currenthp -= temp.getDamage();
+                    Game.sound.playDamage();
                     handler.removeObject(temp);
                 }
             }
             else if (temp.getId() == ID.ExplosiveEnemy){
                 if(temp.getExploded() > 0){
                     currenthp -= temp.getDamage();
+                    Game.sound.playDamage();
                 }
             }else if(temp.getId() == ID.FinishLine){
                 if(getBounds().intersects(temp.getBounds())){

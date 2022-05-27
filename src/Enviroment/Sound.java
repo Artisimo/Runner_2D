@@ -24,6 +24,8 @@ public class Sound {
         soundURL[7] = getClass().getResource("/sounds/enemies/Shoot.wav");//Enemies
         soundURL[8] = getClass().getResource("/sounds/enemies/Bomb_Explosion.wav");
         soundURL[9] = getClass().getResource("/sounds/enemies/Bomb_trigger.wav");
+        soundURL[10] = getClass().getResource("/sounds/enemies/Enemy_dies.wav");
+        soundURL[11] = getClass().getResource("/sounds/enemies/Damage.wav");
 
 
         soundURL[20] = getClass().getResource("/sounds/music/Whisperer.wav");//menu music
@@ -83,6 +85,8 @@ public class Sound {
     public void playExplosion(){playSound(8); }
     public void playBombTrigger(){playSound(9);}
     public void playShot(){playSound(7);}
+    public void playEnemyDies(){playSound(10);}
+    public void playDamage(){playSound(11);}
     public void playCrystal(){
         playSound(2);
     }
