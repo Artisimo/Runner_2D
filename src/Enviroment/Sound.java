@@ -79,8 +79,8 @@ public class Sound {
     }
 
     public void playMove() {
-//        playSound(1);
-//        loop();
+        playSound(1);
+        loop();
     }
     public void playExplosion(){playSound(8); }
     public void playBombTrigger(){playSound(9);}

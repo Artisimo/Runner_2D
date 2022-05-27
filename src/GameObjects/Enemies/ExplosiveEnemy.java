@@ -47,7 +47,7 @@ public class ExplosiveEnemy extends BasicEnemy{
             explosion.drawAnimation(g, x, y);
         }
 
-        g.drawOval(x - explosionRange,y - explosionRange,width + 2*explosionRange,height + 2*explosionRange);
+        //g.drawOval(x - explosionRange,y - explosionRange,width + 2*explosionRange,height + 2*explosionRange);
     }
 
     @Override

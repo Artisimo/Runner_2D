@@ -29,18 +29,22 @@ public class KeyInput extends KeyAdapter {
             if(temp.getId() == ID.Player) {
                 if (key == KeyEvent.VK_D) {
                     temp.setVelX(temp.getSpeed());
-                    if(!moving && !temp.isFalling() && !temp.isJumping()){
-                        Game.movingRight.playMove();
-                        moving = true;
-                    }
+//                    if(!moving && !temp.isFalling() && !temp.isJumping()){
+//                        Game.movingRight.playMove();
+//                        moving = true;
+//                    }else if((temp.isFalling() || temp.isJumping()) && Game.movingRight.getClip() != null){
+//                        Game.movingRight.stop();
+//                    }
                 }
 
                 if (key == KeyEvent.VK_A) {
                     temp.setVelX(-1 * temp.getSpeed());
-                    if(!moving && !temp.isFalling() && !temp.isJumping()){
-                        Game.movingLeft.playMove();
-                        moving = true;
-                    }
+//                    if(!moving && !temp.isFalling() && !temp.isJumping()){
+//                        Game.movingLeft.playMove();
+//                        moving = true;
+//                    }else if((temp.isFalling() || temp.isJumping()) && Game.movingLeft.getClip() != null){
+//                        Game.movingLeft.stop();
+//                    }
                 }
                 if(key == KeyEvent.VK_SPACE && ! temp.isJumping() && ! temp.isFalling()){
                     temp.setVelY(-1* temp.getJumpHeight());
@@ -62,13 +66,17 @@ public class KeyInput extends KeyAdapter {
             if(temp.getId() == ID.Player){
                 if(key == KeyEvent.VK_D){
                     temp.setVelX(0);
-                    //Game.movingRight.stop();
+//                    if(Game.movingRight.clip != null){
+//                        Game.movingRight.stop();
+//                    }
                     moving = false;
                 }
 
                 if (key == KeyEvent.VK_A) {
                     temp.setVelX(0);
-                    //Game.movingLeft.stop();
+//                    if(Game.movingLeft.clip != null){
+//                        Game.movingLeft.stop();
+//                    }
                     moving = false;
                 }
             }
