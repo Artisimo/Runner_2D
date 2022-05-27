@@ -45,6 +45,7 @@ public class Game extends Canvas implements Runnable {
         WIDTH = screenSize.width;
         HEIGHT = screenSize.height;
 
+
 //        WIDTH = 1920;
 //        HEIGHT = 1080;
 
@@ -60,12 +61,12 @@ public class Game extends Canvas implements Runnable {
 
     }
 
-    public void play(){
+    public void play(String path){
         BufferedImageLoader loader = new BufferedImageLoader();
-        level = loader.loadImage("level1.png");
+        level = loader.loadImage(path);
         loadLevelImage(level);
-        levelWidth = loader.getLevelWidth("level1.png");
-        levelHeight = loader.getLevelHeight("level1.png");
+        levelWidth = loader.getLevelWidth(path);
+        levelHeight = loader.getLevelHeight(path);
         background = loader.loadImage("background.png");
         gameState = GameState.PLAYING;
         music.stop();
@@ -108,13 +109,23 @@ public class Game extends Canvas implements Runnable {
 
                 if(red == 0 && green == 255 && blue == 0){
                     handler.addObject(new ShootingEnemy(x*64, y*64, 64, 128, ID.BasicEnemy, handler, 170, 10, 20, 1));
-
                 }
 
+                if(red == 0 && green == 128 && blue == 0){
+                    handler.addObject(new ShootingEnemy(x*64, y*64, 64, 128, ID.BasicEnemy, handler, 170, 10, 20, -1));
+                }
+
+                if(red == 255 && green == 255 && blue == 128){
+                    handler.addObject(new ExplosiveEnemy(x*64, y*64, 64, 64, ID.ExplosiveEnemy, handler, 50, 50, 150));
+                }
+
+                if(red == 128 && green == 255 && blue == 255){
+                    handler.addObject(new RuningExplosiveEnemy(x*64, y*64, 64, 64, ID.ExplosiveEnemy, handler, 20, 50, 150 ,5));
+                }
+
+
                 if(red == 255 && green == 128 && blue == 255){
-
                     handler.addObject(new FinishLine(x*64, y*64, 64, 128, ID.FinishLine, handler));
-
                 }
 
                 if(red == 255 && green == 255 && blue == 64){
@@ -124,13 +135,19 @@ public class Game extends Canvas implements Runnable {
                 if(red == 255 && green == 216 && blue == 0){
                     handler.addObject(new HealPowerUp(x*64, y * 64, 64, 64, ID.HealPowerUp, handler));
                 }
+                if(red == 128 && green == 128 && blue == 128){
+                    handler.addObject((new MaxHpPowerUp(600,500,64,64,ID.MaxHpPowerUp)));
+                }
+
+                if(red == 0 && green == 155 && blue == 255){
+                    handler.addObject(new SpeedPowerUp(800,600,64,64,ID.SpeedPowerUp));
+                }
+
+                if(red == 88 && green == 140 && blue == 58){
+                    handler.addObject(new JumpPowerUp(800,1000,64,64,ID.JumpPowerUp));
+                }
             }
         }
-        handler.addObject((new ExplosiveEnemy(600,200,64,64,ID.ExplosiveEnemy,handler,50,50,150)));
-        handler.addObject((new RuningExplosiveEnemy(1200,200,64,64,ID.ExplosiveEnemy,handler,25,50,150,5)));
-        handler.addObject((new MaxHpPowerUp(600,500,64,64,ID.MaxHpPowerUp)));
-        handler.addObject(new SpeedPowerUp(800,600,64,64,ID.SpeedPowerUp));
-        handler.addObject(new JumpPowerUp(800,1000,64,64,ID.JumpPowerUp));
     }
 
     public synchronized void start(){
@@ -196,6 +213,8 @@ public class Game extends Canvas implements Runnable {
         Graphics2D g2d = (Graphics2D) g;
 
         if(gameState == GameState.MENU){
+            TextField usernameField = new TextField(20);
+            usernameField.setBounds(200, 200, 100, 100);
             g.setColor(Color.BLACK);
             g.fillRect(0,0,WIDTH, HEIGHT );
             g.setColor(Color.RED);
