@@ -25,12 +25,9 @@ public class MenuHandler {
         g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
         g.setColor(Color.RED);
 
-        File folder = new File("C:\\Users\\Artis\\Documents\\GitHub\\Runner_2D\\res\\Levels");
-        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < Game.levelsAmount; i++) {
 
-        for (int i = 0; i < listOfFiles.length; i++) {
-            
-            object.add( new LevelSelectButton((i * 100) + (i+1) * 64, 100, MenuObjectID.levelButton, 100, 100, "/Levels/" + listOfFiles[i].getName()));
+            object.add( new LevelSelectButton((i * 100) + (i+1) * 64, 100, MenuObjectID.levelButton, 100, 100, "/Levels/level" + (i+1) + ".png"));
         }
 
         for(int i = 0; i < object.size(); i++){

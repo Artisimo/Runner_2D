@@ -35,7 +35,7 @@ public class Game extends Canvas implements Runnable {
     public static Sound movingRight = new Sound();
     public static Sound movingLeft = new Sound();
 
-
+    public static int levelsAmount = 2;
     Camera camera = new Camera(0,0);
 
     private Handler handler;
