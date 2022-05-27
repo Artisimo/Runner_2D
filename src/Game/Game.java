@@ -8,7 +8,7 @@ import GameObjects.Enemies.ExplosiveEnemy;
 import GameObjects.Enemies.RuningExplosiveEnemy;
 import GameObjects.Enemies.ShootingEnemy;
 import GameObjects.PowerUps.*;
-import Handler.Handler;
+import Handler.*;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -23,7 +23,7 @@ public class Game extends Canvas implements Runnable {
     private boolean running = false;
 
     private Random r = new Random();
-
+    private Graphics g;
     public GameState gameState;
 
     public BufferedImage level;
@@ -39,6 +39,7 @@ public class Game extends Canvas implements Runnable {
     Camera camera = new Camera(0,0);
 
     private Handler handler;
+    public MenuHandler menuHandler;
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -50,9 +51,10 @@ public class Game extends Canvas implements Runnable {
 //        HEIGHT = 1080;
 
         handler = new Handler();
+        menuHandler = new MenuHandler();
         new Window(WIDTH, HEIGHT, "First game", this);
         this.addKeyListener(new KeyInput(handler));
-        this.addMouseListener(new MouseInput(this));
+        this.addMouseListener(new MouseInput(this, g));
         tex = new Texture();
 
         gameState = GameState.MENU;
@@ -71,10 +73,12 @@ public class Game extends Canvas implements Runnable {
         gameState = GameState.PLAYING;
         music.stop();
         music.playGameMusic();
+        menuHandler.object.clear();
     }
 
     public void emptyHandler(){
         handler.object.clear();
+        menuHandler.object.clear();
     }
 
     private void loadLevelImage(BufferedImage image){
@@ -208,19 +212,13 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
             return;
         }
-        Graphics g = bs.getDrawGraphics();
+        g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
 
         if(gameState == GameState.MENU){
-            TextField usernameField = new TextField(20);
-            usernameField.setBounds(200, 200, 100, 100);
-            g.setColor(Color.BLACK);
-            g.fillRect(0,0,WIDTH, HEIGHT );
-            g.setColor(Color.RED);
-            g.fillRect(100,100,100, 100 );
+            menuHandler.generateStartMenu(g);
+
         }else if(gameState == GameState.PLAYING){
-            //g.setColor(Color.GRAY);
-            //g.fillRect(0,0,WIDTH, HEIGHT );
             int imageX = (this.getWidth() - background.getWidth(null)) / 2;
             int imageY = (this.getHeight() - background.getHeight(null)) / 2;
             g.drawImage(background, imageX ,imageY, null);

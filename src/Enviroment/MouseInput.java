@@ -1,24 +1,24 @@
 package Enviroment;
 
 import Game.Game;
-
+import Handler.MenuHandler;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class MouseInput implements MouseListener {
 
     Game game;
+    Graphics g;
 
-    public MouseInput(Game game){
+    public MouseInput(Game game, Graphics g){
         this.game = game;
+        this.g = g;
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-        int x = e.getX();
-        int y = e.getY();
-        if(x > 100 && x < 200 && y > 100 && y < 200){
-            game.play("/Levels/level1.png");
-        }
+        System.out.println(e.getX() + " " + e.getY());
+        game.menuHandler.executeClick(g, e, game);
     }
 
     @Override
