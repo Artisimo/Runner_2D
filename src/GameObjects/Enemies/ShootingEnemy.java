@@ -49,6 +49,7 @@ public class ShootingEnemy extends BasicEnemy{
                 Projectile projectile = new Projectile(x + width,y + 40,32,16,ID.Projectile,handler,projectileDamage,side);
                 reload = reloadTime;
                 handler.addObject(projectile);
+                Game.sound.playShot();
             }
             else {
                 Projectile projectile = new Projectile(x -32,y + 40,32,16,ID.Projectile,handler,projectileDamage,side);

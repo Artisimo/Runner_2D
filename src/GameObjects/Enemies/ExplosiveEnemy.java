@@ -82,12 +82,14 @@ public class ExplosiveEnemy extends BasicEnemy{
                     if(!isActivated){
                         isActivated = true;
                         timer = 120;
+                        Game.sound.playBombTrigger();
                     }else if(timer <= 0){
                         exploded = damage;
                     }
                 }
                 if(isActivated && timer < 0){
                     handler.removeObject(this);
+                    Game.sound.playExplosion();
                 }
 
             }

@@ -16,11 +16,15 @@ public class Sound {
     public Sound(){
         soundURL[0] = getClass().getResource("/sounds/movement/jump.wav"); //7,12,17,22,31,34,50
         soundURL[1] = getClass().getResource("/sounds/movement/move.wav");//run
-        soundURL[2] = getClass().getResource("/sounds/collection/Crystal.wav");//start collectibles
+        soundURL[2] = getClass().getResource("/sounds/collection/Crystal.wav");// collectibles
         soundURL[3] = getClass().getResource("/sounds/collection/Heal.wav");
         soundURL[4] = getClass().getResource("/sounds/collection/HpBoost.wav");
         soundURL[5] = getClass().getResource("/sounds/collection/JumpBoost.wav");
         soundURL[6] = getClass().getResource("/sounds/collection/SpeedBoost.wav");//collectibles ends
+        soundURL[7] = getClass().getResource("/sounds/enemies/Shoot.wav");//Enemies
+        soundURL[8] = getClass().getResource("/sounds/enemies/Bomb_Explosion.wav");
+        soundURL[9] = getClass().getResource("/sounds/enemies/Bomb_trigger.wav");
+
 
         soundURL[20] = getClass().getResource("/sounds/music/Whisperer.wav");//menu music
         soundURL[21] = getClass().getResource("/sounds/music/Warmth.wav");
@@ -76,6 +80,9 @@ public class Sound {
 //        playSound(1);
 //        loop();
     }
+    public void playExplosion(){playSound(8); }
+    public void playBombTrigger(){playSound(9);}
+    public void playShot(){playSound(7);}
     public void playCrystal(){
         playSound(2);
     }

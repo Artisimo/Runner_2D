@@ -62,13 +62,13 @@ public class KeyInput extends KeyAdapter {
             if(temp.getId() == ID.Player){
                 if(key == KeyEvent.VK_D){
                     temp.setVelX(0);
-                    Game.movingRight.stop();
+                    //Game.movingRight.stop();
                     moving = false;
                 }
 
                 if (key == KeyEvent.VK_A) {
                     temp.setVelX(0);
-                    Game.movingLeft.stop();
+                    //Game.movingLeft.stop();
                     moving = false;
                 }
             }
