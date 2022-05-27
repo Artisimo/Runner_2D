@@ -67,7 +67,7 @@ public class Game extends Canvas implements Runnable {
         loadLevelImage(level);
         levelWidth = loader.getLevelWidth(path);
         levelHeight = loader.getLevelHeight(path);
-        background = loader.loadImage("background.png");
+        background = loader.loadImage("/Textures/BasicGameTextures/background.png");
         gameState = GameState.PLAYING;
         music.stop();
         music.playGameMusic();
@@ -123,7 +123,6 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new RuningExplosiveEnemy(x*64, y*64, 64, 64, ID.ExplosiveEnemy, handler, 20, 50, 150 ,5));
                 }
 
-
                 if(red == 255 && green == 128 && blue == 255){
                     handler.addObject(new FinishLine(x*64, y*64, 64, 128, ID.FinishLine, handler));
                 }
@@ -136,15 +135,15 @@ public class Game extends Canvas implements Runnable {
                     handler.addObject(new HealPowerUp(x*64, y * 64, 64, 64, ID.HealPowerUp, handler));
                 }
                 if(red == 128 && green == 128 && blue == 128){
-                    handler.addObject((new MaxHpPowerUp(600,500,64,64,ID.MaxHpPowerUp)));
+                    handler.addObject((new MaxHpPowerUp(x*64, y * 64,64,64,ID.MaxHpPowerUp)));
                 }
 
                 if(red == 0 && green == 155 && blue == 255){
-                    handler.addObject(new SpeedPowerUp(800,600,64,64,ID.SpeedPowerUp));
+                    handler.addObject(new SpeedPowerUp(x*64, y * 64,64,64,ID.SpeedPowerUp));
                 }
 
                 if(red == 88 && green == 140 && blue == 58){
-                    handler.addObject(new JumpPowerUp(800,1000,64,64,ID.JumpPowerUp));
+                    handler.addObject(new JumpPowerUp(x*64, y * 64,64,64,ID.JumpPowerUp));
                 }
             }
         }

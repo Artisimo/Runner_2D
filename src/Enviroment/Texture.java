@@ -38,15 +38,15 @@ public class Texture {
     public Texture(){
         BufferedImageLoader loader = new BufferedImageLoader();
         try{
-            platform = loader.loadImage("platform.png");
-            player = loader.loadImage("player1.png");
-            crystal = loader.loadImage("crystal.png");
-            powerUp = loader.loadImage("powerUps.png");
-            shootingEnemy = loader.loadImage("shootingEnemy.png");
-            basicEnemy = loader.loadImage("basicEnemy.png");
-            projectile = loader.loadImage("projectile.png");
-            explosiveEnemy = loader.loadImage("explosiveEnemy.png");
-            finishLine = loader.loadImage("finishLine.png");
+            platform = loader.loadImage("/textures/BasicGameTextures/platform.png");
+            player = loader.loadImage("/textures//BasicGameTextures/player1.png");
+            crystal = loader.loadImage("/textures/PowerUpCollectibles/crystal.png");
+            powerUp = loader.loadImage("/textures/PowerUpCollectibles/powerUps.png");
+            shootingEnemy = loader.loadImage("/textures/Enemy/shootingEnemy.png");
+            basicEnemy = loader.loadImage("/textures/Enemy/basicEnemy.png");
+            projectile = loader.loadImage("/textures/Enemy/projectile.png");
+            explosiveEnemy = loader.loadImage("/textures/Enemy/explosiveEnemy.png");
+            finishLine = loader.loadImage("/textures//BasicGameTextures/finishLine.png");
         }catch(Exception e){
             e.printStackTrace();
         }
