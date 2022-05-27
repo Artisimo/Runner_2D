@@ -18,7 +18,7 @@ public class MouseInput implements MouseListener {
         int x = e.getX();
         int y = e.getY();
         if(x > 100 && x < 200 && y > 100 && y < 200){
-            game.play();
+            game.play("level1.png");
         }
     }
 

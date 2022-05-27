@@ -1,5 +1,6 @@
 package Handler;
 
+import GameObjects.CoreGameObjects.ID;
 import GameObjects.GameObject;
 import GameObjects.CoreGameObjects.Hpbar;
 
@@ -8,7 +9,7 @@ import java.util.LinkedList;
 
 public class Handler {
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
-    Hpbar hpbar;
+    GameObject hpbar;
 
     public void tick(){
         for(int i = 0; i < object.size(); i++){
@@ -21,9 +22,13 @@ public class Handler {
     public void render(Graphics g){
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
-
-            tempObject.render(g);
+            if(tempObject.getId() != ID.Hpbar){
+                tempObject.render(g);
+            }else{
+                hpbar = tempObject;
+            }
         }
+        hpbar.render(g);
     }
 
     public void addObject(GameObject object){
@@ -31,7 +36,6 @@ public class Handler {
         this.object.add(object);
 
     }
-    //public void addHpbar(Hpbar hpbar){this.hpbar = hpbar; }
 
     public void removeObject(GameObject object){
         this.object.remove(object);
