@@ -7,13 +7,13 @@ public  class mySqlDatabase {
 
     private static Connection conn;
 
-    public static void saveLevelResult(String time, int collectibles, String username) throws SQLException {            // Sends the result to database which is hosted in free hosting service
+    public static void saveLevelResult(String level, String time, int collectibles, String username) throws SQLException {            // Sends the result to database which is hosted in free hosting service
 
         conn = DriverManager.getConnection("jdbc:mysql://sql11.freesqldatabase.com:3306/sql11495525", "sql11495525", "nb6eLsmCaw");
         Statement statement = conn.createStatement();
         String sqlInsert = "INSERT INTO HighScores (levelID, playerUsername, time, crystalsCollected) VALUES (?, ?, ?, ?) ";
         PreparedStatement thisStatement = conn.prepareStatement(sqlInsert);
-        thisStatement.setString(1, "Level One");
+        thisStatement.setString(1, level);
         thisStatement.setString(2, username);
         thisStatement.setString(3, String.valueOf(time));
         thisStatement.setString(4, String.valueOf(collectibles));

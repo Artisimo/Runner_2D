@@ -144,7 +144,7 @@ public class Player extends GameObject {
                     System.out.println(elapsedTime);
                     System.out.println("Level finished in " + seconds + "." + miliSeconds + " seconds, " + crystalsCollected + " / 3 crystals collected. SEND TO DB, save the result");
                     try {
-                        mySqlDatabase.saveLevelResult(seconds + "." + miliSeconds, crystalsCollected, username);
+                        mySqlDatabase.saveLevelResult(game.levelname, seconds + "." + miliSeconds, crystalsCollected, username);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }

@@ -36,6 +36,7 @@ public class Game extends Canvas implements Runnable {
     public static Sound movingLeft = new Sound();
 
     public static int levelsAmount = 2;
+    public String levelname;
     Camera camera = new Camera(0,0);
 
     private Handler handler;
@@ -73,6 +74,7 @@ public class Game extends Canvas implements Runnable {
         gameState = GameState.PLAYING;
         music.stop();
         music.playGameMusic();
+        levelname = path.substring(8,14);
         menuHandler.object.clear();
     }
 
