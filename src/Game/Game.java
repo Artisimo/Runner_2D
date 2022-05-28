@@ -44,6 +44,10 @@ public class Game extends Canvas implements Runnable {
     public MenuHandler menuHandler;
 
     public String userName;
+    public boolean isMenuGenerated;
+    public boolean isUserNameSet;
+
+    public boolean isPauseMenuActive;
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -65,6 +69,8 @@ public class Game extends Canvas implements Runnable {
         gameState = GameState.USERNAME_PROMPT;
 
         music.playMenuMusic();
+
+        isMenuGenerated = false;
     }
 
     public void play(String path){
@@ -225,12 +231,26 @@ public class Game extends Canvas implements Runnable {
         }
         g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, WIDTH, HEIGHT);
+
         if(gameState == GameState.USERNAME_PROMPT){
-            menuHandler.generateUserNamePrompt(g);
+
+            if(!isUserNameSet){
+                menuHandler.generateUserNamePrompt(g);
+                isUserNameSet = true;
+            }
+            menuHandler.render(g);
 
         }else if(gameState == GameState.MENU){
-            menuHandler.generateStartMenu(g);
 
+            if(!isMenuGenerated){
+                menuHandler.generateStartMenu(g);
+
+                isMenuGenerated = true;
+            }
+
+                menuHandler.render(g);
         }else if(gameState == GameState.PLAYING){
             int imageX = (this.getWidth() - background.getWidth(null)) / 2;
             int imageY = (this.getHeight() - background.getHeight(null)) / 2;
@@ -241,7 +261,11 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bs.show();
         }else if(gameState == GameState.PAUSED){
-            menuHandler.generatePauseMenu(g);
+
+            if(!isPauseMenuActive){
+                menuHandler.generatePauseMenu(g);
+            }
+            menuHandler.render(g);
         }
 
         g.dispose();
@@ -267,7 +291,6 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String args[]){
-        //mySqlDatabase.getDB();
         new Game();
     }
 }

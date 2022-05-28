@@ -6,18 +6,17 @@ import java.util.Scanner;
 public  class mySqlDatabase {
 
     private static Connection conn;
+    private static ResultSet rs;
 
     static {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://sql11.freesqldatabase.com:3306/sql11495525", "sql11495525", "nb6eLsmCaw");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM HighScores", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            rs = ps.executeQuery("select * from HighScores");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-    ;
-
-
 
     public static void saveLevelResult(String level, int score, String username) throws SQLException {            // Sends the result to database which is hosted in free hosting service
 
@@ -65,7 +64,8 @@ public  class mySqlDatabase {
     }
 
    public static String getHighestScoreOfAllTime(String level) throws SQLException {
-       PreparedStatement selectStatement = conn.prepareStatement("SELECT score, username FROM HighScores WHERE levelID = ? ORDER BY score ASC", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+       PreparedStatement selectStatement = conn.prepareStatement("SELECT score, username FROM HighScores  WHERE levelID = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
        selectStatement.setString(1, level);
 
        ResultSet playerRun = selectStatement.executeQuery();
@@ -76,4 +76,18 @@ public  class mySqlDatabase {
        System.out.println(highestScore);
        return highestScore;
    }
+
+    public static String getUsersHighestScoreOfAllTime(String level, String username) throws SQLException {
+        PreparedStatement selectStatement = conn.prepareStatement("SELECT score, username FROM HighScores WHERE levelID = ? AND username = ? ORDER BY score ASC", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        selectStatement.setString(1, level);
+        selectStatement.setString(2, username);
+
+        ResultSet playerRun = selectStatement.executeQuery();
+        String highestScore = "0";
+        while(playerRun.next()){
+            highestScore = playerRun.getString("score");
+        }
+        System.out.println(highestScore);
+        return highestScore;
+    }
 }

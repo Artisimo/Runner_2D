@@ -8,5 +8,11 @@ public enum MenuObjectID {
 
     quitButton(),
 
-    restartLevelButton()
+    restartLevelButton(),
+
+    Label(),
+
+    TextInput()
+
+
 }

@@ -17,6 +17,11 @@ public class ContinuePlayingButton extends MenuObject{
     }
 
     @Override
+    public void tick() {
+
+    }
+
+    @Override
     public void render(Graphics g) {
         g.setColor(Color.CYAN);
         g.drawRect(x, y, width, height);

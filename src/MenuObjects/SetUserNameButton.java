@@ -14,7 +14,13 @@ public class SetUserNameButton extends MenuObject{
     public void onClick(Game game) {
         if(game.userName.length() > 5 && game.userName.length() < 25 ){
             game.gameState = GameState.MENU;
+            //game.isMenuGenerated = true;
         }
+    }
+
+    @Override
+    public void tick() {
+
     }
 
     @Override

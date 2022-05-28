@@ -20,6 +20,8 @@ public abstract class MenuObject {
 
     public abstract void onClick(Game game);
 
+    public abstract void tick() throws SQLException;
+
     public abstract void render(Graphics g) throws SQLException;
 
     public int getX() {

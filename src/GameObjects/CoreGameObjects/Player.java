@@ -149,7 +149,7 @@ public class Player extends GameObject {
                     }
                     game.emptyHandler();
                     game.gameState = GameState.MENU;
-
+                    game.isMenuGenerated = false;
                 }
             }else if(temp.getId() == ID.Crystal){
                 if(getBounds().intersects(temp.getBounds())){

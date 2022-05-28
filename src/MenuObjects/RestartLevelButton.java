@@ -16,6 +16,10 @@ public class RestartLevelButton extends MenuObject{
     }
 
     @Override
+    public void tick() {
+
+    }
+    @Override
     public void render(Graphics g) {
         g.setColor(Color.MAGENTA);
         g.drawRect(x, y, width, height);
