@@ -1,5 +1,6 @@
 package MenuObjects;
 
 public enum MenuObjectID {
-    levelButton()
+    levelButton(),
+    userNameSetButton()
 }

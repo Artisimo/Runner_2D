@@ -1,5 +1,5 @@
 package Game;
 
 public enum GameState {
-    MENU, PLAYING
+    USERNAME_PROMPT, MENU, PLAYING
 }

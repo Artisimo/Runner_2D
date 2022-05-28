@@ -16,8 +16,30 @@ import Game.*;
 import MenuObjects.*;
 
 public class MenuHandler {
-
     public LinkedList<MenuObject> object = new LinkedList<MenuObject>();
+
+    public Game game;
+    public MenuHandler(Game game) {
+        this.game = game;
+    }
+    public void generateUserNamePrompt(Graphics g){
+        object.clear();
+        g.setColor(Color.BLACK);
+        g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
+
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        g.setColor(Color.MAGENTA);
+        int textWidth = g.getFontMetrics().stringWidth("Enter your username: ");
+        g.drawString("Enter your username: ", Game.WIDTH / 2 - textWidth, Game.HEIGHT / 2 - 100);
+
+        g.setColor(Color.CYAN);
+        g.drawString(game.userName, Game.WIDTH / 2 + 10, Game.HEIGHT / 2 - 100);
+
+        object.add(new SetUserNameButton((Game.WIDTH / 2) - 100,  Game.HEIGHT / 2, MenuObjectID.userNameSetButton   ,100, 50));
+        for(int i = 0; i < object.size(); i++){
+            object.get(i).render(g);
+        }
+    }
 
     public void generateStartMenu(Graphics g){
         object.clear();
@@ -27,7 +49,7 @@ public class MenuHandler {
 
         for (int i = 0; i < Game.levelsAmount; i++) {
 
-            object.add( new LevelSelectButton((i * 100) + (i+1) * 64, 100, MenuObjectID.levelButton, 100, 100, "/Levels/level" + (i+1) + ".png"));
+            object.add( new LevelSelectButton(Game.WIDTH / 2 - 100, (i * 64) + (i+1) * 30, MenuObjectID.levelButton, 100, 50, "/Levels/level" + (i+1) + ".png"));
         }
 
         for(int i = 0; i < object.size(); i++){
@@ -38,14 +60,9 @@ public class MenuHandler {
    public void executeClick(Graphics g, MouseEvent e, Game game){
        for(int i = 0; i < object.size(); i++){
            MenuObject tempObject = object.get(i);
-//           System.out.println(e.getX() + " " + e.getY());
-//           System.out.println( tempObject.getX() + " " + (tempObject.getX() + tempObject.getWidth()));
            if(e.getX() >= tempObject.getX() && e.getX() <= tempObject.getX() + tempObject.getWidth() && e.getY() >= tempObject.getY() && e.getY() <= tempObject.getY() + tempObject.getHeight()){
-               //System.out.println("here");
                tempObject.onClick(game);
            }
        }
    }
-
-
 }

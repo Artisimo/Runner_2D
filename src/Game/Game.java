@@ -35,33 +35,32 @@ public class Game extends Canvas implements Runnable {
     public static Sound movingRight = new Sound();
     public static Sound movingLeft = new Sound();
 
-    public static int levelsAmount = 2;
+    public static int levelsAmount = 10;
     public String levelname;
     Camera camera = new Camera(0,0);
 
     private Handler handler;
     public MenuHandler menuHandler;
 
+    public String userName;
+
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         WIDTH = screenSize.width;
         HEIGHT = screenSize.height;
 
-
-//        WIDTH = 1920;
-//        HEIGHT = 1080;
+        userName = "";
 
         handler = new Handler();
-        menuHandler = new MenuHandler();
+        menuHandler = new MenuHandler(this);
         new Window(WIDTH, HEIGHT, "First game", this);
-        this.addKeyListener(new KeyInput(handler));
+        this.addKeyListener(new KeyInput(handler, this));
         this.addMouseListener(new MouseInput(this, g));
         tex = new Texture();
 
-        gameState = GameState.MENU;
+        gameState = GameState.USERNAME_PROMPT;
 
         music.playMenuMusic();
-
     }
 
     public void play(String path){
@@ -208,16 +207,18 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
-    private void render(){
+    private void render() {
         BufferStrategy bs = this.getBufferStrategy();
-        if(bs == null) {
+        if (bs == null) {
             this.createBufferStrategy(3);
             return;
         }
         g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
+        if(gameState == GameState.USERNAME_PROMPT){
+            menuHandler.generateUserNamePrompt(g);
 
-        if(gameState == GameState.MENU){
+        }else if(gameState == GameState.MENU){
             menuHandler.generateStartMenu(g);
 
         }else if(gameState == GameState.PLAYING){
@@ -229,13 +230,9 @@ public class Game extends Canvas implements Runnable {
             handler.render(g);
             g.dispose();
             bs.show();
-
         }
         g.dispose();
         bs.show();
-
-
-
     }
 
     public static int clamp(int val, int min, int max){
@@ -250,6 +247,10 @@ public class Game extends Canvas implements Runnable {
 
     public static Texture getInstance(){
         return tex;
+    }
+
+    public Graphics getGraphics(){
+        return g;
     }
 
     public static void main(String args[]){

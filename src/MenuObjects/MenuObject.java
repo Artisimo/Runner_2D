@@ -53,4 +53,12 @@ public abstract class MenuObject {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public MenuObjectID getId() {
+        return id;
+    }
+
+    public void addToUserName(String letter){
+
+    }
 }

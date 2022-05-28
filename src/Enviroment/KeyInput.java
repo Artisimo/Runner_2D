@@ -2,9 +2,13 @@ package Enviroment;
 
 import GameObjects.GameObject;
 import GameObjects.CoreGameObjects.ID;
-import Handler.Handler;
-import Game.Game;
+import Handler.*;
+import Game.*;
+import MenuObjects.MenuObject;
+import MenuObjects.MenuObjectID;
+import MenuObjects.SetUserNameButton;
 
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -13,15 +17,27 @@ public class KeyInput extends KeyAdapter {
 
     public Handler handler;
     private boolean moving = false;
+    private Game game;
 
-    public KeyInput(Handler handler) {
-
+    public KeyInput(Handler handler, Game game) {
         this.handler = handler;
+        this.game = game;
     }
 
     public void keyPressed (KeyEvent e) {
 
         int key = e.getKeyCode();
+
+        if(game.gameState == GameState.USERNAME_PROMPT){
+            if(key == KeyEvent.VK_BACK_SPACE){
+                game.userName = game.userName.substring(0, game.userName.length() - 1);
+            }else{
+                game.userName = game.userName + e.getKeyChar();
+            }
+
+
+        }
+
         for(int i = 0;i < handler.object.size(); i++) {
 
             GameObject temp = handler.object.get(i);

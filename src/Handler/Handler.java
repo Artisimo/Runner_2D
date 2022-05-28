@@ -33,11 +33,9 @@ public class Handler {
     public void addObject(GameObject object){
 
         this.object.add(object);
-
     }
 
     public void removeObject(GameObject object){
         this.object.remove(object);
     }
-
 }
