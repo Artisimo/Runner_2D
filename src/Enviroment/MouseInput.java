@@ -17,7 +17,6 @@ public class MouseInput implements MouseListener {
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println(e.getX() + " " + e.getY());
         game.menuHandler.executeClick(g, e, game);
     }
 

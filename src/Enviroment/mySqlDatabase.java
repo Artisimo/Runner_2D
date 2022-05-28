@@ -73,7 +73,6 @@ public  class mySqlDatabase {
        while(playerRun.next()){
            highestScore = playerRun.getString("score");
        }
-       System.out.println(highestScore);
        return highestScore;
    }
 
@@ -87,7 +86,6 @@ public  class mySqlDatabase {
         while(playerRun.next()){
             highestScore = playerRun.getString("score");
         }
-        System.out.println(highestScore);
         return highestScore;
     }
 }

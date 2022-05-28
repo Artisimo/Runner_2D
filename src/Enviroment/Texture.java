@@ -11,6 +11,7 @@ public class Texture {
     SpriteSheet explosiveEnemySheet;
     SpriteSheet basicEnemySheet;
     SpriteSheet shootingEnemySheet;
+    SpriteSheet buttonSheet;
     private BufferedImage platform = null;
     private BufferedImage player = null;
 
@@ -25,6 +26,8 @@ public class Texture {
 
     public BufferedImage finishLine = null;
 
+    public BufferedImage buttons = null;
+
     public BufferedImage[] platformImages = new BufferedImage[1];
     public BufferedImage[] playerImages = new BufferedImage[17];
 
@@ -34,6 +37,8 @@ public class Texture {
     public BufferedImage[] shootingEnemyImages = new BufferedImage[2];
     public BufferedImage[] basicEnemyImages = new BufferedImage[8];
     public BufferedImage[] explosiveEnemyImages = new BufferedImage[6];
+
+    public BufferedImage[] buttonImages = new BufferedImage[5];
 
     public Texture(){
         BufferedImageLoader loader = new BufferedImageLoader();
@@ -47,6 +52,7 @@ public class Texture {
             projectile = loader.loadImage("/textures/Enemy/projectile.png");
             explosiveEnemy = loader.loadImage("/textures/Enemy/explosiveEnemy.png");
             finishLine = loader.loadImage("/textures//BasicGameTextures/finishLine.png");
+            buttons = loader.loadImage("/textures/Buttons/buttons.png");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -58,6 +64,7 @@ public class Texture {
         shootingEnemySheet = new SpriteSheet(shootingEnemy);
         basicEnemySheet = new SpriteSheet(basicEnemy);
         explosiveEnemySheet = new SpriteSheet(explosiveEnemy);
+        buttonSheet = new SpriteSheet(buttons);
 
         getTextures();
     }
@@ -111,6 +118,13 @@ public class Texture {
         explosiveEnemyImages[0] = explosiveEnemySheet.grabImage(1,1,64,64);  // explosive enemy right run animation
         explosiveEnemyImages[1] = explosiveEnemySheet.grabImage(2,1,64,64);  // explosive enemy left run animation
         explosiveEnemyImages[2] = explosiveEnemySheet.grabImage(3,1,64,64);  // explosion animation
+
+        buttonImages[0] = buttonSheet.grabImage(1, 1, 100, 50); // NEXT
+        buttonImages[1] = buttonSheet.grabImage(2, 1, 100, 50); // QUIT
+        buttonImages[2] = buttonSheet.grabImage(3, 1, 100, 50); // DONE
+        buttonImages[3] = buttonSheet.grabImage(4, 1, 100, 50); // CONTINUE
+        buttonImages[4] = buttonSheet.grabImage(5, 1, 100, 50); // RESTART
+
 
     }
 }

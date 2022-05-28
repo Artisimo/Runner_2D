@@ -1,10 +1,12 @@
 package MenuObjects;
 
+import Enviroment.Texture;
 import Game.*;
 
 import java.awt.*;
 
 public class QuitButton extends MenuObject{
+    Texture tex = Game.getInstance();
     public QuitButton(int x, int y, MenuObjectID id, int width, int height) {
         super(x, y, id, width, height);
     }
@@ -21,7 +23,6 @@ public class QuitButton extends MenuObject{
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.MAGENTA);
-        g.drawRect(x, y, width, height);
+       g.drawImage(tex.buttonImages[1], x, y, null);
     }
 }

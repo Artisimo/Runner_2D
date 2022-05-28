@@ -72,6 +72,8 @@ public class MenuHandler {
         object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
 
         object.add(new BackToMenuButton(Game.WIDTH / 2 + 10, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
+
+        object.add(new RestartLevelButton(Game.WIDTH / 2 + 220, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
 
     public void render(Graphics g) throws SQLException {

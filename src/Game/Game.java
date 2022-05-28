@@ -56,7 +56,6 @@ public class Game extends Canvas implements Runnable {
         WIDTH = screenSize.width;
         HEIGHT = screenSize.height;
 
-
         userName = "";
 
         handler = new Handler();
@@ -86,7 +85,6 @@ public class Game extends Canvas implements Runnable {
         music.playGameMusic();
         levelname = path.substring(8,14);
         menuHandler.object.clear();
-
     }
 
     public void emptyHandler(){
