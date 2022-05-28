@@ -36,7 +36,7 @@ public class Game extends Canvas implements Runnable {
     public static Sound movingRight = new Sound();
     public static Sound movingLeft = new Sound();
 
-    public static int levelsAmount = 10;
+    public static int levelsAmount = 9;
     public String levelname;
     Camera camera = new Camera(0,0);
 
@@ -46,16 +46,16 @@ public class Game extends Canvas implements Runnable {
     public String userName;
     public boolean isMenuGenerated;
     public boolean isUserNameSet;
-
     public boolean isPauseMenuActive;
+    public boolean isLevelFinishedMenuActive;
+
+    public String infoAboutScore;
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         WIDTH = screenSize.width;
         HEIGHT = screenSize.height;
 
-        WIDTH = 1920;
-        HEIGHT = 1080;
 
         userName = "";
 
@@ -264,6 +264,12 @@ public class Game extends Canvas implements Runnable {
 
             if(!isPauseMenuActive){
                 menuHandler.generatePauseMenu(g);
+            }
+            menuHandler.render(g);
+        }else if(gameState == GameState.LEVEL_FINISHED){
+
+            if(!isLevelFinishedMenuActive){
+                menuHandler.generateLevelFinishedMenu(g);
             }
             menuHandler.render(g);
         }

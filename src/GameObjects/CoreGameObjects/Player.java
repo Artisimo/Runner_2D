@@ -1,7 +1,7 @@
 package GameObjects.CoreGameObjects;
 import Enviroment.*;
 import GameObjects.GameObject;
-import Handler.Handler;
+import Handler.*;
 import java.awt.*;
 import java.sql.SQLException;
 
@@ -147,8 +147,9 @@ public class Player extends GameObject {
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
+                    game.infoAboutScore = "Time: " + seconds + "." + miliSeconds + ", " + crystalsCollected + " / 3 crystals collected. Score is: " + score;
                     game.emptyHandler();
-                    game.gameState = GameState.MENU;
+                    game.gameState = GameState.LEVEL_FINISHED;
                     game.isMenuGenerated = false;
                 }
             }else if(temp.getId() == ID.Crystal){

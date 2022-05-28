@@ -25,10 +25,16 @@ public class MenuHandler {
         this.game = game;
     }
 
+    public String time;
+
+    public int score = 0;
+
+    public int crystalsCollected = 0;
+
     public void generateUserNamePrompt(Graphics g) throws SQLException {
         object.clear();
         int textWidth = g.getFontMetrics().stringWidth("Enter your username: ");
-        object.add(new Label(Game.WIDTH / 2 - textWidth * 3, Game.HEIGHT / 2 - 100, MenuObjectID.Label, 0 ,0, "Enter your username: " ));
+        object.add(new Label(Game.WIDTH / 2 - textWidth * 3, Game.HEIGHT / 2 - 100, MenuObjectID.Label, 0 ,0, "Enter your username: " , 30, Color.MAGENTA));
 
         object.add(new TextInput(Game.WIDTH / 2 + 10, Game.HEIGHT / 2 - 100, MenuObjectID.TextInput, 0 ,0, game));
         object.add(new SetUserNameButton((Game.WIDTH / 2) - 100,  Game.HEIGHT / 2, MenuObjectID.userNameSetButton   ,100, 50));
@@ -44,7 +50,7 @@ public class MenuHandler {
             object.get(i).tick();
         }
 
-        object.add(new QuitButton(64, 64,MenuObjectID.quitButton, 100, 50));
+        object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
     }
 
     public void generatePauseMenu(Graphics g) throws SQLException {
@@ -53,6 +59,19 @@ public class MenuHandler {
         object.add(new ContinuePlayingButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 - 50,MenuObjectID.continuePlayingButton, 100, 50));
         object.add(new RestartLevelButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 + 50,MenuObjectID.restartLevelButton, 100, 50));
         object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 + 150,MenuObjectID.quitButton, 100, 50));
+
+    }
+
+    public void generateLevelFinishedMenu(Graphics g){
+        object.clear();
+
+        object.add(new Label(Game.WIDTH / 2 - 100, 50, MenuObjectID.Label, 0,0, "Level Completed!",30, Color.YELLOW));
+
+        object.add(new Label(Game.WIDTH / 2 - 300, 100, MenuObjectID.Label, 0,0, game.infoAboutScore,25, Color.CYAN));
+
+        object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
+
+        object.add(new BackToMenuButton(Game.WIDTH / 2 + 10, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
     }
 
     public void render(Graphics g) throws SQLException {
