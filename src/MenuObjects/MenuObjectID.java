@@ -2,5 +2,11 @@ package MenuObjects;
 
 public enum MenuObjectID {
     levelButton(),
-    userNameSetButton()
+    userNameSetButton(),
+
+    continuePlayingButton(),
+
+    quitButton(),
+
+    restartLevelButton()
 }

@@ -66,6 +66,7 @@ public class Game extends Canvas implements Runnable {
     public void play(String path){
         BufferedImageLoader loader = new BufferedImageLoader();
         level = loader.loadImage(path);
+        handler.object.clear();
         loadLevelImage(level);
         levelWidth = loader.getLevelWidth(path);
         levelHeight = loader.getLevelHeight(path);
@@ -75,6 +76,7 @@ public class Game extends Canvas implements Runnable {
         music.playGameMusic();
         levelname = path.substring(8,14);
         menuHandler.object.clear();
+
     }
 
     public void emptyHandler(){
@@ -230,7 +232,10 @@ public class Game extends Canvas implements Runnable {
             handler.render(g);
             g.dispose();
             bs.show();
+        }else if(gameState == GameState.PAUSED){
+            menuHandler.generatePauseMenu(g);
         }
+
         g.dispose();
         bs.show();
     }

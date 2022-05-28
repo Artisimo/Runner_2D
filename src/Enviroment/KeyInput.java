@@ -34,40 +34,46 @@ public class KeyInput extends KeyAdapter {
             }else{
                 game.userName = game.userName + e.getKeyChar();
             }
+        }else if(game.gameState == GameState.PLAYING){
+            for(int i = 0;i < handler.object.size(); i++) {
 
+                GameObject temp = handler.object.get(i);
 
-        }
-
-        for(int i = 0;i < handler.object.size(); i++) {
-
-            GameObject temp = handler.object.get(i);
-
-            if(temp.getId() == ID.Player) {
-                if (key == KeyEvent.VK_D) {
-                    temp.setVelX(temp.getSpeed());
+                if(temp.getId() == ID.Player) {
+                    if (key == KeyEvent.VK_D) {
+                        temp.setVelX(temp.getSpeed());
 //                    if(!moving && !temp.isFalling() && !temp.isJumping()){
 //                        Game.movingRight.playMove();
 //                        moving = true;
 //                    }else if((temp.isFalling() || temp.isJumping()) && Game.movingRight.getClip() != null){
 //                        Game.movingRight.stop();
 //                    }
-                }
+                    }
 
-                if (key == KeyEvent.VK_A) {
-                    temp.setVelX(-1 * temp.getSpeed());
+                    if (key == KeyEvent.VK_A) {
+                        temp.setVelX(-1 * temp.getSpeed());
 //                    if(!moving && !temp.isFalling() && !temp.isJumping()){
 //                        Game.movingLeft.playMove();
 //                        moving = true;
 //                    }else if((temp.isFalling() || temp.isJumping()) && Game.movingLeft.getClip() != null){
 //                        Game.movingLeft.stop();
 //                    }
+                    }
+                    if(key == KeyEvent.VK_SPACE && ! temp.isJumping() && ! temp.isFalling()){
+                        temp.setVelY(-1* temp.getJumpHeight());
+                        Game.sound.setFile(0);
+                        Game.sound.play();
+                        temp.setJumping(true);
+                    }
+
+                    if(key == KeyEvent.VK_ESCAPE){
+                        game.gameState = GameState.PAUSED;
+                    }
                 }
-                if(key == KeyEvent.VK_SPACE && ! temp.isJumping() && ! temp.isFalling()){
-                    temp.setVelY(-1* temp.getJumpHeight());
-                    Game.sound.setFile(0);
-                    Game.sound.play();
-                    temp.setJumping(true);
-                }
+            }
+        }else if(game.gameState == GameState.PAUSED){
+            if(key == KeyEvent.VK_ESCAPE){
+                game.gameState = GameState.PLAYING;
             }
         }
     }

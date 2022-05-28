@@ -57,6 +57,21 @@ public class MenuHandler {
         }
     }
 
+    public void generatePauseMenu(Graphics g){
+        object.clear();
+        g.setColor(Color.GRAY);
+        g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
+
+        object.add(new ContinuePlayingButton(Game.WIDTH / 3, Game.HEIGHT / 2 - 50,MenuObjectID.continuePlayingButton, 100, 50));
+        object.add(new RestartLevelButton(Game.WIDTH / 3 + 150, Game.HEIGHT / 2 - 50,MenuObjectID.restartLevelButton, 100, 50));
+        object.add(new QuitButton(Game.WIDTH / 3 + 300, Game.HEIGHT / 2 - 50,MenuObjectID.quitButton, 100, 50));
+
+        for(int i = 0; i < object.size(); i++){
+            object.get(i).render(g);
+        }
+    }
+
+
    public void executeClick(Graphics g, MouseEvent e, Game game){
        for(int i = 0; i < object.size(); i++){
            MenuObject tempObject = object.get(i);
