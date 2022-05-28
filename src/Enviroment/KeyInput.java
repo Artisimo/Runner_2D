@@ -31,8 +31,10 @@ public class KeyInput extends KeyAdapter {
         if(game.gameState == GameState.USERNAME_PROMPT){
             if(key == KeyEvent.VK_BACK_SPACE){
                 game.userName = game.userName.substring(0, game.userName.length() - 1);
-            }else{
-                game.userName = game.userName + e.getKeyChar();
+            }else if(key != KeyEvent.VK_SHIFT && key != KeyEvent.VK_CONTROL){
+                if(game.userName.length() < 25){
+                    game.userName = game.userName + e.getKeyChar();
+                }
             }
         }else if(game.gameState == GameState.PLAYING){
             for(int i = 0;i < handler.object.size(); i++) {
