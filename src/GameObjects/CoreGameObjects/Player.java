@@ -136,15 +136,14 @@ public class Player extends GameObject {
                     Game.sound.playDamage();
                 }
             }else if(temp.getId() == ID.FinishLine){
-                if(getBounds().intersects(temp.getBounds())){
+                if(getBoundsLeft().intersects(temp.getBounds())){
                     Game.music.stop();
                     elapsedTime = System.currentTimeMillis() - startTime;
                     long seconds = elapsedTime / 1000;
                     long miliSeconds = elapsedTime % 1000;
-                    System.out.println(elapsedTime);
-                    System.out.println("Level finished in " + seconds + "." + miliSeconds + " seconds, " + crystalsCollected + " / 3 crystals collected. SEND TO DB, save the result");
+                    int score = (int) elapsedTime / 3 + crystalsCollected * 200;
                     try {
-                        mySqlDatabase.saveLevelResult(game.levelname, seconds + "." + miliSeconds, crystalsCollected, game.userName);
+                        mySqlDatabase.saveLevelResult(game.levelname, score, game.userName);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }

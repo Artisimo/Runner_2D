@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.stream.Stream;
 import Game.*;
@@ -22,7 +23,7 @@ public class MenuHandler {
     public MenuHandler(Game game) {
         this.game = game;
     }
-    public void generateUserNamePrompt(Graphics g){
+    public void generateUserNamePrompt(Graphics g) throws SQLException {
         object.clear();
         g.setColor(Color.BLACK);
         g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
@@ -41,7 +42,7 @@ public class MenuHandler {
         }
     }
 
-    public void generateStartMenu(Graphics g){
+    public void generateStartMenu(Graphics g) throws SQLException {
         object.clear();
         g.setColor(Color.BLACK);
         g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
@@ -52,19 +53,21 @@ public class MenuHandler {
             object.add( new LevelSelectButton(Game.WIDTH / 2 - 100, (i * 64) + (i+1) * 30, MenuObjectID.levelButton, 100, 50, "/Levels/level" + (i+1) + ".png"));
         }
 
+        object.add(new QuitButton(64, 64,MenuObjectID.quitButton, 100, 50));
+
         for(int i = 0; i < object.size(); i++){
             object.get(i).render(g);
         }
     }
 
-    public void generatePauseMenu(Graphics g){
+    public void generatePauseMenu(Graphics g) throws SQLException {
         object.clear();
         g.setColor(Color.GRAY);
         g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
 
-        object.add(new ContinuePlayingButton(Game.WIDTH / 3, Game.HEIGHT / 2 - 50,MenuObjectID.continuePlayingButton, 100, 50));
-        object.add(new RestartLevelButton(Game.WIDTH / 3 + 150, Game.HEIGHT / 2 - 50,MenuObjectID.restartLevelButton, 100, 50));
-        object.add(new QuitButton(Game.WIDTH / 3 + 300, Game.HEIGHT / 2 - 50,MenuObjectID.quitButton, 100, 50));
+        object.add(new ContinuePlayingButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 - 50,MenuObjectID.continuePlayingButton, 100, 50));
+        object.add(new RestartLevelButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 + 50,MenuObjectID.restartLevelButton, 100, 50));
+        object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 + 150,MenuObjectID.quitButton, 100, 50));
 
         for(int i = 0; i < object.size(); i++){
             object.get(i).render(g);

@@ -13,6 +13,7 @@ import Handler.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.sql.SQLException;
 import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
@@ -48,6 +49,9 @@ public class Game extends Canvas implements Runnable {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         WIDTH = screenSize.width;
         HEIGHT = screenSize.height;
+
+        WIDTH = 1920;
+        HEIGHT = 1080;
 
         userName = "";
 
@@ -185,7 +189,11 @@ public class Game extends Canvas implements Runnable {
             lastTime = now;
             while(delta >= 1){
                 tick();
-                render();
+                try {
+                    render();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 delta--;
             }
         }
@@ -209,7 +217,7 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
-    private void render() {
+    private void render() throws SQLException {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {
             this.createBufferStrategy(3);

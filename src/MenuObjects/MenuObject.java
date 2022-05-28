@@ -3,6 +3,7 @@ package MenuObjects;
 import Game.Game;
 
 import java.awt.*;
+import java.sql.SQLException;
 
 public abstract class MenuObject {
     protected int x, y;
@@ -19,7 +20,7 @@ public abstract class MenuObject {
 
     public abstract void onClick(Game game);
 
-    public abstract void render(Graphics g);
+    public abstract void render(Graphics g) throws SQLException;
 
     public int getX() {
         return x;
