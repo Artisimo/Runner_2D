@@ -33,8 +33,7 @@ public class Game extends Canvas implements Runnable {
     static Texture tex;
     public static Sound music = new Sound();
     public static Sound sound = new Sound();
-    public static Sound movingRight = new Sound();
-    public static Sound movingLeft = new Sound();
+    public static Sound runSound = new Sound();
 
     public static int levelsAmount = 9;
     public String levelname;

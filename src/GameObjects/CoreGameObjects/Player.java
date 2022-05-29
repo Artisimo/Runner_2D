@@ -22,6 +22,7 @@ public class Player extends GameObject {
     private int crystalsCollected = 0;
     private int speedTimer = -1;
     private int jumpTimer = -1;
+    public boolean isPlayingRun = false;
 
     private Game game;
 
@@ -78,6 +79,15 @@ public class Player extends GameObject {
             }else if(velX > 0){
                 playerWalkRight.runAnimation();
             }
+        }
+
+        if(moving && !isPlayingRun && !isFalling() && !isJumping()){
+            Game.runSound.playMove();
+            isPlayingRun = true;
+        }
+        if((!moving  || isFalling() || isJumping())&& isPlayingRun){
+            Game.runSound.stop();
+            isPlayingRun = false;
         }
     }
 

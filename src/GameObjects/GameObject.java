@@ -14,6 +14,7 @@ public abstract class GameObject {
     protected int exploded = 0;
     protected int speed;
     protected int jumpHeight;
+    public boolean moving = false;
 
 
     public GameObject(int x, int y, int width, int height, ID id){
