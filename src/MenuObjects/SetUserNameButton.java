@@ -1,9 +1,10 @@
 package MenuObjects;
 
-import Enviroment.Texture;
+import Enviroment.*;
 import Game.*;
 
 import java.awt.*;
+import java.sql.SQLException;
 
 public class SetUserNameButton extends MenuObject{
 
@@ -13,10 +14,13 @@ public class SetUserNameButton extends MenuObject{
     }
 
     @Override
-    public void onClick(Game game) {
+    public void onClick(Game game) throws SQLException {
         if(game.userName.length() > 3 && game.userName.length() < 25 ){
+
             game.gameState = GameState.MENU;
+
             Game.logger.info("Username set: " + game.userName);
+            game.userId = mySqlDatabase.getUserID(game.userName);
         }else{
             Game.logger.warn("The entered username is not valid");
         }

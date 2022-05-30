@@ -162,7 +162,7 @@ public class Player extends GameObject {
                     long miliSeconds = elapsedTime % 1000;
                     int score = (int) elapsedTime / 3 + crystalsCollected * 200;
                     try {
-                        mySqlDatabase.saveLevelResult(game.levelname, score, game.userName);
+                        mySqlDatabase.saveLevelResult(game.levelname, score, Integer.toString(game.userId));
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
