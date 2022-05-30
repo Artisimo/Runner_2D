@@ -14,7 +14,7 @@ public class BasicEnemy extends GameObject {
     protected int startX;
     protected int startY;
     protected float gravity = 0.5f;
-    Handler handler;
+    protected Handler handler;
 
     Texture tex = Game.getInstance();
 
@@ -67,8 +67,6 @@ public class BasicEnemy extends GameObject {
         }else{
             g.drawImage(tex.basicEnemyImages[0], x, y,64, 128, null);
         }
-//        g.setColor(Color.red);
-//        g.fillRect(x, y, width, height);
     }
 
     public void moving(){
@@ -84,10 +82,6 @@ public class BasicEnemy extends GameObject {
         for(int i = 0; i < handler.object.size(); i++){
             GameObject temp = handler.object.get(i);
             if(temp.getId() == ID.Platform){
-//                if(this.getBoundsTop().intersects(temp.getBounds())){
-//                    velY = 0;
-//                    y = temp.getY() + temp.getHeight();
-//                }
 
                 if(bottomCollision(temp.getBounds())){
                     velY = 0;
@@ -114,8 +108,8 @@ public class BasicEnemy extends GameObject {
         return platform.intersects(getBoundsBottom());
     }
 
-    public Rectangle getBoundsBottom(){return new Rectangle(x + (width / 2) - (width/2)/2, y + (height / 2),width / 2, height / 2);
-    }
+    public Rectangle getBoundsBottom(){return new Rectangle(x + (width / 2) - (width/2)/2, y + (height / 2),width / 2, height / 2);}
+
     public Rectangle getBoundsTop(){
         return new Rectangle(x + (width / 2) - (width/2)/2, y,width/ 2, height/2);
     }

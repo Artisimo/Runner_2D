@@ -12,7 +12,7 @@ public class FinishLine extends GameObject {
     private int x, y, width, height;
     private Handler handler;
 
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
 
     public FinishLine(int x, int y, int width, int height, ID id,  Handler handler) {
         super(x, y, width, height, id);

@@ -9,7 +9,7 @@ import Game.*;
 import GameObjects.*;
 
 public class Player extends GameObject {
-    Handler handler;
+    private Handler handler;
     private float gravity = 0.5f;
     public int maxhp= 100;
     public int currenthp = maxhp;
@@ -26,11 +26,11 @@ public class Player extends GameObject {
 
     private Game game;
 
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
 
     private Animation playerWalkRight;
     private Animation playerWalkLeft;
-    long startTime, elapsedTime;
+    private long startTime, elapsedTime;
 
     public Player(int x, int y, int width, int height, ID id, Handler handler, Game game){
         super(x, y,width, height, id);

@@ -9,7 +9,7 @@ import java.awt.*;
 public class Projectile extends GameObject {
     private int side;
     protected Handler handler;
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
 
     public Projectile(int x, int y, int width, int height, ID id, Handler handler, int damage, int side) {
         super(x, y, width, height, id);

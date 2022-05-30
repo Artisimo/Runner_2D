@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 public class Handler {
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
-    GameObject hpbar;
+    private GameObject hpbar;
 
     public void tick(){
         for(int i = 0; i < object.size(); i++){

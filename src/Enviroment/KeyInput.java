@@ -4,12 +4,7 @@ import GameObjects.GameObject;
 import GameObjects.CoreGameObjects.ID;
 import Handler.*;
 import Game.*;
-import MenuObjects.MenuObject;
-import MenuObjects.MenuObjectID;
-import MenuObjects.SetUserNameButton;
-import kotlin.coroutines.CoroutineContext;
 
-import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -47,7 +42,7 @@ public class KeyInput extends KeyAdapter {
                         if(!temp.moving){
                             temp.moving = true;
                         }
-                        }
+                    }
 
                     if (key == KeyEvent.VK_A) {
                         temp.setVelX(-1 * temp.getSpeed());

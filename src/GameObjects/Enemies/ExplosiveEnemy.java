@@ -13,10 +13,10 @@ public class ExplosiveEnemy extends BasicEnemy{
     protected int explosionRange;
     protected boolean isActivated = false;
     protected int timer;
-    GameObject player;
+    protected GameObject player;
 
-    Texture tex = Game.getInstance();
-    Animation explosion;
+    private Texture tex = Game.getInstance();
+    private Animation explosion;
 
     public ExplosiveEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int explosionRange) {
         super(x, y, width, height, id, handler, movingrange, damage);

@@ -11,7 +11,7 @@ public class BackToMenuButton extends MenuObject{
     public BackToMenuButton(int x, int y, MenuObjectID id, int width, int height) {
         super(x, y, id, width, height);
     }
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
     @Override
     public void onClick(Game game) {
         game.gameState = GameState.MENU;

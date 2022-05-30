@@ -6,7 +6,7 @@ import Game.*;
 import java.awt.*;
 
 public class RestartLevelButton extends MenuObject{
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
     public RestartLevelButton(int x, int y, MenuObjectID id, int width, int height) {
         super(x, y, id, width, height);
     }

@@ -11,7 +11,7 @@ import java.awt.*;
 public class Crystal extends GameObject {
     private Handler handler;
 
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
 
     private Animation starAnimation;
 

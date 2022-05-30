@@ -12,7 +12,7 @@ public class ShootingEnemy extends BasicEnemy{
     protected int  projectileDamage;
     public int reloadTime = 240;
     public int reload;
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
 
     public ShootingEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int projectileDamage, int side) {
         super(x, y, width, height, id, handler, movingrange, damage);

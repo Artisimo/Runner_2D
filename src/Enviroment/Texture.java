@@ -94,8 +94,6 @@ public class Texture {
         playerImages[12] = playerSheet.grabImage(6, 2, 64, 128); //Left animation
         playerImages[13] = playerSheet.grabImage(1, 4, 64, 128); // jumping right
         playerImages[14] = playerSheet.grabImage(2, 4, 64, 128); // jumping left
-//        playerImages[7] = playerSheet.grabImage(8, 1, 64, 128);
-//        playerImages[8] = playerSheet.grabImage(9, 1, 64, 128);
 
         powerUpImages[0] = powerUpSheet.grabImage(1,1,64,64);  // Heal
         powerUpImages[1] = powerUpSheet.grabImage(2,1,64,64);  // max health increase

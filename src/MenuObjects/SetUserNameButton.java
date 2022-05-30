@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class SetUserNameButton extends MenuObject{
 
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
     public SetUserNameButton(int x, int y, MenuObjectID id, int width, int height) {
         super(x, y, id, width, height);
     }

@@ -9,7 +9,7 @@ import Handler.Handler;
 import java.awt.*;
 
 public class HealPowerUp extends GameObject {
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
     private Handler handler;
 
     public HealPowerUp(int x, int y, int width, int height, ID id, Handler handler) {

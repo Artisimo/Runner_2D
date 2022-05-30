@@ -9,7 +9,7 @@ public class Hpbar extends GameObject {
     public  int currenthp;
     public int maxhp;
 
-    Player player;
+    private Player player;
 
     public Hpbar(int x, int y, int width, int height, ID id, Player player){
         super(x,y,width,height,id);
