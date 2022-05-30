@@ -1,6 +1,7 @@
 package MenuObjects;
 
 import Game.Game;
+import Game.GameState;
 
 import java.awt.*;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ public class CreateLobbyButton extends MenuObject{
 
     @Override
     public void onClick(Game game) {
-        game.client.createLobby("level1");
+        game.gameState = GameState.MULTIPLAYER_LEVEL_SELECT;
     }
 
     @Override

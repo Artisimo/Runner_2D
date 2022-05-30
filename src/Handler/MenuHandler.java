@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import Game.*;
 import MenuObjects.*;
-import MenuObjects.Button;
+import MenuObjects.MultiplayerButton;
 import MenuObjects.Label;
 
 public class MenuHandler {
@@ -44,7 +44,7 @@ public class MenuHandler {
 
         object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
 
-        object.add(new Button(174, 30,MenuObjectID.button, 100, 50));
+        object.add(new MultiplayerButton(174, 30,MenuObjectID.button, 100, 50));
     }
 
     public void generatePauseMenu(Graphics g) throws SQLException {
@@ -82,10 +82,21 @@ public class MenuHandler {
         object.add(new RestartLevelButton(Game.WIDTH / 2 + 220, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
 
-    public void generateMultiplayerMenu(Graphics g){
+    public void generateMultiplayerMenu(Graphics g) throws SQLException {
         object.clear();
 
-        object.add(new CreateLobbyButton(Game.WIDTH / 2,Game.HEIGHT/2,MenuObjectID.CreateLobbyButton,100,50));
+        object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
+        object.add(new CreateLobbyButton(Game.WIDTH / 2 + Game.WIDTH/4,Game.HEIGHT/2 + Game.HEIGHT/4,MenuObjectID.CreateLobbyButton,100,50));
+    }
+    public void generateLobbyMenu(Graphics g) throws SQLException {
+        object.clear();
+        g.setColor(Color.BLACK);
+        g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
+        g.setColor(Color.RED);
+        for (int i = 0; i < Game.levelsAmount; i++) {
+            object.add( new LevelSelectButton(Game.WIDTH / 2 - 100, (i * 64) + (i+1) * 30, MenuObjectID.levelButton, 100, 50, "/Levels/level" + (i+1) + ".png", game));
+            object.get(i).tick();
+        }
     }
 
     public void render(Graphics g) throws SQLException {

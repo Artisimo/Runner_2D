@@ -7,13 +7,14 @@ import Multiplayer.Client;
 import java.awt.*;
 import java.sql.SQLException;
 
-public class Button extends MenuObject{
-    public Button(int x, int y, MenuObjectID id, int width, int height) {
+public class MultiplayerButton extends MenuObject{
+    public MultiplayerButton(int x, int y, MenuObjectID id, int width, int height) {
         super(x, y, id, width, height);
     }
 
     @Override
     public void onClick(Game game) {
+        game.isInMultiplayer = true;
         game.gameState = GameState.MULTIPLAYER_MENU;
         game.client = new Client(game.userName);
         game.client.run();

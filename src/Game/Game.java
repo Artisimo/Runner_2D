@@ -60,6 +60,7 @@ public class Game extends Canvas implements Runnable {
     public String infoAboutScore;
 
     public Client client;
+    public boolean isInMultiplayer = false;
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -294,6 +295,9 @@ public class Game extends Canvas implements Runnable {
             menuHandler.render(g);
         }else if(gameState == GameState.MULTIPLAYER_MENU){
             menuHandler.generateMultiplayerMenu(g);
+            menuHandler.render(g);
+        }else if(gameState == GameState.MULTIPLAYER_LEVEL_SELECT){
+            menuHandler.generateLobbyMenu(g);
             menuHandler.render(g);
         }
 

@@ -113,10 +113,11 @@ public  class mySqlDatabase {
         thisStatement.executeUpdate();
     }
     public static void joinLobby(String player_1, String player_2) throws SQLException {
-        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = ? WHERE Player_1 = ?");
+        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = ?,Running = ? WHERE Player_1 = ?");
 
         updateLobby.setString(1,player_2);
-        updateLobby.setString(2,player_1);
+        updateLobby.setString(2,"1");
+        updateLobby.setString(3,player_1);
 
         updateLobby.executeUpdate();
     }
