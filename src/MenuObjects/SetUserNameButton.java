@@ -16,6 +16,9 @@ public class SetUserNameButton extends MenuObject{
     public void onClick(Game game) {
         if(game.userName.length() > 3 && game.userName.length() < 25 ){
             game.gameState = GameState.MENU;
+            Game.logger.info("Username set: " + game.userName);
+        }else{
+            Game.logger.warn("The entered username is not valid");
         }
     }
 

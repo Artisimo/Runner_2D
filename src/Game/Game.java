@@ -16,11 +16,15 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.sql.SQLException;
 import java.util.Random;
+import org.apache.log4j.*;
 
 public class Game extends Canvas implements Runnable {
 
     public static int WIDTH, HEIGHT;
     public static int levelWidth, levelHeight;
+
+    public static Logger logger = Logger.getLogger(Game.class);
+
     private Thread thread;
     private boolean running = false;
 
@@ -74,6 +78,8 @@ public class Game extends Canvas implements Runnable {
         music.playMenuMusic();
 
         isMenuGenerated = false;
+
+
     }
 
     public void play(String path){
@@ -89,6 +95,9 @@ public class Game extends Canvas implements Runnable {
         music.playGameMusic();
         levelname = path.substring(8,14);
         menuHandler.object.clear();
+        logger.info(userName + " joined the level");
+        logger.info(levelname + " has been loaded");
+
     }
 
     public void emptyHandler(){
@@ -245,7 +254,6 @@ public class Game extends Canvas implements Runnable {
             menuHandler.render(g);
 
         }else if(gameState == GameState.MENU){
-
             if(!isMenuGenerated){
                 menuHandler.generateStartMenu(g);
 
