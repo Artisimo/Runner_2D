@@ -1,18 +1,9 @@
 package Handler;
 
-import GameObjects.GameObject;
-import Enviroment.*;
-
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.LinkedList;
-import java.util.stream.Stream;
 import Game.*;
 import MenuObjects.*;
 import MenuObjects.Label;
@@ -68,6 +59,18 @@ public class MenuHandler {
         object.add(new Label(Game.WIDTH / 2 - 100, 50, MenuObjectID.Label, 0,0, "Level Completed!",30, Color.YELLOW));
 
         object.add(new Label(Game.WIDTH / 2 - 300, 100, MenuObjectID.Label, 0,0, game.infoAboutScore,25, Color.CYAN));
+
+        object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
+
+        object.add(new BackToMenuButton(Game.WIDTH / 2 + 10, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
+
+        object.add(new RestartLevelButton(Game.WIDTH / 2 + 220, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
+    }
+
+    public void generatePlayerDiedMenu(Graphics g){
+        object.clear();
+
+        object.add(new Label(Game.WIDTH / 2 - 100, 50, MenuObjectID.Label, 0,0, "You died!",30, Color.YELLOW));
 
         object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
 

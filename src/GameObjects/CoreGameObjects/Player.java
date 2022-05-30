@@ -89,6 +89,10 @@ public class Player extends GameObject {
             Game.runSound.stop();
             isPlayingRun = false;
         }
+
+        if(currenthp <= 0){
+            game.gameState = GameState.PLAYER_DIED;
+        }
     }
 
     public void collision(){

@@ -48,6 +48,8 @@ public class Game extends Canvas implements Runnable {
     public boolean isPauseMenuActive;
     public boolean isLevelFinishedMenuActive;
 
+    public boolean playerDiedMenuGenerated;
+
     public String infoAboutScore;
 
     public Game(){
@@ -257,6 +259,11 @@ public class Game extends Canvas implements Runnable {
             handler.render(g);
             g.dispose();
             bs.show();
+        }else if(gameState == GameState.PLAYER_DIED){
+            if(!playerDiedMenuGenerated){
+                menuHandler.generatePlayerDiedMenu(g);
+            }
+            menuHandler.render(g);
         }else if(gameState == GameState.PAUSED){
 
             if(!isPauseMenuActive){
