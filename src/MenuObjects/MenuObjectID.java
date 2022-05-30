@@ -14,7 +14,8 @@ public enum MenuObjectID {
 
     TextInput(),
 
-    BackToMenuButton()
+    BackToMenuButton(),
 
+    button()
 
 }

@@ -262,18 +262,21 @@ public class Game extends Canvas implements Runnable {
         }else if(gameState == GameState.PLAYER_DIED){
             if(!playerDiedMenuGenerated){
                 menuHandler.generatePlayerDiedMenu(g);
+                playerDiedMenuGenerated = true;
             }
             menuHandler.render(g);
         }else if(gameState == GameState.PAUSED){
 
             if(!isPauseMenuActive){
                 menuHandler.generatePauseMenu(g);
+                isPauseMenuActive = true;
             }
             menuHandler.render(g);
         }else if(gameState == GameState.LEVEL_FINISHED){
 
             if(!isLevelFinishedMenuActive){
                 menuHandler.generateLevelFinishedMenu(g);
+                isLevelFinishedMenuActive = false;
             }
             menuHandler.render(g);
         }

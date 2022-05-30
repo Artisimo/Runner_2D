@@ -14,7 +14,7 @@ public class SetUserNameButton extends MenuObject{
 
     @Override
     public void onClick(Game game) {
-        if(game.userName.length() > 5 && game.userName.length() < 25 ){
+        if(game.userName.length() > 3 && game.userName.length() < 25 ){
             game.gameState = GameState.MENU;
         }
     }

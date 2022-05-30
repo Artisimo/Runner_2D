@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import Game.*;
 import MenuObjects.*;
+import MenuObjects.Button;
 import MenuObjects.Label;
 
 public class MenuHandler {
@@ -42,6 +43,8 @@ public class MenuHandler {
         }
 
         object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
+
+        object.add(new Button(174, 30,MenuObjectID.button, 100, 50));
     }
 
     public void generatePauseMenu(Graphics g) throws SQLException {
