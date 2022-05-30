@@ -4,6 +4,7 @@ import Enviroment.Texture;
 import Game.*;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class QuitButton extends MenuObject{
     private Texture tex = Game.getInstance();
@@ -13,6 +14,11 @@ public class QuitButton extends MenuObject{
 
     @Override
     public void onClick(Game game) {
+        try {
+            game.client.shutdown();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         System.exit(1);
     }
 

@@ -38,11 +38,26 @@ public class Server implements Runnable{
                 thredpool.execute(handler);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
-            //TODO:shutdown
+            shutDown();
         }
     }
 
+    public  void shutDown(){
+        if(!server.isClosed()){
+            try {
+                done = true;
+                for (ConnectionHandler ch : connections){
+                    ch.shutdown();
+                    mySqlDatabase.deleteLobby(ch.lobby.player1);
+                }
+                server.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
     class ConnectionHandler implements Runnable{
 
@@ -50,7 +65,7 @@ public class Server implements Runnable{
         private BufferedReader read;
         private PrintWriter write;
         private String clientName;
-        //Lobby lobby;
+        Lobby lobby;
 
 
         public ConnectionHandler(Socket client){
@@ -70,11 +85,14 @@ public class Server implements Runnable{
                         String[] messageSplit = message.split(" ",3);
                         if(messageSplit.length == 3){
                             mySqlDatabase.createLobby(messageSplit[1],messageSplit[2]);
+                            lobby.player1 = messageSplit[1];
+                            lobby.level = messageSplit[2];
                         }
                     }else if(message.startsWith("JoinLobby")){
                         String[] messageSplit = message.split(" ",3);
                         if(messageSplit.length == 2){
                             mySqlDatabase.joinLobby(messageSplit[1],messageSplit[2]);
+                            lobby.player2 = messageSplit[2];
                         }
                     }
                 }
@@ -85,10 +103,13 @@ public class Server implements Runnable{
         public void shutdown(){
             if(!client.isClosed()){
                 try {
+                    mySqlDatabase.deleteLobby(lobby.player1);
                     read.close();
                     write.close();
                     client.close();
                 } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
             }

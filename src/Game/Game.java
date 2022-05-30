@@ -59,7 +59,7 @@ public class Game extends Canvas implements Runnable {
 
     public String infoAboutScore;
 
-    public Client client;
+    public  Client client;
     public boolean isInMultiplayer = false;
 
     public Game(){
