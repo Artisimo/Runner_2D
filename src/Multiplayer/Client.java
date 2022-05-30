@@ -12,7 +12,6 @@ public class Client implements Runnable{
     private BufferedReader read;
     private PrintWriter write;
     private String userName;
-    public boolean createLobby = true;
 
     public Client(String userName){
         this.userName = userName;
@@ -23,39 +22,42 @@ public class Client implements Runnable{
             client = new Socket("127.0.0.1",9999);
             write = new PrintWriter(client.getOutputStream(),true);
             read = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            Handler inHandler = new Handler();
+            InHandler inHandler = new InHandler();
             Thread t = new Thread(inHandler);
             t.start();
 
 
         } catch (IOException e) {
             throw new RuntimeException(e);
-            //TODO:shutdown
         }
     }
 
-    public void createLobby(){
-        //createLobby = true;
-        write.println( "CreateLobby" + ' ' + userName );
+    public void createLobby(String level){
+        write.println( "CreateLobby" + ' ' + userName + ' ' + level );
     }
-    class Handler implements Runnable{
+    public void joinLobby(String player_1){
+        write.println("JoinLobby" + ' ' + player_1 + ' ' + userName);
+    }
+
+    public void shutdown() throws IOException {
+        done = true;
+        try {
+            read.close();
+            write.close();
+            if(!client.isClosed()){
+                client.close();
+            }
+        }catch (IOException e){
+        }
+    }
+
+        class InHandler implements Runnable{
 
         @Override
         public void run() {
             while (!done){
-                while (createLobby){
-                    write.println( "CreateLobby" + ' ' + userName );
-                    createLobby  = false;
-                }
+
             }
         }
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 }

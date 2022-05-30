@@ -12,7 +12,7 @@ public class CreateLobbyButton extends MenuObject{
 
     @Override
     public void onClick(Game game) {
-        game.client.createLobby();
+        game.client.createLobby("level1");
     }
 
     @Override

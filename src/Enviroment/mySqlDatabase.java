@@ -101,9 +101,9 @@ public  class mySqlDatabase {
         thisStatement.executeUpdate();
     }
 
-    public static void createLobby(String player1) throws SQLException {
+    public static void createLobby(String player1,String level) throws SQLException {
         Statement statement = conn.createStatement();
-        String sqlInsert = "INSERT INTO Lobbies (Player_1,Running) VALUES (?, ?) ";
+        String sqlInsert = "INSERT INTO Lobbies (Player_1,Running,Level) VALUES (?, ?, ?) ";
 
         PreparedStatement thisStatement = conn.prepareStatement(sqlInsert);
         thisStatement.setString(1, player1);
@@ -111,6 +111,14 @@ public  class mySqlDatabase {
 
         System.out.println("ok");
         thisStatement.executeUpdate();
+    }
+    public static void joinLobby(String player_1, String player_2) throws SQLException {
+        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = ? WHERE Player_1 = ?");
+
+        updateLobby.setString(1,player_2);
+        updateLobby.setString(2,player_1);
+
+        updateLobby.executeUpdate();
     }
    public static String getHighestScoreOfAllTime(String level) throws SQLException {
 
