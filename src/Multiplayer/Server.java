@@ -11,11 +11,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class Server implements Runnable{
     private ArrayList<ConnectionHandler> connections;
     private ServerSocket server;
+    private ExecutorService thredpool;
     private boolean done;
 
     public Server(){
@@ -27,12 +30,15 @@ public class Server implements Runnable{
     public void run() {
         try {
             server = new ServerSocket(9999);
+            thredpool = Executors.newCachedThreadPool();
             while(!done) {
                 Socket client = server.accept();
                 ConnectionHandler handler = new ConnectionHandler(client);
                 connections.add(handler);
+                thredpool.execute(handler);
             }
         } catch (IOException e) {
+            throw new RuntimeException(e);
             //TODO:shutdown
         }
     }
@@ -61,11 +67,10 @@ public class Server implements Runnable{
                 while((message = read.readLine()) != null){
                     if(message.startsWith("CreateLobby")){
                         String[] messageSplit = message.split(" ",2);
-                        System.out.println("Ok");
                         if(messageSplit.length == 2){
                             mySqlDatabase.createLobby(messageSplit[1]);
                         }
-                    }
+                    }else {System.out.println("Ok");}
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
