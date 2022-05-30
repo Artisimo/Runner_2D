@@ -82,6 +82,12 @@ public class MenuHandler {
         object.add(new RestartLevelButton(Game.WIDTH / 2 + 220, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
 
+    public void generateMultiplayerMenu(Graphics g){
+        object.clear();
+
+        object.add(new CreateLobbyButton(Game.WIDTH / 2,Game.HEIGHT/2,MenuObjectID.CreateLobbyButton,100,50));
+    }
+
     public void render(Graphics g) throws SQLException {
         for(int i = 0; i < object.size(); i++){
             object.get(i).render(g);

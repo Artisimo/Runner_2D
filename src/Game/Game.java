@@ -9,6 +9,7 @@ import GameObjects.Enemies.RuningExplosiveEnemy;
 import GameObjects.Enemies.ShootingEnemy;
 import GameObjects.PowerUps.*;
 import Handler.*;
+import Multiplayer.Client;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -51,6 +52,8 @@ public class Game extends Canvas implements Runnable {
     public boolean playerDiedMenuGenerated;
 
     public String infoAboutScore;
+
+    public Client client;
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -278,6 +281,9 @@ public class Game extends Canvas implements Runnable {
                 menuHandler.generateLevelFinishedMenu(g);
                 isLevelFinishedMenuActive = false;
             }
+            menuHandler.render(g);
+        }else if(gameState == GameState.MULTIPLAYER_MENU){
+            menuHandler.generateMultiplayerMenu(g);
             menuHandler.render(g);
         }
 

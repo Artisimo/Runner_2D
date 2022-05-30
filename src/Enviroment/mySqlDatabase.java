@@ -63,6 +63,17 @@ public  class mySqlDatabase {
         }
     }
 
+    public static void createLobby(String player1) throws SQLException {
+        Statement statement = conn.createStatement();
+        String sqlInsert = "INSERT INTO Lobbies (Player_1,Running) VALUES (?, ?) ";
+
+        PreparedStatement thisStatement = conn.prepareStatement(sqlInsert);
+        thisStatement.setString(1, player1);
+        thisStatement.setString(2, Integer.toString(0));
+
+        System.out.println("ok");
+        thisStatement.executeUpdate();
+    }
    public static String getHighestScoreOfAllTime(String level) throws SQLException {
 
        PreparedStatement selectStatement = conn.prepareStatement("SELECT score, username FROM HighScores  WHERE levelID = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);

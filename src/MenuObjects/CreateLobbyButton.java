@@ -1,26 +1,23 @@
 package MenuObjects;
 
 import Game.Game;
-import Game.GameState;
-import Multiplayer.Client;
 
 import java.awt.*;
 import java.sql.SQLException;
 
-public class Button extends MenuObject{
-    public Button(int x, int y, MenuObjectID id, int width, int height) {
+public class CreateLobbyButton extends MenuObject{
+    public CreateLobbyButton(int x, int y, MenuObjectID id, int width, int height) {
         super(x, y, id, width, height);
     }
 
     @Override
     public void onClick(Game game) {
-        game.gameState = GameState.MULTIPLAYER_MENU;
-        game.client = new Client(game.userName);
-        game.client.run();
+        game.client.createLobby();
     }
 
     @Override
     public void tick() throws SQLException {
+
     }
 
     @Override

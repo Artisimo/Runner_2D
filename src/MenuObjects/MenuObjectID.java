@@ -16,6 +16,8 @@ public enum MenuObjectID {
 
     BackToMenuButton(),
 
-    button()
+    button(),
+
+    CreateLobbyButton()
 
 }
