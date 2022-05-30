@@ -35,7 +35,8 @@ public class Client implements Runnable{
     }
 
     public void createLobby(){
-        createLobby = true;
+        //createLobby = true;
+        write.println( "CreateLobby" + ' ' + userName );
     }
     class Handler implements Runnable{
 

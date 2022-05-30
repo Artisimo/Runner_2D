@@ -63,14 +63,16 @@ public class Server implements Runnable{
                 write = new PrintWriter(client.getOutputStream(), true);
                 read = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
+                System.out.println("Server is running");
                 String message;
                 while((message = read.readLine()) != null){
+                    System.out.println(message);
                     if(message.startsWith("CreateLobby")){
                         String[] messageSplit = message.split(" ",2);
                         if(messageSplit.length == 2){
                             mySqlDatabase.createLobby(messageSplit[1]);
                         }
-                    }else {System.out.println("Ok");}
+                    }
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
