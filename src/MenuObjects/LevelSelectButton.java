@@ -31,6 +31,7 @@ public class LevelSelectButton extends MenuObject{
     public void onClick(Game game) {
         if(game.isInMultiplayer){
             game.gameState = GameState.LOBBY;
+            game.client.createLobby(levelName.substring(8, 14));
         }else{
             game.play(levelName);
         }

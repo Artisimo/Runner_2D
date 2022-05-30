@@ -108,8 +108,9 @@ public  class mySqlDatabase {
         PreparedStatement thisStatement = conn.prepareStatement(sqlInsert);
         thisStatement.setString(1, player1);
         thisStatement.setString(2, Integer.toString(0));
+        thisStatement.setString(3, level);
 
-        System.out.println("ok");
+        System.out.println("added");
         thisStatement.executeUpdate();
     }
     public static void joinLobby(String player_1, String player_2) throws SQLException {
@@ -120,6 +121,14 @@ public  class mySqlDatabase {
         updateLobby.setString(3,player_1);
 
         updateLobby.executeUpdate();
+    }
+
+    public static void deleteLobby(String player) throws SQLException {
+        PreparedStatement deleteLobby = conn.prepareStatement("Delete FROM Lobbies WHERE Player_1 = ?");
+
+        deleteLobby.setString(1,player);
+
+        deleteLobby.execute();
     }
    public static String getHighestScoreOfAllTime(String level) throws SQLException {
 
