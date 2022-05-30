@@ -100,7 +100,7 @@ public class MenuHandler {
         }
     }
 
-   public void executeClick(Graphics g, MouseEvent e, Game game) throws SQLException {
+   public void executeClick(Graphics g, MouseEvent e, Game game){
        for(int i = 0; i < object.size(); i++){
            MenuObject tempObject = object.get(i);
            if(e.getX() >= tempObject.getX() && e.getX() <= tempObject.getX() + tempObject.getWidth() && e.getY() >= tempObject.getY() && e.getY() <= tempObject.getY() + tempObject.getHeight()){

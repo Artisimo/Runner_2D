@@ -1,7 +1,6 @@
 package Enviroment;
 
 import java.sql.*;
-import Game.*;
 import java.util.Scanner;
 
 public  class mySqlDatabase {
@@ -12,19 +11,21 @@ public  class mySqlDatabase {
     static {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://sql11.freesqldatabase.com:3306/sql11495525", "sql11495525", "nb6eLsmCaw");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM HighScores", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            rs = ps.executeQuery("select * from HighScores");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static void saveLevelResult(String level, int score, String userID) throws SQLException {            // Sends the result to database which is hosted in free hosting service
+    public static void saveLevelResult(String level, int score, String username) throws SQLException {            // Sends the result to database which is hosted in free hosting service
 
         Statement statement = conn.createStatement();
-        String sqlInsert = "INSERT INTO HighScores (levelID, score,userID) VALUES (?, ?, ?) ";
+        String sqlInsert = "INSERT INTO HighScores (levelID, score,username) VALUES (?, ?, ?) ";
 
-        PreparedStatement selectStatement = conn.prepareStatement("SELECT * FROM HighScores WHERE levelID = ? AND userID = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        PreparedStatement selectStatement = conn.prepareStatement("SELECT * FROM HighScores WHERE levelID = ? AND username = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         selectStatement.setString(1, level);
-        selectStatement.setString(2, userID);
+        selectStatement.setString(2, username);
 
         ResultSet playerRun = selectStatement.executeQuery();
         playerRun.last();
@@ -34,14 +35,14 @@ public  class mySqlDatabase {
             PreparedStatement thisStatement = conn.prepareStatement(sqlInsert);
             thisStatement.setString(1, level);
             thisStatement.setString(2, Integer.toString(score));
-            thisStatement.setString(3, userID);
+            thisStatement.setString(3, username);
 
             thisStatement.executeUpdate();
 
             ResultSet resultSet = statement.executeQuery("select * from HighScores");
 
             while (resultSet.next()) {
-                System.out.println(resultSet.getString("userID") +" "+ resultSet.getString("levelID")+" "+ resultSet.getString("score"));
+                System.out.println(resultSet.getString("username") +" "+ resultSet.getString("levelID")+" "+ resultSet.getString("score"));
             }
             System.out.println("Saved players first score in this level");
         }else{
@@ -55,50 +56,11 @@ public  class mySqlDatabase {
                 ResultSet resultSet = statement.executeQuery("select * from HighScores");
 
                 while (resultSet.next()) {
-                    System.out.println(resultSet.getString("userID") +" "+ resultSet.getString("levelID")+" "+ resultSet.getString("score"));
+                    System.out.println(resultSet.getString("username") +" "+ resultSet.getString("levelID")+" "+ resultSet.getString("score"));
                 }
                 System.out.println("Updated the score");
             }
         }
-    }
-
-    public static int getUserID(String userName) throws SQLException {
-        int id;
-        if(!doesUserExist(userName)){
-            insertUser(userName);
-        }
-        Statement statement = conn.createStatement();
-        String sqlSelect = "SELECT * FROM Users WHERE userName = ? ";
-        PreparedStatement thisStatement = conn.prepareStatement(sqlSelect, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        thisStatement.setString(1, userName);
-
-        ResultSet rs = thisStatement.executeQuery();
-        rs.next();
-        id = Integer.parseInt(rs.getString("id"));
-        return id;
-    }
-
-    public static boolean doesUserExist(String userName) throws SQLException {
-        Statement statement = conn.createStatement();
-        String sqlSelect = "SELECT * FROM Users WHERE userName = ? ";
-        PreparedStatement thisStatement = conn.prepareStatement(sqlSelect, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        thisStatement.setString(1, userName);
-
-        ResultSet rs = thisStatement.executeQuery();
-        rs.last();
-        if(rs.getRow() == 0){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    public static void insertUser(String userName) throws SQLException {
-        Statement statement = conn.createStatement();
-        String sqlSelect = "INSERT INTO Users (userName) VALUES (?)";
-        PreparedStatement thisStatement = conn.prepareStatement(sqlSelect, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        thisStatement.setString(1, userName);
-        thisStatement.executeUpdate();
     }
 
     public static void createLobby(String player1) throws SQLException {
@@ -114,7 +76,7 @@ public  class mySqlDatabase {
     }
    public static String getHighestScoreOfAllTime(String level) throws SQLException {
 
-       PreparedStatement selectStatement = conn.prepareStatement("SELECT score FROM HighScores  WHERE levelID = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+       PreparedStatement selectStatement = conn.prepareStatement("SELECT score, username FROM HighScores  WHERE levelID = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
        selectStatement.setString(1, level);
 
        ResultSet playerRun = selectStatement.executeQuery();
@@ -125,10 +87,10 @@ public  class mySqlDatabase {
        return highestScore;
    }
 
-    public static String getUsersHighestScoreOfAllTime(String level, String userID) throws SQLException {
-        PreparedStatement selectStatement = conn.prepareStatement("SELECT score FROM HighScores WHERE levelID = ? AND userID = ? ORDER BY score ASC", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+    public static String getUsersHighestScoreOfAllTime(String level, String username) throws SQLException {
+        PreparedStatement selectStatement = conn.prepareStatement("SELECT score, username FROM HighScores WHERE levelID = ? AND username = ? ORDER BY score ASC", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         selectStatement.setString(1, level);
-        selectStatement.setString(2, userID);
+        selectStatement.setString(2, username);
 
         ResultSet playerRun = selectStatement.executeQuery();
         String highestScore = "0";

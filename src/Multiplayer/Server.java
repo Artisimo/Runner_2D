@@ -50,7 +50,7 @@ public class Server implements Runnable{
         private BufferedReader read;
         private PrintWriter write;
         private String clientName;
-        //Lobby lobby;
+        Lobby lobby;
 
 
         public ConnectionHandler(Socket client){
