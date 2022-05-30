@@ -48,6 +48,8 @@ public class Game extends Canvas implements Runnable {
     public MenuHandler menuHandler;
 
     public String userName;
+
+    public int userId;
     public boolean isMenuGenerated;
     public boolean isUserNameSet;
     public boolean isPauseMenuActive;

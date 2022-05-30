@@ -24,7 +24,7 @@ public class LevelSelectButton extends MenuObject{
     @Override
     public void tick() throws SQLException {
         bestScoreEver = "Best score of all time: " + mySqlDatabase.getHighestScoreOfAllTime(levelName.substring(8, 14));
-        bestScorePlayer = "Your best score: " + mySqlDatabase.getUsersHighestScoreOfAllTime(levelName.substring(8, 14), game.userName);
+        bestScorePlayer = "Your best score: " + mySqlDatabase.getUsersHighestScoreOfAllTime(levelName.substring(8, 14), Integer.toString(game.userId));
     }
 
     @Override

@@ -12,7 +12,7 @@ public class Client implements Runnable{
     private BufferedReader read;
     private PrintWriter write;
     private String userName;
-    public boolean createLobby = false;
+    public boolean createLobby = true;
 
     public Client(String userName){
         this.userName = userName;
@@ -49,5 +49,13 @@ public class Client implements Runnable{
                 }
             }
         }
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
