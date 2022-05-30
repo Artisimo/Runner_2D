@@ -92,6 +92,7 @@ public class Player extends GameObject {
 
         if(currenthp <= 0){
             game.gameState = GameState.PLAYER_DIED;
+            Game.logger.info("Player died");
         }
     }
 
@@ -124,6 +125,7 @@ public class Player extends GameObject {
                     handler.removeObject(temp);
                     Game.sound.playEnemyDies();
                     temp = null;
+                    Game.logger.info("Player killed a basic enemy");
                 } else if(this.getBounds().intersects(temp.getBounds()) ){
                     if(attacked <=0){
                         currenthp -= temp.getDamage();
@@ -132,6 +134,7 @@ public class Player extends GameObject {
                     }
                     leftbound  = false;
                     intersactedEnemy = temp;
+                    Game.logger.info("Player was attacked by a basic enemy");
                 }else if (intersactedEnemy == temp){
                     leftbound = true;
                 }
@@ -142,12 +145,14 @@ public class Player extends GameObject {
                     currenthp -= temp.getDamage();
                     Game.sound.playDamage();
                     handler.removeObject(temp);
+                    Game.logger.info("Player was shot by a projectile");
                 }
             }
             else if (temp.getId() == ID.ExplosiveEnemy){
                 if(temp.getExploded() > 0){
                     currenthp -= temp.getDamage();
                     Game.sound.playDamage();
+                    Game.logger.info("Player was in the range of an explosive enemy");
                 }
             }else if(temp.getId() == ID.FinishLine){
                 if(getBoundsLeft().intersects(temp.getBounds())){
@@ -165,18 +170,21 @@ public class Player extends GameObject {
                     game.emptyHandler();
                     game.gameState = GameState.LEVEL_FINISHED;
                     game.isMenuGenerated = false;
+                    Game.logger.info("Player finished the level" + game.infoAboutScore);
                 }
             }else if(temp.getId() == ID.Crystal){
                 if(getBounds().intersects(temp.getBounds())){
                     handler.removeObject(temp);
                     crystalsCollected++;
                     Game.sound.playCrystal();
+                    Game.logger.info("Player collected a crystal");
                 }
             }else if(temp.getId() == ID.HealPowerUp){
                 if(getBounds().intersects(temp.getBounds())){
                     currenthp = Game.clamp(currenthp+25, 0, maxhp);
                     handler.removeObject(temp);
                     Game.sound.playHeal();
+                    Game.logger.info("Player healed using the heal power up");
                 }
             }else if(temp.getId() == ID.MaxHpPowerUp){
                 if(getBounds().intersects(temp.getBounds())){
@@ -184,6 +192,7 @@ public class Player extends GameObject {
                     currenthp = Game.clamp((int)(currenthp * ((float)maxhp/(float)(maxhp-50))),0,maxhp);
                     handler.removeObject(temp);
                     Game.sound.playMaxHp();
+                    Game.logger.info("Player collected the max health power up");
                 }
             }else  if(temp.getId() == ID.SpeedPowerUp){
                 if(getBounds().intersects(temp.getBounds())){
@@ -191,6 +200,7 @@ public class Player extends GameObject {
                     speedTimer = 300;
                     handler.removeObject(temp);
                     Game.sound.playSpeedBoost();
+                    Game.logger.info("Player collected the speed power up");
                 }
             }else if(temp.getId() == ID.JumpPowerUp){
                 if(getBounds().intersects(temp.getBounds())){
@@ -198,6 +208,7 @@ public class Player extends GameObject {
                     jumpTimer = 180;
                     handler.removeObject(temp);
                     Game.sound.playJumpBoost();
+                    Game.logger.info("Player collected the jump power up");
                 }
             }
         }
