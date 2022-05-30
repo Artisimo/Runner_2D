@@ -299,6 +299,8 @@ public class Game extends Canvas implements Runnable {
         }else if(gameState == GameState.MULTIPLAYER_LEVEL_SELECT){
             menuHandler.generateLobbyMenu(g);
             menuHandler.render(g);
+        }else if(gameState == GameState.LOBBY){
+
         }
 
         g.dispose();

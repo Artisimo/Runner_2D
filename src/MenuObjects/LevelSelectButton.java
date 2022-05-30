@@ -29,7 +29,11 @@ public class LevelSelectButton extends MenuObject{
 
     @Override
     public void onClick(Game game) {
-        game.play(levelName);
+        if(game.isInMultiplayer){
+            game.gameState = GameState.LOBBY;
+        }else{
+            game.play(levelName);
+        }
     }
 
     public void render(Graphics g) throws SQLException {
