@@ -1306,4 +1306,24 @@
   2022-05-31 11:57:17 INFO  Game:105 - level2 has been loaded
   2022-05-31 11:57:32 INFO  Game:22 - Username set: Artisimo
   2022-05-31 11:57:54 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 11:58:54 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 11:59:48 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:01:05 INFO  Game:22 - Username set: NotArtisimo
+  2022-05-31 12:06:43 INFO  Game:22 - Username set: User1
+  2022-05-31 12:07:06 INFO  Game:22 - Username set: User2
+  2022-05-31 12:08:27 INFO  Game:22 - Username set: user1
+  2022-05-31 12:08:40 WARN  Game:25 - The entered username is not valid
+  2022-05-31 12:08:44 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:09:28 INFO  Game:22 - Username set: user3
+  2022-05-31 12:11:39 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:13:52 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:14:23 INFO  Game:22 - Username set: user1
+  2022-05-31 12:15:02 INFO  Game:22 - Username set: Atttttt
+  2022-05-31 12:30:30 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:31:52 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:33:09 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:35:12 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:37:10 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:38:21 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:39:02 INFO  Game:22 - Username set: Artisimo
   

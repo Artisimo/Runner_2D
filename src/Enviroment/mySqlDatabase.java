@@ -101,18 +101,32 @@ public  class mySqlDatabase {
         thisStatement.executeUpdate();
     }
 
-    public static int getLobbyCount() throws SQLException {
+    public static int[] getLobbyIds() throws SQLException {
         Statement statement = conn.createStatement();
         String select = "SELECT * FROM Lobbies";
         PreparedStatement thisStatement = conn.prepareStatement(select, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet rs = thisStatement.executeQuery();
-        rs.last();
-
-        if(rs.getRow() == 0){
-            return 0;
-        }else{
-            return rs.getRow();
+        int[] lobbyIDs = new int[10];
+        int i = 0;
+        while(rs.next()){
+            lobbyIDs[i] = Integer.parseInt(rs.getString("id"));
+            i++;
         }
+        return lobbyIDs;
+    }
+
+    public static String getLobbyInfo(int id) throws SQLException {
+        Statement statement = conn.createStatement();
+        String select = "SELECT * FROM Lobbies WHERE id = ?";
+        PreparedStatement thisStatement = conn.prepareStatement(select, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        thisStatement.setString(1, Integer.toString(id));
+
+        ResultSet rs = thisStatement.executeQuery();
+        String returnStr = "";
+        while(rs.next()){
+            returnStr = returnStr + rs.getString("id") + " " + rs.getString("Player_1") + " " +  rs.getString("Level") + " " + rs.getString("Player_2");
+        }
+        return returnStr;
     }
 
 

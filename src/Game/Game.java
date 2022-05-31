@@ -65,6 +65,10 @@ public class Game extends Canvas implements Runnable {
     public boolean isInMultiplayer = false;
     public boolean levelSelectMenuGenerated = false;
 
+    public boolean lobbyInfoGenerated;
+
+    public int lobbyID;
+
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         WIDTH = screenSize.width;
@@ -84,8 +88,6 @@ public class Game extends Canvas implements Runnable {
         music.playMenuMusic();
 
         isMenuGenerated = false;
-
-
     }
 
     public void play(String path){
@@ -310,7 +312,11 @@ public class Game extends Canvas implements Runnable {
 
             menuHandler.render(g);
         }else if(gameState == GameState.LOBBY){
-
+            if(!lobbyInfoGenerated){
+                menuHandler.generateLobbyInfo(g, lobbyID);
+                lobbyInfoGenerated = true;
+            }
+           menuHandler.render(g);
         }
 
         g.dispose();

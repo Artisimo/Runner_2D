@@ -22,6 +22,8 @@ public enum MenuObjectID {
 
     changeGameStateButton(),
 
-    returnToMultiplayerMenuButton()
+    returnToMultiplayerMenuButton(),
+
+    lobbySelectButton()
 
 }

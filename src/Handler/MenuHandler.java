@@ -98,10 +98,13 @@ public class MenuHandler {
 
         object.add(new ChangeGameStateButton(64, 30, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
 
-        int lobbyCount = mySqlDatabase.getLobbyCount();
-        System.out.println(lobbyCount);
-        for(int i = 0; i < lobbyCount; i++){
-            // add lobby level select button
+        int[] lobbyIds = mySqlDatabase.getLobbyIds();
+
+
+        for(int i = 0; i < lobbyIds.length; i++){
+            if(lobbyIds[i] != 0){
+                object.add(new LobbySelectButton(Game.WIDTH / 2 - 50, (i * 30) + (i+1) * 50, MenuObjectID.lobbySelectButton , 100, 50, lobbyIds[i]));
+            }
         }
 
         object.add(new CreateLobbyButton(Game.WIDTH / 2 + Game.WIDTH/4,Game.HEIGHT/2 + Game.HEIGHT/4,MenuObjectID.CreateLobbyButton,100,50));
@@ -118,6 +121,17 @@ public class MenuHandler {
             object.get(i).tick();
         }
         object.add(new ReturnToMultiplayerMenu(64, 30, MenuObjectID.returnToMultiplayerMenuButton, 100, 50));
+    }
+
+    public void generateLobbyInfo(Graphics g, int lobbyID) throws SQLException {
+        object.clear();
+        String[] splitArray = mySqlDatabase.getLobbyInfo(lobbyID).split("\\s+");
+
+        object.add(new Label((Game.WIDTH / 2), 50, MenuObjectID.Label, 0,0, "Lobby ID:" + splitArray[0],30, Color.YELLOW));
+        object.add(new Label((Game.WIDTH / 2), 150, MenuObjectID.Label, 0,0, "Player 1: " +splitArray[1],30, Color.YELLOW));
+        object.add(new Label((Game.WIDTH / 2), 250, MenuObjectID.Label, 0,0, "Player 2: " + splitArray[3],30, Color.YELLOW));
+        object.add(new Label((Game.WIDTH / 2), 350, MenuObjectID.Label, 0,0, "Level: " + splitArray[2],30, Color.YELLOW));
+
     }
 
     public void render(Graphics g) throws SQLException {
