@@ -142,6 +142,15 @@ public  class mySqlDatabase {
 
         deleteLobby.execute();
     }
+
+    public static void leaveLobby(String player) throws SQLException {
+        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = ? WHERE Player_2 = ?");
+
+        updateLobby.setString(1,null);
+        updateLobby.setString(2,player);
+
+        updateLobby.execute();
+    }
    public static String getHighestScoreOfAllTime(String level) throws SQLException {
 
        PreparedStatement selectStatement = conn.prepareStatement("SELECT score FROM HighScores  WHERE levelID = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);

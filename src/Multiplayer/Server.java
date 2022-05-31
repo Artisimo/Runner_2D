@@ -106,6 +106,7 @@ public class Server implements Runnable{
             }
         }
         public void shutdown() throws SQLException {
+            mySqlDatabase.leaveLobby(lobby.player1);
             mySqlDatabase.deleteLobby(lobby.player1);
             if(!client.isClosed()){
                 try {
