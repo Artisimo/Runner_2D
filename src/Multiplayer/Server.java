@@ -85,6 +85,7 @@ public class Server implements Runnable{
                         String[] messageSplit = message.split(" ",3);
                         if(messageSplit.length == 3){
                             mySqlDatabase.createLobby(messageSplit[1],messageSplit[2]);
+                            clientName = messageSplit[1];
                             lobby.player1 = messageSplit[1];
                             lobby.level = messageSplit[2];
                         }
@@ -92,11 +93,12 @@ public class Server implements Runnable{
                         String[] messageSplit = message.split(" ",3);
                         if(messageSplit.length == 3){
                             mySqlDatabase.joinLobby(messageSplit[1],messageSplit[2]);
+                            clientName = messageSplit[2];
                             lobby.player2 = messageSplit[2];
                             for (ConnectionHandler ch : connections){
                                 if(ch.lobby.player1 == messageSplit[1]){
                                     ch.write.println("JoinedLobby");
-                                    ch.lobby.player1 = messageSplit[1];
+                                    ch.clientName = messageSplit[1];
                                     break;
                                 }
                             }
@@ -106,6 +108,14 @@ public class Server implements Runnable{
                         for (ConnectionHandler ch : connections){
                             if(ch.lobby.player1 == messageSplit[1] || ch.lobby.player2 == messageSplit[1]){
                                 ch.lobby.finished = true;
+                                break;
+                            }
+                        }
+                    }else if(message.startsWith("LeaveLobby")){
+                        String[] messageSplit = message.split(" ",2);
+                        for (ConnectionHandler ch : connections){
+                            if(ch.lobby.player2 == messageSplit[1] && ch.clientName != messageSplit[1]){
+                                ch.write.println("LeftLobby");
                                 break;
                             }
                         }

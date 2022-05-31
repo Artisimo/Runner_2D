@@ -24,6 +24,7 @@ public enum MenuObjectID {
 
     returnToMultiplayerMenuButton(),
 
-    lobbySelectButton()
+    lobbySelectButton(),
+    BackToLobbyMenuButton()
 
 }

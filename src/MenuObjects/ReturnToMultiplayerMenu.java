@@ -1,5 +1,6 @@
 package MenuObjects;
 
+import Enviroment.mySqlDatabase;
 import Game.*;
 
 import java.awt.*;
@@ -14,6 +15,12 @@ public class ReturnToMultiplayerMenu extends MenuObject{
     @Override
     public void onClick(Game game) throws SQLException {
         game.gameState = GameState.MULTIPLAYER_MENU;
+
+        mySqlDatabase.leaveLobby(game.userName);
+        mySqlDatabase.deleteLobby(game.userName);
+        game.client.leaveLobby();
+
+        game.lobbyInfoGenerated = false;
         game.isMultiiplayerMenuGenerated = false;
         game.levelSelectMenuGenerated = false;
     }

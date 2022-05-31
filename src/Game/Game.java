@@ -317,6 +317,11 @@ public class Game extends Canvas implements Runnable {
                 lobbyInfoGenerated = true;
             }
            menuHandler.render(g);
+        }else if(gameState == GameState.LOBBY && client.isAction){
+
+            menuHandler.generateLobbyInfo(g, lobbyID);
+            lobbyInfoGenerated = true;
+            menuHandler.render(g);
         }
 
         g.dispose();

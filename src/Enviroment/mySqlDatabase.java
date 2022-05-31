@@ -176,8 +176,6 @@ public  class mySqlDatabase {
         PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = NULL WHERE Player_2 = ?");
 
         updateLobby.setString(1,player);
-        System.out.println(updateLobby);
-        System.out.println(player);
 
         updateLobby.executeUpdate();
     }

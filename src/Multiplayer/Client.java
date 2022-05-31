@@ -15,7 +15,7 @@ public class Client implements Runnable{
     private BufferedReader read;
     private PrintWriter write;
     private String userName;
-    public boolean playerJoined = false;
+    public boolean isAction = false;
     public boolean gameFinished = false;
 
 
@@ -50,6 +50,7 @@ public class Client implements Runnable{
     public void joinLobby(int id){
         write.println("JoinLobby" + ' ' + Integer.toString(id) + ' ' + userName);
     }
+    public void leaveLobby(){write.println("LeaveLobby" + ' ' + userName);}
 
     public void finishedGame(){
         write.println("Finished" + userName);
@@ -86,9 +87,14 @@ public class Client implements Runnable{
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
             while (!done){
                 try {
+                    System.out.println((isAction));
                     String message = inputReader.readLine();
+                    System.out.println((message));
                     if (message.equals("JoinedLobby")) {
-                        playerJoined = true;
+                        isAction = true;
+                    }
+                    if(message.equals("LeftLobby")){
+                        isAction = true;
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
