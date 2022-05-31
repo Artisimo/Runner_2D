@@ -33,12 +33,14 @@ public class Client implements Runnable{
             Thread t = new Thread(inHandler);
             t.start();
 
+
         } catch (Exception e) {
             try {
                 shutdown();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+
         }
     }
 
@@ -83,20 +85,22 @@ public class Client implements Runnable{
         @Override
         public void run() {
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
-            while (client.isConnected()){
-                String message = null;
+            while (!done){
                 try {
-                    message = read.readLine();
+                    String message;
+                    System.out.println((isAction));
+                    while ((message = read.readLine()) != null){
+                        System.out.println((isAction));
+                        System.out.println((message));
+                        if (message.equals("JoinedLobby")) {
+                            isAction = true;
+                        }
+                        if(message.equals("LeftLobby")){
+                            isAction = true;
+                        }
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
-                }
-                System.out.println((isAction));
-                System.out.println((message));
-                if (message.equals("JoinedLobby")) {
-                    isAction = true;
-                }
-                if(message.equals("LeftLobby")){
-                    isAction = true;
                 }
             }
         }

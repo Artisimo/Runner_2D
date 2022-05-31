@@ -95,10 +95,15 @@ public class Server implements Runnable{
                             mySqlDatabase.joinLobby(messageSplit[1],messageSplit[2]);
                             clientName = messageSplit[2];
                             lobby.player2 = messageSplit[2];
+                            String player = mySqlDatabase.getSpecificPlayer1(messageSplit[1]);
                             for (ConnectionHandler ch : connections){
-                                if(ch.lobby.player1 == messageSplit[1]){
+                                System.out.println("Player name " + ch.lobby.player1);
+                                if(ch.lobby.player1 == player){
                                     ch.write.println("JoinedLobby");
-                                    ch.clientName = messageSplit[1];
+                                    ch.clientName = player;
+                                    this.lobby.player1 = player;
+                                    this.lobby.player2 = clientName;
+                                    System.out.println("JoinedLobby");
                                     break;
                                 }
                             }
@@ -116,6 +121,7 @@ public class Server implements Runnable{
                         for (ConnectionHandler ch : connections){
                             if(ch.lobby.player2 == messageSplit[1] && ch.clientName != messageSplit[1]){
                                 ch.write.println("LeftLobby");
+                                System.out.println("LeftLobby");
                                 break;
                             }
                         }
@@ -124,6 +130,7 @@ public class Server implements Runnable{
             } catch (Exception e) {
                 try {
                     shutdown();
+                    System.out.println("Shutdown");
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }

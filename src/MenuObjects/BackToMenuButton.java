@@ -16,8 +16,10 @@ public class BackToMenuButton extends MenuObject{
     @Override
     public void onClick(Game game) throws IOException {
 
+        game.isMultiiplayerMenuGenerated = false;
         game.gameState = GameState.MENU;
         game.client.shutdown();
+        game.client = null;
         game.isInMultiplayer = false;
     }
 
