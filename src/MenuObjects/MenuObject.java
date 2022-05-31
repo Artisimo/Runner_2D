@@ -19,7 +19,7 @@ public abstract class MenuObject {
         this.height = height;
     }
 
-    public abstract void onClick(Game game) throws SQLException, IOException;
+    public abstract void onClick(Game game) throws SQLException, IOException, InterruptedException;
 
     public abstract void tick() throws SQLException;
 

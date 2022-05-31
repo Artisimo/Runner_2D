@@ -25,6 +25,8 @@ public class MouseInput implements MouseListener {
             throw new RuntimeException(ex);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
+        } catch (InterruptedException ex) {
+            throw new RuntimeException(ex);
         }
     }
 

@@ -28,9 +28,12 @@ public class LevelSelectButton extends MenuObject{
     }
 
     @Override
-    public void onClick(Game game) throws SQLException {
+    public void onClick(Game game) throws SQLException, InterruptedException {
         if(game.isInMultiplayer){
             game.client.createLobby(levelName.substring(8, 14));
+
+            Thread.sleep(1000);
+
             game.lobbyID = mySqlDatabase.getSpecificLobbyID(game.userName);
             System.out.println(game.lobbyID);
             game.gameState = GameState.LOBBY;
