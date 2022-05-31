@@ -197,6 +197,18 @@ public  class mySqlDatabase {
         return id;
     }
 
+    public static String getSpecificPlayer1(String ID) throws SQLException {
+        String select = "SELECT * FROM Lobbies WHERE ID = ?";
+        PreparedStatement thisStatement = conn.prepareStatement(select, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        thisStatement.setString(1, ID);
+
+        ResultSet rs = thisStatement.executeQuery();
+        String player = "";
+        while(rs.next()){
+            player = rs.getString("Player_1");
+        }
+        return player;
+    }
     /**
      * Creates a new lobby. Sets the player_1 to the current username and the level to the level which the user chose.
      * @param player1 player 1 username
