@@ -18,6 +18,10 @@ public enum MenuObjectID {
 
     button(),
 
-    CreateLobbyButton()
+    CreateLobbyButton(),
+
+    changeGameStateButton(),
+
+    returnToMultiplayerMenuButton()
 
 }

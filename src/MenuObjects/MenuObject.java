@@ -3,6 +3,7 @@ package MenuObjects;
 import Game.Game;
 
 import java.awt.*;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public abstract class MenuObject {
@@ -18,7 +19,7 @@ public abstract class MenuObject {
         this.height = height;
     }
 
-    public abstract void onClick(Game game) throws SQLException;
+    public abstract void onClick(Game game) throws SQLException, IOException;
 
     public abstract void tick() throws SQLException;
 

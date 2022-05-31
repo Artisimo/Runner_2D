@@ -2,12 +2,14 @@ package Handler;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import Game.*;
 import MenuObjects.*;
 import MenuObjects.MultiplayerButton;
 import MenuObjects.Label;
+import Enviroment.*;
 
 public class MenuHandler {
     public LinkedList<MenuObject> object = new LinkedList<MenuObject>();
@@ -94,7 +96,14 @@ public class MenuHandler {
     public void generateMultiplayerMenu(Graphics g) throws SQLException {
         object.clear();
 
-        object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
+        object.add(new ChangeGameStateButton(64, 30, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+
+        int lobbyCount = mySqlDatabase.getLobbyCount();
+        System.out.println(lobbyCount);
+        for(int i = 0; i < lobbyCount; i++){
+            // add lobby level select button
+        }
+
         object.add(new CreateLobbyButton(Game.WIDTH / 2 + Game.WIDTH/4,Game.HEIGHT/2 + Game.HEIGHT/4,MenuObjectID.CreateLobbyButton,100,50));
     }
     public void generateLobbyMenu(Graphics g) throws SQLException {
@@ -102,10 +111,12 @@ public class MenuHandler {
         g.setColor(Color.BLACK);
         g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
         g.setColor(Color.RED);
+
         for (int i = 0; i < Game.levelsAmount; i++) {
             object.add( new LevelSelectButton(Game.WIDTH / 2 - 100, (i * 64) + (i+1) * 30, MenuObjectID.levelButton, 100, 50, "/Levels/level" + (i+1) + ".png", game));
             object.get(i).tick();
         }
+        object.add(new ReturnToMultiplayerMenu(64, 30, MenuObjectID.returnToMultiplayerMenuButton, 100, 50));
     }
 
     public void render(Graphics g) throws SQLException {
@@ -120,7 +131,7 @@ public class MenuHandler {
         }
     }
 
-   public void executeClick(Graphics g, MouseEvent e, Game game) throws SQLException {
+   public void executeClick(Graphics g, MouseEvent e, Game game) throws SQLException, IOException {
        for(int i = 0; i < object.size(); i++){
            MenuObject tempObject = object.get(i);
            if(e.getX() >= tempObject.getX() && e.getX() <= tempObject.getX() + tempObject.getWidth() && e.getY() >= tempObject.getY() && e.getY() <= tempObject.getY() + tempObject.getHeight()){

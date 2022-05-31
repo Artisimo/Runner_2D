@@ -1,19 +1,19 @@
 package MenuObjects;
 
-import Game.Game;
-import Game.GameState;
+import Game.*;
 
 import java.awt.*;
 import java.sql.SQLException;
 
-public class CreateLobbyButton extends MenuObject{
-    public CreateLobbyButton(int x, int y, MenuObjectID id, int width, int height) {
+public class ReturnToMultiplayerMenu extends MenuObject{
+
+    public ReturnToMultiplayerMenu(int x, int y, MenuObjectID id, int width, int height) {
         super(x, y, id, width, height);
     }
 
     @Override
-    public void onClick(Game game) {
-        game.gameState = GameState.MULTIPLAYER_LEVEL_SELECT;
+    public void onClick(Game game) throws SQLException {
+        game.gameState = GameState.MULTIPLAYER_MENU;
         game.isMultiiplayerMenuGenerated = false;
         game.levelSelectMenuGenerated = false;
     }
@@ -25,7 +25,7 @@ public class CreateLobbyButton extends MenuObject{
 
     @Override
     public void render(Graphics g) throws SQLException {
-        g.setColor(Color.RED);
+        g.setColor(Color.YELLOW);
         g.drawRect(x, y, width, height);
     }
 }

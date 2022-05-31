@@ -101,6 +101,20 @@ public  class mySqlDatabase {
         thisStatement.executeUpdate();
     }
 
+    public static int getLobbyCount() throws SQLException {
+        Statement statement = conn.createStatement();
+        String select = "SELECT * FROM Lobbies";
+        PreparedStatement thisStatement = conn.prepareStatement(select, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet rs = thisStatement.executeQuery();
+        rs.last();
+
+        if(rs.getRow() == 0){
+            return 0;
+        }else{
+            return rs.getRow();
+        }
+    }
+
     public static void createLobby(String player1,String level) throws SQLException {
         Statement statement = conn.createStatement();
         String sqlInsert = "INSERT INTO Lobbies (Player_1,Running,Level) VALUES (?, ?, ?) ";

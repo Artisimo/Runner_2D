@@ -15,6 +15,8 @@ public class MultiplayerButton extends MenuObject{
     @Override
     public void onClick(Game game) {
         game.isInMultiplayer = true;
+        game.isMenuGenerated = false;
+        game.isMultiiplayerMenuGenerated = false;
         game.gameState = GameState.MULTIPLAYER_MENU;
         game.client = new Client(game.userName);
         game.client.run();

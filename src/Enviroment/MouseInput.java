@@ -5,6 +5,7 @@ import Handler.MenuHandler;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class MouseInput implements MouseListener {
@@ -21,6 +22,8 @@ public class MouseInput implements MouseListener {
         try {
             game.menuHandler.executeClick(g, e, game);
         } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
     }

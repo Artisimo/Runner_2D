@@ -57,10 +57,13 @@ public class Game extends Canvas implements Runnable {
 
     public boolean playerDiedMenuGenerated;
 
+    public boolean isMultiiplayerMenuGenerated;
+
     public String infoAboutScore;
 
     public  Client client;
     public boolean isInMultiplayer = false;
+    public boolean levelSelectMenuGenerated = false;
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -294,10 +297,17 @@ public class Game extends Canvas implements Runnable {
             }
             menuHandler.render(g);
         }else if(gameState == GameState.MULTIPLAYER_MENU){
-            menuHandler.generateMultiplayerMenu(g);
+            if(!isMultiiplayerMenuGenerated){
+                menuHandler.generateMultiplayerMenu(g);
+                isMultiiplayerMenuGenerated = true;
+            }
             menuHandler.render(g);
         }else if(gameState == GameState.MULTIPLAYER_LEVEL_SELECT){
-            menuHandler.generateLobbyMenu(g);
+            if(!levelSelectMenuGenerated){
+                menuHandler.generateLobbyMenu(g);
+                levelSelectMenuGenerated = true;
+            }
+
             menuHandler.render(g);
         }else if(gameState == GameState.LOBBY){
 

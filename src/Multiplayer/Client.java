@@ -16,8 +16,9 @@ public class Client implements Runnable{
     private PrintWriter write;
     private String userName;
 
-    public Client(String userName){
+    public Client(String userName) {
         this.userName = userName;
+
     }
     @Override
     public void run() {
@@ -50,12 +51,21 @@ public class Client implements Runnable{
     public void shutdown() throws IOException {
         done = true;
         try {
-            mySqlDatabase.deleteLobby(userName);
-            read.close();
-            write.close();
-            if(!client.isClosed()){
-                client.close();
+            if(read != null){
+                read.close();
             }
+
+            if(write != null){
+                write.close();
+            }
+            mySqlDatabase.deleteLobby(userName);
+
+            if(client != null){
+                if(!client.isClosed()){
+                    client.close();
+                }
+            }
+
         }catch  (SQLException e) {
             throw new RuntimeException(e);
         }
