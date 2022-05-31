@@ -1473,4 +1473,24 @@
   2022-05-31 19:13:21 INFO  Game:22 - Username set: user1
   2022-05-31 19:13:32 INFO  Game:22 - Username set: user1
   2022-05-31 19:13:52 INFO  Game:22 - Username set: user2
+  2022-05-31 23:24:39 INFO  Game:22 - Username set: nots
+  2022-05-31 23:24:52 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:25:47 INFO  Game:22 - Username set: nots
+  2022-05-31 23:26:03 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:27:42 INFO  Game:22 - Username set: nots
+  2022-05-31 23:27:55 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:31:16 INFO  Game:22 - Username set: nots
+  2022-05-31 23:31:30 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:36:19 WARN  Game:25 - The entered username is not valid
+  2022-05-31 23:36:23 WARN  Game:25 - The entered username is not valid
+  2022-05-31 23:36:29 INFO  Game:22 - Username set: bosn
+  2022-05-31 23:37:07 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:37:20 INFO  Game:22 - Username set: nots
+  2022-05-31 23:47:11 INFO  Game:22 - Username set: nots
+  2022-05-31 23:47:27 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:50:45 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:51:07 INFO  Game:22 - Username set: nots
+  2022-05-31 23:51:24 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:53:57 INFO  Game:22 - Username set: stefans
+  2022-05-31 23:54:34 INFO  Game:22 - Username set: nots
   

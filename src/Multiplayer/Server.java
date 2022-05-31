@@ -97,12 +97,13 @@ public class Server implements Runnable{
                             lobby.player2 = messageSplit[2];
                             String player = mySqlDatabase.getSpecificPlayer1(messageSplit[1]);
                             for (ConnectionHandler ch : connections){
+                                System.out.println(ch.clientName);
+                                System.out.println();
                                 if(player.equals(ch.lobby.player1)){
                                     ch.write.println("JoinedLobby");
                                     ch.clientName = player;
                                     this.lobby.player1 = player;
                                     this.lobby.player2 = clientName;
-                                    System.out.println("JoinedLobby");
                                     break;
                                 }
                             }
@@ -118,7 +119,13 @@ public class Server implements Runnable{
                     }else if(message.startsWith("LeaveLobby")){
                         String[] messageSplit = message.split(" ",2);
                         for (ConnectionHandler ch : connections){
-                            if(ch.lobby.player2 == messageSplit[1] && ch.clientName != messageSplit[1]){
+                            System.out.println(ch.lobby.player2);
+                            System.out.println(messageSplit[1]);
+                            System.out.println(ch.clientName);
+                            System.out.println();
+                            if(ch.lobby.player2.equals(messageSplit[1]) && !ch.clientName.equals(messageSplit[1])){
+                                mySqlDatabase.leaveLobby(messageSplit[1]);
+                                //mySqlDatabase.deleteLobby(messageSplit[1]);
                                 ch.write.println("LeftLobby");
                                 System.out.println("LeftLobby");
                                 break;
@@ -128,6 +135,7 @@ public class Server implements Runnable{
                 }
             } catch (Exception e) {
                 try {
+                    System.out.println(clientName);
                     shutdown();
                     System.out.println("Shutdown");
                 } catch (SQLException ex) {
