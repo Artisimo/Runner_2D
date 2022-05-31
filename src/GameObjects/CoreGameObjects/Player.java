@@ -156,7 +156,6 @@ public class Player extends GameObject {
                 }
             }else if(temp.getId() == ID.FinishLine){
                 if(getBoundsLeft().intersects(temp.getBounds())){
-                    //Game.music.stop();
                     elapsedTime = System.currentTimeMillis() - startTime;
                     long seconds = elapsedTime / 1000;
                     long miliSeconds = elapsedTime % 1000;

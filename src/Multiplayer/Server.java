@@ -87,13 +87,26 @@ public class Server implements Runnable{
                             mySqlDatabase.createLobby(messageSplit[1],messageSplit[2]);
                             lobby.player1 = messageSplit[1];
                             lobby.level = messageSplit[2];
-                            System.out.println(lobby.player1);
                         }
                     }else if(message.startsWith("JoinLobby")){
                         String[] messageSplit = message.split(" ",3);
-                        if(messageSplit.length == 2){
+                        if(messageSplit.length == 3){
                             mySqlDatabase.joinLobby(messageSplit[1],messageSplit[2]);
                             lobby.player2 = messageSplit[2];
+                            for (ConnectionHandler ch : connections){
+                                if(ch.lobby.player1 == messageSplit[2]){
+                                    ch.write.println("JoinedLobby");
+                                    break;
+                                }
+                            }
+                        }
+                    }else if(message.startsWith("Finished")){
+                        String[] messageSplit = message.split(" ",2);
+                        for (ConnectionHandler ch : connections){
+                            if(ch.lobby.player1 == messageSplit[1] || ch.lobby.player2 == messageSplit[1]){
+                                ch.lobby.finished = true;
+                                break;
+                            }
                         }
                     }
                 }
@@ -117,6 +130,7 @@ public class Server implements Runnable{
                     throw new RuntimeException(e);
                 }
             }
+            connections.remove(this);
         }
     }
 
