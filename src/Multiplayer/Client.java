@@ -33,6 +33,19 @@ public class Client implements Runnable{
             Thread t = new Thread(inHandler);
             t.start();
 
+            String message;
+            while (read.ready()){
+                while ((message = read.readLine()) != null){
+                    System.out.println((isAction));
+                    System.out.println((message));
+                    if (message.equals("JoinedLobby")) {
+                        isAction = true;
+                    }
+                    if(message.equals("LeftLobby")){
+                        isAction = true;
+                    }
+                }
+            }
 
         } catch (Exception e) {
             try {
@@ -87,14 +100,9 @@ public class Client implements Runnable{
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
             while (!done){
                 try {
-                    System.out.println((isAction));
                     String message = inputReader.readLine();
-                    System.out.println((message));
-                    if (message.equals("JoinedLobby")) {
-                        isAction = true;
-                    }
-                    if(message.equals("LeftLobby")){
-                        isAction = true;
+                    if(message != null){
+                        write.println(message);
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);

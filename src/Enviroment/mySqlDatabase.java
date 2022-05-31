@@ -152,7 +152,6 @@ public  class mySqlDatabase {
         thisStatement.setString(2, Integer.toString(0));
         thisStatement.setString(3, level);
 
-        System.out.println("added");
         thisStatement.executeUpdate();
     }
     public static void joinLobby(String id, String player_2) throws SQLException {
