@@ -155,12 +155,12 @@ public  class mySqlDatabase {
         System.out.println("added");
         thisStatement.executeUpdate();
     }
-    public static void joinLobby(String player_1, String player_2) throws SQLException {
-        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = ?,Running = ? WHERE Player_1 = ?");
+    public static void joinLobby(String id, String player_2) throws SQLException {
+        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = ?,Running = ? WHERE ID = ?");
 
         updateLobby.setString(1,player_2);
         updateLobby.setString(2,"1");
-        updateLobby.setString(3,player_1);
+        updateLobby.setString(3,id);
 
         updateLobby.executeUpdate();
     }
@@ -173,12 +173,13 @@ public  class mySqlDatabase {
     }
 
     public static void leaveLobby(String player) throws SQLException {
-        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = ? WHERE Player_2 = ?");
+        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = NULL WHERE Player_2 = ?");
 
-        updateLobby.setString(1,null);
-        updateLobby.setString(2,player);
+        updateLobby.setString(1,player);
+        System.out.println(updateLobby);
+        System.out.println(player);
 
-        updateLobby.execute();
+        updateLobby.executeUpdate();
     }
    public static String getHighestScoreOfAllTime(String level) throws SQLException {
 

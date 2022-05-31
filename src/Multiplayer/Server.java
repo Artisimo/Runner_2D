@@ -94,8 +94,9 @@ public class Server implements Runnable{
                             mySqlDatabase.joinLobby(messageSplit[1],messageSplit[2]);
                             lobby.player2 = messageSplit[2];
                             for (ConnectionHandler ch : connections){
-                                if(ch.lobby.player1 == messageSplit[2]){
+                                if(ch.lobby.player1 == messageSplit[1]){
                                     ch.write.println("JoinedLobby");
+                                    ch.lobby.player1 = messageSplit[1];
                                     break;
                                 }
                             }
@@ -119,7 +120,7 @@ public class Server implements Runnable{
             }
         }
         public void shutdown() throws SQLException {
-            mySqlDatabase.leaveLobby(lobby.player1);
+            mySqlDatabase.leaveLobby(lobby.player2);
             mySqlDatabase.deleteLobby(lobby.player1);
             if(!client.isClosed()){
                 try {

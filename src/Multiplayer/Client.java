@@ -18,6 +18,7 @@ public class Client implements Runnable{
     public boolean playerJoined = false;
     public boolean gameFinished = false;
 
+
     public Client(String userName) {
         this.userName = userName;
 
@@ -46,8 +47,8 @@ public class Client implements Runnable{
     public void createLobby(String level){
         write.println( "CreateLobby" + ' ' + userName + ' ' + level );
     }
-    public void joinLobby(String player_1){
-        write.println("JoinLobby" + ' ' + player_1 + ' ' + userName);
+    public void joinLobby(int id){
+        write.println("JoinLobby" + ' ' + Integer.toString(id) + ' ' + userName);
     }
 
     public void finishedGame(){
@@ -64,6 +65,7 @@ public class Client implements Runnable{
             if(write != null){
                 write.close();
             }
+            mySqlDatabase.leaveLobby(userName);
             mySqlDatabase.deleteLobby(userName);
 
             if(client != null){

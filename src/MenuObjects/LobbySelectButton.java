@@ -16,12 +16,16 @@ public class LobbySelectButton extends MenuObject{
     }
 
     @Override
-    public void onClick(Game game) throws SQLException, IOException {
+    public void onClick(Game game) throws SQLException, IOException, InterruptedException {
+        game.client.joinLobby(lobbyID);
+
+        Thread.sleep(1000);
         game.levelSelectMenuGenerated = false;
         game.lobbyInfoGenerated = false;
         game.gameState = GameState.LOBBY;
         game.lobbyID = lobbyID;
         System.out.println(lobbyID);
+
     }
 
     @Override
