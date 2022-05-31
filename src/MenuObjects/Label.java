@@ -31,6 +31,7 @@ public class Label extends MenuObject{
     @Override
     public void render(Graphics g) throws SQLException {
         g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
+        //int textWidth = g.getFontMetrics().stringWidth(text);
         g.setColor(color);
         g.drawString(text, x, y);
     }

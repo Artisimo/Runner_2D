@@ -65,7 +65,7 @@ public class Server implements Runnable{
         private BufferedReader read;
         private PrintWriter write;
         private String clientName;
-        Lobby lobby = new Lobby();
+        public Lobby lobby = new Lobby();
 
 
         public ConnectionHandler(Socket client){

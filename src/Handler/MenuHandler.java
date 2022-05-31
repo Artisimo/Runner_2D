@@ -25,11 +25,12 @@ public class MenuHandler {
 
     public void generateUserNamePrompt(Graphics g) throws SQLException {
         object.clear();
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
         int textWidth = g.getFontMetrics().stringWidth("Enter your username: ");
-        object.add(new Label(Game.WIDTH / 2 - textWidth * 3, Game.HEIGHT / 2 - 100, MenuObjectID.Label, 0 ,0, "Enter your username: " , 30, Color.MAGENTA));
+        object.add(new Label(Game.WIDTH / 2 - textWidth, Game.HEIGHT / 2 - 100, MenuObjectID.Label, 0 ,0, "Enter your username: " , 30, Color.MAGENTA));
 
         object.add(new TextInput(Game.WIDTH / 2 + 10, Game.HEIGHT / 2 - 100, MenuObjectID.TextInput, 0 ,0, game));
-        object.add(new SetUserNameButton((Game.WIDTH / 2) - 100,  Game.HEIGHT / 2, MenuObjectID.userNameSetButton   ,100, 50));
+        object.add(new SetUserNameButton((Game.WIDTH / 2) - 50,  Game.HEIGHT / 2, MenuObjectID.userNameSetButton   ,100, 50));
     }
 
     public void generateStartMenu(Graphics g) throws SQLException {
@@ -49,37 +50,45 @@ public class MenuHandler {
 
     public void generatePauseMenu(Graphics g) throws SQLException {
         object.clear();
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        int textWidth = g.getFontMetrics().stringWidth("Game Paused!");
 
-        object.add(new ContinuePlayingButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 - 50,MenuObjectID.continuePlayingButton, 100, 50));
-        object.add(new RestartLevelButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 + 50,MenuObjectID.restartLevelButton, 100, 50));
-        object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT / 3 + 150,MenuObjectID.quitButton, 100, 50));
+        object.add(new Label((Game.WIDTH / 2) - (textWidth / 2), 50, MenuObjectID.Label, 0 ,0, "Game Paused!" , 30, Color.MAGENTA));
+        object.add(new ContinuePlayingButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 - 50,MenuObjectID.continuePlayingButton, 100, 50));
+        object.add(new RestartLevelButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 50,MenuObjectID.restartLevelButton, 100, 50));
+        object.add(new QuitButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 150,MenuObjectID.quitButton, 100, 50));
 
     }
 
     public void generateLevelFinishedMenu(Graphics g){
         object.clear();
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        int textWidth = g.getFontMetrics().stringWidth("Level Completed");
 
-        object.add(new Label(Game.WIDTH / 2 - 100, 50, MenuObjectID.Label, 0,0, "Level Completed!",30, Color.YELLOW));
+        object.add(new Label((Game.WIDTH / 2) - (textWidth / 2), 50, MenuObjectID.Label, 0,0, "Level Completed!",30, Color.YELLOW));
 
-        object.add(new Label(Game.WIDTH / 2 - 300, 100, MenuObjectID.Label, 0,0, game.infoAboutScore,25, Color.CYAN));
+        textWidth = g.getFontMetrics().stringWidth(game.infoAboutScore);
+        object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), 100, MenuObjectID.Label, 0,0, game.infoAboutScore,30, Color.CYAN));
 
-        object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
+        object.add(new QuitButton(Game.WIDTH / 2 - 160, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
 
-        object.add(new BackToMenuButton(Game.WIDTH / 2 + 10, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
+        object.add(new BackToMenuButton(Game.WIDTH / 2 - 50, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
 
-        object.add(new RestartLevelButton(Game.WIDTH / 2 + 220, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
+        object.add(new RestartLevelButton(Game.WIDTH / 2 + 60, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
 
     public void generatePlayerDiedMenu(Graphics g){
         object.clear();
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        int textWidth = g.getFontMetrics().stringWidth("You died!");
 
-        object.add(new Label(Game.WIDTH / 2 - 100, 50, MenuObjectID.Label, 0,0, "You died!",30, Color.YELLOW));
+        object.add(new Label((Game.WIDTH / 2) - (textWidth / 2), 50, MenuObjectID.Label, 0,0, "You died!",30, Color.YELLOW));
 
-        object.add(new QuitButton(Game.WIDTH / 2 - 100, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
+        object.add(new QuitButton(Game.WIDTH / 2 - 160, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
 
-        object.add(new BackToMenuButton(Game.WIDTH / 2 + 10, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
+        object.add(new BackToMenuButton(Game.WIDTH / 2 - 50, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
 
-        object.add(new RestartLevelButton(Game.WIDTH / 2 + 220, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
+        object.add(new RestartLevelButton(Game.WIDTH / 2 + 60, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
 
     public void generateMultiplayerMenu(Graphics g) throws SQLException {
