@@ -1468,4 +1468,9 @@
   2022-05-31 18:49:45 WARN  Game:25 - The entered username is not valid
   2022-05-31 18:49:50 INFO  Game:22 - Username set: stefans
   2022-05-31 18:50:21 INFO  Game:22 - Username set: nots
+  2022-05-31 19:11:53 INFO  Game:22 - Username set: user1
+  2022-05-31 19:13:00 INFO  Game:22 - Username set: user1
+  2022-05-31 19:13:21 INFO  Game:22 - Username set: user1
+  2022-05-31 19:13:32 INFO  Game:22 - Username set: user1
+  2022-05-31 19:13:52 INFO  Game:22 - Username set: user2
   
