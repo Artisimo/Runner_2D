@@ -14,6 +14,20 @@ public class ShootingEnemy extends BasicEnemy{
     public int reload;
     private Texture tex = Game.getInstance();
 
+    /**
+     * Sets x and y coordinates, width and height, moving range, damage, projectile damage and side, which the enemy is facing
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param width width of enemy
+     * @param height height of enemy
+     * @param id id - shootingEnemy
+     * @param handler game object handler
+     * @param movingrange moving range - 0
+     * @param damage damage
+     * @param projectileDamage projectile damage
+     * @param side side which this enemy is facing
+     */
+
     public ShootingEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int projectileDamage, int side) {
         super(x, y, width, height, id, handler, movingrange, damage);
         this.side = side;

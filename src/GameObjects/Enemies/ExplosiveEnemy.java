@@ -9,6 +9,9 @@ import Handler.Handler;
 
 import java.awt.*;
 
+/**
+ * The class for the explosive enemy
+ */
 public class ExplosiveEnemy extends BasicEnemy{
     protected int explosionRange;
     protected boolean isActivated = false;
@@ -18,6 +21,18 @@ public class ExplosiveEnemy extends BasicEnemy{
     private Texture tex = Game.getInstance();
     private Animation explosion;
 
+    /**
+     * sets x and y coordinates, width and height of this enemy, game object handler instance, moving range, damage and explosion range
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param width width of enemy
+     * @param height height of enemy
+     * @param id id of enemy - explosive enemy
+     * @param handler game object handler
+     * @param movingrange moving range of enemy
+     * @param damage damage on explosion
+     * @param explosionRange range of the explosion
+     */
     public ExplosiveEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int explosionRange) {
         super(x, y, width, height, id, handler, movingrange, damage);
         this.explosionRange = explosionRange;

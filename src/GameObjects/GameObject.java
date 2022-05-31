@@ -3,6 +3,9 @@ import GameObjects.CoreGameObjects.ID;
 
 import java.awt.*;
 
+/**
+ * Base class for all game objects
+ */
 public abstract class GameObject {
     protected int x, y;
     protected ID id;
@@ -16,6 +19,14 @@ public abstract class GameObject {
     protected int jumpHeight;
     public boolean moving = false;
 
+    /**
+     * Sets x and y coordinates for the game oibject
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param width width of the game object
+     * @param height height of the game object
+     * @param id id of the game object
+     */
 
     public GameObject(int x, int y, int width, int height, ID id){
         this.x = x;
@@ -25,14 +36,22 @@ public abstract class GameObject {
         this.height = height;
     }
 
-    public void resetCoordinates(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-
+    /**
+     * Updates the game objects properties without updating it
+     */
     public abstract void tick();
+
+    /**
+     * Renders the game object
+     * @param g graphics
+     */
     public abstract void render(Graphics g);
 
+
+    /**
+     * Gets the bounds (outer edges) for the game object
+     * @return Rectangle (hit box)
+     */
     public Rectangle getBounds(){
         return new Rectangle(x , y ,width, height);
     }

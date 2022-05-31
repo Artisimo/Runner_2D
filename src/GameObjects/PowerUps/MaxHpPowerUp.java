@@ -7,6 +7,9 @@ import GameObjects.GameObject;
 
 import java.awt.*;
 
+/**
+ * Class for the max health power up. When picked up, the player increases the amount of health points he can have
+ */
 public class MaxHpPowerUp extends GameObject {
 
     private Texture tex = Game.getInstance();

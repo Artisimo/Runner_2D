@@ -6,11 +6,25 @@ import GameObjects.CoreGameObjects.ID;
 import Handler.Handler;
 import java.awt.*;
 
+/**
+ * Class for the shooting enemies projectile
+ */
 public class Projectile extends GameObject {
     private int side;
     protected Handler handler;
     private Texture tex = Game.getInstance();
 
+    /**
+     * Sets the x and y coordinates, width and height of the projectile, id, game object handler, damage and side (-1 if left, 1 if right)
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param width width of projectile
+     * @param height height of projectile
+     * @param id id - projectile
+     * @param handler game object handler
+     * @param damage damage
+     * @param side which side it is flying to
+     */
     public Projectile(int x, int y, int width, int height, ID id, Handler handler, int damage, int side) {
         super(x, y, width, height, id);
         this.side = side;

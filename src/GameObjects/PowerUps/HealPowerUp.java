@@ -8,6 +8,10 @@ import Handler.Handler;
 
 import java.awt.*;
 
+
+/**
+ * Class for the heal power up. When collected, it increases the amount of players health points
+ */
 public class HealPowerUp extends GameObject {
     private Texture tex = Game.getInstance();
     private Handler handler;

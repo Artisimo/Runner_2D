@@ -8,6 +8,9 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Class for detecting mouse input and executing different actions based on where the mouse event took place
+ */
 public class MouseInput implements MouseListener {
 
     Game game;

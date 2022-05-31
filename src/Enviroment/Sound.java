@@ -7,7 +7,9 @@ import java.net.URL;
 
 import static Game.Game.sound;
 
-
+/**
+ * Sound class with all the sounds which are played in the game
+ */
 public class Sound {
     Clip clip;
     private int movingTimer = -1;

@@ -7,6 +7,9 @@ import GameObjects.GameObject;
 
 import java.awt.*;
 
+/**
+ * Class for the jump power up. When collected, the player jumps significantly higher
+ */
 public class JumpPowerUp extends GameObject {
     private Texture tex = Game.getInstance();
     public JumpPowerUp(int x, int y, int width, int height, ID id) {

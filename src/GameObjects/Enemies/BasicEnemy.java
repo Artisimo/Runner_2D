@@ -8,6 +8,9 @@ import Handler.Handler;
 import java.awt.*;
 
 
+/**
+ * Class for the main enemy which walks back and forth
+ */
 public class BasicEnemy extends GameObject {
 
     protected int movingrange;
@@ -16,11 +19,23 @@ public class BasicEnemy extends GameObject {
     protected float gravity = 0.5f;
     protected Handler handler;
 
-    Texture tex = Game.getInstance();
+    private Texture tex = Game.getInstance();
 
     private Animation WalkRight;
     private Animation WalkLeft;
 
+
+    /**
+     * Sets x and y coordinates, id, moving range and damage the player takes if he collides with this enemy
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param width width of enemy
+     * @param height height of enemy
+     * @param id id of enemy - basicEnemy
+     * @param handler game object handler
+     * @param movingrange moving range
+     * @param damage damage
+     */
     public BasicEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage) {
         super(x, y, width, height, id);
         this.movingrange = movingrange;
@@ -78,6 +93,7 @@ public class BasicEnemy extends GameObject {
             setVelX(-1 * velX);
         }
     }
+
     public void collision(){
         for(int i = 0; i < handler.object.size(); i++){
             GameObject temp = handler.object.get(i);
@@ -103,6 +119,7 @@ public class BasicEnemy extends GameObject {
         }
 
     }
+
 
     public boolean bottomCollision(Rectangle platform){
         return platform.intersects(getBoundsBottom());
