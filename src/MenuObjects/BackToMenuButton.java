@@ -4,6 +4,7 @@ import Enviroment.Texture;
 import Game.*;
 
 import java.awt.*;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class BackToMenuButton extends MenuObject{
@@ -13,8 +14,11 @@ public class BackToMenuButton extends MenuObject{
     }
     private Texture tex = Game.getInstance();
     @Override
-    public void onClick(Game game) {
+    public void onClick(Game game) throws IOException {
+
         game.gameState = GameState.MENU;
+        game.client.shutdown();
+        game.isInMultiplayer = false;
     }
 
     @Override
