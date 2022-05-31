@@ -129,6 +129,20 @@ public  class mySqlDatabase {
         return returnStr;
     }
 
+    public static int getSpecificLobbyID(String userName) throws SQLException {
+        Statement statement = conn.createStatement();
+        String select = "SELECT * FROM Lobbies WHERE Player_1 = ?";
+        PreparedStatement thisStatement = conn.prepareStatement(select, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        thisStatement.setString(1, userName);
+
+        ResultSet rs = thisStatement.executeQuery();
+        int id = 0;
+        while(rs.next()){
+            id = Integer.parseInt(rs.getString("id"));
+        }
+        return id;
+    }
+
 
     public static void createLobby(String player1,String level) throws SQLException {
         Statement statement = conn.createStatement();

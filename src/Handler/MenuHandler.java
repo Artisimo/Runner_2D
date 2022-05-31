@@ -132,6 +132,7 @@ public class MenuHandler {
         object.add(new Label((Game.WIDTH / 2), 250, MenuObjectID.Label, 0,0, "Player 2: " + splitArray[3],30, Color.YELLOW));
         object.add(new Label((Game.WIDTH / 2), 350, MenuObjectID.Label, 0,0, "Level: " + splitArray[2],30, Color.YELLOW));
 
+
     }
 
     public void render(Graphics g) throws SQLException {

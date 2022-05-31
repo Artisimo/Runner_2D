@@ -1326,4 +1326,27 @@
   2022-05-31 12:37:10 INFO  Game:22 - Username set: Artisimo
   2022-05-31 12:38:21 INFO  Game:22 - Username set: Artisimo
   2022-05-31 12:39:02 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 12:57:34 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 13:15:02 INFO  Game:22 - Username set: user1
+  2022-05-31 13:15:59 INFO  Game:22 - Username set: artisimo
+  2022-05-31 13:16:24 INFO  Game:22 - Username set: user1
+  2022-05-31 13:16:59 INFO  Game:22 - Username set: user1
+  2022-05-31 13:17:23 INFO  Game:22 - Username set: user2
+  2022-05-31 13:17:43 INFO  Game:22 - Username set: user1
+  2022-05-31 13:18:11 INFO  Game:22 - Username set: user2
+  2022-05-31 13:18:14 INFO  Game:106 - user2 joined the level
+  2022-05-31 13:18:14 INFO  Game:107 - level2 has been loaded
+  2022-05-31 13:18:20 INFO  Game:22 - Username set: user2
+  2022-05-31 13:18:40 INFO  Game:22 - Username set: user2
+  2022-05-31 13:18:43 INFO  Game:106 - user2 joined the level
+  2022-05-31 13:18:43 INFO  Game:107 - level3 has been loaded
+  2022-05-31 13:18:50 INFO  Game:22 - Username set: user2
+  2022-05-31 13:21:14 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 13:21:39 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 13:21:55 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 13:22:23 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 13:22:30 INFO  Game:106 - Artisimo joined the level
+  2022-05-31 13:22:30 INFO  Game:107 - level4 has been loaded
+  2022-05-31 13:22:42 INFO  Game:22 - Username set: Artisimo
+  2022-05-31 13:23:08 INFO  Game:22 - Username set: Artisimo
   
