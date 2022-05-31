@@ -4,10 +4,17 @@ import java.sql.*;
 import Game.*;
 import java.util.Scanner;
 
+
+/**
+ * The class for handling all requests related to databases.
+ */
 public  class mySqlDatabase {
 
+
+    /**
+     * Connection to the database. Static so it can be used without having to create a mySqlDatabase class instance
+     */
     private static Connection conn;
-    private static ResultSet rs;
 
     static {
         try {
@@ -17,6 +24,17 @@ public  class mySqlDatabase {
         }
     }
 
+
+    /**
+     * Saves the level result in the database.
+     * If the user has never completed this level, the method creates a new insert.
+     * If the user has previously completed this level, the method checks if this score is greater than his previous high score.
+     * If it is, the high score table is updated with the new high score.
+     * @param level which level the user completed
+     * @param score what score he got
+     * @param userID what is the usersID in the database
+     * @throws SQLException
+     */
     public static void saveLevelResult(String level, int score, String userID) throws SQLException {            // Sends the result to database which is hosted in free hosting service
 
         Statement statement = conn.createStatement();
@@ -62,6 +80,12 @@ public  class mySqlDatabase {
         }
     }
 
+
+    /**
+     * Gets users ID from his username
+     * @return
+     * @throws SQLException
+     */
     public static int getUserID(String userName) throws SQLException {
         int id;
         if(!doesUserExist(userName)){
@@ -78,6 +102,12 @@ public  class mySqlDatabase {
         return id;
     }
 
+
+    /**
+     * Checks if user already exists in the users table.
+     * @return true if user exists, false if user does not exist
+     * @throws SQLException
+     */
     public static boolean doesUserExist(String userName) throws SQLException {
         Statement statement = conn.createStatement();
         String sqlSelect = "SELECT * FROM Users WHERE userName = ? ";
@@ -93,6 +123,10 @@ public  class mySqlDatabase {
         }
     }
 
+    /**
+     * Inserts a new user in the users table.
+     * @throws SQLException
+     */
     public static void insertUser(String userName) throws SQLException {
         Statement statement = conn.createStatement();
         String sqlSelect = "INSERT INTO Users (userName) VALUES (?)";
@@ -101,6 +135,12 @@ public  class mySqlDatabase {
         thisStatement.executeUpdate();
     }
 
+
+    /**
+     * Gets all the ids of available lobbies.
+     * @return an array of integers
+     * @throws SQLException
+     */
     public static int[] getLobbyIds() throws SQLException {
         Statement statement = conn.createStatement();
         String select = "SELECT * FROM Lobbies";
@@ -114,6 +154,13 @@ public  class mySqlDatabase {
         }
         return lobbyIDs;
     }
+
+    /**
+     * Returns a string of both player names, the level name and lobby id seperated by space.
+     * @param id id of lobby
+     * @return string of both player names, the level name and lobby id seperated by space.
+     * @throws SQLException
+     */
 
     public static String getLobbyInfo(int id) throws SQLException {
         Statement statement = conn.createStatement();
@@ -129,6 +176,13 @@ public  class mySqlDatabase {
         return returnStr;
     }
 
+    /**
+     * Gets the id of the new lobby a player has just created.
+     * @param userName players userName
+     * @return id of lobby the player is currently in
+     * @throws SQLException
+     */
+
     public static int getSpecificLobbyID(String userName) throws SQLException {
         Statement statement = conn.createStatement();
         String select = "SELECT * FROM Lobbies WHERE Player_1 = ?";
@@ -143,7 +197,12 @@ public  class mySqlDatabase {
         return id;
     }
 
-
+    /**
+     * Creates a new lobby. Sets the player_1 to the current username and the level to the level which the user chose.
+     * @param player1 player 1 username
+     * @param level level name
+     * @throws SQLException
+     */
     public static void createLobby(String player1,String level) throws SQLException {
         Statement statement = conn.createStatement();
         String sqlInsert = "INSERT INTO Lobbies (Player_1,Running,Level) VALUES (?, ?, ?) ";
@@ -154,6 +213,13 @@ public  class mySqlDatabase {
 
         thisStatement.executeUpdate();
     }
+
+    /**
+     * Lets a player join a lobby.
+     * @param id lobby ID
+     * @param player_2 username of player who wants to join
+     * @throws SQLException
+     */
     public static void joinLobby(String id, String player_2) throws SQLException {
         PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = ?,Running = ? WHERE ID = ?");
 
@@ -164,6 +230,12 @@ public  class mySqlDatabase {
         updateLobby.executeUpdate();
     }
 
+
+    /**
+     * Deletes a specific lobby.
+     * @param player player username
+     * @throws SQLException
+     */
     public static void deleteLobby(String player) throws SQLException {
         PreparedStatement deleteLobby = conn.prepareStatement("Delete FROM Lobbies WHERE Player_1 = ?");
         deleteLobby.setString(1,player);
@@ -171,6 +243,11 @@ public  class mySqlDatabase {
         deleteLobby.execute();
     }
 
+    /**
+     * Updates the lobby and sets player 2 username to null
+     * @param player player2 username
+     * @throws SQLException
+     */
     public static void leaveLobby(String player) throws SQLException {
         PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = NULL WHERE Player_2 = ?");
 
@@ -178,6 +255,13 @@ public  class mySqlDatabase {
 
         updateLobby.executeUpdate();
     }
+
+    /**
+     * Gets the highest score of all time for a specific level.
+     * @param level level
+     * @return String in which the information is kept
+     * @throws SQLException
+     */
    public static String getHighestScoreOfAllTime(String level) throws SQLException {
 
        PreparedStatement selectStatement = conn.prepareStatement("SELECT score FROM HighScores  WHERE levelID = ?", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -191,6 +275,13 @@ public  class mySqlDatabase {
        return highestScore;
    }
 
+    /**
+     * Gets the highest score of all time for a specific user in a specific level
+     * @param level level
+     * @param userID user ID
+     * @return String in which the information is kept
+     * @throws SQLException
+     */
     public static String getUsersHighestScoreOfAllTime(String level, String userID) throws SQLException {
         PreparedStatement selectStatement = conn.prepareStatement("SELECT score FROM HighScores WHERE levelID = ? AND userID = ? ORDER BY score ASC", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         selectStatement.setString(1, level);

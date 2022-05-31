@@ -18,23 +18,51 @@ import java.sql.SQLException;
 import java.util.Random;
 import org.apache.log4j.*;
 
+/**
+ * The main game class. This class has the game loop, the logic for generating levels from images and to handle all present game and menu objects and render them.
+ */
+
 public class Game extends Canvas implements Runnable {
 
+
+    /**
+     * Represents Width and height of the game window.
+     */
+
     public static int WIDTH, HEIGHT;
+
+    /**
+     * Represents Width and height of level.
+     */
     public static int levelWidth, levelHeight;
 
+
+    /**
+     * Represents the logger which writes game logs to file.
+     */
     public static Logger logger = Logger.getLogger(Game.class);
 
+    /**
+     * Represents the thread on which the game is running.
+     */
     private Thread thread;
     private boolean running = false;
 
-    private Random r = new Random();
     private Graphics g;
+    /**
+     * Represents the Game State of current game. The game state can be 'paused', 'playing', 'menu' and so on.
+     */
     public GameState gameState;
 
+    /**
+     * Represents the picture, from which the level is loaded and generated.
+     */
     public BufferedImage level;
     public BufferedImage background;
 
+    /**
+     * Represents the instance of Texture class in which all textures and sprites are available for use.
+     */
     static Texture tex;
     public static Sound music = new Sound();
     public static Sound sound = new Sound();
@@ -42,32 +70,89 @@ public class Game extends Canvas implements Runnable {
 
     public static int levelsAmount = 9;
     public String levelname;
+    /**
+     * Represents the camera of the game. Makes sure that the player is always visible when playing/
+     */
     Camera camera = new Camera(0,0);
 
+
+    /**
+     * Represents the instance of the class which is responsible for handling all changes in different game objects when playing the game.
+     */
     private Handler handler;
+
+    /**
+     * Represents the instance of the class which is responsible for handling all changes in different menu objects when not playing.
+     */
     public MenuHandler menuHandler;
 
+    /**
+     * Represents the username of current player.
+     */
     public String userName;
-
+    /**
+     * Represents the user id of the current player.
+     */
     public int userId;
+    /**
+     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     */
     public boolean isMenuGenerated;
+    /**
+     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     */
     public boolean isUserNameSet;
+    /**
+     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     */
     public boolean isPauseMenuActive;
+    /**
+     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     */
     public boolean isLevelFinishedMenuActive;
+    /**
+     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     */
 
     public boolean playerDiedMenuGenerated;
+    /**
+     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     */
 
     public boolean isMultiiplayerMenuGenerated;
 
-    public String infoAboutScore;
+    /**
+     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     */
 
-    public  Client client;
-    public boolean isInMultiplayer = false;
     public boolean levelSelectMenuGenerated = false;
+
+    /**
+     * Represents a boolean value which determines weather or not the specified menu should be generated, or just rendered again.
+     */
 
     public boolean lobbyInfoGenerated;
 
+    /**
+     * Represents a value which contains info about the score when a level has been finished.
+     */
+    public String infoAboutScore;
+
+    public  Client client;
+
+    /**
+     * Boolean value which determines the behavior of levelSelectButton.
+     */
+    public boolean isInMultiplayer = false;
+
+
     public int lobbyID;
+
+    /**
+     * Game constructor sets the WIDTH and HEIGHT of the game to the size of the screen.
+     * Creates both handlers which are going to be used while the game is running.
+     * Defines KeyListener and Mouse Listener for listening for the user input.
+     */
 
     public Game(){
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -90,6 +175,13 @@ public class Game extends Canvas implements Runnable {
         isMenuGenerated = false;
     }
 
+    /**
+     * gets the desired level image and loads the level.
+     * sets the game state to playing
+     *
+     * @param path specifies the path to the desired level image
+     */
+
     public void play(String path){
         BufferedImageLoader loader = new BufferedImageLoader();
         level = loader.loadImage(path);
@@ -108,11 +200,20 @@ public class Game extends Canvas implements Runnable {
 
     }
 
+
+    /**
+     * Empties both the game object and menu object handlers
+     */
     public void emptyHandler(){
         handler.object.clear();
         menuHandler.object.clear();
     }
 
+
+    /**
+     * Generates the level by generating different game objects depending on pixels RGB values in the level image.
+     * @param image
+     */
     private void loadLevelImage(BufferedImage image){
         int w = image.getWidth();
         int h = image.getWidth();
@@ -200,6 +301,11 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
+
+    /**
+     * Main game loop.
+     * Calls the render and tick methods 60 times a second.
+     */
     public void run(){
         this.requestFocus();
         long lastTime = System.nanoTime();   //Start time in nanoseconds
@@ -225,6 +331,9 @@ public class Game extends Canvas implements Runnable {
         stop();
     }
 
+    /**
+     * Updates the game or menu object fields without rendering them when called.
+     */
     private void tick(){
 
         if(gameState == GameState.PLAYING){
@@ -242,6 +351,11 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
+    /**
+     * Renders the desired objects depending on which game state the game is currently in and whether the desired menu has already been generated.
+     * If it has, then this function only renders the already generated objects.
+     * @throws SQLException
+     */
     private void render() throws SQLException {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {
@@ -328,6 +442,15 @@ public class Game extends Canvas implements Runnable {
         bs.show();
     }
 
+
+    /**
+     * Used to set an int value to the specified minimum value if the desired value is less than min and the specified maximum value if the desired value is greater than the maximum allowed value.
+     * If the desired value is in range (min < n < max) then it sets the value to the desired value.
+     * @param val desired value
+     * @param min minumum value
+     * @param max maximum value
+     * @return either the desired int value, or specified minimum or maximum value.
+     */
     public static int clamp(int val, int min, int max){
         if(val >= max){
             return max;
@@ -338,12 +461,13 @@ public class Game extends Canvas implements Runnable {
         }
     }
 
+    /**
+     * Gets an instance of the texture class. Instance of texture class has all the animations and sprites for the game.
+     * @return an instance of Texture class
+     */
+
     public static Texture getInstance(){
         return tex;
-    }
-
-    public Graphics getGraphics(){
-        return g;
     }
 
     public static void main(String args[]){
