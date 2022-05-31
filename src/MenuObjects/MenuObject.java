@@ -6,6 +6,9 @@ import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Base class for all of the other menu objects such as butons, labels and input fields.
+ */
 public abstract class MenuObject {
     protected int x, y;
     protected MenuObjectID id;
@@ -19,10 +22,26 @@ public abstract class MenuObject {
         this.height = height;
     }
 
+    /**
+     * Method to execute commands when a specific menu object is clicked. This method is abstract
+     * @param game
+     * @throws SQLException
+     * @throws IOException
+     * @throws InterruptedException
+     */
     public abstract void onClick(Game game) throws SQLException, IOException, InterruptedException;
 
+    /**
+     * Method to update a menu objects properties without rendering them
+     * @throws SQLException
+     */
     public abstract void tick() throws SQLException;
 
+    /**
+     * Renders a menu object depending on the implementation in each object
+     * @param g
+     * @throws SQLException
+     */
     public abstract void render(Graphics g) throws SQLException;
 
     public int getX() {

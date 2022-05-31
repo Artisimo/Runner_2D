@@ -11,10 +11,18 @@ import MenuObjects.MultiplayerButton;
 import MenuObjects.Label;
 import Enviroment.*;
 
+/**
+ * The class which helps with keeping track of all menu objects. Meu objects are the buttons, labels and text input fields
+ */
 public class MenuHandler {
     public LinkedList<MenuObject> object = new LinkedList<MenuObject>();
 
     public Game game;
+
+    /**
+     * Sets the game class instance which can be used to acces the game's properties
+     * @param game
+     */
     public MenuHandler(Game game) {
         this.game = game;
     }
@@ -25,6 +33,11 @@ public class MenuHandler {
 
     public int crystalsCollected = 0;
 
+    /**
+     * Generates the menu for entering the username.
+     * @param g graphics
+     * @throws SQLException
+     */
     public void generateUserNamePrompt(Graphics g) throws SQLException {
         object.clear();
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
@@ -35,6 +48,11 @@ public class MenuHandler {
         object.add(new SetUserNameButton((Game.WIDTH / 2) - 50,  Game.HEIGHT / 2, MenuObjectID.userNameSetButton   ,100, 50));
     }
 
+    /**
+     * Generates the level selection menu and multiplayer buttons
+     * @param g graphics
+     * @throws SQLException
+     */
     public void generateStartMenu(Graphics g) throws SQLException {
         object.clear();
         g.setColor(Color.BLACK);
@@ -50,6 +68,11 @@ public class MenuHandler {
         object.add(new MultiplayerButton(174, 30,MenuObjectID.button, 100, 50));
     }
 
+    /**
+     * Generates the pause menu
+     * @param g graphics
+     * @throws SQLException
+     */
     public void generatePauseMenu(Graphics g) throws SQLException {
         object.clear();
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
@@ -62,6 +85,10 @@ public class MenuHandler {
 
     }
 
+    /**
+     * Generates the menu for when a player finishes a level
+     * @param g
+     */
     public void generateLevelFinishedMenu(Graphics g){
         object.clear();
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
@@ -79,6 +106,10 @@ public class MenuHandler {
         object.add(new RestartLevelButton(Game.WIDTH / 2 + 60, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
 
+    /**
+     * Generates the menu for when a player dies
+     * @param g graphics
+     */
     public void generatePlayerDiedMenu(Graphics g){
         object.clear();
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
@@ -93,6 +124,12 @@ public class MenuHandler {
         object.add(new RestartLevelButton(Game.WIDTH / 2 + 60, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
 
+
+    /**
+     * Generates the multiplayer menu. Displays buttons to join all currently available lobbies.
+     * @param g graphics
+     * @throws SQLException
+     */
     public void generateMultiplayerMenu(Graphics g) throws SQLException {
         object.clear();
 
@@ -110,6 +147,11 @@ public class MenuHandler {
         object.add(new CreateLobbyButton(Game.WIDTH / 2 + Game.WIDTH/4,Game.HEIGHT/2 + Game.HEIGHT/4,MenuObjectID.CreateLobbyButton,100,50));
     }
 
+    /**
+     * Displays the menu for creating a new lobby and choosing a level which the user wants to play in the 1v1 gamemode
+     * @param g
+     * @throws SQLException
+     */
     public void generateLobbyMenu(Graphics g) throws SQLException {
         object.clear();
         g.setColor(Color.BLACK);
@@ -123,6 +165,12 @@ public class MenuHandler {
         object.add(new ReturnToMultiplayerMenu(64, 30, MenuObjectID.returnToMultiplayerMenuButton, 100, 50));
     }
 
+    /**
+     * Displays all info about the lobby a user has joined
+     * @param g
+     * @param lobbyID
+     * @throws SQLException
+     */
     public void generateLobbyInfo(Graphics g, int lobbyID) throws SQLException {
         object.clear();
         String[] splitArray = mySqlDatabase.getLobbyInfo(lobbyID).split("\\s+");
@@ -148,6 +196,15 @@ public class MenuHandler {
         }
     }
 
+    /**
+     * Runs through all the menu objects currently present and excecutes the correct method depending on where the user clicked
+     * @param g graphics
+     * @param e mouse event
+     * @param game game class instance
+     * @throws SQLException
+     * @throws IOException
+     * @throws InterruptedException
+     */
    public void executeClick(Graphics g, MouseEvent e, Game game) throws SQLException, IOException, InterruptedException {
        for(int i = 0; i < object.size(); i++){
            MenuObject tempObject = object.get(i);

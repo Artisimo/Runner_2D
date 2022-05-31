@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import Game.*;
 import GameObjects.*;
 
+
+/**
+ * Player class. The player can be controlled by the user
+ */
 public class Player extends GameObject {
     private Handler handler;
     private float gravity = 0.5f;
@@ -16,8 +20,6 @@ public class Player extends GameObject {
     public int attacked = 0;
     private boolean leftbound = true;
     private GameObject intersactedEnemy;
-
-    private String username = "testUser";
 
     private int crystalsCollected = 0;
     private int speedTimer = -1;
@@ -32,6 +34,17 @@ public class Player extends GameObject {
     private Animation playerWalkLeft;
     private long startTime, elapsedTime;
 
+
+    /**
+     * Sets the x and y coordinates, game object handler and game instance
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param width width of player
+     * @param height height of player
+     * @param id id - player
+     * @param handler game object handler
+     * @param game instance of game class
+     */
     public Player(int x, int y, int width, int height, ID id, Handler handler, Game game){
         super(x, y,width, height, id);
         this.handler = handler;
@@ -42,6 +55,11 @@ public class Player extends GameObject {
         startTime = System.currentTimeMillis();
         this.game = game;
     }
+
+    /**
+     * Updates the players properties.
+     *
+     */
     @Override
     public void tick() {
         x += velX;
@@ -96,6 +114,10 @@ public class Player extends GameObject {
         }
     }
 
+    /**
+     * Runs through the game object handler's list of all game objects and checks if the player has collided with any of them.
+     * Updates the players properties depending on which other game objects the player has collided with
+     */
     public void collision(){
         for(int i = 0; i < handler.object.size(); i++){
             GameObject temp = handler.object.get(i);
@@ -212,23 +234,49 @@ public class Player extends GameObject {
             }
         }
     }
+
+    /**
+     * Checks if the players bottom hit box has collided with a platform
+     * @param platform platform
+     * @return true if has collided, false if has not
+     */
     public boolean bottomCollision(Rectangle platform){
         return platform.intersects(getBoundsBottom());
     }
 
+    /**
+     * Returns the player's bottom hit box
+     * @return rectangle
+     */
     public Rectangle getBoundsBottom(){
         return new Rectangle(x + (width / 2) - (width/2)/2, y + (height / 2),width / 2, height / 2);
     }
+    /**
+     * Returns the player's top hit box
+     * @return rectangle
+     */
     public Rectangle getBoundsTop(){
         return new Rectangle(x + (width / 2) - (width/2)/2, y,width/ 2, height/2);
     }
+    /**
+     * Returns the player's left hit box
+     * @return rectangle
+     */
     public Rectangle getBoundsLeft(){
         return new Rectangle(x , y + 5,10, height-10);
     }
+    /**
+     * Returns the player's right hit box
+     * @return rectangle
+     */
     public Rectangle getBoundsRight(){
         return new Rectangle(x + width - 10, y + 5,10, height-10);
     }
 
+    /**
+     * Renders the player depending on if he is moving, standing, jumping and so on
+     * @param g graphics
+     */
     @Override
     public void render(Graphics g) {
 
@@ -255,14 +303,18 @@ public class Player extends GameObject {
         }
     }
 
+
+    /**
+     * Gets the current health of player
+     * @return int health points
+     */
     public int getCurrenthp() {
         return currenthp;
     }
 
-    public void setCurrenthp(int currenthp) {
-        this.currenthp = currenthp;
-    }
-
+    /**
+     * Deals the player damage if he was in the range of an explosive enemy at the moment of it exploding
+     */
     public void explosion(){
         currenthp = currenthp - exploded;
         exploded = 0;

@@ -9,6 +9,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 
+/**
+ * Class for detecting keyboard input and executing actions depending on which key has been pressed or released.
+ */
 public class KeyInput extends KeyAdapter {
 
     public Handler handler;

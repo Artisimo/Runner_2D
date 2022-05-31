@@ -3,8 +3,17 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+/**
+ * Class for loading images
+ */
 public class BufferedImageLoader {
     private BufferedImage image;
+
+    /**
+     * Loads the specified image
+     * @param path path to the image
+     * @return BufferedImage object with the loaded image inside it
+     */
     public BufferedImage loadImage(String path){
         try {
             image = ImageIO.read(getClass().getResource(path));
@@ -14,6 +23,11 @@ public class BufferedImageLoader {
         return image;
     }
 
+    /**
+     * Gets the width of the level. Calculated by counting the amount of platforms on the top line in a level image
+     * @param path path to the level image
+     * @return level width in pixels
+     */
     public int getLevelWidth(String path){                     // Function to determine when the camera should stop
         try {
             image = ImageIO.read(getClass().getResource(path));
@@ -36,6 +50,11 @@ public class BufferedImageLoader {
         }
     }
 
+    /**
+     * Gets the height of the level. Calculated by counting the amount of platforms on the first right column.
+     * @param path path to the level image
+     * @return height of the level in pixels
+     */
     public int getLevelHeight(String path){                     // Function to determine when the camera should stop
         try {
             image = ImageIO.read(getClass().getResource(path));

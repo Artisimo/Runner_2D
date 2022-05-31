@@ -7,10 +7,20 @@ import GameObjects.CoreGameObjects.Hpbar;
 import java.awt.*;
 import java.util.LinkedList;
 
+/**
+ * The class for the game object handler It helps with keeping track of all present game objects
+ */
 public class Handler {
+    /**
+     * List of all game objects currently being rendered and updated
+     */
     public LinkedList<GameObject> object = new LinkedList<GameObject>();
     private GameObject hpbar;
 
+
+    /**
+     * Updates all the game objects without rendering them.
+     */
     public void tick(){
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);
@@ -18,6 +28,10 @@ public class Handler {
         }
     }
 
+    /**
+     * Renders all the game objects
+     * @param g graphics
+     */
     public void render(Graphics g){
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject = object.get(i);

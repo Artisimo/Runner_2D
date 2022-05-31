@@ -1,5 +1,8 @@
 package MenuObjects;
 
+/**
+ * Used to distinguish different types of menu objects
+ */
 public enum MenuObjectID {
     levelButton(),
     userNameSetButton(),

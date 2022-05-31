@@ -2,6 +2,10 @@ package Enviroment;
 
 import java.awt.image.BufferedImage;
 
+
+/**
+ * Class used for getting all animations and textures used in the game.
+ */
 public class Texture {
     SpriteSheet playerSheet;
     SpriteSheet platformSheet;

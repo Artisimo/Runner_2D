@@ -7,6 +7,9 @@ import GameObjects.GameObject;
 
 import java.awt.*;
 
+/**
+ * The class for the speed power up. When picked up, the player runs quicker for a short duration
+ */
 public class SpeedPowerUp extends GameObject {
 
     private Texture tex = Game.getInstance();
