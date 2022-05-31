@@ -115,6 +115,7 @@ public  class mySqlDatabase {
         }
     }
 
+
     public static void createLobby(String player1,String level) throws SQLException {
         Statement statement = conn.createStatement();
         String sqlInsert = "INSERT INTO Lobbies (Player_1,Running,Level) VALUES (?, ?, ?) ";

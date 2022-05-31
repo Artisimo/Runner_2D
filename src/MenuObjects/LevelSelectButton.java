@@ -39,14 +39,15 @@ public class LevelSelectButton extends MenuObject{
 
     public void render(Graphics g) throws SQLException {
         g.setColor(Color.CYAN);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
         int textWidth = g.getFontMetrics().stringWidth(levelName.substring(8, 14));
         g.drawRect(x, y,width, height);
         g.setColor(Color.WHITE);
-        g.drawString(levelName.substring(8, 14), x + (width - textWidth) /2 , y + height / 2);
+        g.drawString(levelName.substring(8, 14), x + (width - textWidth) /2 , y + height / 2+ 10);
 
         textWidth = g.getFontMetrics().stringWidth(bestScorePlayer);
-        g.drawString(bestScorePlayer, x - textWidth - 20, y + height/ 2);
+        g.drawString(bestScorePlayer, x - textWidth - 20, y + height/ 2 + 10);
 
-        g.drawString(bestScoreEver, x + width +  20, y + height/ 2);
+        g.drawString(bestScoreEver, x + width +  20, y + height/ 2 + 10);
     }
 }

@@ -41,7 +41,7 @@ public class MenuHandler {
         g.fillRect(0,0,Game.WIDTH, Game.HEIGHT );
         g.setColor(Color.RED);
         for (int i = 0; i < Game.levelsAmount; i++) {
-            object.add( new LevelSelectButton(Game.WIDTH / 2 - 100, (i * 64) + (i+1) * 30, MenuObjectID.levelButton, 100, 50, "/Levels/level" + (i+1) + ".png", game));
+            object.add( new LevelSelectButton(Game.WIDTH / 2 - 50, (i * 30) + (i+1) * 50, MenuObjectID.levelButton, 100, 50, "/Levels/level" + (i+1) + ".png", game));
             object.get(i).tick();
         }
 
@@ -106,6 +106,7 @@ public class MenuHandler {
 
         object.add(new CreateLobbyButton(Game.WIDTH / 2 + Game.WIDTH/4,Game.HEIGHT/2 + Game.HEIGHT/4,MenuObjectID.CreateLobbyButton,100,50));
     }
+
     public void generateLobbyMenu(Graphics g) throws SQLException {
         object.clear();
         g.setColor(Color.BLACK);
