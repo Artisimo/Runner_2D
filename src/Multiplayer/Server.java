@@ -96,11 +96,8 @@ public class Server implements Runnable{
                             clientName = messageSplit[2];
                             lobby.player2 = messageSplit[2];
                             String player = mySqlDatabase.getSpecificPlayer1(messageSplit[1]);
-                            System.out.println(player);
                             for (ConnectionHandler ch : connections){
-                                System.out.println("Player name " + ch.lobby.player1);
-                                System.out.println(ch.lobby.player1 == player);
-                                if(ch.lobby.player1 == player){
+                                if(player.equals(ch.lobby.player1)){
                                     ch.write.println("JoinedLobby");
                                     ch.clientName = player;
                                     this.lobby.player1 = player;
