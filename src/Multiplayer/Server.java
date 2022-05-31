@@ -65,7 +65,7 @@ public class Server implements Runnable{
         private BufferedReader read;
         private PrintWriter write;
         private String clientName;
-        Lobby lobby;
+        Lobby lobby = new Lobby();
 
 
         public ConnectionHandler(Socket client){
@@ -87,6 +87,7 @@ public class Server implements Runnable{
                             mySqlDatabase.createLobby(messageSplit[1],messageSplit[2]);
                             lobby.player1 = messageSplit[1];
                             lobby.level = messageSplit[2];
+                            System.out.println(lobby.player1);
                         }
                     }else if(message.startsWith("JoinLobby")){
                         String[] messageSplit = message.split(" ",3);
@@ -97,19 +98,21 @@ public class Server implements Runnable{
                     }
                 }
             } catch (Exception e) {
-                shutdown();
+                try {
+                    shutdown();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         }
-        public void shutdown(){
+        public void shutdown() throws SQLException {
+            mySqlDatabase.deleteLobby(lobby.player1);
             if(!client.isClosed()){
                 try {
-                    mySqlDatabase.deleteLobby(lobby.player1);
                     read.close();
                     write.close();
                     client.close();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
             }
