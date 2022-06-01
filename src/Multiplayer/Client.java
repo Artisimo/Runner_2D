@@ -17,6 +17,7 @@ public class Client implements Runnable{
     private String userName;
     public boolean isAction = false;
     public boolean gameFinished = false;
+    public boolean isLobbyDeleted = false;
 
 
     public Client(String userName) {
@@ -84,7 +85,6 @@ public class Client implements Runnable{
 
         @Override
         public void run() {
-            BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
             while (!done){
                 try {
                     String message;
@@ -92,8 +92,11 @@ public class Client implements Runnable{
                         if (message.equals("JoinedLobby")) {
                             isAction = true;
                         }
-                        if(message.equals("LeftLobby")){
+                        else if(message.equals("LeftLobby")){
                             isAction = true;
+                        }
+                        else if(message.equals("LobbyDeleted")){
+                            isLobbyDeleted = true;
                         }
                     }
                 } catch (IOException e) {
