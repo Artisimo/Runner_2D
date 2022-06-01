@@ -117,19 +117,23 @@ public class Server implements Runnable{
                     }else if(message.startsWith("LeaveLobby")){
                         String[] messageSplit = message.split(" ",2);
                         for (ConnectionHandler ch : connections){
-                            if(ch.lobby.player2.equals(messageSplit[1]) && !ch.clientName.equals(messageSplit[1])){
-                                ch.lobby.player2 = null;
-                                this.lobby.player1 = null;
-                                this.lobby.player2 = null;
-                                mySqlDatabase.leaveLobby(messageSplit[1]);
-                                ch.write.println("LeftLobby");
-                                break;
+                            if(ch.lobby.player2 != null && ch.clientName != null ){
+                                if(ch.lobby.player2.equals(messageSplit[1]) && !ch.clientName.equals(messageSplit[1])){
+                                    ch.lobby.player2 = null;
+                                    this.lobby.player1 = null;
+                                    this.lobby.player2 = null;
+                                    mySqlDatabase.leaveLobby(messageSplit[1]);
+                                    ch.write.println("LeftLobby");
+                                    break;
+                                }
                             }
-                            if(ch.lobby.player1.equals(messageSplit[1])){
-                                System.out.println(messageSplit[1]);
-                                mySqlDatabase.deleteLobby(messageSplit[1]);
-                                if(!ch.clientName.equals(messageSplit[1])){
-                                    ch.write.println("LobbyDeleted");
+                            if(ch.lobby.player1 != null && ch.clientName != null){
+                                if(ch.lobby.player1.equals(messageSplit[1])){
+                                    System.out.println(messageSplit[1]);
+                                    mySqlDatabase.deleteLobby(messageSplit[1]);
+                                    if(!ch.clientName.equals(messageSplit[1])){
+                                        ch.write.println("LobbyDeleted");
+                                    }
                                 }
                             }
                         }
