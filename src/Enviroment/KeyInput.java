@@ -29,7 +29,7 @@ public class KeyInput extends KeyAdapter {
         if(game.gameState == GameState.USERNAME_PROMPT){
             if(key == KeyEvent.VK_BACK_SPACE && game.userName.length() > 0){
                 game.userName = game.userName.substring(0, game.userName.length() - 1);
-            }else if(key != KeyEvent.VK_SHIFT && key != KeyEvent.VK_CONTROL && key != KeyEvent.VK_ESCAPE){
+            }else if(key != KeyEvent.VK_SHIFT && key != KeyEvent.VK_CAPS_LOCK && key != KeyEvent.VK_ESCAPE){
                 if(game.userName.length() < 25){
                     game.userName = game.userName + e.getKeyChar();
                 }
