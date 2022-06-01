@@ -123,6 +123,7 @@ public class Server implements Runnable{
                                 this.lobby.player2 = null;
                                 mySqlDatabase.leaveLobby(messageSplit[1]);
                                 ch.write.println("LeftLobby");
+                                break;
                             }
                             if(ch.lobby.player1.equals(messageSplit[1])){
                                 System.out.println(messageSplit[1]);
