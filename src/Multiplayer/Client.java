@@ -19,6 +19,7 @@ public class Client implements Runnable{
     public boolean isGameStarted = false;
     public boolean gameFinished = false;
     public boolean secondPlayerGameFinished = false;
+
     public boolean isWinner = false;
     public boolean isLooser = false;
     public boolean gameEnd = false;
@@ -118,7 +119,7 @@ public class Client implements Runnable{
                         }else if(message.startsWith("Won")){
                             isWinner = true;
                             gameEnd = true;
-                        }else if(message.startsWith("Won")){
+                        }else if(message.startsWith("Lost")){
                             isLooser = true;
                             gameEnd = true;
                         }
