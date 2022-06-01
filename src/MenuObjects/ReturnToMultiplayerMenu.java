@@ -29,7 +29,11 @@ public class ReturnToMultiplayerMenu extends MenuObject{
 
     @Override
     public void render(Graphics g) throws SQLException {
-        g.setColor(Color.YELLOW);
-        g.drawRect(x, y, width, height);
+        g.setColor(Color.MAGENTA);
+        g.fillRect(x, y, width, height);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        int textWidth = g.getFontMetrics().stringWidth("BACK");
+        g.drawString("BACK", x + (width - textWidth) /2, y + 35);
     }
 }

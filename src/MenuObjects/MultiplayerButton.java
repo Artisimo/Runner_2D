@@ -28,7 +28,11 @@ public class MultiplayerButton extends MenuObject{
 
     @Override
     public void render(Graphics g) throws SQLException {
-        g.setColor(Color.RED);
-        g.drawRect(x, y, width, height);
+        g.setColor(Color.MAGENTA);
+        g.fillRect(x, y, width, height);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        int textWidth = g.getFontMetrics().stringWidth("1 v 1");
+        g.drawString("1 v 1", x + (width - textWidth) /2, y + 35);
     }
 }

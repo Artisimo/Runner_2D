@@ -46,8 +46,8 @@ public class LevelSelectButton extends MenuObject{
         g.setColor(Color.CYAN);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
         int textWidth = g.getFontMetrics().stringWidth(levelName.substring(8, 14));
-        g.drawRect(x, y,width, height);
-        g.setColor(Color.WHITE);
+        g.fillRect(x, y,width, height);
+        g.setColor(Color.MAGENTA);
         g.drawString(levelName.substring(8, 14), x + (width - textWidth) /2 , y + height / 2+ 10);
 
         textWidth = g.getFontMetrics().stringWidth(bestScorePlayer);
