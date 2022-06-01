@@ -181,16 +181,18 @@ public class Player extends GameObject {
                     elapsedTime = System.currentTimeMillis() - startTime;
                     long seconds = elapsedTime / 1000;
                     long miliSeconds = elapsedTime % 1000;
-                    int score = (int) elapsedTime / 3 + crystalsCollected * 200;
+                    int score = game.clamp((int) (999999999 / elapsedTime * 100) + crystalsCollected * 1000, 0, 999999999);
                     try {
                         mySqlDatabase.saveLevelResult(game.levelname, score, Integer.toString(game.userId));
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
+                    if(game.isInMultiplayer){
+                        game.client.finishedGame();
+                        game.client.sendScore(Integer.toString(score));
+                    }
                     game.infoAboutScore = "Time: " + seconds + "." + miliSeconds + ", " + crystalsCollected + " / 3 crystals collected. Score is: " + score;
                     game.emptyHandler();
-                    game.client.sendScore(game.infoAboutScore);
-                    game.client.finishedGame();
                     game.gameState = GameState.LEVEL_FINISHED;
                     game.isMenuGenerated = false;
                     Game.logger.info("Player finished the level" + game.infoAboutScore);

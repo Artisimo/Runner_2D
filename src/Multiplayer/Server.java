@@ -110,40 +110,46 @@ public class Server implements Runnable{
                     }else if(message.startsWith("Finished")){
                         String[] messageSplit = message.split(" ",2);
                         for (ConnectionHandler ch : connections){
-                            if(ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1])){
-                                //ch.lobby.finished = true;
-//                                if(ch.lobby.player1.equals(messageSplit[1])){
-//                                    mySqlDatabase.deleteLobby(ch.lobby.player1);
-//                                }else {
-//                                    mySqlDatabase.deleteLobby(ch.lobby.player2);
-//                                }
+                            if(ch.lobby.player1.equals(messageSplit[1])) {
+                                ch.lobby.player1Finished = true;
                                 ch.write.println("Finished" + ' ' + messageSplit[1]);
-                                break;
+                                System.out.println("Finished" + ' ' + messageSplit[1]);
                             }
+                            else if(ch.lobby.player2.equals(messageSplit[1])){
+                                ch.lobby.player2Finished = true;
+                                ch.write.println("Finished" + ' ' + messageSplit[1]);
+                                System.out.println("Finished" + ' ' + messageSplit[1]);
+                            }
+
+                            if(ch.lobby.player1Finished && ch.lobby.player2Finished){
+                                ch.lobby.finished = true;
+                                ch.write.println("GameFinished");
+                            }
+                            System.out.println(ch.lobby.finished);
                         }
-                    }else if(message.startsWith("Score")){
-                        String[] messageSplit = message.split(" ",3);
+                    }else if(message.startsWith("Score")) {
+                        String[] messageSplit = message.split(" ", 3);
                         for(ConnectionHandler ch : connections){
                             if(messageSplit[2].equals(ch.lobby.player1)){
                                 ch.lobby.player1Score = Integer.parseInt(messageSplit[1]);
-                            }else if(messageSplit[2].equals(ch.lobby.player1)){
+                            }else if(messageSplit[2].equals(ch.lobby.player2)){
                                 ch.lobby.player2Score = Integer.parseInt(messageSplit[1]);
                             }
-                            if(ch.lobby.player1Score > 0 && ch.lobby.player2Score > 0){
+
+                            System.out.println("Player 1 score: " + ch.lobby.player1Score);
+                            System.out.println("Player 2 score: " + ch.lobby.player2Score);
+                            if(ch.lobby.finished){
                                 if(ch.lobby.player1Score >= ch.lobby.player2Score){
-                                    if(ch.lobby.player1.equals(messageSplit[2])){
-                                        ch.write.println("Won");
-                                        System.out.println("Won");
-                                    }else {ch.write.println("Lost");
-                                        System.out.println("Lost");}
+                                    ch.write.println("Won" + ' ' + ch.lobby.player1);
+                                    System.out.println("player 1 won");
                                 }else {
-                                    if(!ch.lobby.player1.equals(messageSplit[2])){
-                                        ch.write.println("Won");
-                                    }else {ch.write.println("Lost");}
+                                    ch.write.println("Won" + ' ' + ch.lobby.player2);
+                                    System.out.println("player 2 won");
                                 }
                             }
                         }
-                    } else if(message.startsWith("LeaveLobby")){
+                    }
+                    else if(message.startsWith("LeaveLobby")){
                         String[] messageSplit = message.split(" ",2);
                         for (ConnectionHandler ch : connections){
                             if(ch.lobby.player2 != null && ch.clientName != null ){

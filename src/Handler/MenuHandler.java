@@ -107,6 +107,34 @@ public class MenuHandler {
         object.add(new NextLevelButton(Game.WIDTH / 2 + 60, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.nextLevelButton, 100, 50, Integer.parseInt(game.levelname.substring(5, 6))));
     }
 
+
+    public void generateWaitingMenu(Graphics g){
+        object.clear();
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        int textWidth = g.getFontMetrics().stringWidth("Waiting for the other player to finish");
+        object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), Game.HEIGHT / 2, MenuObjectID.Label, 0,0, "Waiting for the other player to finish",30, Color.CYAN));
+    }
+
+    public void generateWonMenu(Graphics g){
+        object.clear();
+        g.setColor(Color.GREEN);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+        int textWidth = g.getFontMetrics().stringWidth("You Won");
+        object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), Game.HEIGHT / 2, MenuObjectID.Label, 0,0, "You Won",30, Color.GREEN));
+        object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
+        object.add(new ChangeGameStateButton(174, 30, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+    }
+
+    public void generateLostMenu(Graphics g){
+        object.clear();
+        g.setColor(Color.RED);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+        int textWidth = g.getFontMetrics().stringWidth("You Lost");
+        object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), Game.HEIGHT / 2, MenuObjectID.Label, 0,0, "You Lost",30, Color.RED));
+        object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
+        object.add(new ChangeGameStateButton(174, 30, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+    }
+
     /**
      * Generates the menu for when a player dies
      * @param g graphics
@@ -144,6 +172,7 @@ public class MenuHandler {
         }
 
         object.add(new CreateLobbyButton(Game.WIDTH / 2 + Game.WIDTH/4,Game.HEIGHT/2 + Game.HEIGHT/4,MenuObjectID.CreateLobbyButton,100,50));
+        System.out.println("added create lobby button");
     }
 
     /**
@@ -160,6 +189,7 @@ public class MenuHandler {
         for (int i = 0; i < Game.levelsAmount; i++) {
             object.add( new LevelSelectButton(Game.WIDTH / 2 - 100, (i * 64) + (i+1) * 30, MenuObjectID.levelButton, 100, 50, "/Levels/level" + (i+1) + ".png", game));
             object.get(i).tick();
+            System.out.println("te");
         }
         object.add(new ReturnToMultiplayerMenu(64, 30, MenuObjectID.returnToMultiplayerMenuButton, 100, 50));
     }

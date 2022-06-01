@@ -110,6 +110,11 @@ public class Game extends Canvas implements Runnable {
      * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
      */
     public boolean isLevelFinishedMenuActive;
+
+    /**
+     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     */
+    public boolean isMultiPlayerLevelFinishedMenuActive;
     /**
      * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
      */
@@ -410,9 +415,19 @@ public class Game extends Canvas implements Runnable {
             menuHandler.render(g);
         }else if(gameState == GameState.LEVEL_FINISHED){
 
-            if(!isLevelFinishedMenuActive){
+            //System.out.println(client.isWinner);
+            if(isInMultiplayer && client.isWinner && client.gameFinished){
+                menuHandler.generateWonMenu(g);
+
+            }else if(isInMultiplayer && client.isLooser && client.gameFinished){
+                menuHandler.generateLostMenu(g);
+
+            }else if(isInMultiplayer && !client.gameFinished){
+                menuHandler.generateWaitingMenu(g);
+            }
+
+            if(!isLevelFinishedMenuActive && !isInMultiplayer){
                 menuHandler.generateLevelFinishedMenu(g);
-                isLevelFinishedMenuActive = false;
             }
             menuHandler.render(g);
         }else if(gameState == GameState.MULTIPLAYER_MENU){

@@ -18,6 +18,8 @@ public class Client implements Runnable{
     public boolean isAction = false;
     public boolean isGameStarted = false;
     public boolean gameFinished = false;
+
+    public boolean finished;
     public boolean secondPlayerGameFinished = false;
 
     public boolean isWinner = false;
@@ -65,6 +67,7 @@ public class Client implements Runnable{
         System.out.println("Finished" + ' ' +userName);
     }
     public void sendScore(String score){
+
         write.println("Score" + ' ' + score + ' ' + userName);
         System.out.println("Score" + ' ' + score + ' ' + userName);
     }
@@ -114,16 +117,21 @@ public class Client implements Runnable{
                         }else if(message.startsWith("Finished")){
                             String[] messageSplit = message.split(" ",2);
                             if (messageSplit[1].equals(userName)) {
-                                gameFinished = true;
-                            }else {
-                                secondPlayerGameFinished = true;
+                                finished = true;
                             }
                         }else if(message.startsWith("Won")){
-                            isWinner = true;
-                            gameEnd = true;
-                        }else if(message.startsWith("Lost")){
-                            isLooser = true;
-                            gameEnd = true;
+                            String[] messageSplit = message.split(" ",2);
+                            if(messageSplit[1].equals(userName)){
+                                isWinner = true;
+                                isLooser = false;
+                                gameFinished = true;
+                            }else{
+                                isWinner = false;
+                                isLooser = true;
+                                gameFinished = true;
+                            }
+                        }else if(message.startsWith("GameFinished")){
+                            gameFinished = true;
                         }
                     }
                 } catch (IOException e) {
