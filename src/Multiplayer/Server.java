@@ -96,14 +96,12 @@ public class Server implements Runnable{
                             clientName = messageSplit[2];
                             lobby.player2 = messageSplit[2];
                             String player = mySqlDatabase.getSpecificPlayer1(messageSplit[1]);
+                            lobby.player1 = player;
                             for (ConnectionHandler ch : connections){
-                                System.out.println(ch.clientName);
-                                System.out.println();
-                                if(player.equals(ch.lobby.player1)){
+                                if(player.equals(ch.lobby.player1) && player.equals((ch.clientName))){
                                     ch.write.println("JoinedLobby");
-                                    ch.clientName = player;
-                                    this.lobby.player1 = player;
-                                    this.lobby.player2 = clientName;
+                                    ch.lobby.player1 = player;
+                                    ch.lobby.player2 = clientName;
                                     break;
                                 }
                             }
@@ -119,11 +117,10 @@ public class Server implements Runnable{
                     }else if(message.startsWith("LeaveLobby")){
                         String[] messageSplit = message.split(" ",2);
                         for (ConnectionHandler ch : connections){
-                            System.out.println(ch.lobby.player2);
-                            System.out.println(messageSplit[1]);
-                            System.out.println(ch.clientName);
-                            System.out.println();
                             if(ch.lobby.player2.equals(messageSplit[1]) && !ch.clientName.equals(messageSplit[1])){
+                                ch.lobby.player2 = null;
+                                this.lobby.player1 = null;
+                                this.lobby.player2 = null;
                                 mySqlDatabase.leaveLobby(messageSplit[1]);
                                 //mySqlDatabase.deleteLobby(messageSplit[1]);
                                 ch.write.println("LeftLobby");
@@ -141,6 +138,14 @@ public class Server implements Runnable{
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        }
+        public void print(){
+            for (ConnectionHandler ch : connections){
+                System.out.println(ch.clientName);
+                System.out.println(ch.lobby.player1);
+                System.out.println(ch.lobby.player2);
+                System.out.println();
             }
         }
         public void shutdown() throws SQLException {

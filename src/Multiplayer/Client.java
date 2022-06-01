@@ -89,11 +89,8 @@ public class Client implements Runnable{
                 try {
                     String message;
                     while ((message = read.readLine()) != null){
-                        System.out.println((isAction));
-                        System.out.println((message));
                         if (message.equals("JoinedLobby")) {
                             isAction = true;
-                            System.out.println((isAction));
                         }
                         if(message.equals("LeftLobby")){
                             isAction = true;
