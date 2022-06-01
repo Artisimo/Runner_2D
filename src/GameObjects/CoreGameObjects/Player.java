@@ -112,14 +112,6 @@ public class Player extends GameObject {
             game.gameState = GameState.PLAYER_DIED;
             Game.logger.info("Player died");
         }
-        if(game.isInMultiplayer && game.client.gameFinished && !game.client.isWinner){
-            //TODO:lose game
-            game.client.gameFinished = false;
-        }
-        else if(game.isInMultiplayer && game.client.gameFinished){
-            game.client.gameFinished = false;
-            game.client.isWinner = false;
-        }
     }
 
     /**
@@ -200,10 +192,6 @@ public class Player extends GameObject {
                     game.gameState = GameState.LEVEL_FINISHED;
                     game.isMenuGenerated = false;
                     Game.logger.info("Player finished the level" + game.infoAboutScore);
-                    if(game.isInMultiplayer){
-                        game.client.finishedGame();
-                    }
-                    //TODO:win game in multiplayer
                 }
             }else if(temp.getId() == ID.Crystal){
                 if(getBounds().intersects(temp.getBounds())){

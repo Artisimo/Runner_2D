@@ -111,12 +111,12 @@ public class Server implements Runnable{
                         String[] messageSplit = message.split(" ",2);
                         for (ConnectionHandler ch : connections){
                             if(ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1])){
-                                ch.lobby.finished = true;
-                                if(ch.lobby.player1.equals(messageSplit[1])){
-                                    mySqlDatabase.deleteLobby(ch.lobby.player1);
-                                }else {
-                                    mySqlDatabase.deleteLobby(ch.lobby.player2);
-                                }
+                                //ch.lobby.finished = true;
+//                                if(ch.lobby.player1.equals(messageSplit[1])){
+//                                    mySqlDatabase.deleteLobby(ch.lobby.player1);
+//                                }else {
+//                                    mySqlDatabase.deleteLobby(ch.lobby.player2);
+//                                }
                                 ch.write.println("Finished" + ' ' + messageSplit[1]);
                                 break;
                             }
