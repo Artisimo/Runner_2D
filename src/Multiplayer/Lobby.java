@@ -6,6 +6,8 @@ public class Lobby {
     public String player1;
     public String player2;
     public String level;
+    public int player1Score = 0;
+    public int player2Score = 0;
     public boolean running;
     public boolean finished;
 

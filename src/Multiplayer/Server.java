@@ -121,7 +121,27 @@ public class Server implements Runnable{
                                 break;
                             }
                         }
-                    }else if(message.startsWith("LeaveLobby")){
+                    }else if(message.startsWith("Score")){
+                        String[] messageSplit = message.split(" ",3);
+                        for(ConnectionHandler ch : connections){
+                            if(messageSplit[2].equals(ch.lobby.player1)){
+                                ch.lobby.player1Score = Integer.parseInt(messageSplit[1]);
+                            }else if(messageSplit[2].equals(ch.lobby.player1)){
+                                ch.lobby.player2Score = Integer.parseInt(messageSplit[1]);
+                            }
+                            if(ch.lobby.player1Score > 0 && ch.lobby.player2Score > 0){
+                                if(ch.lobby.player1Score >= ch.lobby.player2Score){
+                                    if(ch.lobby.player1.equals(messageSplit[2])){
+                                        ch.write.println("Won");
+                                    }else {ch.write.println("Lost");}
+                                }else {
+                                    if(!ch.lobby.player1.equals(messageSplit[2])){
+                                        ch.write.println("Won");
+                                    }else {ch.write.println("Lost");}
+                                }
+                            }
+                        }
+                    } else if(message.startsWith("LeaveLobby")){
                         String[] messageSplit = message.split(" ",2);
                         for (ConnectionHandler ch : connections){
                             if(ch.lobby.player2 != null && ch.clientName != null ){

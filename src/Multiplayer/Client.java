@@ -21,6 +21,7 @@ public class Client implements Runnable{
     public boolean secondPlayerGameFinished = false;
     public boolean isWinner = false;
     public boolean isLooser = false;
+    public boolean gameEnd = false;
     public boolean isLobbyDeleted = false;
 
 
@@ -60,6 +61,9 @@ public class Client implements Runnable{
 
     public void finishedGame(){
         write.println("Finished" + ' ' +userName);
+    }
+    public void sendScore(String score){
+        write.println("Score" + ' ' + score + ' ' + userName);
     }
 
     public void shutdown() throws IOException {
@@ -111,6 +115,12 @@ public class Client implements Runnable{
                             }else {
                                 secondPlayerGameFinished = true;
                             }
+                        }else if(message.startsWith("Won")){
+                            isWinner = true;
+                            gameEnd = true;
+                        }else if(message.startsWith("Won")){
+                            isLooser = true;
+                            gameEnd = true;
                         }
                     }
                 } catch (IOException e) {
