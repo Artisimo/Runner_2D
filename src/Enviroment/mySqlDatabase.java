@@ -146,7 +146,7 @@ public  class mySqlDatabase {
         String select = "SELECT * FROM Lobbies";
         PreparedStatement thisStatement = conn.prepareStatement(select, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ResultSet rs = thisStatement.executeQuery();
-        int[] lobbyIDs = new int[10];
+        int[] lobbyIDs = new int[100];
         int i = 0;
         while(rs.next()){
             lobbyIDs[i] = Integer.parseInt(rs.getString("id"));
