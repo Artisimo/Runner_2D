@@ -348,6 +348,9 @@ public class Game extends Canvas implements Runnable {
             if(music.getClip() == null){
                 music.playMenuMusic();
             }
+        }else if(client != null && client.isGameStarted){
+            client.isGameStarted = false;
+            //play();
         }
     }
 
@@ -436,9 +439,6 @@ public class Game extends Canvas implements Runnable {
                 gameState = GameState.MULTIPLAYER_MENU;
             }
             menuHandler.render(g);
-        }else if(client != null && client.isGameStarted){
-            client.isGameStarted = false;
-            gameState = GameState.PLAYING;
         }
 
         g.dispose();
