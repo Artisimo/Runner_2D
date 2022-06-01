@@ -350,7 +350,7 @@ public class Game extends Canvas implements Runnable {
             }
         }else if(client != null && client.isGameStarted){
             client.isGameStarted = false;
-            //play();
+            play(levelname);
         }
     }
 

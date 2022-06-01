@@ -142,8 +142,10 @@ public class Server implements Runnable{
                         String[] messageSplit = message.split(" ",2);
                         write.println("StartGame");
                         for (ConnectionHandler ch : connections){
-                            if((ch.lobby.player1 == messageSplit[1] || ch.lobby.player2 == messageSplit[1]) && ch.clientName != messageSplit[1]){
-                                ch.write.println("StartGame");
+                            if(ch.clientName != null){
+                                if((( ch.lobby.player1 != null && ch.lobby.player1 == messageSplit[1]) || (ch.lobby.player2 != null && ch.lobby.player2 == messageSplit[1])) && ch.clientName != messageSplit[1]){
+                                    ch.write.println("StartGame");
+                                }
                             }
                         }
                     }
@@ -152,6 +154,7 @@ public class Server implements Runnable{
                 try {
                     shutdown();
                     System.out.println("Shutdown");
+                    throw new RuntimeException(e);
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }

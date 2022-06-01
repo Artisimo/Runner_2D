@@ -53,7 +53,7 @@ public class Client implements Runnable{
         write.println("JoinLobby" + ' ' + Integer.toString(id) + ' ' + userName);
     }
     public void leaveLobby(){write.println("LeaveLobby" + ' ' + userName);}
-    public void startGame(){write.println("StartGame" + userName);}
+    public void startGame(){write.println("StartGame" + ' ' + userName);}
 
     public void finishedGame(){
         write.println("Finished" + userName);
