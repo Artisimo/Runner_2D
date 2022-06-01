@@ -14,6 +14,8 @@ public class RestartLevelButton extends MenuObject{
     @Override
     public void onClick(Game game) {
         game.play("/Levels/" + game.levelname + ".png");
+        game.isPauseMenuActive = false;
+        game.playerDiedMenuGenerated = false;
         //game.gameState = GameState.PLAYING;
     }
 

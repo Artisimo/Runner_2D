@@ -28,6 +28,8 @@ public enum MenuObjectID {
     returnToMultiplayerMenuButton(),
 
     lobbySelectButton(),
-    BackToLobbyMenuButton()
+    BackToLobbyMenuButton(),
+
+    nextLevelButton();
 
 }

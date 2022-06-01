@@ -18,9 +18,12 @@ public class BackToMenuButton extends MenuObject{
 
         game.isMultiiplayerMenuGenerated = false;
         game.gameState = GameState.MENU;
-        game.client.shutdown();
-        game.client = null;
-        game.isInMultiplayer = false;
+        if(game.isInMultiplayer){
+            game.client.shutdown();
+            game.client = null;
+            game.isInMultiplayer = false;
+        }
+
     }
 
     @Override

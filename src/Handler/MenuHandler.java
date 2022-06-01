@@ -81,7 +81,8 @@ public class MenuHandler {
         object.add(new Label((Game.WIDTH / 2) - (textWidth / 2), 50, MenuObjectID.Label, 0 ,0, "Game Paused!" , 30, Color.MAGENTA));
         object.add(new ContinuePlayingButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 - 50,MenuObjectID.continuePlayingButton, 100, 50));
         object.add(new RestartLevelButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 50,MenuObjectID.restartLevelButton, 100, 50));
-        object.add(new QuitButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 150,MenuObjectID.quitButton, 100, 50));
+        object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 50, Game.HEIGHT /3 + 150, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+        //object.add(new QuitButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 150,MenuObjectID.quitButton, 100, 50));
 
     }
 
@@ -99,11 +100,11 @@ public class MenuHandler {
         textWidth = g.getFontMetrics().stringWidth(game.infoAboutScore);
         object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), 100, MenuObjectID.Label, 0,0, game.infoAboutScore,30, Color.CYAN));
 
-        object.add(new QuitButton(Game.WIDTH / 2 - 160, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
+        object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 160, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
 
-        object.add(new BackToMenuButton(Game.WIDTH / 2 - 50, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
+        object.add(new RestartLevelButton(Game.WIDTH / 2 - 50, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
 
-        object.add(new RestartLevelButton(Game.WIDTH / 2 + 60, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
+        object.add(new NextLevelButton(Game.WIDTH / 2 + 60, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.nextLevelButton, 100, 50, Integer.parseInt(game.levelname.substring(5, 6))));
     }
 
     /**
@@ -117,11 +118,9 @@ public class MenuHandler {
 
         object.add(new Label((Game.WIDTH / 2) - (textWidth / 2), 50, MenuObjectID.Label, 0,0, "You died!",30, Color.YELLOW));
 
-        object.add(new QuitButton(Game.WIDTH / 2 - 160, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.quitButton, 100, 50));
+        object.add(new ChangeGameStateButton(Game.WIDTH / 2 -105, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
 
-        object.add(new BackToMenuButton(Game.WIDTH / 2 - 50, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.BackToMenuButton, 100, 50));
-
-        object.add(new RestartLevelButton(Game.WIDTH / 2 + 60, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
+        object.add(new RestartLevelButton(Game.WIDTH / 2 + 5, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
 
 

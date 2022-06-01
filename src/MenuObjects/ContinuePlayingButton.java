@@ -15,6 +15,7 @@ public class ContinuePlayingButton extends MenuObject{
     @Override
     public void onClick(Game game) {
         game.gameState = GameState.PLAYING;
+        game.isPauseMenuActive = false;
     }
 
     @Override

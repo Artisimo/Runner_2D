@@ -19,6 +19,8 @@ public class ChangeGameStateButton extends MenuObject{
     public void onClick(Game game) throws SQLException, IOException {
         game.gameState = changeToGameState;
         game.isMenuGenerated = false;
+        game.isInMultiplayer = false;
+        //game.runSound.stop();
         //game.client.shutdown();
     }
 
