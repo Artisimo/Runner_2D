@@ -133,6 +133,14 @@ public class Server implements Runnable{
                                 }
                             }
                         }
+                    }else if(message.startsWith("StartGame")){
+                        write.println("StartGame");
+                        String[] messageSplit = message.split(" ",2);
+                        for (ConnectionHandler ch : connections){
+                            if((ch.lobby.player1 == messageSplit[1] || ch.lobby.player2 == messageSplit[1]) && ch.clientName != messageSplit[1]){
+                                ch.write.println("StartGame");
+                            }
+                        }
                     }
                 }
             } catch (Exception e) {

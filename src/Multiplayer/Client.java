@@ -16,6 +16,7 @@ public class Client implements Runnable{
     private PrintWriter write;
     private String userName;
     public boolean isAction = false;
+    public boolean isGameStarted = false;
     public boolean gameFinished = false;
     public boolean isLobbyDeleted = false;
 
@@ -52,6 +53,7 @@ public class Client implements Runnable{
         write.println("JoinLobby" + ' ' + Integer.toString(id) + ' ' + userName);
     }
     public void leaveLobby(){write.println("LeaveLobby" + ' ' + userName);}
+    public void startGame(){write.println("StartGame" + userName);}
 
     public void finishedGame(){
         write.println("Finished" + userName);
@@ -97,6 +99,8 @@ public class Client implements Runnable{
                         }
                         else if(message.equals("LobbyDeleted")){
                             isLobbyDeleted = true;
+                        }else if(message.equals("StartGame")){
+                            isGameStarted = true;
                         }
                     }
                 } catch (IOException e) {

@@ -431,6 +431,7 @@ public class Game extends Canvas implements Runnable {
                 client.isAction = false;
                 lobbyInfoGenerated = true;
             }else if(client.isLobbyDeleted){
+                client.isLobbyDeleted = false;
                 isMultiiplayerMenuGenerated = false;
                 gameState = GameState.MULTIPLAYER_MENU;
             }
