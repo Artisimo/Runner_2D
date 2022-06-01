@@ -26,7 +26,7 @@ public class Player extends GameObject {
     private int jumpTimer = -1;
     public boolean isPlayingRun = false;
 
-    private Game game;
+    protected Game game;
 
     private Texture tex = Game.getInstance();
 
@@ -112,6 +112,7 @@ public class Player extends GameObject {
             game.gameState = GameState.PLAYER_DIED;
             Game.logger.info("Player died");
         }
+        game.client.sendCoordinates(x,y);
     }
 
     /**

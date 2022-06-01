@@ -243,6 +243,9 @@ public class Game extends Canvas implements Runnable {
                     Hpbar hpbar = new Hpbar(0,0,0,32, ID.Hpbar,player);
 
                     handler.addObject(hpbar);
+                    if(isInMultiplayer){
+                        handler.addObject(new SecondPlayer(x*64, y*64, 64, 128, ID.SecondPlayer, handler, this));
+                    }
                 }
 
                 if(red == 255 && green ==0 && blue == 0){

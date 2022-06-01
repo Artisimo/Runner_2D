@@ -17,6 +17,7 @@ public class Client implements Runnable{
     private String userName;
     public boolean isAction = false;
     public boolean isGameStarted = false;
+
     public boolean gameFinished = false;
 
     public boolean finished;
@@ -26,7 +27,8 @@ public class Client implements Runnable{
     public boolean isLooser = false;
     public boolean gameEnd = false;
     public boolean isLobbyDeleted = false;
-
+    public int secondPlayerX;
+    public int secondPlayerY;
 
     public Client(String userName) {
         this.userName = userName;
@@ -64,12 +66,13 @@ public class Client implements Runnable{
 
     public void finishedGame(){
         write.println("Finished" + ' ' +userName);
-        System.out.println("Finished" + ' ' +userName);
     }
     public void sendScore(String score){
 
         write.println("Score" + ' ' + score + ' ' + userName);
-        System.out.println("Score" + ' ' + score + ' ' + userName);
+    }
+    public void sendCoordinates(int x,int y){
+        write.println("SendCoordinates" + ' ' + userName + ' '+ x + ' '+ y );
     }
 
     public void shutdown() throws IOException {
@@ -132,6 +135,12 @@ public class Client implements Runnable{
                             }
                         }else if(message.startsWith("GameFinished")){
                             gameFinished = true;
+                        }else if(message.startsWith("Coordinates")){
+                            String[] messageSplit = message.split(" ",3);
+                            if(messageSplit.length == 3){
+                                secondPlayerX = Integer.parseInt(messageSplit[1]);
+                                secondPlayerY = Integer.parseInt(messageSplit[2]);
+                            }
                         }
                     }
                 } catch (IOException e) {

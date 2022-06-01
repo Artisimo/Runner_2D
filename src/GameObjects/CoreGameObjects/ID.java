@@ -2,6 +2,7 @@ package GameObjects.CoreGameObjects;
 
 public enum ID {
     Player(),
+    SecondPlayer(),
     BasicEnemy(),
     Platform(),
     Projectile(),

@@ -184,6 +184,13 @@ public class Server implements Runnable{
                                 }
                             }
                         }
+                    }else if(message.startsWith("SendCoordinates")){
+                        String[] messageSplit = message.split(" ",4);
+                        for (ConnectionHandler ch : connections){
+                            if(!ch.clientName.equals(messageSplit[1]) && (ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1]))){
+                                ch.write.println("Coordinates" + ' ' + messageSplit[2] + ' ' + messageSplit[3]);
+                            }
+                        }
                     }
                 }
             } catch (Exception e) {
