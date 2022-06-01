@@ -20,8 +20,8 @@ public class ChangeGameStateButton extends MenuObject{
         game.gameState = changeToGameState;
         game.isMenuGenerated = false;
         game.isInMultiplayer = false;
-        //game.runSound.stop();
-        //game.client.shutdown();
+        game.runSound.stop();
+        game.client.shutdown();
     }
 
     @Override

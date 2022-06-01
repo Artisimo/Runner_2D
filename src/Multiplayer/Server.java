@@ -110,8 +110,14 @@ public class Server implements Runnable{
                     }else if(message.startsWith("Finished")){
                         String[] messageSplit = message.split(" ",2);
                         for (ConnectionHandler ch : connections){
-                            if(ch.lobby.player1 == messageSplit[1] || ch.lobby.player2 == messageSplit[1]){
+                            if(ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1])){
                                 ch.lobby.finished = true;
+                                if(ch.lobby.player1.equals(messageSplit[1])){
+                                    mySqlDatabase.deleteLobby(ch.lobby.player1);
+                                }else {
+                                    mySqlDatabase.deleteLobby(ch.lobby.player2);
+                                }
+                                ch.write.println("Finished" + ' ' + messageSplit[1]);
                                 break;
                             }
                         }
@@ -143,7 +149,6 @@ public class Server implements Runnable{
                         if(clientName != null && lobby.player1 != null && lobby.player2 != null){
                             write.println("StartGame");
                         }
-                        print();
                         for (ConnectionHandler ch : connections){
                             if(ch.clientName != null && ch.lobby.player1 != null && ch.lobby.player2 != null){
                                 if((ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1])) && !ch.clientName.equals(messageSplit[1])){

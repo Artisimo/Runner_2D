@@ -18,6 +18,7 @@ public class Client implements Runnable{
     public boolean isAction = false;
     public boolean isGameStarted = false;
     public boolean gameFinished = false;
+    public boolean isWinner = false;
     public boolean isLobbyDeleted = false;
 
 
@@ -101,6 +102,12 @@ public class Client implements Runnable{
                             isLobbyDeleted = true;
                         }else if(message.equals("StartGame")){
                             isGameStarted = true;
+                        }else if(message.startsWith("Finished")){
+                            String[] messageSplit = message.split(" ",2);
+                            if (messageSplit[1].equals(userName)) {
+                                isWinner = true;
+                            }
+                            gameFinished = true;
                         }
                     }
                 } catch (IOException e) {
