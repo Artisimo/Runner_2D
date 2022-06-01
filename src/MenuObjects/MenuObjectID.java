@@ -30,6 +30,7 @@ public enum MenuObjectID {
     lobbySelectButton(),
     BackToLobbyMenuButton(),
 
-    nextLevelButton();
+    nextLevelButton(),
+    startGameButton(),
 
 }

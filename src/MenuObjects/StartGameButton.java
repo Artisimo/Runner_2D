@@ -23,6 +23,7 @@ public class StartGameButton extends MenuObject{
 
     @Override
     public void render(Graphics g) throws SQLException {
-
+        g.setColor(Color.MAGENTA);
+        g.fillRect(x, y, width, height);
     }
 }
