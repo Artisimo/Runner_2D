@@ -261,7 +261,7 @@ public  class mySqlDatabase {
      * @throws SQLException
      */
     public static void leaveLobby(String player) throws SQLException {
-        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = NULL WHERE Player_2 = ?");
+        PreparedStatement updateLobby = conn.prepareStatement("Update Lobbies SET Player_2 = NULL,Running = 0 WHERE Player_2 = ?");
 
         updateLobby.setString(1,player);
 

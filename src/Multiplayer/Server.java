@@ -140,10 +140,13 @@ public class Server implements Runnable{
                         }
                     }else if(message.startsWith("StartGame")){
                         String[] messageSplit = message.split(" ",2);
-                        write.println("StartGame");
+                        if(clientName != null && lobby.player1 != null && lobby.player2 != null){
+                            write.println("StartGame");
+                        }
+                        print();
                         for (ConnectionHandler ch : connections){
-                            if(ch.clientName != null){
-                                if((( ch.lobby.player1 != null && ch.lobby.player1.equals(messageSplit[1])) || (ch.lobby.player2 != null && ch.lobby.player2.equals(messageSplit[1]))) && !ch.clientName.equals(messageSplit[1])){
+                            if(ch.clientName != null && ch.lobby.player1 != null && ch.lobby.player2 != null){
+                                if((ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1])) && !ch.clientName.equals(messageSplit[1])){
                                     ch.write.println("StartGame");
                                 }
                             }
