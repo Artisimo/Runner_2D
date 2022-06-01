@@ -123,9 +123,9 @@ public class Server implements Runnable{
                                 this.lobby.player2 = null;
                                 mySqlDatabase.leaveLobby(messageSplit[1]);
                                 ch.write.println("LeftLobby");
-                                break;
                             }
                             if(ch.lobby.player1.equals(messageSplit[1])){
+                                System.out.println(messageSplit[1]);
                                 mySqlDatabase.deleteLobby(messageSplit[1]);
                                 if(!ch.clientName.equals(messageSplit[1])){
                                     ch.write.println("LobbyDeleted");
@@ -136,7 +136,6 @@ public class Server implements Runnable{
                 }
             } catch (Exception e) {
                 try {
-                    System.out.println(clientName);
                     shutdown();
                     System.out.println("Shutdown");
                 } catch (SQLException ex) {
@@ -154,7 +153,7 @@ public class Server implements Runnable{
         }
         public void shutdown() throws SQLException {
             for (ConnectionHandler ch : connections){
-                if(ch.lobby.player2.equals(clientName) && !ch.clientName.equals(clientName)){
+                if(ch.lobby.player2 != null && ch.lobby.player2.equals(clientName) && !ch.clientName.equals(clientName)){
                     ch.lobby.player2 = null;
                     this.lobby.player1 = null;
                     this.lobby.player2 = null;
@@ -162,7 +161,7 @@ public class Server implements Runnable{
                     ch.write.println("LeftLobby");
                     break;
                 }
-                if(ch.lobby.player1.equals(clientName)){
+                if(ch.lobby.player1 != null &&  ch.lobby.player1.equals(clientName)){
                     mySqlDatabase.deleteLobby(clientName);
                     if(!ch.clientName.equals(clientName)){
                         ch.write.println("LobbyDeleted");
