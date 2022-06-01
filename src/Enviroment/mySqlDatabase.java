@@ -24,6 +24,11 @@ public  class mySqlDatabase {
         }
     }
 
+    public static void closeConn(){
+        conn = null;
+        System.out.println("Conn closed");
+    }
+
 
     /**
      * Saves the level result in the database.

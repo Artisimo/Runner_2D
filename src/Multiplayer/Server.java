@@ -133,7 +133,9 @@ public class Server implements Runnable{
                                 if(ch.lobby.player1Score >= ch.lobby.player2Score){
                                     if(ch.lobby.player1.equals(messageSplit[2])){
                                         ch.write.println("Won");
-                                    }else {ch.write.println("Lost");}
+                                        System.out.println("Won");
+                                    }else {ch.write.println("Lost");
+                                        System.out.println("Lost");}
                                 }else {
                                     if(!ch.lobby.player1.equals(messageSplit[2])){
                                         ch.write.println("Won");

@@ -189,6 +189,8 @@ public class Player extends GameObject {
                     }
                     game.infoAboutScore = "Time: " + seconds + "." + miliSeconds + ", " + crystalsCollected + " / 3 crystals collected. Score is: " + score;
                     game.emptyHandler();
+                    game.client.sendScore(game.infoAboutScore);
+                    game.client.finishedGame();
                     game.gameState = GameState.LEVEL_FINISHED;
                     game.isMenuGenerated = false;
                     Game.logger.info("Player finished the level" + game.infoAboutScore);

@@ -62,9 +62,11 @@ public class Client implements Runnable{
 
     public void finishedGame(){
         write.println("Finished" + ' ' +userName);
+        System.out.println("Finished" + ' ' +userName);
     }
     public void sendScore(String score){
         write.println("Score" + ' ' + score + ' ' + userName);
+        System.out.println("Score" + ' ' + score + ' ' + userName);
     }
 
     public void shutdown() throws IOException {

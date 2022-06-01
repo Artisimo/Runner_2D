@@ -1,6 +1,6 @@
 package MenuObjects;
 
-import Enviroment.Texture;
+import Enviroment.*;
 import Game.*;
 
 import java.awt.*;
@@ -15,7 +15,12 @@ public class QuitButton extends MenuObject{
     @Override
     public void onClick(Game game) {
         try {
-            game.client.shutdown();
+            if(game.isInMultiplayer){
+                game.client.shutdown();
+                mySqlDatabase.closeConn();
+            }else{
+                mySqlDatabase.closeConn();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

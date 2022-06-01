@@ -1948,4 +1948,22 @@
   2022-06-01 14:59:31 INFO  Game:24 - Username set: bosn￿
   2022-06-01 14:59:50 WARN  Game:28 - The entered username is not valid
   2022-06-01 14:59:57 INFO  Game:24 - Username set: bosn
+  2022-06-01 16:08:24 INFO  Game:24 - Username set: test1
+  2022-06-01 16:08:58 INFO  Game:24 - Username set: test20
+  2022-06-01 16:09:10 INFO  Game:198 - test1 joined the level
+  2022-06-01 16:09:10 INFO  Game:199 - level3 has been loaded
+  2022-06-01 16:09:10 INFO  Game:198 - test20 joined the level
+  2022-06-01 16:09:10 INFO  Game:199 - level3 has been loaded
+  2022-06-01 16:09:18 INFO  Game:194 - Player finished the levelTime: 8.60, 0 / 3 crystals collected. Score is: 2686
+  2022-06-01 16:10:50 INFO  Game:24 - Username set: test1
+  2022-06-01 16:11:05 INFO  Game:24 - Username set: test2
+  2022-06-01 16:11:15 INFO  Game:198 - test1 joined the level
+  2022-06-01 16:11:15 INFO  Game:199 - level5 has been loaded
+  2022-06-01 16:11:15 INFO  Game:198 - test2 joined the level
+  2022-06-01 16:11:15 INFO  Game:199 - level5 has been loaded
+  2022-06-01 16:11:23 INFO  Game:196 - Player finished the levelTime: 8.341, 0 / 3 crystals collected. Score is: 2780
+  2022-06-01 16:11:39 INFO  Game:196 - Player finished the levelTime: 24.541, 0 / 3 crystals collected. Score is: 8180
+  2022-06-01 16:13:00 INFO  Game:24 - Username set: Artisimo
+  2022-06-01 16:14:34 INFO  Game:24 - Username set: artisimo1
+  2022-06-01 16:14:45 INFO  Game:24 - Username set: artisimo
   
