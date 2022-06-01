@@ -2348,4 +2348,12 @@
   2022-06-01 18:14:34 INFO  Game:204 - level2 has been loaded
   2022-06-01 18:14:42 INFO  Game:198 - Player finished the levelTime: 7.922, 0 / 3 crystals collected. Score is: 12623000
   2022-06-01 18:14:54 INFO  Game:198 - Player finished the levelTime: 19.173, 0 / 3 crystals collected. Score is: 5215600
+  2022-06-01 18:22:21 INFO  Game:24 - Username set: test1
+  2022-06-01 18:22:43 INFO  Game:24 - Username set: test2
+  2022-06-01 18:22:54 INFO  Game:217 - test1 joined the level
+  2022-06-01 18:22:54 INFO  Game:218 - level4 has been loaded
+  2022-06-01 18:22:54 INFO  Game:217 - test2 joined the level
+  2022-06-01 18:22:54 INFO  Game:218 - level4 has been loaded
+  2022-06-01 18:23:02 INFO  Game:198 - Player finished the levelTime: 8.110, 0 / 3 crystals collected. Score is: 12330400
+  2022-06-01 18:23:14 INFO  Game:198 - Player finished the levelTime: 20.311, 0 / 3 crystals collected. Score is: 4923400
   

@@ -138,6 +138,20 @@ public class Game extends Canvas implements Runnable {
 
     public boolean lobbyInfoGenerated;
 
+
+    /**
+     * Represents a boolean value which determines weather or not the specified menu should be generated, or just rendered again.
+     */
+    public boolean waitingMenuGenerated;
+    /**
+     * Represents a boolean value which determines weather or not the specified menu should be generated, or just rendered again.
+     */
+    public boolean wonMenuGenerated;
+    /**
+     * Represents a boolean value which determines weather or not the specified menu should be generated, or just rendered again.
+     */
+    public boolean lostMenuGenerated;
+
     /**
      * Represents a value which contains info about the score when a level has been finished.
      */
@@ -414,20 +428,22 @@ public class Game extends Canvas implements Runnable {
             }
             menuHandler.render(g);
         }else if(gameState == GameState.LEVEL_FINISHED){
-
-            //System.out.println(client.isWinner);
-            if(isInMultiplayer && client.isWinner && client.gameFinished){
-                menuHandler.generateWonMenu(g);
-
-            }else if(isInMultiplayer && client.isLooser && client.gameFinished){
-                menuHandler.generateLostMenu(g);
-
-            }else if(isInMultiplayer && !client.gameFinished){
-                menuHandler.generateWaitingMenu(g);
+            if(isInMultiplayer){
+                if(isInMultiplayer && client.isWinner && client.gameFinished && !wonMenuGenerated){
+                    menuHandler.generateWonMenu(g);
+                    wonMenuGenerated = true;
+                }else if(isInMultiplayer && client.isLooser && client.gameFinished && !lostMenuGenerated){
+                    menuHandler.generateLostMenu(g);
+                    lostMenuGenerated = true;
+                }else if(isInMultiplayer && !client.gameFinished && !waitingMenuGenerated){
+                    menuHandler.generateWaitingMenu(g);
+                    waitingMenuGenerated = true;
+                }
             }
 
             if(!isLevelFinishedMenuActive && !isInMultiplayer){
                 menuHandler.generateLevelFinishedMenu(g);
+                isLevelFinishedMenuActive = true;
             }
             menuHandler.render(g);
         }else if(gameState == GameState.MULTIPLAYER_MENU){
