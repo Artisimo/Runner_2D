@@ -19,6 +19,8 @@ public abstract class GameObject {
     protected int jumpHeight;
     public boolean moving = false;
 
+    protected int currenthp;
+
     /**
      * Sets x and y coordinates for the game oibject
      * @param x x coordinate
@@ -158,5 +160,13 @@ public abstract class GameObject {
 
     public void setJumpHeight(int jumpHeight) {
         this.jumpHeight = jumpHeight;
+    }
+
+    public int getCurrenthp() {
+        return currenthp;
+    }
+
+    public void setCurrenthp(int currenthp) {
+        this.currenthp = currenthp;
     }
 }

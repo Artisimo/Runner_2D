@@ -7,6 +7,7 @@ import GameObjects.Enemies.BasicEnemy;
 import GameObjects.Enemies.ExplosiveEnemy;
 import GameObjects.Enemies.RuningExplosiveEnemy;
 import GameObjects.Enemies.ShootingEnemy;
+import GameObjects.GameObject;
 import GameObjects.PowerUps.*;
 import Handler.*;
 import Multiplayer.Client;
@@ -70,6 +71,10 @@ public class Game extends Canvas implements Runnable {
 
     public static int levelsAmount = 9;
     public String levelname;
+
+    private int startXpostionPlayer;
+    private int startYpositionPlayer;
+
     /**
      * Represents the camera of the game. Makes sure that the player is always visible when playing/
      */
@@ -253,6 +258,8 @@ public class Game extends Canvas implements Runnable {
 
                 if(red == 0 && green == 0 && blue == 255){
                     player = new Player(x*64, y*64, 64, 128, ID.Player, handler, this);
+                    startXpostionPlayer = x*64;
+                    startYpositionPlayer = y * 64;
                     handler.addObject(player);
                     Hpbar hpbar = new Hpbar(0,0,0,32, ID.Hpbar,player);
 
@@ -418,6 +425,18 @@ public class Game extends Canvas implements Runnable {
             g.dispose();
             bs.show();
         }else if(gameState == GameState.PLAYER_DIED){
+            if(isInMultiplayer){
+                gameState = GameState.PLAYING;
+                for(int i = 0; i < handler.object.size(); i++){
+                    GameObject tmp = handler.object.get(i);
+                    if(handler.object.get(i).getId() == ID.Player){
+                        tmp.setX(startXpostionPlayer);
+                        tmp.setY(startYpositionPlayer);
+                        tmp.setCurrenthp(100);
+                    }
+                }
+            }
+
             if(!playerDiedMenuGenerated){
                 menuHandler.generatePlayerDiedMenu(g);
                 playerDiedMenuGenerated = true;
