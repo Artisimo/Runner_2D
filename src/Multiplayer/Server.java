@@ -220,11 +220,13 @@ public class Server implements Runnable{
                         String[] messageSplit = message.split(" ",2);
                         if(clientName != null && lobby.player1 != null && lobby.player2 != null){
                             write.println("StartGame");
+                            lobby.running = true;
                         }
                         for (ConnectionHandler ch : connections){
                             if(ch.clientName != null && ch.lobby.player1 != null && ch.lobby.player2 != null){
                                 if((ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1])) && !ch.clientName.equals(messageSplit[1])){
                                     ch.write.println("StartGame");
+                                    ch.lobby.running = true;
                                 }
                             }
                         }
@@ -254,17 +256,24 @@ public class Server implements Runnable{
         public void shutdown() throws SQLException {
             for (ConnectionHandler ch : connections){
                 if(ch.lobby.player2 != null && ch.lobby.player2.equals(clientName) && !ch.clientName.equals(clientName)){
-                    ch.lobby.player2 = null;
-                    this.lobby.player1 = null;
-                    this.lobby.player2 = null;
-                    mySqlDatabase.leaveLobby(clientName);
-                    ch.write.println("LeftLobby");
-                    break;
+                    if(!ch.lobby.running){
+                        ch.lobby.player2 = null;
+                        this.lobby.player1 = null;
+                        this.lobby.player2 = null;
+                        mySqlDatabase.leaveLobby(clientName);
+                        ch.write.println("LeftLobby");
+                        break;
+                    }else {
+                        mySqlDatabase.deleteLobby(ch.lobby.player1);
+                        ch.write.println("PlayerLeft");
+                    }
                 }
                 if(ch.lobby.player1 != null &&  ch.lobby.player1.equals(clientName)){
                     mySqlDatabase.deleteLobby(clientName);
-                    if(!ch.clientName.equals(clientName)){
+                    if(!ch.clientName.equals(clientName) && !ch.lobby.running){
                         ch.write.println("LobbyDeleted");
+                    }else if(!ch.clientName.equals(clientName) && ch.lobby.running){
+                        ch.write.println("PlayerLeft");
                     }
                 }
             }

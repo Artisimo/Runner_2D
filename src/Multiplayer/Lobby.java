@@ -39,5 +39,9 @@ public class Lobby {
      * Determines if game is finished
      */
     public boolean finished;
+    /**
+     * Determines the state of the lobby
+     */
+    public boolean running = false;
 
 }
