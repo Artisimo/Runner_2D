@@ -20,6 +20,11 @@ public class MouseInput implements MouseListener {
         this.game = game;
         this.g = g;
     }
+
+    /**
+     * Checks the coordinates of the click and executes the onclick() function for the desired button.
+     * @param e the event to be processed
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         try {

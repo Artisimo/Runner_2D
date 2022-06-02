@@ -39,6 +39,10 @@ public class ExplosiveEnemy extends BasicEnemy{
         explosion = new Animation(3, tex.explosiveEnemyImages[0],tex.explosiveEnemyImages[2]);
     }
 
+
+    /**
+     * Updates the enemies properties without rendering them
+     */
     @Override
     public void tick(){
         super.tick();
@@ -48,6 +52,10 @@ public class ExplosiveEnemy extends BasicEnemy{
         }
     }
 
+    /**
+     * Renders the enemy
+     * @param g graphics
+     */
     @Override
     public void render(Graphics g){
         if(!isActivated){
@@ -65,6 +73,9 @@ public class ExplosiveEnemy extends BasicEnemy{
         //g.drawOval(x - explosionRange,y - explosionRange,width + 2*explosionRange,height + 2*explosionRange);
     }
 
+    /**
+     * Iterates through the handlers list of game objects and checks if this enemy collides with any other game object. Enemies properties get updated accordingly
+     */
     @Override
     public void collision(){
         for(int i = 0; i < handler.object.size(); i++){

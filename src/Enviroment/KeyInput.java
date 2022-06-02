@@ -22,6 +22,10 @@ public class KeyInput extends KeyAdapter {
         this.game = game;
     }
 
+    /**
+     * Checks which keys the user has pressed and edits the player's velocities.
+     * @param e the event to be processed
+     */
     public void keyPressed (KeyEvent e) {
 
         int key = e.getKeyCode();
@@ -72,7 +76,10 @@ public class KeyInput extends KeyAdapter {
             }
         }
     }
-
+    /**
+     * Checks which keys the user has released and edits the player's velocities.
+     * @param e the event to be processed
+     */
     public void keyReleased(KeyEvent e) {
 
         int key = e.getKeyCode();

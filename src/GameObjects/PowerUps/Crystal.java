@@ -33,11 +33,19 @@ public class Crystal extends GameObject {
         starAnimation = new Animation(5, tex.crystalImages[0], tex.crystalImages[1], tex.crystalImages[2], tex.crystalImages[3]);
     }
 
+    /**
+     * Runs the crystal animation
+     */
     @Override
     public void tick() {
         starAnimation.runAnimation();
     }
 
+
+    /**
+     * Renders the crystal animation
+     * @param g graphics
+     */
     @Override
     public void render(Graphics g) {
         starAnimation.drawAnimation(g, x, y);

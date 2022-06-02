@@ -25,5 +25,9 @@ public class StartGameButton extends MenuObject{
     public void render(Graphics g) throws SQLException {
         g.setColor(Color.MAGENTA);
         g.fillRect(x, y, width, height);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        int textWidth = g.getFontMetrics().stringWidth("PLAY");
+        g.drawString("PLAY", x + (width - textWidth) /2, y + 35);
     }
 }

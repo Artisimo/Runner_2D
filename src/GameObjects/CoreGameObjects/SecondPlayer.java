@@ -23,6 +23,10 @@ public class SecondPlayer extends Player{
      * @param handler game object handler
      * @param game    instance of game class
      */
+
+    /**
+     * Gets the texture class instance which contains all textures and sprites for the game
+     */
     private Texture tex = Game.getInstance();
     public SecondPlayer(int x, int y, int width, int height, ID id, Handler handler, Game game) {
         super(x, y, width, height, id, handler, game);
@@ -30,6 +34,10 @@ public class SecondPlayer extends Player{
         player2WalkLeft = new Animation(4, tex.player2Images[7], tex.player2Images[8], tex.player2Images[9], tex.player2Images[10], tex.player2Images[11], tex.player2Images[12]);
         player2WalkRight = new Animation(4, tex.player2Images[1], tex.player2Images[2], tex.player2Images[3], tex.player2Images[4], tex.player2Images[5], tex.player2Images[6]);
     }
+
+    /**
+     * Updates the player2 class instance fields without rendering them
+     */
 
     @Override
     public void tick(){
@@ -46,6 +54,10 @@ public class SecondPlayer extends Player{
         }
     }
 
+    /**
+     * Renders the player2
+     * @param g graphics
+     */
     @Override
     public void render(Graphics g){
 

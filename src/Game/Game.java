@@ -228,6 +228,7 @@ public class Game extends Canvas implements Runnable {
     /**
      * gets the desired level image and loads the level.
      * sets the game state to playing
+     * sets all the level finished menu generated and pause menu generated variables to false.
      *
      * @param path specifies the path to the desired level image
      */

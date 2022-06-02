@@ -47,6 +47,10 @@ public class BasicEnemy extends GameObject {
         WalkRight = new Animation(4, tex.basicEnemyImages[4],tex.basicEnemyImages[5],tex.basicEnemyImages[6],tex.basicEnemyImages[7]);
     }
 
+
+    /**
+     * Updates the Basic Enemy properties without rendering them
+     */
     @Override
     public void tick() {
         moving();
@@ -70,6 +74,10 @@ public class BasicEnemy extends GameObject {
         collision();
     }
 
+    /**
+     * Renders the Basic Enemy
+     * @param g graphics
+     */
     @Override
     public void render(Graphics g) {
 
@@ -84,6 +92,9 @@ public class BasicEnemy extends GameObject {
         }
     }
 
+    /**
+     * Updates the enemies velocity along the x axis depending on its moving range
+     */
     public void moving(){
         if(velX == 0){
             setVelX(-3);
@@ -94,6 +105,9 @@ public class BasicEnemy extends GameObject {
         }
     }
 
+    /**
+     * Checks and updates properties depending on what the enemy is colliding
+     */
     public void collision(){
         for(int i = 0; i < handler.object.size(); i++){
             GameObject temp = handler.object.get(i);
@@ -121,18 +135,41 @@ public class BasicEnemy extends GameObject {
     }
 
 
+    /**
+     * Returns whether the enemy intersects a platform which is below it.
+     * @param platform which platform we want to check
+     * @return
+     */
     public boolean bottomCollision(Rectangle platform){
         return platform.intersects(getBoundsBottom());
     }
 
+    /**
+     * Returns the bottom hit box of enemy
+     * @return rectangle - bottom hit box
+     */
     public Rectangle getBoundsBottom(){return new Rectangle(x + (width / 2) - (width/2)/2, y + (height / 2),width / 2, height / 2);}
 
+    /**
+     * Returns the top hit box of enemy
+     * @return rectangle - top hit box
+     */
     public Rectangle getBoundsTop(){
         return new Rectangle(x + (width / 2) - (width/2)/2, y,width/ 2, height/2);
     }
+
+    /**
+     * Returns the left hit box of enemy
+     * @return rectangle - left hit box
+     */
     public Rectangle getBoundsLeft(){
         return new Rectangle(x , y + height/4,width/4, height/2);
     }
+
+    /**
+     * Returns the right hit box of enemy
+     * @return rectangle - right hit box
+     */
     public Rectangle getBoundsRight(){
         return new Rectangle(x + width - width/4, y + height/4,width/4, height/2);
     }

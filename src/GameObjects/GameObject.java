@@ -7,18 +7,63 @@ import java.awt.*;
  * Base class for all game objects
  */
 public abstract class GameObject {
+    /**
+     * x and y coordinates for the game object
+     */
     protected int x, y;
+
+    /**
+     * ID of the game object (from GameObjectID enumeration)
+     */
     protected ID id;
+    /**
+     * Velocity x and y for the game object
+     */
     protected float velX, velY;
+
+    /**
+     * Width and height of the game object
+     */
     protected int width, height;
+
+    /**
+     * Boolean which determines if the game object is falling
+     */
     protected boolean falling = true;
+
+    /**
+     * Boolean which determines if the game object is jumping
+     */
     protected boolean jumping = false;
+
+    /**
+     * Damage the game object deals to the player
+     */
     protected int damage;
+
+    /**
+     * Variable which is used to determine if the enemy has already exploded
+     */
     protected int exploded = 0;
+
+    /**
+     * Speed for the player if he collects the speed power up
+     */
     protected int speed;
+
+    /**
+     * Jump height for the player if he collects the jump power up
+     */
     protected int jumpHeight;
+
+    /**
+     * Boolean which determines if the game object is moving
+     */
     public boolean moving = false;
 
+    /**
+     * Current health points of the game object
+     */
     protected int currenthp;
 
     /**

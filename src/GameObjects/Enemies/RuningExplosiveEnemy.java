@@ -24,6 +24,9 @@ public class RuningExplosiveEnemy extends ExplosiveEnemy{
         this.acceleration = acceleration;
     }
 
+    /**
+     * Updates the velocity x depending on if the player has enetered the range of the enemy
+     */
     @Override
     public void moving(){
         if(velX == 0){

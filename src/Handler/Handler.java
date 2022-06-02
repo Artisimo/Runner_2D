@@ -44,11 +44,19 @@ public class Handler {
         hpbar.render(g);
     }
 
+    /**
+     * Adds the game object to the handlers list of game objects
+     * @param object
+     */
     public void addObject(GameObject object){
 
         this.object.add(object);
     }
 
+    /**
+     * Removes the game object from the handlers list of game objects
+     * @param object
+     */
     public void removeObject(GameObject object){
         this.object.remove(object);
     }

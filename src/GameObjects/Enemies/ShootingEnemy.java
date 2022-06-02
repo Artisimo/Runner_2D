@@ -34,6 +34,10 @@ public class ShootingEnemy extends BasicEnemy{
         this.projectileDamage = projectileDamage;
     }
 
+
+    /**
+     * Updates the properties of this enemy without rendering the changes
+     */
     @Override
     public void tick(){
         x += velX;
@@ -48,6 +52,11 @@ public class ShootingEnemy extends BasicEnemy{
         collision();
         shoot();
     }
+
+    /**
+     * Renders the enemy
+     * @param g graphics
+     */
     @Override
     public void render(Graphics g){
         if(side > 0){
@@ -55,8 +64,11 @@ public class ShootingEnemy extends BasicEnemy{
         }else{
             g.drawImage(tex.shootingEnemyImages[1], x, y, 64, 128, null);
         }
-
     }
+
+    /**
+     * Shoots the projectile from the shooting enemy
+     */
     public void shoot(){
         if(reload <= 0){
             if(side >0){

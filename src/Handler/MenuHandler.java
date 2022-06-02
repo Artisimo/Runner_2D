@@ -81,10 +81,10 @@ public class MenuHandler {
         object.add(new Label((Game.WIDTH / 2) - (textWidth / 2), 50, MenuObjectID.Label, 0 ,0, "Game Paused!" , 30, Color.MAGENTA));
         object.add(new ContinuePlayingButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 - 50,MenuObjectID.continuePlayingButton, 100, 50));
         if(isMultiplayer){
-            object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 50, Game.HEIGHT /3 + 50, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+            object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 50, Game.HEIGHT /3 + 50, MenuObjectID.changeGameStateButton, 100, 50));
         }else{
             object.add(new RestartLevelButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 50,MenuObjectID.restartLevelButton, 100, 50));
-            object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 50, Game.HEIGHT /3 + 150, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+            object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 50, Game.HEIGHT /3 + 150, MenuObjectID.changeGameStateButton, 100, 50));
         }
     }
 
@@ -102,7 +102,7 @@ public class MenuHandler {
         textWidth = g.getFontMetrics().stringWidth(game.infoAboutScore);
         object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), 100, MenuObjectID.Label, 0,0, game.infoAboutScore,30, Color.CYAN));
 
-        object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 160, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+        object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 160, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.changeGameStateButton, 100, 50));
 
         object.add(new RestartLevelButton(Game.WIDTH / 2 - 50, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
 
@@ -110,6 +110,10 @@ public class MenuHandler {
     }
 
 
+    /**
+     * Generates the waiting menu which is displayed when one player has already finished the level but the other has not
+     * @param g
+     */
     public void generateWaitingMenu(Graphics g){
         object.clear();
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
@@ -117,6 +121,10 @@ public class MenuHandler {
         object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), Game.HEIGHT / 2, MenuObjectID.Label, 0,0, "Waiting for the other player to finish",30, Color.CYAN));
     }
 
+    /**
+     * Generates the menu which is displayed when the player wins the 1v1 game
+     * @param g
+     */
     public void generateWonMenu(Graphics g){
         object.clear();
         g.setColor(Color.GREEN);
@@ -124,9 +132,13 @@ public class MenuHandler {
         int textWidth = g.getFontMetrics().stringWidth("You Won");
         object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), Game.HEIGHT / 2, MenuObjectID.Label, 0,0, "You Won",30, Color.GREEN));
         object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
-        object.add(new ChangeGameStateButton(174, 30, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+        object.add(new ChangeGameStateButton(174, 30, MenuObjectID.changeGameStateButton, 100, 50));
     }
 
+    /**
+     * Generates the menu which is displayed when the player loses the 1v1 game
+     * @param g
+     */
     public void generateLostMenu(Graphics g){
         object.clear();
         g.setColor(Color.RED);
@@ -134,7 +146,7 @@ public class MenuHandler {
         int textWidth = g.getFontMetrics().stringWidth("You Lost");
         object.add(new Label(Game.WIDTH / 2 - (textWidth / 2), Game.HEIGHT / 2, MenuObjectID.Label, 0,0, "You Lost",30, Color.RED));
         object.add(new QuitButton(64, 30,MenuObjectID.quitButton, 100, 50));
-        object.add(new ChangeGameStateButton(174, 30, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+        object.add(new ChangeGameStateButton(174, 30, MenuObjectID.changeGameStateButton, 100, 50));
     }
 
     /**
@@ -148,7 +160,7 @@ public class MenuHandler {
 
         object.add(new Label((Game.WIDTH / 2) - (textWidth / 2), 50, MenuObjectID.Label, 0,0, "You died!",30, Color.YELLOW));
 
-        object.add(new ChangeGameStateButton(Game.WIDTH / 2 -105, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+        object.add(new ChangeGameStateButton(Game.WIDTH / 2 -105, Game.HEIGHT - Game.HEIGHT / 2, MenuObjectID.changeGameStateButton, 100, 50));
 
         object.add(new RestartLevelButton(Game.WIDTH / 2 + 5, Game.HEIGHT - Game.HEIGHT / 2,MenuObjectID.restartLevelButton, 100, 50));
     }
@@ -162,7 +174,7 @@ public class MenuHandler {
     public void generateMultiplayerMenu(Graphics g) throws SQLException {
         object.clear();
 
-        object.add(new ChangeGameStateButton(64, 30, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+        object.add(new ChangeGameStateButton(64, 30, MenuObjectID.changeGameStateButton, 100, 50));
 
         int[] lobbyIds = mySqlDatabase.getLobbyIds();
 
@@ -215,11 +227,22 @@ public class MenuHandler {
         game.levelname = "/Levels/" + splitArray[2] + ".png";
     }
 
+
+    /**
+     * Renders all the menu objects in the list of menu objects
+     * @param g
+     * @throws SQLException
+     */
     public void render(Graphics g) throws SQLException {
         for(int i = 0; i < object.size(); i++){
             object.get(i).render(g);
         }
     }
+
+    /**
+     * Updates properties for all menu objects in the list without rendering the changes
+     * @throws SQLException
+     */
 
     public void tick() throws SQLException {
         for(int i = 0; i < object.size(); i++){

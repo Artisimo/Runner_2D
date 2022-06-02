@@ -10,6 +10,10 @@ import java.awt.*;
  * Class for the shooting enemies projectile
  */
 public class Projectile extends GameObject {
+
+    /**
+     * Which side is the bullet flying to
+     */
     private int side;
     protected Handler handler;
     private Texture tex = Game.getInstance();
@@ -33,17 +37,29 @@ public class Projectile extends GameObject {
 
     }
 
+
+    /**
+     * Updates the x coordinates of projectile without rendering the changes
+     */
     @Override
     public void tick(){
         setX(getX() + 5 * side);
         collision();
     }
 
+    /**
+     * Renders the projectile
+     * @param g graphics
+     */
     @Override
     public void render(Graphics g){
         g.drawImage(tex.projectile, x, y, 32, 32,null);
     }
 
+
+    /**
+     * Checks the projectiles collisions with other game objects and removes it from the game if it collides
+     */
     public void collision(){
         for(int i = 0; i < handler.object.size(); i++){
             GameObject temp = handler.object.get(i);

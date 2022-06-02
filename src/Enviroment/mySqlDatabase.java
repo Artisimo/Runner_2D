@@ -24,6 +24,9 @@ public  class mySqlDatabase {
         }
     }
 
+    /**
+     * A method to close the game's connection to the database when the user quits the game.
+     */
     public static void closeConn(){
         conn = null;
         System.out.println("Conn closed");
@@ -201,6 +204,13 @@ public  class mySqlDatabase {
         }
         return id;
     }
+
+    /**
+     * Gets player1 of specific lobby by lobby ID.
+     * @param ID lobby id
+     * @return player 1 username
+     * @throws SQLException
+     */
 
     public static String getSpecificPlayer1(String ID) throws SQLException {
         String select = "SELECT * FROM Lobbies WHERE ID = ?";

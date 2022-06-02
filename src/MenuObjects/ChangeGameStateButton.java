@@ -6,18 +6,19 @@ import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Button which takes the player back to the main menu
+ */
 public class ChangeGameStateButton extends MenuObject{
 
-    private GameState changeToGameState;
 
-    public ChangeGameStateButton(int x, int y, MenuObjectID id, int width, int height, GameState gameState) {
+    public ChangeGameStateButton(int x, int y, MenuObjectID id, int width, int height) {
         super(x, y, id, width, height);
-        this.changeToGameState = gameState;
     }
 
     @Override
     public void onClick(Game game) throws SQLException, IOException {
-        game.gameState = changeToGameState;
+        game.gameState = GameState.MENU;
         game.isMenuGenerated = false;
         game.isInMultiplayer = false;
         game.runSound.stop();
@@ -35,7 +36,7 @@ public class ChangeGameStateButton extends MenuObject{
         g.fillRect(x, y, width, height);
         g.setColor(Color.WHITE);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
-        int textWidth = g.getFontMetrics().stringWidth("BACK");
-        g.drawString("BACK", x + (width - textWidth) /2, y + 35);
+        int textWidth = g.getFontMetrics().stringWidth("MENU");
+        g.drawString("MENU", x + (width - textWidth) /2, y + 35);
     }
 }
