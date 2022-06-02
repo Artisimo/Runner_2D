@@ -14,18 +14,38 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
+/**
+ *Server class used for clients to connect for multiplayer game
+ */
 public class Server implements Runnable{
+    /**
+     * List of connected clients
+     */
     private ArrayList<ConnectionHandler> connections;
+    /**
+     * Server socket
+     */
     private ServerSocket server;
+    /**
+     * List of threds
+     */
     private ExecutorService thredpool;
+    /**
+     * Represent the state of the server, if true server is closed
+     */
     private boolean done;
 
+    /**
+     * Create empty list of connected clients and set server state done to false
+     */
     public Server(){
         connections = new ArrayList<>();
         done = false;
     }
 
+    /**
+     * Create a server socket and listen for new connections
+     */
     @Override
     public void run() {
         try {
@@ -42,6 +62,9 @@ public class Server implements Runnable{
         }
     }
 
+    /**
+     * Shutdown server closing all connections
+     */
     public  void shutDown(){
         if(!server.isClosed()){
             try {
@@ -59,12 +82,30 @@ public class Server implements Runnable{
         }
     }
 
+    /**
+     * Class for handling connection between server and client
+     */
     class ConnectionHandler implements Runnable{
 
+        /**
+         * Client socket
+         */
         private Socket client;
+        /**
+         * Input information to server from client
+         */
         private BufferedReader read;
+        /**
+         * Output information to client from server
+         */
         private PrintWriter write;
+        /**
+         * Client player username
+         */
         private String clientName;
+        /**
+         * Information about client player lobby
+         */
         public Lobby lobby = new Lobby();
 
 
@@ -73,6 +114,9 @@ public class Server implements Runnable{
         }
 
 
+        /**
+         * Perform necessary operations based on received messages and send reply if needed
+         */
         @Override
         public void run() {
             try {
@@ -202,14 +246,11 @@ public class Server implements Runnable{
                 }
             }
         }
-        public void print(){
-            for (ConnectionHandler ch : connections){
-                System.out.println(ch.clientName);
-                System.out.println(ch.lobby.player1);
-                System.out.println(ch.lobby.player2);
-                System.out.println();
-            }
-        }
+
+        /**
+         * Close the connection between server and client
+         * @throws SQLException
+         */
         public void shutdown() throws SQLException {
             for (ConnectionHandler ch : connections){
                 if(ch.lobby.player2 != null && ch.lobby.player2.equals(clientName) && !ch.clientName.equals(clientName)){
@@ -240,6 +281,10 @@ public class Server implements Runnable{
         }
     }
 
+    /**
+     * Launch server
+     * @param args
+     */
     public static void main(String[] args){
         Server server = new Server();
         server.run();

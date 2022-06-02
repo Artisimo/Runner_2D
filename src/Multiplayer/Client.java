@@ -9,27 +9,79 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.sql.SQLException;
 
+/**
+ * Class responsible for player connection with the server for multiplayer game
+ */
+
 public class Client implements Runnable{
+    /**
+     * Client socket
+     */
     private Socket client;
+    /**
+     * Represent the state of client, if equals true the client is shuted down
+     */
     private boolean done = false;
+    /**
+     * Message received from server
+     */
     private BufferedReader read;
+    /**
+     * Message written to the server
+     */
     private PrintWriter write;
+    /**
+     * Player username
+     */
     private String userName;
+    /**
+     * Show if another player left or joined lobby
+     */
     public boolean isAction = false;
+    /**
+     * Show if game has started
+     */
     public boolean isGameStarted = false;
 
+    /**
+     * Show if game has finished
+     */
     public boolean gameFinished = false;
 
+    /**
+     * Show if player finished the game
+     */
     public boolean finished;
     public boolean secondPlayerGameFinished = false;
 
+    /**
+     * Show is player won
+     */
     public boolean isWinner = false;
+    /**
+     * Show is player loose
+     */
     public boolean isLooser = false;
     public boolean gameEnd = false;
+    /**
+     * Represent the state of lobby deletion
+     */
     public boolean isLobbyDeleted = false;
+    /**
+     * Represent second player x axis coordinates
+     */
     public int secondPlayerX;
+    /**
+     * Represent second player y axis coordinates
+     */
     public int secondPlayerY;
+    /**
+     * Represent second player x axis velocity
+     */
     public float secondPlayerVelX;
+    /**
+     * Represent second player y axis velocity
+     */
     public float secondPlayerVelY;
 
 
@@ -38,6 +90,10 @@ public class Client implements Runnable{
         this.userName = userName;
 
     }
+
+    /**
+     * Connects client to the server and listen for output and input
+     */
     @Override
     public void run() {
         try {
@@ -59,26 +115,63 @@ public class Client implements Runnable{
         }
     }
 
+    /**
+     * Send message to the server that user created a lobby
+     * @param level specifies the name of the level selected
+     */
     public void createLobby(String level){
         write.println( "CreateLobby" + ' ' + userName + ' ' + level );
     }
+
+    /**
+     *Send message to the server that user joined a lobby
+     * @param id specifies lobby id in database
+     */
     public void joinLobby(int id){
         write.println("JoinLobby" + ' ' + Integer.toString(id) + ' ' + userName);
     }
+
+    /**
+     * Send message to the server that user left a lobby
+     */
     public void leaveLobby(){write.println("LeaveLobby" + ' ' + userName);}
+
+    /**
+     * Send message to the server that user started the game
+     */
     public void startGame(){write.println("StartGame" + ' ' + userName);}
 
+    /**
+     * Send message to the server that user finished the game
+     */
     public void finishedGame(){
         write.println("Finished" + ' ' +userName);
     }
+
+    /**
+     * Send users score to the server
+     * @param score specifies the user score
+     */
     public void sendScore(String score){
 
         write.println("Score" + ' ' + score + ' ' + userName);
     }
+
+    /**
+     * Send user coordinates to the server
+     * @param x specifies the user x axis coordinates
+     * @param y specifies the user y axis coordinates
+     * @param velX specifies the user x axis velocity
+     * @param velY specifies the user y axis velocity
+     */
     public void sendCoordinates(int x,int y,int velX,int velY){
         write.println("SendCoordinates" + ' ' + userName + ' '+ x + ' '+ y + ' ' + velX + ' ' + velY );
     }
 
+    /**
+     * shutdown the connection with server
+     * @throws IOException
+     */
     public void shutdown() throws IOException {
         done = true;
         try {
@@ -103,8 +196,14 @@ public class Client implements Runnable{
         }
     }
 
+    /**
+     * Class handle the input from server
+     */
         class InHandler implements Runnable{
 
+        /**
+         * Listen to the server output and perform necessary operations based on received messages
+         */
         @Override
         public void run() {
             while (!done){
