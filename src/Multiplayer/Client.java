@@ -202,7 +202,7 @@ public class Client implements Runnable{
                     client.close();
                 }
             }
-
+            System.out.println("shutdown done");
         }catch  (SQLException e) {
             throw new RuntimeException(e);
         }

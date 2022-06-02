@@ -14,10 +14,15 @@ public class QuitButton extends MenuObject{
 
     @Override
     public void onClick(Game game) {
+        System.out.println(game.isInMultiplayer);
         try {
             if(game.isInMultiplayer){
+                System.out.println("before shutdown");
                 game.client.shutdown();
+                System.out.println("after shutdown");
+                System.out.println("before close conn");
                 mySqlDatabase.closeConn();
+                System.out.println("after close conn");
             }else{
                 mySqlDatabase.closeConn();
             }

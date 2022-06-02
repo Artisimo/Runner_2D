@@ -167,7 +167,7 @@ public class Player extends GameObject {
                 }
             }
             else if(temp.getId() == ID.BasicEnemy ){
-                if(this.bottomCollision(temp.getBounds()) && attacked <=0){
+                if(this.bottomCollision(temp.getBounds()) && attacked <=0 && leftbound){
                     handler.removeObject(temp);
                     Game.sound.playEnemyDies();
                     temp = null;
