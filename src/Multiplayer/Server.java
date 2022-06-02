@@ -181,15 +181,15 @@ public class Server implements Runnable{
                                 ch.lobby.player2Score = Integer.parseInt(messageSplit[1]);
                             }
 
-                            System.out.println("Player 1 score: " + ch.lobby.player1Score);
-                            System.out.println("Player 2 score: " + ch.lobby.player2Score);
+//                            System.out.println("Player 1 score: " + ch.lobby.player1Score);
+//                            System.out.println("Player 2 score: " + ch.lobby.player2Score);
                             if(ch.lobby.finished){
                                 if(ch.lobby.player1Score >= ch.lobby.player2Score){
                                     ch.write.println("Won" + ' ' + ch.lobby.player1);
-                                    System.out.println("player 1 won");
+                                    //System.out.println("player 1 won");
                                 }else {
                                     ch.write.println("Won" + ' ' + ch.lobby.player2);
-                                    System.out.println("player 2 won");
+                                    //System.out.println("player 2 won");
                                 }
                             }
                         }
@@ -209,7 +209,7 @@ public class Server implements Runnable{
                             }
                             if(ch.lobby.player1 != null && ch.clientName != null){
                                 if(ch.lobby.player1.equals(messageSplit[1])){
-                                    System.out.println(messageSplit[1]);
+                                    //System.out.println(messageSplit[1]);
                                     mySqlDatabase.deleteLobby(messageSplit[1]);
                                     if(!ch.clientName.equals(messageSplit[1])){
                                         ch.write.println("LobbyDeleted");
@@ -225,12 +225,12 @@ public class Server implements Runnable{
                                 ch.lobby.finished = true;
                                 ch.lobby.playerLeft = true;
                                 ch.write.println("playerLeft" + ' ' + ch.lobby.player1);
-                                System.out.println("playerLeft" + ' ' + ch.lobby.player1);
+                                //System.out.println("playerLeft" + ' ' + ch.lobby.player1);
                             }else if(messageSplit[1].equals(ch.lobby.player2)){
                                 ch.lobby.finished = true;
                                 ch.lobby.playerLeft = true;
                                 ch.write.println("playerLeft" + ' ' + ch.lobby.player2);
-                                System.out.println("playerLeft" + ' ' + ch.lobby.player2);
+                                //System.out.println("playerLeft" + ' ' + ch.lobby.player2);
                             }
                         }
                     }else if(message.startsWith("StartGame")){
@@ -262,6 +262,8 @@ public class Server implements Runnable{
                                 //ch.resetLobby();
                             }
                         }
+                    }else if(message.startsWith("ShutDown")){
+                        shutdown();
                     }
                 }
             } catch (Exception e) {
@@ -311,6 +313,7 @@ public class Server implements Runnable{
                     throw new RuntimeException(e);
                 }
             }
+            print();
             connections.remove(this);
         }
         public void print(){

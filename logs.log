@@ -5229,4 +5229,60 @@
   2022-06-02 22:35:32 INFO  Game:251 - level3 has been loaded
   2022-06-02 22:38:38 INFO  Game:222 - Player finished the levelTime: 185.797, 0 / 3 crystals collected. Score is: 538200
   2022-06-02 22:38:46 INFO  Game:222 - Player finished the levelTime: 194.248, 0 / 3 crystals collected. Score is: 514800
+  2022-06-02 23:27:56 INFO  Game:24 - Username set: player1
+  2022-06-02 23:28:15 INFO  Game:24 - Username set: player2
+  2022-06-02 23:28:21 INFO  Game:250 - player2 joined the level
+  2022-06-02 23:28:21 INFO  Game:251 - level2 has been loaded
+  2022-06-02 23:28:21 INFO  Game:250 - player1 joined the level
+  2022-06-02 23:28:21 INFO  Game:251 - level2 has been loaded
+  2022-06-02 23:28:34 INFO  Game:222 - Player finished the levelTime: 12.976, 0 / 3 crystals collected. Score is: 7706500
+  2022-06-02 23:28:44 INFO  Game:222 - Player finished the levelTime: 22.676, 0 / 3 crystals collected. Score is: 4409900
+  2022-06-02 23:30:09 INFO  Game:24 - Username set: player1
+  2022-06-02 23:30:24 INFO  Game:24 - Username set: player2
+  2022-06-02 23:30:29 INFO  Game:250 - player2 joined the level
+  2022-06-02 23:30:29 INFO  Game:251 - level2 has been loaded
+  2022-06-02 23:30:29 INFO  Game:250 - player1 joined the level
+  2022-06-02 23:30:29 INFO  Game:251 - level2 has been loaded
+  2022-06-02 23:30:37 INFO  Game:222 - Player finished the levelTime: 8.25, 0 / 3 crystals collected. Score is: 12461000
+  2022-06-02 23:30:46 INFO  Game:222 - Player finished the levelTime: 17.27, 0 / 3 crystals collected. Score is: 5873000
+  2022-06-02 23:43:24 INFO  Game:24 - Username set: player1
+  2022-06-02 23:43:40 INFO  Game:24 - Username set: player2
+  2022-06-02 23:43:45 INFO  Game:250 - player1 joined the level
+  2022-06-02 23:43:45 INFO  Game:251 - level2 has been loaded
+  2022-06-02 23:43:45 INFO  Game:250 - player2 joined the level
+  2022-06-02 23:43:45 INFO  Game:251 - level2 has been loaded
+  2022-06-02 23:43:53 INFO  Game:222 - Player finished the levelTime: 7.844, 0 / 3 crystals collected. Score is: 12748500
+  2022-06-02 23:44:02 INFO  Game:222 - Player finished the levelTime: 17.376, 0 / 3 crystals collected. Score is: 5755000
+  2022-06-02 23:48:33 INFO  Game:24 - Username set: player1
+  2022-06-02 23:48:53 INFO  Game:24 - Username set: player2
+  2022-06-02 23:48:59 INFO  Game:250 - player1 joined the level
+  2022-06-02 23:48:59 INFO  Game:251 - level3 has been loaded
+  2022-06-02 23:48:59 INFO  Game:250 - player2 joined the level
+  2022-06-02 23:48:59 INFO  Game:251 - level3 has been loaded
+  2022-06-02 23:49:07 INFO  Game:222 - Player finished the levelTime: 7.808, 0 / 3 crystals collected. Score is: 12807300
+  2022-06-02 23:49:16 INFO  Game:222 - Player finished the levelTime: 17.9, 0 / 3 crystals collected. Score is: 5879200
+  2022-06-02 23:50:22 INFO  Game:24 - Username set: player1
+  2022-06-02 23:50:33 INFO  Game:24 - Username set: nots
+  2022-06-02 23:50:38 INFO  Game:250 - nots joined the level
+  2022-06-02 23:50:38 INFO  Game:251 - level4 has been loaded
+  2022-06-02 23:50:38 INFO  Game:250 - player1 joined the level
+  2022-06-02 23:50:38 INFO  Game:251 - level4 has been loaded
+  2022-06-02 23:50:45 INFO  Game:222 - Player finished the levelTime: 7.798, 0 / 3 crystals collected. Score is: 12823800
+  2022-06-02 23:50:55 INFO  Game:222 - Player finished the levelTime: 17.81, 0 / 3 crystals collected. Score is: 5854400
+  2022-06-02 23:52:24 INFO  Game:24 - Username set: player1
+  2022-06-02 23:52:34 INFO  Game:24 - Username set: player2
+  2022-06-02 23:52:40 INFO  Game:250 - player1 joined the level
+  2022-06-02 23:52:40 INFO  Game:251 - level3 has been loaded
+  2022-06-02 23:52:40 INFO  Game:250 - player2 joined the level
+  2022-06-02 23:52:40 INFO  Game:251 - level3 has been loaded
+  2022-06-02 23:52:47 INFO  Game:222 - Player finished the levelTime: 7.843, 0 / 3 crystals collected. Score is: 12750200
+  2022-06-02 23:52:57 INFO  Game:222 - Player finished the levelTime: 16.959, 0 / 3 crystals collected. Score is: 5896500
+  2022-06-02 23:56:01 INFO  Game:24 - Username set: player1
+  2022-06-02 23:56:14 INFO  Game:24 - Username set: player2
+  2022-06-02 23:56:19 INFO  Game:250 - player1 joined the level
+  2022-06-02 23:56:19 INFO  Game:251 - level2 has been loaded
+  2022-06-02 23:56:19 INFO  Game:250 - player2 joined the level
+  2022-06-02 23:56:19 INFO  Game:251 - level2 has been loaded
+  2022-06-02 23:56:28 INFO  Game:222 - Player finished the levelTime: 8.592, 0 / 3 crystals collected. Score is: 11638700
+  2022-06-02 23:56:38 INFO  Game:222 - Player finished the levelTime: 18.342, 0 / 3 crystals collected. Score is: 5451900
   

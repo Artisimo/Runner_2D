@@ -184,13 +184,16 @@ public class Client implements Runnable{
      * shutdown the connection with server
      * @throws IOException
      */
+    public void sendShutDown(){
+        write.println("ShutDown");
+    }
     public void shutdown() throws IOException {
         done = true;
         try {
-//            if(read != null){
-//                read.close();
-//            }
-
+            sendShutDown();
+            if(read != null){
+                read.close();
+            }
             if(write != null){
                 write.close();
             }
@@ -271,6 +274,11 @@ public class Client implements Runnable{
                         }
                     }
                 } catch (IOException e) {
+                    try {
+                        read.close();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     throw new RuntimeException(e);
                 }
             }
