@@ -16,7 +16,7 @@ public class Player extends GameObject {
     private Handler handler;
     private float gravity = 0.5f;
     public int maxhp= 100;
-    public int currenthp = maxhp;
+
     public int attacked = 0;
     private boolean leftbound = true;
     private GameObject intersactedEnemy;
@@ -53,6 +53,7 @@ public class Player extends GameObject {
         playerWalkLeft = new Animation(4, tex.playerImages[7], tex.playerImages[8], tex.playerImages[9], tex.playerImages[10], tex.playerImages[11], tex.playerImages[12]);
         playerWalkRight = new Animation(4, tex.playerImages[1], tex.playerImages[2], tex.playerImages[3], tex.playerImages[4], tex.playerImages[5], tex.playerImages[6]);
         startTime = System.currentTimeMillis();
+        this.currenthp = maxhp;
         this.game = game;
     }
 
