@@ -170,6 +170,16 @@ public class Client implements Runnable{
     }
 
     /**
+     * Send message to the server that user left the ongoing game
+     */
+    public void leaveGame(){
+        write.println("LeftGame" + ' ' + userName);
+    }
+
+    public void deleteLobby(){
+        write.println("DeleteLobby" + ' ' + userName);
+    }
+    /**
      * shutdown the connection with server
      * @throws IOException
      */
