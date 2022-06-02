@@ -176,6 +176,9 @@ public class Client implements Runnable{
         write.println("LeftGame" + ' ' + userName);
     }
 
+    public void deleteLobby(){
+        write.println("DeleteLobby" + ' ' + userName);
+    }
     /**
      * shutdown the connection with server
      * @throws IOException

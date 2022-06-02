@@ -245,6 +245,14 @@ public class Server implements Runnable{
                                 ch.write.println("PlayerLeft");
                             }
                         }
+                    }else if(message.startsWith("DeleteLobby")){
+                        String[] messageSplit = message.split(" ",2);
+                        for (ConnectionHandler ch : connections){
+                            if(ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1])){
+                                mySqlDatabase.deleteLobby(ch.lobby.player1);
+                                break;
+                            }
+                        }
                     }
                 }
             } catch (Exception e) {
