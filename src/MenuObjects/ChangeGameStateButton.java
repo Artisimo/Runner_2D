@@ -18,11 +18,18 @@ public class ChangeGameStateButton extends MenuObject{
 
     @Override
     public void onClick(Game game) throws SQLException, IOException {
+        if(game.isInMultiplayer && game.gameState == GameState.PAUSED){
+            game.client.leaveGame();
+            //game.handler.object.clear();
+            System.out.println("called leaveGame");
+        }
+
         game.gameState = GameState.MENU;
         game.isMenuGenerated = false;
         game.isInMultiplayer = false;
-        game.runSound.stop();
-        game.client.shutdown();
+        if(game.isInMultiplayer){
+            game.client.shutdown();
+        }
     }
 
     @Override

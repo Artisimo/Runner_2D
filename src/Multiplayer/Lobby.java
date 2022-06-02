@@ -44,4 +44,6 @@ public class Lobby {
      */
     public boolean running = false;
 
+    public boolean playerLeft;
+
 }

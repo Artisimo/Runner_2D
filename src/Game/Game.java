@@ -108,7 +108,7 @@ public class Game extends Canvas implements Runnable {
     /**
      * Represents the instance of the class which is responsible for handling all changes in different game objects when playing the game.
      */
-    private Handler handler;
+    public Handler handler;
 
     /**
      * Represents the instance of the class which is responsible for handling all changes in different menu objects when not playing.
@@ -425,6 +425,9 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
             return;
         }
+
+
+
         g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
         g.setColor(Color.BLACK);
@@ -451,7 +454,11 @@ public class Game extends Canvas implements Runnable {
             int imageY = (this.getHeight() - background.getHeight(null)) / 2;
             g.drawImage(background, imageX ,imageY, null);
             g2d.translate(camera.getX(), camera.getY());
-
+            if(isInMultiplayer){
+                if(client.secondPlayerLeft){
+                    gameState = GameState.LEVEL_FINISHED;
+                }
+            }
             handler.render(g);
             g.dispose();
             bs.show();
@@ -482,18 +489,17 @@ public class Game extends Canvas implements Runnable {
             menuHandler.render(g);
         }else if(gameState == GameState.LEVEL_FINISHED){
             if(isInMultiplayer){
-                if(isInMultiplayer && client.isWinner && client.gameFinished && !wonMenuGenerated){
+                if(client.isWinner && client.gameFinished && !wonMenuGenerated){
                     menuHandler.generateWonMenu(g);
                     wonMenuGenerated = true;
-                }else if(isInMultiplayer && client.isLooser && client.gameFinished && !lostMenuGenerated){
+                }else if(client.isLooser && client.gameFinished && !lostMenuGenerated){
                     menuHandler.generateLostMenu(g);
                     lostMenuGenerated = true;
-                }else if(isInMultiplayer && !client.gameFinished && !waitingMenuGenerated){
+                }else if(!client.gameFinished && !waitingMenuGenerated){
                     menuHandler.generateWaitingMenu(g);
                     waitingMenuGenerated = true;
                 }
             }
-
             if(!isLevelFinishedMenuActive && !isInMultiplayer){
                 menuHandler.generateLevelFinishedMenu(g);
                 isLevelFinishedMenuActive = true;

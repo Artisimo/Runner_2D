@@ -174,6 +174,7 @@ public class Client implements Runnable{
      */
     public void leaveGame(){
         write.println("LeftGame" + ' ' + userName);
+        System.out.println("LeftGame" + ' ' + userName);
     }
 
     public void deleteLobby(){
@@ -257,8 +258,16 @@ public class Client implements Runnable{
                                 secondPlayerVelX = Float.parseFloat(messageSplit[3]);
                                 secondPlayerVelY = Float.parseFloat(messageSplit[4]);
                             }
-                        }else if(message.startsWith("PlayerLeft")){
-                            secondPlayerLeft = true;
+                        }else if(message.startsWith("playerLeft")){
+                            String[] messageSplit = message.split(" ",2);
+                            if(!messageSplit[1].equals(userName)){
+                                System.out.println("I won " + userName);
+                                isWinner = true;
+                                isLooser = false;
+                                gameFinished = true;
+                                secondPlayerLeft = true;
+                            }
+
                         }
                     }
                 } catch (IOException e) {

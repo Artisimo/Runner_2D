@@ -61,7 +61,7 @@ public class SecondPlayer extends Player{
     @Override
     public void render(Graphics g){
 
-        System.out.println(velX);
+        //System.out.println(velX);
         if(velX != 0){
             if(velX < 0){
                 player2WalkLeft.drawAnimation(g, x, y);

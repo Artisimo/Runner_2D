@@ -216,6 +216,22 @@ public class Server implements Runnable{
                                 }
                             }
                         }
+                    }else if(message.startsWith("LeftGame")){
+                        System.out.println(message);
+                        String[] messageSplit = message.split(" ",2);
+                        for (ConnectionHandler ch : connections){
+                            if(messageSplit[1].equals(ch.lobby.player1)){
+                                ch.lobby.finished = true;
+                                ch.lobby.playerLeft = true;
+                                ch.write.println("playerLeft" + ' ' + ch.lobby.player1);
+                                System.out.println("playerLeft" + ' ' + ch.lobby.player1);
+                            }else if(messageSplit[1].equals(ch.lobby.player2)){
+                                ch.lobby.finished = true;
+                                ch.lobby.playerLeft = true;
+                                ch.write.println("playerLeft" + ' ' + ch.lobby.player2);
+                                System.out.println("playerLeft" + ' ' + ch.lobby.player2);
+                            }
+                        }
                     }else if(message.startsWith("StartGame")){
                         String[] messageSplit = message.split(" ",2);
                         if(clientName != null && lobby.player1 != null && lobby.player2 != null){
@@ -235,14 +251,6 @@ public class Server implements Runnable{
                         for (ConnectionHandler ch : connections){
                             if(!ch.clientName.equals(messageSplit[1]) && (ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1]))){
                                 ch.write.println("Coordinates" + ' ' + messageSplit[2] + ' ' + messageSplit[3] + ' ' + messageSplit[4] + ' ' + messageSplit[5]);
-                            }
-                        }
-                    }else if(message.startsWith("LeftGame")){
-                        String[] messageSplit = message.split(" ",2);
-                        for (ConnectionHandler ch : connections){
-                            if(!ch.clientName.equals(messageSplit[1]) && (ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1]))){
-                                mySqlDatabase.deleteLobby(ch.lobby.player1);
-                                ch.write.println("PlayerLeft");
                             }
                         }
                     }else if(message.startsWith("DeleteLobby")){

@@ -186,7 +186,6 @@ public class MenuHandler {
         }
 
         object.add(new CreateLobbyButton(Game.WIDTH / 2 + Game.WIDTH/4,Game.HEIGHT/2 + Game.HEIGHT/4,MenuObjectID.CreateLobbyButton,100,50));
-        System.out.println("added create lobby button");
     }
 
     /**
@@ -203,7 +202,6 @@ public class MenuHandler {
         for (int i = 0; i < Game.levelsAmount; i++) {
             object.add( new LevelSelectButton(Game.WIDTH / 2 - 100, (i * 64) + (i+1) * 30, MenuObjectID.levelButton, 100, 50, "/Levels/level" + (i+1) + ".png", game));
             object.get(i).tick();
-            System.out.println("te");
         }
         object.add(new ReturnToMultiplayerMenu(64, 30, MenuObjectID.returnToMultiplayerMenuButton, 100, 50));
     }

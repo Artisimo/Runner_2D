@@ -172,14 +172,14 @@ public  class mySqlDatabase {
 
     public static String getLobbyInfo(int id) throws SQLException {
         Statement statement = conn.createStatement();
-        String select = "SELECT * FROM Lobbies WHERE id = ?";
+        String select = "SELECT * FROM Lobbies WHERE ID = ?";
         PreparedStatement thisStatement = conn.prepareStatement(select, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         thisStatement.setString(1, Integer.toString(id));
 
         ResultSet rs = thisStatement.executeQuery();
         String returnStr = "";
         while(rs.next()){
-            returnStr = returnStr + rs.getString("id") + " " + rs.getString("Player_1") + " " +  rs.getString("Level") + " " + rs.getString("Player_2");
+            returnStr = returnStr + rs.getString("ID") + " " + rs.getString("Player_1") + " " +  rs.getString("Level") + " " + rs.getString("Player_2");
         }
         return returnStr;
     }
@@ -200,7 +200,7 @@ public  class mySqlDatabase {
         ResultSet rs = thisStatement.executeQuery();
         int id = 0;
         while(rs.next()){
-            id = Integer.parseInt(rs.getString("id"));
+            id = Integer.parseInt(rs.getString("ID"));
         }
         return id;
     }

@@ -36,6 +36,7 @@ public class LevelSelectButton extends MenuObject{
 
             game.lobbyID = mySqlDatabase.getSpecificLobbyID(game.userName);
             System.out.println(game.lobbyID);
+            game.lobbyInfoGenerated = false;
             game.gameState = GameState.LOBBY;
         }else{
             game.play(levelName);
