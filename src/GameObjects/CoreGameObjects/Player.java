@@ -112,7 +112,7 @@ public class Player extends GameObject {
             game.gameState = GameState.PLAYER_DIED;
             Game.logger.info("Player died");
         }
-        game.client.sendCoordinates(x,y);
+        game.client.sendCoordinates(x,y,velX,velY);
     }
 
     /**

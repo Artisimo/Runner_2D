@@ -29,6 +29,10 @@ public class Client implements Runnable{
     public boolean isLobbyDeleted = false;
     public int secondPlayerX;
     public int secondPlayerY;
+    public float secondPlayerVelX;
+    public float secondPlayerVelY;
+
+
 
     public Client(String userName) {
         this.userName = userName;
@@ -71,8 +75,8 @@ public class Client implements Runnable{
 
         write.println("Score" + ' ' + score + ' ' + userName);
     }
-    public void sendCoordinates(int x,int y){
-        write.println("SendCoordinates" + ' ' + userName + ' '+ x + ' '+ y );
+    public void sendCoordinates(int x,int y,float velX,float velY){
+        write.println("SendCoordinates" + ' ' + userName + ' '+ x + ' '+ y + ' ' + velX + ' ' + velY );
     }
 
     public void shutdown() throws IOException {
@@ -140,6 +144,8 @@ public class Client implements Runnable{
                             if(messageSplit.length == 3){
                                 secondPlayerX = Integer.parseInt(messageSplit[1]);
                                 secondPlayerY = Integer.parseInt(messageSplit[2]);
+                                secondPlayerVelX = Float.parseFloat(messageSplit[3]);
+                                secondPlayerVelY = Float.parseFloat(messageSplit[4]);
                             }
                         }
                     }

@@ -185,10 +185,10 @@ public class Server implements Runnable{
                             }
                         }
                     }else if(message.startsWith("SendCoordinates")){
-                        String[] messageSplit = message.split(" ",4);
+                        String[] messageSplit = message.split(" ",6);
                         for (ConnectionHandler ch : connections){
                             if(!ch.clientName.equals(messageSplit[1]) && (ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1]))){
-                                ch.write.println("Coordinates" + ' ' + messageSplit[2] + ' ' + messageSplit[3]);
+                                ch.write.println("Coordinates" + ' ' + messageSplit[2] + ' ' + messageSplit[3] + ' ' + messageSplit[4] + ' ' + messageSplit[5]);
                             }
                         }
                     }

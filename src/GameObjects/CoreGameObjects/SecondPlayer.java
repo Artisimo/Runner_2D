@@ -23,5 +23,7 @@ public class SecondPlayer extends Player{
     public void tick(){
         x = game.client.secondPlayerX;
         y = game.client.secondPlayerY;
+        velX = game.client.secondPlayerVelX;
+        velY = game.client.secondPlayerVelY;
     }
 }
