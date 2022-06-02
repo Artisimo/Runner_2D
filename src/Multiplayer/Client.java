@@ -75,7 +75,7 @@ public class Client implements Runnable{
 
         write.println("Score" + ' ' + score + ' ' + userName);
     }
-    public void sendCoordinates(int x,int y,float velX,float velY){
+    public void sendCoordinates(int x,int y,int velX,int velY){
         write.println("SendCoordinates" + ' ' + userName + ' '+ x + ' '+ y + ' ' + velX + ' ' + velY );
     }
 
@@ -140,8 +140,8 @@ public class Client implements Runnable{
                         }else if(message.startsWith("GameFinished")){
                             gameFinished = true;
                         }else if(message.startsWith("Coordinates")){
-                            String[] messageSplit = message.split(" ",3);
-                            if(messageSplit.length == 3){
+                            String[] messageSplit = message.split(" ",5);
+                            if(messageSplit.length == 5){
                                 secondPlayerX = Integer.parseInt(messageSplit[1]);
                                 secondPlayerY = Integer.parseInt(messageSplit[2]);
                                 secondPlayerVelX = Float.parseFloat(messageSplit[3]);
