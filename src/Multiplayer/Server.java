@@ -258,12 +258,14 @@ public class Server implements Runnable{
                     this.lobby.player1 = null;
                     this.lobby.player2 = null;
                     mySqlDatabase.leaveLobby(clientName);
+                    System.out.println(clientName + " left lobby");
                     ch.write.println("LeftLobby");
                     break;
                 }
                 if(ch.lobby.player1 != null &&  ch.lobby.player1.equals(clientName)){
                     mySqlDatabase.deleteLobby(clientName);
                     if(!ch.clientName.equals(clientName)){
+                        System.out.println(clientName + " left lobby");
                         ch.write.println("LobbyDeleted");
                     }
                 }

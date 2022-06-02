@@ -4,7 +4,9 @@ import Game.Game;
 import GameObjects.GameObject;
 import Handler.Handler;
 import java.awt.*;
-
+/**
+ * Platform game object and logic for updating and rendering it.
+ */
 public class Platform extends GameObject {
 
     private Handler handler;

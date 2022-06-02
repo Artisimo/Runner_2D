@@ -13,11 +13,29 @@ import GameObjects.*;
  * Player class. The player can be controlled by the user
  */
 public class Player extends GameObject {
+    /**
+     * Handler class instance used for iterating through its object list and checking if the player is colliding with different game objects
+     */
     private Handler handler;
+
+    /**
+     * Gravity variable, which specifiers how quick / slow the player should fall and how high he can jump.
+     */
     private float gravity = 0.5f;
+
+    /**
+     * Maximum health of player
+     */
     public int maxhp= 100;
 
+    /**
+     * used to measure the time before the player can get attacked by an enemy again.
+     */
     public int attacked = 0;
+
+    /**
+     *
+     */
     private boolean leftbound = true;
     private GameObject intersactedEnemy;
 
@@ -113,7 +131,11 @@ public class Player extends GameObject {
             game.gameState = GameState.PLAYER_DIED;
             Game.logger.info("Player died");
         }
-        game.client.sendCoordinates(x,y,(int)velX, (int)velY);
+
+        if(game.isInMultiplayer){
+            game.client.sendCoordinates(x,y,(int)velX, (int)velY);
+        }
+
     }
 
     /**
@@ -145,7 +167,7 @@ public class Player extends GameObject {
                 }
             }
             else if(temp.getId() == ID.BasicEnemy ){
-                if(this.bottomCollision(temp.getBounds()) && attacked <=0 && leftbound){
+                if(this.bottomCollision(temp.getBounds()) && attacked <=0){
                     handler.removeObject(temp);
                     Game.sound.playEnemyDies();
                     temp = null;
@@ -154,7 +176,7 @@ public class Player extends GameObject {
                     if(attacked <=0){
                         currenthp -= temp.getDamage();
                         Game.sound.playDamage();
-                        attacked = 180;
+                        attacked = 100;
                     }
                     leftbound  = false;
                     intersactedEnemy = temp;

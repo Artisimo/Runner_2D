@@ -1,5 +1,9 @@
 package GameObjects.CoreGameObjects;
 
+
+/**
+ * Enumeration for every different game object
+ */
 public enum ID {
     Player(),
     SecondPlayer(),

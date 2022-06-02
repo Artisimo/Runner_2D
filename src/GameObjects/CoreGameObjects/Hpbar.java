@@ -4,6 +4,9 @@ import GameObjects.GameObject;
 
 import java.awt.*;
 
+/**
+ * Health bar game object and logic for updating and rendering it.
+ */
 public class Hpbar extends GameObject {
     private float green = 255;
     public  int currenthp;

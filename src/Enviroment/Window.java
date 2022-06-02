@@ -9,12 +9,6 @@ import java.awt.event.WindowEvent;
 
 public class Window {
 
-    class WindowEventHandler extends WindowAdapter {
-        public void windowClosing(WindowEvent evt) {
-            mySqlDatabase.closeConn();
-
-        }
-    }
     /**
      * Creates and sets up the window for the game.
      * @param width width of window

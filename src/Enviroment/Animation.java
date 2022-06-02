@@ -43,7 +43,7 @@ public class Animation {
     }
 
     /**
-     * replaces the animation sprite to the next one. If it gets to the last sprite, it continues with the firts one.
+     * replaces the animation sprite to the next one. If it gets to the last sprite, it continues with the first one.
      */
     private void nextFrame(){
         for(int i = 0; i < frames; i++){

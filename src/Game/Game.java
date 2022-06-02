@@ -47,6 +47,10 @@ public class Game extends Canvas implements Runnable {
      * Represents the thread on which the game is running.
      */
     private Thread thread;
+
+    /**
+     * Boolean which describes whether the game is running
+     */
     private boolean running = false;
 
     private Graphics g;
@@ -59,6 +63,10 @@ public class Game extends Canvas implements Runnable {
      * Represents the picture, from which the level is loaded and generated.
      */
     public BufferedImage level;
+
+    /**
+     * Represents the game background picture.
+     */
     public BufferedImage background;
 
     /**
@@ -69,10 +77,26 @@ public class Game extends Canvas implements Runnable {
     public static Sound sound = new Sound();
     public static Sound runSound = new Sound();
 
+
+    /**
+     * Amount of levels in the game
+     */
     public static int levelsAmount = 9;
+
+    /**
+     * Path to level image
+     */
     public String levelname;
 
+
+    /**
+     * Players starting x coordinate when first loading a level. Used to position the player at the beginning of the level in 1v1 if he dies
+     */
     private int startXpostionPlayer;
+
+    /**
+     * Players starting y coordinate when first loading a level. Used to position the player at the beginning of the level in 1v1 if he dies
+     */
     private int startYpositionPlayer;
 
     /**
@@ -100,11 +124,11 @@ public class Game extends Canvas implements Runnable {
      */
     public int userId;
     /**
-     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines whether the single player level select menu should be generated, or just rendered again.
      */
     public boolean isMenuGenerated;
     /**
-     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines whether the menu for entering the players username should be generated, or just rendered again.
      */
     public boolean isUserNameSet;
     /**
@@ -112,48 +136,44 @@ public class Game extends Canvas implements Runnable {
      */
     public boolean isPauseMenuActive;
     /**
-     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines whether the pause menu should be generated, or just rendered again.
      */
     public boolean isLevelFinishedMenuActive;
 
     /**
-     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
-     */
-    public boolean isMultiPlayerLevelFinishedMenuActive;
-    /**
-     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines whether the player died menu should be generated, or just rendered again.
      */
 
     public boolean playerDiedMenuGenerated;
     /**
-     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines whether the multiplayer lobby select menu should be generated, or just rendered again.
      */
 
     public boolean isMultiiplayerMenuGenerated;
 
     /**
-     * Represents a boolean value which determines whether the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines whether the menu for selecting the level which the user wants to play in 1v1 mode should be generated, or just rendered again.
      */
 
     public boolean levelSelectMenuGenerated = false;
 
     /**
-     * Represents a boolean value which determines weather or not the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines weather or not the lobby info menu should be generated, or just rendered again.
      */
 
     public boolean lobbyInfoGenerated;
 
 
     /**
-     * Represents a boolean value which determines weather or not the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines weather or not the multiplayer level finished waiting menu should be generated, or just rendered again.
      */
     public boolean waitingMenuGenerated;
     /**
-     * Represents a boolean value which determines weather or not the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines weather or not the multiplayer level won waiting menu should be generated, or just rendered again.
      */
     public boolean wonMenuGenerated;
     /**
-     * Represents a boolean value which determines weather or not the specified menu should be generated, or just rendered again.
+     * Represents a boolean value which determines weather or not the multiplayer level lost waiting menu should be generated, or just rendered again.
      */
     public boolean lostMenuGenerated;
 
@@ -162,6 +182,9 @@ public class Game extends Canvas implements Runnable {
      */
     public String infoAboutScore;
 
+    /**
+     * Client class instance used in the 1v1 game mode.
+     */
     public  Client client;
 
     /**
@@ -170,6 +193,9 @@ public class Game extends Canvas implements Runnable {
     public boolean isInMultiplayer = false;
 
 
+    /**
+     * Lobby id for the lobby which the user is currently in
+     */
     public int lobbyID;
 
     /**
@@ -221,7 +247,11 @@ public class Game extends Canvas implements Runnable {
         menuHandler.object.clear();
         logger.info(userName + " joined the level");
         logger.info(levelname + " has been loaded");
-
+        isPauseMenuActive = false;
+        isLevelFinishedMenuActive = false;
+        waitingMenuGenerated = false;
+        wonMenuGenerated = false;
+        lostMenuGenerated = false;
     }
 
 

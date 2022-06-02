@@ -7,6 +7,9 @@ import Handler.Handler;
 
 import java.awt.*;
 
+/**
+ * Finish line game object and logic for updating and rendering it.
+ */
 public class FinishLine extends GameObject {
 
     private int x, y, width, height;

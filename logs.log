@@ -3583,4 +3583,589 @@
   2022-06-02 11:09:31 INFO  Game:161 - Player was attacked by a basic enemy
   2022-06-02 11:09:34 INFO  Game:207 - Player collected a crystal
   2022-06-02 11:09:35 INFO  Game:200 - Player finished the levelTime: 131.409, 2 / 3 crystals collected. Score is: 762900
+  2022-06-02 11:51:53 INFO  Game:24 - Username set: test1
+  2022-06-02 11:52:18 INFO  Game:24 - Username set: test2
+  2022-06-02 11:52:33 INFO  Game:222 - test2 joined the level
+  2022-06-02 11:52:33 INFO  Game:223 - level2 has been loaded
+  2022-06-02 11:52:33 INFO  Game:222 - test1 joined the level
+  2022-06-02 11:52:33 INFO  Game:223 - level2 has been loaded
+  2022-06-02 11:53:02 INFO  Game:200 - Player finished the levelTime: 29.309, 0 / 3 crystals collected. Score is: 3411900
+  2022-06-02 11:56:45 INFO  Game:24 - Username set: Artisimo
+  2022-06-02 11:57:05 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 11:57:05 INFO  Game:223 - level1 has been loaded
+  2022-06-02 11:57:10 INFO  Game:179 - Player was in the range of an explosive enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:12 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:13 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:16 INFO  Game:179 - Player was in the range of an explosive enemy
+  2022-06-02 11:57:16 INFO  Game:114 - Player died
+  2022-06-02 11:57:18 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 11:57:18 INFO  Game:223 - level1 has been loaded
+  2022-06-02 11:57:23 INFO  Game:222 - Player collected the max health power up
+  2022-06-02 11:57:27 INFO  Game:179 - Player was in the range of an explosive enemy
+  2022-06-02 11:57:30 INFO  Game:230 - Player collected the speed power up
+  2022-06-02 11:57:33 INFO  Game:179 - Player was in the range of an explosive enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:36 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:37 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:38 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:39 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:40 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:41 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:42 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:43 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:44 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:45 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:49 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:57:49 INFO  Game:114 - Player died
+  2022-06-02 11:57:50 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 11:57:50 INFO  Game:223 - level1 has been loaded
+  2022-06-02 11:57:52 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 11:57:52 INFO  Game:223 - level1 has been loaded
+  2022-06-02 11:57:57 INFO  Game:179 - Player was in the range of an explosive enemy
+  2022-06-02 11:58:02 INFO  Game:230 - Player collected the speed power up
+  2022-06-02 11:58:03 INFO  Game:214 - Player healed using the heal power up
+  2022-06-02 11:58:04 INFO  Game:172 - Player was shot by a projectile
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:05 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:172 - Player was shot by a projectile
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:06 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:07 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:08 INFO  Game:200 - Player finished the levelTime: 16.136, 0 / 3 crystals collected. Score is: 6197300
+  2022-06-02 11:58:44 INFO  Game:24 - Username set: Artisimo
+  2022-06-02 11:58:52 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 11:58:52 INFO  Game:223 - level1 has been loaded
+  2022-06-02 11:58:54 INFO  Game:222 - Player collected the max health power up
+  2022-06-02 11:58:56 INFO  Game:230 - Player collected the speed power up
+  2022-06-02 11:58:56 INFO  Game:214 - Player healed using the heal power up
+  2022-06-02 11:58:58 INFO  Game:172 - Player was shot by a projectile
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:58 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:58:59 INFO  Game:161 - Player was attacked by a basic enemy
+  2022-06-02 11:59:00 INFO  Game:207 - Player collected a crystal
+  2022-06-02 11:59:00 INFO  Game:200 - Player finished the levelTime: 8.796, 1 / 3 crystals collected. Score is: 11369800
+  2022-06-02 11:59:02 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 11:59:02 INFO  Game:223 - level2 has been loaded
+  2022-06-02 11:59:09 INFO  Game:200 - Player finished the levelTime: 7.763, 0 / 3 crystals collected. Score is: 12881600
+  2022-06-02 12:00:48 INFO  Game:24 - Username set: Artisimo
+  2022-06-02 12:00:52 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:00:52 INFO  Game:223 - level1 has been loaded
+  2022-06-02 12:01:06 WARN  Game:28 - The entered username is not valid
+  2022-06-02 12:01:10 INFO  Game:24 - Username set: Artisimo
+  2022-06-02 12:01:14 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:01:14 INFO  Game:223 - level1 has been loaded
+  2022-06-02 12:01:57 INFO  Game:24 - Username set: Artisimo
+  2022-06-02 12:02:00 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:02:00 INFO  Game:223 - level1 has been loaded
+  2022-06-02 12:02:03 INFO  Game:183 - Player was in the range of an explosive enemy
+  2022-06-02 12:02:06 INFO  Game:234 - Player collected the speed power up
+  2022-06-02 12:02:07 INFO  Game:218 - Player healed using the heal power up
+  2022-06-02 12:02:09 INFO  Game:176 - Player was shot by a projectile
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:10 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:11 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:11 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:11 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:11 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:11 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:11 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:11 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:02:12 INFO  Game:204 - Player finished the levelTime: 12.483, 0 / 3 crystals collected. Score is: 8010800
+  2022-06-02 12:02:15 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:02:15 INFO  Game:223 - level2 has been loaded
+  2022-06-02 12:02:23 INFO  Game:204 - Player finished the levelTime: 7.861, 0 / 3 crystals collected. Score is: 12721000
+  2022-06-02 12:02:24 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:02:24 INFO  Game:223 - level3 has been loaded
+  2022-06-02 12:02:32 INFO  Game:204 - Player finished the levelTime: 7.837, 0 / 3 crystals collected. Score is: 12759900
+  2022-06-02 12:02:34 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:02:34 INFO  Game:223 - level4 has been loaded
+  2022-06-02 12:02:41 INFO  Game:204 - Player finished the levelTime: 7.837, 0 / 3 crystals collected. Score is: 12759900
+  2022-06-02 12:02:43 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:02:43 INFO  Game:223 - level5 has been loaded
+  2022-06-02 12:02:51 INFO  Game:204 - Player finished the levelTime: 8.390, 0 / 3 crystals collected. Score is: 11918900
+  2022-06-02 12:02:52 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:02:52 INFO  Game:223 - level6 has been loaded
+  2022-06-02 12:03:00 INFO  Game:204 - Player finished the levelTime: 8.143, 0 / 3 crystals collected. Score is: 12280400
+  2022-06-02 12:03:03 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:03:03 INFO  Game:223 - level7 has been loaded
+  2022-06-02 12:03:11 INFO  Game:204 - Player finished the levelTime: 7.816, 0 / 3 crystals collected. Score is: 12794200
+  2022-06-02 12:03:12 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:03:12 INFO  Game:223 - level8 has been loaded
+  2022-06-02 12:03:19 INFO  Game:204 - Player finished the levelTime: 7.782, 0 / 3 crystals collected. Score is: 12850100
+  2022-06-02 12:03:20 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:03:20 INFO  Game:223 - level9 has been loaded
+  2022-06-02 12:03:28 INFO  Game:204 - Player finished the levelTime: 7.771, 0 / 3 crystals collected. Score is: 12868300
+  2022-06-02 12:03:29 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:03:29 INFO  Game:223 - level1 has been loaded
+  2022-06-02 12:03:31 INFO  Game:226 - Player collected the max health power up
+  2022-06-02 12:03:33 INFO  Game:234 - Player collected the speed power up
+  2022-06-02 12:03:34 INFO  Game:218 - Player healed using the heal power up
+  2022-06-02 12:03:36 INFO  Game:176 - Player was shot by a projectile
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:36 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:37 INFO  Game:165 - Player was attacked by a basic enemy
+  2022-06-02 12:03:38 INFO  Game:204 - Player finished the levelTime: 9.32, 0 / 3 crystals collected. Score is: 11071700
+  2022-06-02 12:04:02 INFO  Game:24 - Username set: oponent
+  2022-06-02 12:04:11 INFO  Game:222 - Artisimo joined the level
+  2022-06-02 12:04:11 INFO  Game:223 - level4 has been loaded
+  2022-06-02 12:04:11 INFO  Game:222 - oponent joined the level
+  2022-06-02 12:04:11 INFO  Game:223 - level4 has been loaded
+  2022-06-02 12:04:19 INFO  Game:204 - Player finished the levelTime: 8.74, 0 / 3 crystals collected. Score is: 12385400
+  2022-06-02 12:04:29 INFO  Game:204 - Player finished the levelTime: 18.214, 0 / 3 crystals collected. Score is: 5490200
+  2022-06-02 12:05:09 INFO  Game:222 - oponent joined the level
+  2022-06-02 12:05:09 INFO  Game:223 - level4 has been loaded
+  2022-06-02 12:05:18 INFO  Game:204 - Player finished the levelTime: 8.930, 0 / 3 crystals collected. Score is: 11198200
+  2022-06-02 12:26:24 INFO  Game:24 - Username set: artisimo
+  2022-06-02 12:26:54 INFO  Game:24 - Username set: artisimo
+  2022-06-02 12:59:38 INFO  Game:24 - Username set: Artisimo
   

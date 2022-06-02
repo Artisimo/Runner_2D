@@ -52,7 +52,6 @@ public class Client implements Runnable{
      * Show if player finished the game
      */
     public boolean finished;
-    public boolean secondPlayerGameFinished = false;
 
     /**
      * Show is player won
@@ -62,7 +61,6 @@ public class Client implements Runnable{
      * Show is player loose
      */
     public boolean isLooser = false;
-    public boolean gameEnd = false;
     /**
      * Represent the state of lobby deletion
      */
@@ -84,11 +82,13 @@ public class Client implements Runnable{
      */
     public float secondPlayerVelY;
 
-
+    /**
+     * Sets the client's username
+     * @param userName clients username
+     */
 
     public Client(String userName) {
         this.userName = userName;
-
     }
 
     /**
