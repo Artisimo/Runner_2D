@@ -187,9 +187,9 @@ public class Client implements Runnable{
     public void shutdown() throws IOException {
         done = true;
         try {
-            if(read != null){
-                read.close();
-            }
+//            if(read != null){
+//                read.close();
+//            }
 
             if(write != null){
                 write.close();

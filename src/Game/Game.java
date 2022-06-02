@@ -15,6 +15,7 @@ import Multiplayer.Client;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Random;
 import org.apache.log4j.*;
@@ -492,6 +493,7 @@ public class Game extends Canvas implements Runnable {
                 if(client.isWinner && client.gameFinished && !wonMenuGenerated){
                     menuHandler.generateWonMenu(g);
                     wonMenuGenerated = true;
+                    client.deleteLobby();
                 }else if(client.isLooser && client.gameFinished && !lostMenuGenerated){
                     menuHandler.generateLostMenu(g);
                     lostMenuGenerated = true;

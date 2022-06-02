@@ -21,15 +21,14 @@ public class ChangeGameStateButton extends MenuObject{
         if(game.isInMultiplayer && game.gameState == GameState.PAUSED){
             game.client.leaveGame();
             //game.handler.object.clear();
-            System.out.println("called leaveGame");
         }
 
-        game.gameState = GameState.MENU;
-        game.isMenuGenerated = false;
-        game.isInMultiplayer = false;
         if(game.isInMultiplayer){
             game.client.shutdown();
         }
+        game.isInMultiplayer = false;
+        game.isMenuGenerated = false;
+        game.gameState = GameState.MENU;
     }
 
     @Override

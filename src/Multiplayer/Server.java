@@ -127,6 +127,7 @@ public class Server implements Runnable{
                 while((message = read.readLine()) != null){
                     if(message.startsWith("CreateLobby")){
                         String[] messageSplit = message.split(" ",3);
+                        print();
                         if(messageSplit.length == 3){
                             mySqlDatabase.createLobby(messageSplit[1],messageSplit[2]);
                             clientName = messageSplit[1];
@@ -258,7 +259,7 @@ public class Server implements Runnable{
                         for (ConnectionHandler ch : connections){
                             if(ch.lobby.player1.equals(messageSplit[1]) || ch.lobby.player2.equals(messageSplit[1])){
                                 mySqlDatabase.deleteLobby(ch.lobby.player1);
-                                break;
+                                //ch.resetLobby();
                             }
                         }
                     }
@@ -279,7 +280,8 @@ public class Server implements Runnable{
          */
         public void shutdown() throws SQLException {
             for (ConnectionHandler ch : connections){
-                if(ch.lobby.running && !ch.clientName.equals(clientName) && (ch.lobby.player1.equals(clientName) || ch.lobby.player2.equals(clientName))){
+                System.out.println(clientName);
+                if(ch.lobby.player1 != null &&  ch.lobby.running && !ch.clientName.equals(clientName) && (ch.lobby.player1.equals(clientName) || ch.lobby.player2.equals(clientName))){
                     mySqlDatabase.deleteLobby(ch.lobby.player1);
                     ch.write.println("PlayerLeft");
                 }
@@ -311,8 +313,27 @@ public class Server implements Runnable{
             }
             connections.remove(this);
         }
+        public void print(){
+            System.out.println("Print:");
+            for(ConnectionHandler ch : connections){
+                System.out.println(ch.clientName);
+                System.out.println(ch.lobby.player1);
+                System.out.println(ch.lobby.player2);
+            }
+        }
+        public void resetLobby(){
+            lobby.running = false;
+            lobby.player1 = null;
+            lobby.player2 = null;
+            lobby.player1Score = 0;
+            lobby.player2Score = 0;
+            lobby.level = null;
+            lobby.player1Finished =false;
+            lobby.player2Finished = false;
+            lobby.finished = false;
+            lobby.playerLeft = false;
+        }
     }
-
     /**
      * Launch server
      * @param args
