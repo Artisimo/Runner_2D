@@ -73,17 +73,19 @@ public class MenuHandler {
      * @param g graphics
      * @throws SQLException
      */
-    public void generatePauseMenu(Graphics g) throws SQLException {
+    public void generatePauseMenu(Graphics g, boolean isMultiplayer) throws SQLException {
         object.clear();
         g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
         int textWidth = g.getFontMetrics().stringWidth("Game Paused!");
 
         object.add(new Label((Game.WIDTH / 2) - (textWidth / 2), 50, MenuObjectID.Label, 0 ,0, "Game Paused!" , 30, Color.MAGENTA));
         object.add(new ContinuePlayingButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 - 50,MenuObjectID.continuePlayingButton, 100, 50));
-        object.add(new RestartLevelButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 50,MenuObjectID.restartLevelButton, 100, 50));
-        object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 50, Game.HEIGHT /3 + 150, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
-        //object.add(new QuitButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 150,MenuObjectID.quitButton, 100, 50));
-
+        if(isMultiplayer){
+            object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 50, Game.HEIGHT /3 + 50, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+        }else{
+            object.add(new RestartLevelButton(Game.WIDTH / 2 - 50, Game.HEIGHT / 3 + 50,MenuObjectID.restartLevelButton, 100, 50));
+            object.add(new ChangeGameStateButton(Game.WIDTH / 2 - 50, Game.HEIGHT /3 + 150, MenuObjectID.changeGameStateButton, 100, 50, GameState.MENU));
+        }
     }
 
     /**
