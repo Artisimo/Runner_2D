@@ -81,6 +81,7 @@ public class Client implements Runnable{
      * Represent second player y axis velocity
      */
     public float secondPlayerVelY;
+    public boolean secondPlayerLeft = false;
 
     /**
      * Sets the client's username
@@ -246,6 +247,8 @@ public class Client implements Runnable{
                                 secondPlayerVelX = Float.parseFloat(messageSplit[3]);
                                 secondPlayerVelY = Float.parseFloat(messageSplit[4]);
                             }
+                        }else if(message.startsWith("PlayerLeft")){
+                            secondPlayerLeft = true;
                         }
                     }
                 } catch (IOException e) {
