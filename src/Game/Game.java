@@ -475,7 +475,7 @@ public class Game extends Canvas implements Runnable {
         }else if(gameState == GameState.PAUSED){
 
             if(!isPauseMenuActive){
-                menuHandler.generatePauseMenu(g);
+                menuHandler.generatePauseMenu(g, isInMultiplayer);
                 isPauseMenuActive = true;
             }
             menuHandler.render(g);
