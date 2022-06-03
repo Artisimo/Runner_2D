@@ -37,7 +37,7 @@ public class Texture {
     public BufferedImage buttons = null;
 
     public BufferedImage[] platformImages = new BufferedImage[1];
-    public BufferedImage[] playerImages = new BufferedImage[17];
+    public BufferedImage[] playerImages = new BufferedImage[34];
     public BufferedImage[] player2Images = new BufferedImage[13];
 
     public BufferedImage[] crystalImages = new BufferedImage[4];
@@ -105,6 +105,26 @@ public class Texture {
         playerImages[12] = playerSheet.grabImage(6, 2, 64, 128); //Left animation
         playerImages[13] = playerSheet.grabImage(1, 4, 64, 128); // jumping right
         playerImages[14] = playerSheet.grabImage(2, 4, 64, 128); // jumping left
+
+
+        //Damaged player
+        playerImages[15] = playerSheet.grabImage(1, 7, 64, 128); //Still animation
+
+        playerImages[16] = playerSheet.grabImage(1, 5, 64, 128); //Right animation
+        playerImages[17] = playerSheet.grabImage(2, 5, 64, 128); //Right animation
+        playerImages[18] = playerSheet.grabImage(3, 5, 64, 128); //Right animation
+        playerImages[19] = playerSheet.grabImage(4, 5, 64, 128); //Right animation
+        playerImages[20] = playerSheet.grabImage(5, 5, 64, 128); //Right animation
+        playerImages[21] = playerSheet.grabImage(6, 5, 64, 128); //Right animation
+
+        playerImages[22] = playerSheet.grabImage(1, 6, 64, 128); //Left animation
+        playerImages[23] = playerSheet.grabImage(2, 6, 64, 128); //Left animation
+        playerImages[24] = playerSheet.grabImage(3, 6, 64, 128); //Left animation
+        playerImages[25] = playerSheet.grabImage(4, 6, 64, 128); //Left animation
+        playerImages[26] = playerSheet.grabImage(5, 6, 64, 128); //Left animation
+        playerImages[27] = playerSheet.grabImage(6, 6, 64, 128); //Left animation
+        playerImages[28] = playerSheet.grabImage(1, 8, 64, 128); // jumping right
+        playerImages[29] = playerSheet.grabImage(2, 8, 64, 128); // jumping left
 
         player2Images[0] = player2Sheet.grabImage(1, 3, 64, 128); //Still animation
 
