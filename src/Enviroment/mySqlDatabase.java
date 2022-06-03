@@ -73,7 +73,7 @@ public  class mySqlDatabase {
         }else{
             System.out.println(score);
             int runID = Integer.parseInt(playerRun.getString("runID"));
-            if(Integer.parseInt(playerRun.getString("score")) > score){
+            if(Integer.parseInt(playerRun.getString("score")) < score){
                 PreparedStatement updateBestRun = conn.prepareStatement("Update HighScores SET score = ? WHERE runID = ?");
                 updateBestRun.setString(1, Integer.toString(score));
                 updateBestRun.setString(2, Integer.toString(runID));
