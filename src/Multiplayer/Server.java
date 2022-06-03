@@ -127,7 +127,6 @@ public class Server implements Runnable{
                 while((message = read.readLine()) != null){
                     if(message.startsWith("CreateLobby")){
                         String[] messageSplit = message.split(" ",3);
-                        print();
                         if(messageSplit.length == 3){
                             mySqlDatabase.createLobby(messageSplit[1],messageSplit[2]);
                             clientName = messageSplit[1];
@@ -158,19 +157,16 @@ public class Server implements Runnable{
                             if(ch.lobby.player1.equals(messageSplit[1])) {
                                 ch.lobby.player1Finished = true;
                                 ch.write.println("Finished" + ' ' + messageSplit[1]);
-                                System.out.println("Finished" + ' ' + messageSplit[1]);
                             }
                             else if(ch.lobby.player2.equals(messageSplit[1])){
                                 ch.lobby.player2Finished = true;
                                 ch.write.println("Finished" + ' ' + messageSplit[1]);
-                                System.out.println("Finished" + ' ' + messageSplit[1]);
                             }
 
                             if(ch.lobby.player1Finished && ch.lobby.player2Finished){
                                 ch.lobby.finished = true;
                                 ch.write.println("GameFinished");
                             }
-                            System.out.println(ch.lobby.finished);
                         }
                     }else if(message.startsWith("Score")) {
                         String[] messageSplit = message.split(" ", 3);
@@ -180,16 +176,11 @@ public class Server implements Runnable{
                             }else if(messageSplit[2].equals(ch.lobby.player2)){
                                 ch.lobby.player2Score = Integer.parseInt(messageSplit[1]);
                             }
-
-//                            System.out.println("Player 1 score: " + ch.lobby.player1Score);
-//                            System.out.println("Player 2 score: " + ch.lobby.player2Score);
                             if(ch.lobby.finished){
                                 if(ch.lobby.player1Score >= ch.lobby.player2Score){
                                     ch.write.println("Won" + ' ' + ch.lobby.player1);
-                                    //System.out.println("player 1 won");
                                 }else {
                                     ch.write.println("Won" + ' ' + ch.lobby.player2);
-                                    //System.out.println("player 2 won");
                                 }
                             }
                         }
@@ -209,7 +200,6 @@ public class Server implements Runnable{
                             }
                             if(ch.lobby.player1 != null && ch.clientName != null){
                                 if(ch.lobby.player1.equals(messageSplit[1])){
-                                    //System.out.println(messageSplit[1]);
                                     mySqlDatabase.deleteLobby(messageSplit[1]);
                                     if(!ch.clientName.equals(messageSplit[1])){
                                         ch.write.println("LobbyDeleted");
@@ -225,12 +215,10 @@ public class Server implements Runnable{
                                 ch.lobby.finished = true;
                                 ch.lobby.playerLeft = true;
                                 ch.write.println("playerLeft" + ' ' + ch.lobby.player1);
-                                //System.out.println("playerLeft" + ' ' + ch.lobby.player1);
                             }else if(messageSplit[1].equals(ch.lobby.player2)){
                                 ch.lobby.finished = true;
                                 ch.lobby.playerLeft = true;
                                 ch.write.println("playerLeft" + ' ' + ch.lobby.player2);
-                                //System.out.println("playerLeft" + ' ' + ch.lobby.player2);
                             }
                         }
                     }else if(message.startsWith("StartGame")){
@@ -281,11 +269,13 @@ public class Server implements Runnable{
          * @throws SQLException
          */
         public void shutdown() throws SQLException {
+            System.out.println(clientName);
+            print();
             for (ConnectionHandler ch : connections){
-                System.out.println(clientName);
                 if(ch.lobby.player1 != null &&  ch.lobby.running && !ch.clientName.equals(clientName) && (ch.lobby.player1.equals(clientName) || ch.lobby.player2.equals(clientName))){
                     mySqlDatabase.deleteLobby(ch.lobby.player1);
-                    ch.write.println("PlayerLeft");
+                    ch.write.println("playerLeft" + ' ' + clientName);
+                    System.out.println("PlayerLeft " + clientName + " send to " + ch.clientName);
                 }
                 if(ch.lobby.player2 != null && ch.lobby.player2.equals(clientName) && !ch.clientName.equals(clientName) && !ch.lobby.running){
                     ch.lobby.player2 = null;
@@ -293,7 +283,7 @@ public class Server implements Runnable{
                     this.lobby.player2 = null;
                     mySqlDatabase.leaveLobby(clientName);
                     System.out.println(clientName + " left lobby");
-                    ch.write.println("LeftLobby");
+                    ch.write.println("leftLobby" + ' ' + clientName);
                     break;
                 }
                 if(ch.lobby.player1 != null &&  ch.lobby.player1.equals(clientName) && !ch.lobby.running){
@@ -313,7 +303,6 @@ public class Server implements Runnable{
                     throw new RuntimeException(e);
                 }
             }
-            print();
             connections.remove(this);
         }
         public void print(){
@@ -322,6 +311,7 @@ public class Server implements Runnable{
                 System.out.println(ch.clientName);
                 System.out.println(ch.lobby.player1);
                 System.out.println(ch.lobby.player2);
+                System.out.println();
             }
         }
         public void resetLobby(){
