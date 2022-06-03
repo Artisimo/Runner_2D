@@ -215,7 +215,7 @@ public class Player extends GameObject {
                     if(attacked <=0){
                         currenthp -= temp.getDamage();
                         Game.sound.playDamage();
-                        attacked = 100;
+                        attacked = 80;
                     }
                     leftbound  = false;
                     intersactedEnemy = temp;
@@ -232,7 +232,7 @@ public class Player extends GameObject {
                         Game.sound.playDamage();
                         handler.removeObject(temp);
                         Game.logger.info("Player was shot by a projectile");
-                        attacked = 100;
+                        attacked = 80;
                     }
                 }
             }
@@ -241,6 +241,7 @@ public class Player extends GameObject {
                     currenthp -= temp.getDamage();
                     Game.sound.playDamage();
                     Game.logger.info("Player was in the range of an explosive enemy");
+                    attacked = 80;
                 }
             }else if(temp.getId() == ID.FinishLine){
                 if(getBoundsLeft().intersects(temp.getBounds())){
