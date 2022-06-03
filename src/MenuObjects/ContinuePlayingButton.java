@@ -14,6 +14,9 @@ public class ContinuePlayingButton extends MenuObject{
 
     @Override
     public void onClick(Game game) {
+        if(game.music.getClip() == null){
+            game.music.playGameMusic();
+        }
         game.gameState = GameState.PLAYING;
         game.isPauseMenuActive = false;
     }

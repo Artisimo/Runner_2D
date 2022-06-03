@@ -128,6 +128,7 @@ public class Player extends GameObject {
         }
 
         if(currenthp <= 0){
+            Game.sound.playDie();
             game.gameState = GameState.PLAYER_DIED;
             Game.logger.info("Player died");
         }
@@ -188,10 +189,13 @@ public class Player extends GameObject {
             }
             else if(temp.getId() == ID.Projectile){
                 if(this.getBounds().intersects(temp.getBounds())){
-                    currenthp -= temp.getDamage();
-                    Game.sound.playDamage();
-                    handler.removeObject(temp);
-                    Game.logger.info("Player was shot by a projectile");
+                    if(attacked <=0){
+                        currenthp -= temp.getDamage();
+                        Game.sound.playDamage();
+                        handler.removeObject(temp);
+                        Game.logger.info("Player was shot by a projectile");
+                        attacked = 100;
+                    }
                 }
             }
             else if (temp.getId() == ID.ExplosiveEnemy){
@@ -214,7 +218,11 @@ public class Player extends GameObject {
                     if(game.isInMultiplayer){
                         game.client.finishedGame();
                         game.client.sendScore(Integer.toString(score));
+                    }else {
+                        Game.music.stop();
+                        Game.sound.playVictory();
                     }
+
                     game.infoAboutScore = "Time: " + seconds + "." + miliSeconds + ", " + crystalsCollected + " / 3 crystals collected. Score is: " + score;
                     game.emptyHandler();
                     game.gameState = GameState.LEVEL_FINISHED;

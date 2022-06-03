@@ -256,7 +256,9 @@ public class Game extends Canvas implements Runnable {
         levelHeight = loader.getLevelHeight(path);
         background = loader.loadImage("/Textures/BasicGameTextures/background.png");
         gameState = GameState.PLAYING;
-        music.stop();
+        if(music.getClip() != null){
+            music.stop();
+        }
         music.playGameMusic();
         levelname = path.substring(8,14);
         menuHandler.object.clear();
@@ -515,10 +517,14 @@ public class Game extends Canvas implements Runnable {
             if(isInMultiplayer){
                 if(client.isWinner && client.gameFinished && !wonMenuGenerated){
                     menuHandler.generateWonMenu(g);
+                    music.stop();
+                    sound.playVictory();
                     wonMenuGenerated = true;
                     client.deleteLobby();
                 }else if(client.isLooser && client.gameFinished && !lostMenuGenerated){
                     menuHandler.generateLostMenu(g);
+                    music.stop();
+                    sound.playDefeat();
                     lostMenuGenerated = true;
                 }else if(!client.gameFinished && !waitingMenuGenerated){
                     menuHandler.generateWaitingMenu(g);
