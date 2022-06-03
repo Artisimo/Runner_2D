@@ -188,10 +188,13 @@ public class Player extends GameObject {
             }
             else if(temp.getId() == ID.Projectile){
                 if(this.getBounds().intersects(temp.getBounds())){
-                    currenthp -= temp.getDamage();
-                    Game.sound.playDamage();
-                    handler.removeObject(temp);
-                    Game.logger.info("Player was shot by a projectile");
+                    if(attacked <=0){
+                        currenthp -= temp.getDamage();
+                        Game.sound.playDamage();
+                        handler.removeObject(temp);
+                        Game.logger.info("Player was shot by a projectile");
+                        attacked = 100;
+                    }
                 }
             }
             else if (temp.getId() == ID.ExplosiveEnemy){
