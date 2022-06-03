@@ -19,7 +19,8 @@ public class ExplosiveEnemy extends BasicEnemy{
     protected GameObject player;
 
     private Texture tex = Game.getInstance();
-    private Animation explosion;
+    private Animation explosionRight;
+    private Animation explosionLeft;
 
     /**
      * sets x and y coordinates, width and height of this enemy, game object handler instance, moving range, damage and explosion range
@@ -36,7 +37,8 @@ public class ExplosiveEnemy extends BasicEnemy{
     public ExplosiveEnemy(int x, int y, int width, int height, ID id, Handler handler, int movingrange, int damage, int explosionRange) {
         super(x, y, width, height, id, handler, movingrange, damage);
         this.explosionRange = explosionRange;
-        explosion = new Animation(3, tex.explosiveEnemyImages[0],tex.explosiveEnemyImages[2]);
+        explosionRight = new Animation(3, tex.explosiveEnemyImages[0],tex.explosiveEnemyImages[2]);
+        explosionLeft = new Animation(3, tex.explosiveEnemyImages[1],tex.explosiveEnemyImages[3]);
     }
 
 
@@ -48,7 +50,12 @@ public class ExplosiveEnemy extends BasicEnemy{
         super.tick();
         if(isActivated && timer >= -1){
             timer -= 1;
-            explosion.runAnimation();
+            if(velX > 0){
+                explosionRight.runAnimation();
+            }else{
+                explosionLeft.runAnimation();
+            }
+
         }
     }
 
@@ -67,7 +74,12 @@ public class ExplosiveEnemy extends BasicEnemy{
                 g.drawImage(tex.explosiveEnemyImages[0], x, y, null);
             }
         }else{
-            explosion.drawAnimation(g, x, y);
+            if(velX > 0){
+                explosionRight.drawAnimation(g, x, y);
+            }else{
+                explosionLeft.drawAnimation(g, x, y);
+            }
+
         }
 
         //g.drawOval(x - explosionRange,y - explosionRange,width + 2*explosionRange,height + 2*explosionRange);

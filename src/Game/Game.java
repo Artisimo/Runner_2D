@@ -194,6 +194,8 @@ public class Game extends Canvas implements Runnable {
     public boolean isInMultiplayer = false;
     public boolean isLevelSelectButtonPressed = false;
 
+    private boolean isBackgroundLoaded;
+
 
     /**
      * Lobby id for the lobby which the user is currently in
@@ -224,10 +226,10 @@ public class Game extends Canvas implements Runnable {
 
         music.playMenuMusic();
 
+
+
         isMenuGenerated = false;
-        BufferedImageLoader loader = new BufferedImageLoader();
-        background = loader.loadImage("/Textures/BasicGameTextures/background.png");
-        System.out.println("Loaded background");
+
     }
 
     /**
@@ -431,11 +433,16 @@ public class Game extends Canvas implements Runnable {
     private void render() throws SQLException {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {
+
             this.createBufferStrategy(3);
             return;
         }
 
-
+        if(!isBackgroundLoaded){
+            BufferedImageLoader loader = new BufferedImageLoader();
+            background = loader.loadImage("/Textures/BasicGameTextures/background.png");
+            isBackgroundLoaded = true;
+        }
 
         g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;

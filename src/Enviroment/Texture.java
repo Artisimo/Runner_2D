@@ -142,7 +142,8 @@ public class Texture {
 
         explosiveEnemyImages[0] = explosiveEnemySheet.grabImage(1,1,64,64);  // explosive enemy right run animation
         explosiveEnemyImages[1] = explosiveEnemySheet.grabImage(2,1,64,64);  // explosive enemy left run animation
-        explosiveEnemyImages[2] = explosiveEnemySheet.grabImage(3,1,64,64);  // explosion animation
+        explosiveEnemyImages[2] = explosiveEnemySheet.grabImage(3,1,64,64);  // explode facing right
+        explosiveEnemyImages[3] = explosiveEnemySheet.grabImage(4,1,64,64);  // explode facing left
 
         buttonImages[0] = buttonSheet.grabImage(1, 1, 100, 50); // NEXT
         buttonImages[1] = buttonSheet.grabImage(2, 1, 100, 50); // QUIT
