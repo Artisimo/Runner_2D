@@ -83,6 +83,8 @@ public class Client implements Runnable{
     public float secondPlayerVelY;
     public boolean secondPlayerLeft = false;
 
+    public boolean secondPlayerFinished;
+
     /**
      * Sets the client's username
      * @param userName clients username
@@ -239,6 +241,8 @@ public class Client implements Runnable{
                             String[] messageSplit = message.split(" ",2);
                             if (messageSplit[1].equals(userName)) {
                                 finished = true;
+                            }else{
+                                secondPlayerFinished = true;
                             }
                         }else if(message.startsWith("Won")){
                             String[] messageSplit = message.split(" ",2);

@@ -5,6 +5,7 @@ import Game.*;
 
 import java.awt.*;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class QuitButton extends MenuObject{
     private Texture tex = Game.getInstance();
@@ -17,16 +18,15 @@ public class QuitButton extends MenuObject{
         System.out.println(game.isInMultiplayer);
         try {
             if(game.isInMultiplayer){
-                System.out.println("before shutdown");
                 game.client.shutdown();
-                System.out.println("after shutdown");
-                System.out.println("before close conn");
+                mySqlDatabase.setUserOffline(game.userName);
                 mySqlDatabase.closeConn();
-                System.out.println("after close conn");
             }else{
                 mySqlDatabase.closeConn();
             }
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         System.exit(1);

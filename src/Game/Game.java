@@ -405,6 +405,10 @@ public class Game extends Canvas implements Runnable {
                 if(handler.object.get(i).getId() == ID.Player){
                     camera.tick(handler.object.get(i), levelWidth, levelHeight);
                 }
+
+                if(handler.object.get(i).getId() == ID.SecondPlayer && client.secondPlayerFinished){
+                    handler.removeObject((handler.object.get(i)));
+                }
             }
         }else if(gameState == GameState.MENU){
             if(music.getClip() == null){
