@@ -30,14 +30,17 @@ public class LevelSelectButton extends MenuObject{
     @Override
     public void onClick(Game game) throws SQLException, InterruptedException {
         if(game.isInMultiplayer){
-            game.client.createLobby(levelName.substring(8, 14));
+            if(!game.isLevelSelectButtonPressed){
+                game.isLevelSelectButtonPressed = true;
+                game.client.createLobby(levelName.substring(8, 14));
 
-            Thread.sleep(1000);
+                Thread.sleep(1000);
 
-            game.lobbyID = mySqlDatabase.getSpecificLobbyID(game.userName);
-            System.out.println(game.lobbyID);
-            game.lobbyInfoGenerated = false;
-            game.gameState = GameState.LOBBY;
+                game.lobbyID = mySqlDatabase.getSpecificLobbyID(game.userName);
+                System.out.println(game.lobbyID);
+                game.lobbyInfoGenerated = false;
+                game.gameState = GameState.LOBBY;
+            }
         }else{
             game.play(levelName);
         }

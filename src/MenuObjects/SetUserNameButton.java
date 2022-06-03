@@ -17,7 +17,8 @@ public class SetUserNameButton extends MenuObject{
 
     @Override
     public void onClick(Game game) throws SQLException {
-        if(game.userName.length() > 3 && game.userName.length() < 25 ){
+        if(game.userName.length() > 3 && game.userName.length() < 25 && !mySqlDatabase.isUserOnline(game.userName)){
+            mySqlDatabase.setUserOnline(game.userName);
             userNameValid = true;
             game.gameState = GameState.MENU;
 

@@ -192,6 +192,7 @@ public class Game extends Canvas implements Runnable {
      * Boolean value which determines the behavior of levelSelectButton.
      */
     public boolean isInMultiplayer = false;
+    public boolean isLevelSelectButtonPressed = false;
 
 
     /**
@@ -530,6 +531,7 @@ public class Game extends Canvas implements Runnable {
                 isMultiiplayerMenuGenerated = false;
                 gameState = GameState.MULTIPLAYER_MENU;
             }
+            isLevelSelectButtonPressed = false;
             menuHandler.render(g);
         }
 

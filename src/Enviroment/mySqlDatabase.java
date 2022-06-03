@@ -130,16 +130,43 @@ public  class mySqlDatabase {
             return true;
         }
     }
+    public static boolean isUserOnline(String userName) throws SQLException {
+        Statement statement = conn.createStatement();
+        String sqlSelect = "SELECT * FROM Users WHERE userName = ? and Online = 1";
+        PreparedStatement thisStatement = conn.prepareStatement(sqlSelect, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        thisStatement.setString(1, userName);
+        ResultSet rs = thisStatement.executeQuery();
+        rs.last();
+        if(rs.getRow() == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public static void setUserOnline(String userName) throws SQLException {
+        PreparedStatement updateUser = conn.prepareStatement("Update Users SET Online = 1 WHERE username = ?");
 
+        updateUser.setString(1,userName);
+
+        updateUser.executeUpdate();
+    }
+    public static void setUserOffline(String userName) throws SQLException {
+        PreparedStatement updateUser = conn.prepareStatement("Update Users SET Online = 0 WHERE username = ?");
+
+        updateUser.setString(1,userName);
+
+        updateUser.executeUpdate();
+    }
     /**
      * Inserts a new user in the users table.
      * @throws SQLException
      */
     public static void insertUser(String userName) throws SQLException {
         Statement statement = conn.createStatement();
-        String sqlSelect = "INSERT INTO Users (userName) VALUES (?)";
+        String sqlSelect = "INSERT INTO Users (userName,Online) VALUES (?,?)";
         PreparedStatement thisStatement = conn.prepareStatement(sqlSelect, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         thisStatement.setString(1, userName);
+        thisStatement.setString(2, "0");
         thisStatement.executeUpdate();
     }
 

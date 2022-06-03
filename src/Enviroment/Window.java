@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 
 public class Window {
 
@@ -24,11 +25,23 @@ public class Window {
         frame.setMinimumSize(new Dimension(width, height));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                try {
+                    mySqlDatabase.setUserOffline(game.userName);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                mySqlDatabase.closeConn();
+            }
+        });
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.add(game);
         frame.setVisible(true);
         game.start();
     }
+
 }
 

@@ -5344,4 +5344,16 @@
   2022-06-03 07:33:49 INFO  Game:251 - level2 has been loaded
   2022-06-03 07:33:49 INFO  Game:250 - player2 joined the level
   2022-06-03 07:33:49 INFO  Game:251 - level2 has been loaded
+  2022-06-03 07:35:32 INFO  Game:24 - Username set: player1
+  2022-06-03 07:35:45 INFO  Game:24 - Username set: player2
+  2022-06-03 07:38:11 INFO  Game:24 - Username set: player1
+  2022-06-03 07:38:17 INFO  Game:251 - player1 joined the level
+  2022-06-03 07:38:17 INFO  Game:252 - level3 has been loaded
+  2022-06-03 07:39:38 INFO  Game:24 - Username set: player1
+  2022-06-03 07:39:50 INFO  Game:24 - Username set: player2
+  2022-06-03 08:03:49 INFO  Game:24 - Username set: player1
+  2022-06-03 08:04:19 INFO  Game:24 - Username set: player1
+  2022-06-03 08:23:51 INFO  Game:25 - Username set: player1
+  2022-06-03 08:23:59 WARN  Game:29 - The entered username is not valid
+  2022-06-03 08:24:12 INFO  Game:25 - Username set: player1
   
