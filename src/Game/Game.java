@@ -225,6 +225,9 @@ public class Game extends Canvas implements Runnable {
         music.playMenuMusic();
 
         isMenuGenerated = false;
+        BufferedImageLoader loader = new BufferedImageLoader();
+        background = loader.loadImage("/Textures/BasicGameTextures/background.png");
+        System.out.println("Loaded background");
     }
 
     /**
@@ -436,8 +439,9 @@ public class Game extends Canvas implements Runnable {
 
         g = bs.getDrawGraphics();
         Graphics2D g2d = (Graphics2D) g;
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        int imgX = (this.getWidth() - background.getWidth(null)) / 2;
+        int imgY = (this.getHeight() - background.getHeight(null)) / 2;
+        g.drawImage(background, imgX ,imgY, null);
 
         if(gameState == GameState.USERNAME_PROMPT){
 

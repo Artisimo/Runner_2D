@@ -5458,4 +5458,77 @@
   2022-06-03 08:45:50 INFO  Game:222 - Player finished the levelTime: 9.443, 0 / 3 crystals collected. Score is: 10589800
   2022-06-03 08:45:59 INFO  Game:222 - Player finished the levelTime: 19.310, 0 / 3 crystals collected. Score is: 5178600
   2022-06-03 08:46:14 INFO  Game:25 - Username set: test3
+  2022-06-03 08:47:51 WARN  Game:29 - The entered username is not valid
+  2022-06-03 08:48:05 INFO  Game:25 - Username set: test4
+  2022-06-03 08:48:22 INFO  Game:25 - Username set: test3
+  2022-06-03 08:48:50 INFO  Game:251 - test4 joined the level
+  2022-06-03 08:48:50 INFO  Game:252 - level4 has been loaded
+  2022-06-03 08:48:50 INFO  Game:251 - test3 joined the level
+  2022-06-03 08:48:50 INFO  Game:252 - level4 has been loaded
+  2022-06-03 08:48:59 INFO  Game:222 - Player finished the levelTime: 9.56, 0 / 3 crystals collected. Score is: 11042400
+  2022-06-03 08:49:08 INFO  Game:222 - Player finished the levelTime: 18.42, 0 / 3 crystals collected. Score is: 5542600
+  2022-06-03 08:51:46 INFO  Game:25 - Username set: Artisimo
+  2022-06-03 08:51:59 INFO  Game:251 - Artisimo joined the level
+  2022-06-03 08:51:59 INFO  Game:252 - level1 has been loaded
+  2022-06-03 08:52:05 INFO  Game:244 - Player collected the max health power up
+  2022-06-03 08:52:07 INFO  Game:252 - Player collected the speed power up
+  2022-06-03 08:52:08 INFO  Game:236 - Player healed using the heal power up
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:10 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:52:11 INFO  Game:229 - Player collected a crystal
+  2022-06-03 08:52:12 INFO  Game:222 - Player finished the levelTime: 13.265, 1 / 3 crystals collected. Score is: 7539600
+  2022-06-03 08:54:45 INFO  Game:25 - Username set: test1
+  2022-06-03 08:54:52 INFO  Game:254 - test1 joined the level
+  2022-06-03 08:54:52 INFO  Game:255 - level1 has been loaded
+  2022-06-03 08:54:56 INFO  Game:244 - Player collected the max health power up
+  2022-06-03 08:54:59 INFO  Game:252 - Player collected the speed power up
+  2022-06-03 08:55:00 INFO  Game:236 - Player healed using the heal power up
+  2022-06-03 08:55:02 INFO  Game:174 - Player killed a basic enemy
+  2022-06-03 08:55:03 INFO  Game:194 - Player was shot by a projectile
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:03 INFO  Game:183 - Player was attacked by a basic enemy
+  2022-06-03 08:55:04 INFO  Game:229 - Player collected a crystal
+  2022-06-03 08:55:04 INFO  Game:222 - Player finished the levelTime: 12.281, 1 / 3 crystals collected. Score is: 8143600
+  2022-06-03 08:55:07 INFO  Game:254 - test1 joined the level
+  2022-06-03 08:55:07 INFO  Game:255 - level2 has been loaded
   
