@@ -130,6 +130,13 @@ public  class mySqlDatabase {
             return true;
         }
     }
+
+    /**
+     * Checks whether a user is online
+     * @param userName user name
+     * @return true if is online, false if is not online
+     * @throws SQLException
+     */
     public static boolean isUserOnline(String userName) throws SQLException {
         Statement statement = conn.createStatement();
         String sqlSelect = "SELECT * FROM Users WHERE userName = ? and Online = 1";
@@ -143,6 +150,12 @@ public  class mySqlDatabase {
             return true;
         }
     }
+
+    /**
+     * Sets the user to be online
+     * @param userName username
+     * @throws SQLException
+     */
     public static void setUserOnline(String userName) throws SQLException {
         PreparedStatement updateUser = conn.prepareStatement("Update Users SET Online = 1 WHERE username = ?");
 
@@ -150,6 +163,12 @@ public  class mySqlDatabase {
 
         updateUser.executeUpdate();
     }
+
+    /**
+     * Sets the user to be offline
+     * @param userName
+     * @throws SQLException
+     */
     public static void setUserOffline(String userName) throws SQLException {
         PreparedStatement updateUser = conn.prepareStatement("Update Users SET Online = 0 WHERE username = ?");
 

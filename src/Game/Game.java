@@ -192,8 +192,15 @@ public class Game extends Canvas implements Runnable {
      * Boolean value which determines the behavior of levelSelectButton.
      */
     public boolean isInMultiplayer = false;
+
+    /**
+     * Boolean value which determines whether the level select button has been pressed
+     */
     public boolean isLevelSelectButtonPressed = false;
 
+    /**
+     * Boolean value which determines if the background has been loaded
+     */
     private boolean isBackgroundLoaded;
 
 
@@ -576,6 +583,11 @@ public class Game extends Canvas implements Runnable {
     /**
      * Gets an instance of the texture class. Instance of texture class has all the animations and sprites for the game.
      * @return an instance of Texture class
+     */
+
+    /**
+     * Returns an instance of Texture class used for the game textures
+     * @return Texture
      */
 
     public static Texture getInstance(){

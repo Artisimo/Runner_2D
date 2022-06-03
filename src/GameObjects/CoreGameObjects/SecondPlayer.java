@@ -7,6 +7,10 @@ import Handler.Handler;
 
 import java.awt.*;
 
+
+/**
+ * The game object used in 1v1 game mode to display your opponent
+ */
 public class SecondPlayer extends Player{
 
     private Animation player2WalkRight;

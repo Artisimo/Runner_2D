@@ -13,6 +13,10 @@ import java.awt.*;
  */
 public class BasicEnemy extends GameObject {
 
+
+    /**
+     * Moving range for this enemy
+     */
     protected int movingrange;
     protected int startX;
     protected int startY;

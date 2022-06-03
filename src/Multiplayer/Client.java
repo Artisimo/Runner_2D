@@ -81,8 +81,15 @@ public class Client implements Runnable{
      * Represent second player y axis velocity
      */
     public float secondPlayerVelY;
+
+    /**
+     * Boolean value which determines if the second player has left
+     */
     public boolean secondPlayerLeft = false;
 
+    /**
+     * Boolean value which determines if the second player has finished the level
+     */
     public boolean secondPlayerFinished;
 
     /**

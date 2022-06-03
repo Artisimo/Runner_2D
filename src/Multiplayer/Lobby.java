@@ -44,6 +44,9 @@ public class Lobby {
      */
     public boolean running = false;
 
+    /**
+     * Determines if player has left the game
+     */
     public boolean playerLeft;
 
 }
