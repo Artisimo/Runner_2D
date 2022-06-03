@@ -27,7 +27,10 @@ public class Sound {
         soundURL[8] = getClass().getResource("/sounds/enemies/Bomb_Explosion.wav");
         soundURL[9] = getClass().getResource("/sounds/enemies/Bomb_trigger.wav");
         soundURL[10] = getClass().getResource("/sounds/enemies/Enemy_dies.wav");
-        soundURL[11] = getClass().getResource("/sounds/enemies/Damage.wav");
+        soundURL[11] = getClass().getResource("/sounds/enemies/Damage.wav");//Enemies ends
+        soundURL[12] = getClass().getResource("/sounds/gameEnd/Die.wav");//Game end starts
+        soundURL[13] = getClass().getResource("/sounds/gameEnd/Victory.wav");
+        soundURL[14] = getClass().getResource("/sounds/gameEnd/Loose.wav");
 
 
         soundURL[20] = getClass().getResource("/sounds/music/Whisperer.wav");//menu music
@@ -37,6 +40,7 @@ public class Sound {
         soundURL[24] = getClass().getResource("/sounds/music/Spaceship.wav");
         soundURL[25] = getClass().getResource("/sounds/music/Game Loop.wav");
         soundURL[26] = getClass().getResource("/sounds/music/Sweet Treats.wav");//Soundtrack ends
+
     }
 
     public void setFile(int i){
@@ -104,6 +108,9 @@ public class Sound {
     public void playSpeedBoost(){
         playSound(6);
     }
+    public void playDie(){playSound(12);}
+    public void playVictory(){playSound(13);}
+    public void playDefeat(){playSound(14);}
     public Clip getClip() {
         return clip;
     }
