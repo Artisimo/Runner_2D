@@ -18,7 +18,7 @@ public  class mySqlDatabase {
 
     static {
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://sql11.freesqldatabase.com:3306/sql11497240", "sql11497240", "qckBrts54E");
+            conn = DriverManager.getConnection("jdbc:mysql://sql11.freesqldatabase.com:3306/sql11498759", "sql11498759", "wE9apmbYGF");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
